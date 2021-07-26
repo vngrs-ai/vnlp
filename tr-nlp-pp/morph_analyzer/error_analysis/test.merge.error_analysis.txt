@@ -1,0 +1,363 @@
+Surface: geri
+Correct analysis: geri+Adj	Selected analysis: geri+Adverb
+Context: trilyon liralık geri ödeme yapan
+geri+Adj:	0.002680797828361392
+geri+Noun+A3sg+Pnon+Nom:	0.005892633926123381
+g+Noun+A3sg+P3pl+Nom:	6.447175110224634e-06
+geri+Adverb:	0.9914201498031616
+
+
+Surface: ödeme
+Correct analysis: ödeme+Noun+A3sg+Pnon+Nom	Selected analysis: öde+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom
+Context: liralık geri ödeme yapan Hazine
+ödem+Noun+A3sg+Pnon+Dat:	0.04571430757641792
+öde+Verb+Neg+Imp+A2sg:	0.003946301061660051
+öde+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom:	0.8899248838424683
+ödeme+Noun+A3sg+Pnon+Nom:	0.060414548963308334
+
+
+Surface: çıkarken
+Correct analysis: çık+Verb+Pos+Aor^DB+Adverb+While	Selected analysis: çıkar+Noun+A3sg+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While
+Context: 69.1 trilyona çıkarken , döviz
+çıkar+Noun+A3sg+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While:	0.9640637636184692
+çık+Verb+Pos+Aor^DB+Adverb+While:	0.03593626245856285
+
+
+Surface: erime
+Correct analysis: eri+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom	Selected analysis: erim+Noun+A3sg+Pnon+Dat
+Context: milyon dolarlık erime gözlendi
+eri+Verb+Neg+Imp+A2sg:	0.0002046307927230373
+eri+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom:	0.3569066524505615
+er+Noun+A3sg+P1sg+Dat:	0.12517225742340088
+erim+Noun+A3sg+Pnon+Dat:	0.5177164673805237
+
+
+Surface: yana
+Correct analysis: yan+Noun+A3sg+Pnon+Dat	Selected analysis: yan+Verb+Pos+Opt+A3sg
+Context: YILBAŞINDAN bu yana Merkez Bankası
+yan+Verb+Pos+Opt+A3sg:	0.9998058676719666
+yan+Noun+A3sg+Pnon+Dat:	0.0001939185312949121
+yana+Postp+PCAbl:	2.8002895646750403e-07
+
+
+Surface: bir
+Correct analysis: bir+Num+Card	Selected analysis: bir+Det
+Context: avans , bir haftada 48.7
+bir+Num+Range:	3.897579481382252e-10
+bir+Num+Percent:	6.543256214630588e-11
+bir+Num+Real:	4.070684761492416e-13
+bir+Num+Card:	0.0007706545293331146
+bir+Det:	0.9991818070411682
+bir+Adj:	2.9166718377382495e-05
+bir+Num+Ord:	7.728001349960323e-09
+bir+Adverb:	1.8392991478322074e-05
+bir+Num+Ratio:	1.7500202675879706e-11
+
+
+Surface: geri
+Correct analysis: geri+Adj	Selected analysis: geri+Adverb
+Context: Hazine'nin geri ödemesiyle Merkez
+geri+Adj:	0.0015974099515005946
+geri+Noun+A3sg+Pnon+Nom:	0.00487735727801919
+g+Noun+A3sg+P3pl+Nom:	2.3971020709723234e-05
+geri+Adverb:	0.9935012459754944
+
+
+Surface: ödemesiyle
+Correct analysis: ödeme+Noun+A3sg+P3sg+Ins	Selected analysis: öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Ins
+Context: Hazine'nin geri ödemesiyle Merkez Bankası'nın
+öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Ins:	0.759035050868988
+ödeme+Noun+A3sg+P3sg+Ins:	0.24096491932868958
+
+
+Surface: iç
+Correct analysis: iç+Noun+A3sg+Pnon+Nom	Selected analysis: iç+Adj
+Context: lira olan iç varlıklar toplamı
+iç+Noun+A3sg+Pnon+Nom:	0.30530282855033875
+iç+Adj:	0.6946971416473389
+
+
+Surface: birlikte
+Correct analysis: birlikte+Postp+PCIns	Selected analysis: birlik+Noun+A3sg+Pnon+Loc
+Context: azalışı ile birlikte rezerv para
+birlik+Noun+A3sg+Pnon+Loc:	0.8922824859619141
+bir+Num+Card^DB+Noun+Ness+A3sg+Pnon+Loc:	2.4291310182888992e-05
+bir+Adj^DB+Noun+Ness+A3sg+Pnon+Loc:	1.0544607903284486e-05
+birlikte+Adverb:	0.0038484246470034122
+birlikte+Postp+PCIns:	0.10383431613445282
+
+
+Surface: ödemeleri
+Correct analysis: ödeme+Noun+A3pl+P3sg+Nom	Selected analysis: öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom
+Context: DIŞ borç ödemeleri , yılın
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom:	0.2559965252876282
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc:	0.05352725833654404
+ödeme+Noun+A3pl+P3sg+Nom:	0.22090694308280945
+ödeme+Noun+A3pl+P3pl+Nom:	0.0014953369973227382
+ödeme+Noun+A3pl+Pnon+Acc:	0.006893325597047806
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom:	0.2669741213321686
+öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom:	0.1890009343624115
+ödeme+Noun+A3sg+P3pl+Nom:	0.005205618683248758
+
+
+Surface: ödemelerin
+Correct analysis: ödeme+Noun+A3pl+Pnon+Gen	Selected analysis: öde+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Gen
+Context: tarihleri arasındaki ödemelerin 253.42 milyon
+ödeme+Noun+A3pl+Pnon+Gen:	0.3374159038066864
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Nom:	0.0012772941263392568
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Gen:	0.6601999998092651
+ödeme+Noun+A3pl+P2sg+Nom:	0.0011068553430959582
+
+
+Surface: doları
+Correct analysis: dolar+Noun+A3sg+P3sg+Nom	Selected analysis: dolar+Noun+A3sg+Pnon+Acc
+Context: 55.12 milyon doları Merkez Bankası'na
+dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom:	1.0341406664338137e-07
+do+Noun+A3pl+P3pl+Nom:	4.338746961707329e-08
+dolar+Noun+A3sg+P3sg+Nom:	0.3127988576889038
+dolar+Noun+A3sg+Pnon+Acc:	0.6871984004974365
+dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom:	5.964915228418022e-09
+do+Noun+A3pl+P3sg+Nom:	3.145907783164148e-07
+do+Noun+A3pl+Pnon+Acc:	2.132212784999865e-06
+do+Noun+A3sg+P3pl+Nom:	1.2570897922614677e-07
+
+
+Surface: doları
+Correct analysis: dolar+Noun+A3sg+P3sg+Nom	Selected analysis: dolar+Noun+A3sg+Pnon+Acc
+Context: 47.85 milyon doları diğer kamu
+dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom:	2.2973756585997762e-07
+do+Noun+A3pl+P3pl+Nom:	1.510318412556444e-07
+dolar+Noun+A3sg+P3sg+Nom:	0.24363166093826294
+dolar+Noun+A3sg+Pnon+Acc:	0.7563630938529968
+dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom:	1.1443098912877758e-08
+do+Noun+A3pl+P3sg+Nom:	7.841532578822807e-07
+do+Noun+A3pl+Pnon+Acc:	3.800209924520459e-06
+do+Noun+A3sg+P3pl+Nom:	2.4811009780023596e-07
+
+
+Surface: gerçekleştirilen
+Correct analysis: gerçek+Adj^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart	Selected analysis: gerçek+Noun+A3sg+Pnon+Nom^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart
+Context: Geçen yıl gerçekleştirilen dış borç
+gerçek+Adj^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart:	0.055417437106370926
+gerçekle+Verb+Recip^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart:	4.0168585124789047e-10
+gerçek+Noun+A3sg+Pnon+Nom^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart:	0.9445825219154358
+
+
+Surface: ödemelerinin
+Correct analysis: ödeme+Noun+A3pl+P3sg+Gen	Selected analysis: öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Gen
+Context: dış borç ödemelerinin toplamı ,
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Gen:	0.5936247706413269
+öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Gen:	0.014659589156508446
+ödeme+Noun+A3pl+P3sg+Gen:	0.3584102988243103
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Gen:	0.000910738599486649
+ödeme+Noun+A3pl+P2sg+Gen:	9.350416803499684e-05
+ödeme+Noun+A3pl+P3pl+Gen:	0.0027567888610064983
+ödeme+Noun+A3sg+P3pl+Gen:	0.004801624454557896
+öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Gen:	0.024742646142840385
+
+
+Surface: Sema
+Correct analysis: sema+Noun+A3sg+Pnon+Nom	Selected analysis: sema+Noun+Prop+A3sg+Pnon+Nom
+Context: Sema EMİROĞLU -
+se+Noun+A3sg+P1sg+Dat:	1.1129415611321747e-07
+sema+Noun+A3sg+Pnon+Nom:	0.0021393203642219305
+sema+Noun+Prop+A3sg+Pnon+Nom:	0.9978606104850769
+
+
+Surface: EMİROĞLU
+Correct analysis: emiroğlu+Noun+A3sg+Pnon+Nom	Selected analysis: emiroğlu+Noun+Prop+A3sg+Pnon+Nom
+Context: Sema EMİROĞLU - NEW
+emiroğlu+Noun+Prop+A3sg+Pnon+Nom:	0.999883770942688
+emiroğlu+Noun+A3sg+Pnon+Nom:	0.0001161655382020399
+
+
+Surface: sözleşmeleri
+Correct analysis: sözleşme+Noun+A3pl+P3sg+Nom	Selected analysis: sözleşme+Noun+A3pl+Pnon+Acc
+Context: imzaladığı satış sözleşmeleri iptal ediliyor
+sözleşme+Noun+A3pl+P3sg+Nom:	0.3297019302845001
+söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom:	1.5191531929303892e-05
+söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom:	1.1169871868332848e-05
+söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc:	1.7527552699903026e-05
+sözleşme+Noun+A3sg+P3pl+Nom:	0.09739331901073456
+sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom:	0.00020709967066068202
+sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom:	1.2695613804680761e-05
+sözleşme+Noun+A3pl+Pnon+Acc:	0.5596784353256226
+sözleş+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom:	3.1082065106602386e-05
+söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom:	0.0003133781428914517
+sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc:	3.2364401704398915e-05
+sözleşme+Noun+A3pl+P3pl+Nom:	0.012585824355483055
+
+
+Surface: karşı
+Correct analysis: karşı+Postp+PCDat	Selected analysis: karşı+Adj
+Context: " gıdaya karşı kısıtlı miktarda
+karşı+Noun+A3sg+Pnon+Nom:	0.008824827149510384
+karşı+Postp+PCAcc:	3.0279547900136095e-06
+karşı+Postp+PCGen:	6.250057776924223e-05
+karış+Noun+A3sg+P3sg+Nom:	0.0008060331456363201
+karşı+Postp+PCDat:	0.22171875834465027
+karış+Noun+A3sg+Pnon+Acc:	7.338581053772941e-05
+karşı+Postp+PCAbl:	0.001951533486135304
+karşı+Adj:	0.7492392063140869
+karşı+Adverb:	0.016847379505634308
+karşı+Postp+PCNom:	0.00034443591721355915
+karşı+Postp+PCIns:	0.00012892441009171307
+
+
+Surface: kararı
+Correct analysis: karar+Noun+A3sg+P3sg+Nom	Selected analysis: karar+Noun+A3sg+Pnon+Acc
+Context: 987 sayılı kararı Bağdat yönetimine
+karar+Adj^DB+Noun+Zero+A3sg+P3sg+Nom:	0.0039061675779521465
+karar+Noun+A3sg+Pnon+Acc:	0.5036493539810181
+kar+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom:	3.302536697447067e-07
+karar+Noun+A3sg+P3sg+Nom:	0.48867908120155334
+karar+Adj^DB+Noun+Zero+A3sg+Pnon+Acc:	0.003765046363696456
+
+
+Surface: karşılaşacağı
+Correct analysis: karşılaş+Verb+Pos^DB+Adj+FutPart+P3sg	Selected analysis: karşılaş+Verb+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom
+Context: kadar taleple karşılaşacağı ve BM'den
+karşı+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Adj+FutPart+P3sg:	9.760621651366819e-06
+karşıla+Verb+Recip+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom:	1.714264841190527e-09
+karşı+Adj^DB+Verb+Become+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom:	0.00023886769486125559
+karşı+Adj^DB+Verb+Become+Pos^DB+Adj+FutPart+P3sg:	3.814109004451893e-05
+karşıla+Verb+Recip+Pos^DB+Adj+FutPart+P3sg:	2.4524547725945922e-08
+karşılaş+Verb+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom:	0.7571357488632202
+karşı+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom:	3.66579661204014e-05
+karşılaş+Verb+Pos^DB+Adj+FutPart+P3sg:	0.24254083633422852
+
+
+Surface: aylık
+Correct analysis: ay+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor	Selected analysis: aylık+Noun+A3sg+Pnon+Nom
+Context: ilk altı aylık süre doluncaya
+ay+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom:	0.00012592632265295833
+ay+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor:	0.0003003579331561923
+aylık+Noun+A3sg+Pnon+Nom:	0.9995737671852112
+
+
+Surface: Inc
+Correct analysis: ınc+Noun+A3sg+Pnon+Nom	Selected analysis: ınc+Noun+Prop+A3sg+Pnon+Nom
+Context: ABD'nin TEACO Inc . ,
+ınc+Noun+A3sg+Pnon+Nom:	0.0013586474815383554
+ınc+Noun+Prop+A3sg+Pnon+Nom:	0.998641312122345
+
+
+Surface: çok
+Correct analysis: çok+Adj	Selected analysis: çok+Det
+Context: çapındaki pek çok şirket Irak'ın
+çok+Adj:	0.008170321583747864
+çok+Det:	0.9338736534118652
+çok+Postp+PCAbl:	6.40679036223446e-06
+çok+Adverb:	0.05794961377978325
+
+
+Surface: yükseltici
+Correct analysis: yüksel+Verb^DB+Verb+Caus+Pos^DB+Noun+Agt+A3sg+Pnon+Nom	Selected analysis: yükseltici+Noun+A3sg+Pnon+Nom
+Context: , fiyatları yükseltici bir etki
+yükseltici+Noun+A3sg+Pnon+Nom:	0.9918608069419861
+yükselti+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Nom:	0.0014989401679486036
+yüksel+Verb^DB+Verb+Caus+Pos^DB+Noun+Agt+A3sg+Pnon+Nom:	0.005173561163246632
+yüksel+Verb^DB+Verb+Caus+Pos^DB+Adj+Agt:	0.000661746016703546
+yükselti+Noun+A3sg+Pnon+Nom^DB+Adj+Agt:	0.0008049636380746961
+
+
+Surface: arttığı
+Correct analysis: art+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom	Selected analysis: art+Verb+Pos^DB+Adj+PastPart+P3sg
+Context: petrol fiyatları arttığı sürece 2
+art+Verb+Pos^DB+Adj+PastPart+P3sg:	0.568450391292572
+art+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom:	0.431549608707428
+
+
+Surface: ettiği
+Correct analysis: et+Verb+Pos^DB+Adj+PastPart+P3sg	Selected analysis: et+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+Context: kendisine hakaret ettiği ve suçlamalarda
+et+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom:	0.6287257075309753
+et+Verb+Pos^DB+Adj+PastPart+P3sg:	0.37127426266670227
+
+
+Surface: bulunduğu
+Correct analysis: bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom	Selected analysis: bulun+Verb+Pos^DB+Adj+PastPart+P3sg
+Context: ve suçlamalarda bulunduğu gerekçesiyle ,
+bul+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom:	2.2442193312599557e-06
+bulun+Verb+Pos^DB+Adj+PastPart+P3sg:	0.5456830263137817
+bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom:	0.4543117582798004
+bul+Verb^DB+Verb+Pass+Pos^DB+Adj+PastPart+P3sg:	3.0002888706803787e-06
+
+
+Surface: Cumhuriyet
+Correct analysis: cumhuriyet+Noun+A3sg+Pnon+Nom	Selected analysis: cumhuriyet+Noun+Prop+A3sg+Pnon+Nom
+Context: , Ankara Cumhuriyet Savcılığı'na verdiği
+cumhuriyet+Noun+Prop+A3sg+Pnon+Nom:	0.9999955892562866
+cumhuriyet+Noun+A3sg+Pnon+Nom:	4.458227067516418e-06
+
+
+Surface: ile
+Correct analysis: ile+Conj	Selected analysis: ile+Postp+PCNom
+Context: gerekçesiyle Akay ile Türkiye Kamu
+ile+Postp+PCNom:	0.9942195415496826
+ile+Conj:	0.00561752263456583
+il+Noun+A3sg+Pnon+Dat:	0.00016295892419293523
+
+
+Surface: uyguladıkları
+Correct analysis: uygula+Verb+Pos^DB+Noun+PastPart+A3sg+P3pl+Nom	Selected analysis: uygula+Verb+Pos^DB+Adj+PastPart+P3pl
+Context: türban yasağı uyguladıkları gerekçesiyle ODTÜ
+uygula+Verb+Pos^DB+Noun+PastPart+A3sg+P3pl+Nom:	0.0993717685341835
+uygula+Verb+Pos^DB+Noun+PastPart+A3pl+P3pl+Nom:	0.030017992481589317
+uygula+Verb+Pos^DB+Noun+PastPart+A3pl+P3sg+Nom:	0.0006317447405308485
+uygula+Verb+Pos^DB+Adj+PastPart+P3pl:	0.8699785470962524
+
+
+Surface: rektörlerini
+Correct analysis: rektör+Noun+A3pl+P3pl+Acc	Selected analysis: rektör+Noun+A3pl+P3sg+Acc
+Context: Ege üniversitelerinin rektörlerini hedef seçti
+rektör+Noun+A3pl+P3pl+Acc:	0.161457359790802
+rektör+Noun+A3sg+P3pl+Acc:	0.053160689771175385
+rektör+Noun+A3pl+P3sg+Acc:	0.7843902111053467
+rektör+Noun+A3pl+P2sg+Acc:	0.0009917005663737655
+
+
+Surface: Saygılı'nın
+Correct analysis: saygılı+Noun+Prop+A3sg+Pnon+Gen	Selected analysis: saygıl+Noun+Prop+A3sg+P3sg+Gen
+Context: Dr. Rafet Saygılı'nın , mutlaka
+saygıl+Noun+Prop+A3sg+P3sg+Gen:	0.9997681975364685
+saygılı+Noun+Prop+A3sg+Pnon+Gen:	0.00023113687348086387
+saygılı+Noun+Prop+A3sg+P2sg+Gen:	7.723972430540016e-07
+
+
+Surface: alınmaları
+Correct analysis: al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom	Selected analysis: alın+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom
+Context: mutlaka görevden alınmaları istendi
+al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom:	0.0020875988993793726
+al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom:	0.0010725801112130284
+al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc:	0.00023498413793276995
+alın+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom:	0.4105662405490875
+al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom:	0.00026051633176393807
+alın+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom:	0.15201294422149658
+alın+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom:	0.36890909075737
+alın+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc:	0.06485602259635925
+
+
+Surface: türbanı
+Correct analysis: türban+Noun+A3sg+Pnon+Acc	Selected analysis: türban+Noun+A3sg+P3sg+Nom
+Context: Partisi'nin üniversitelerde türbanı serbest bırakma
+türban+Noun+A3sg+Pnon+Acc:	0.2229243367910385
+türban+Noun+A3sg+P3sg+Nom:	0.7770756483078003
+
+
+Surface: Üniversiteleri
+Correct analysis: üniversite+Noun+A3pl+P3pl+Nom	Selected analysis: üniversite+Noun+A3pl+P3sg+Nom
+Context: ve Gazi Üniversiteleri Tıp Fakülteleri
+üniversite+Noun+A3pl+P3sg+Nom:	0.9119526147842407
+üniversite+Noun+A3pl+Pnon+Acc:	0.059654079377651215
+üniversite+Noun+A3sg+P3pl+Nom:	0.01962682604789734
+üniversite+Noun+A3pl+P3pl+Nom:	0.008766486309468746
+
+
+Surface: Cumhuriyeti
+Correct analysis: cumhuriyet+Noun+A3sg+P3sg+Nom	Selected analysis: cumhuriyet+Noun+A3sg+Pnon+Acc
+Context: bu girişimlerin Cumhuriyeti temelden yıkmaya
+cumhuriyet+Noun+A3sg+Pnon+Acc:	0.6510019898414612
+cumhuriyet+Noun+A3sg+P3sg+Nom:	0.3489980101585388
+
+
