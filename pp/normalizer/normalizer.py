@@ -6,6 +6,9 @@ import string
 import pandas as pd
 
 from num2words import num2words
+
+from ._deasciifier import Deasciifier
+
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
 
@@ -103,7 +106,9 @@ class Normalizer():
         return most_similar_word
         
     # High Level Function
-    def normalize(self, list_of_tokens, use_levenshtein = False):
+    def normalize(self, list_of_tokens, remove_punctuations = True, convert_to_lowercase = True,
+                  convert_number_to_word = True, remove_accent_marks = True, normalize_via_lexicon = True,
+                  normalize_via_levenshtein = False, deascify = False):
         """
         Given list of tokens, returns list of normalized tokens
         
@@ -113,20 +118,29 @@ class Normalizer():
         normalized_list_of_tokens = []
         
         for token in list_of_tokens:
-            token = self._remove_punctuations(token)
-            token = self._convert_to_lower_case(token)
+            if remove_punctuations:
+                token = self._remove_punctuations(token)
+            if convert_to_lowercase:
+                token = self._convert_to_lower_case(token)
             if token in self._mwe_lexicon:
                 return token
             
-            if token.isnumeric():
+            if token.isnumeric() & convert_number_to_word:
                 token = self._convert_number_to_word(float(token))
                 normalized_list_of_tokens.append(token)
                 continue
-  
-            token = self._remove_accent_marks(token)
-            token = self._general_purpose_normalize_by_lexicon(token)
+            
+            if remove_accent_marks:
+                token = self._remove_accent_marks(token)
+
+            if deascify:
+                deascifier = Deasciifier(token)
+                token = deascifier.convert_to_turkish()
+                
+            if normalize_via_lexicon:
+                token = self._general_purpose_normalize_by_lexicon(token)
         
-            if (token not in self._words_lexicon) & (use_levenshtein):
+            if (token not in self._words_lexicon) & (normalize_via_levenshtein):
                 token = self._return_most_similar_word(token)
             if token != '':
                 normalized_list_of_tokens.append(token)
