@@ -8,7 +8,7 @@ Consists of:
 - Stopword Remover
 - Tokenizer
 
-#### ---------------------------------------------------------------------------------------
+#### ------------------------------------------------------------------------------------------------
 
 
 **Morphological Analysis**
@@ -34,7 +34,7 @@ Consists of:
 
 **Tokenization**
 
-#### ---------------------------------------------------------------------------------------
+#### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
 - Tokenizer removes extra whitespaces
@@ -44,7 +44,7 @@ Consists of:
     - Readme.md file is expanded with details, DONE, TODO, Potential improvements and resources
 
 **TODO:**
-- Remove strings with len less than 2/3 (can be added optionally to Normalizer)
+- Replace print statements with logging
 
 **Potential improvements:**
 - Named Entity Recognition:
@@ -58,6 +58,7 @@ Consists of:
 - Remove duplicate characters: e.g "yeemeeeeek haaarikaydııı" -> "yemek harikaydı"
 - Syllabication: e.g "unutmadım" -> ["u", "nut", "ma", "dım"]
     - Can be useful for syllable-level models
+- Remove strings with len less than 2/3 (can be added optionally to Normalizer)
     
     
 **Some nice resources that can be used to improve our tool:**
