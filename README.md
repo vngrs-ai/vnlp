@@ -22,8 +22,7 @@ Consists of:
 - Spelling/typo correction
     - pre-defined typos lexicon
     - Levenshtein distance
-- Noise removal (optional and depends on context e.g html tags, twitter hashtags, etc)
-
+    
 **Sentence Splitting**
 
 **Stopwords:**
@@ -59,6 +58,7 @@ Consists of:
 - Syllabication: e.g "unutmadım" -> ["u", "nut", "ma", "dım"]
     - Can be useful for syllable-level models
 - Remove strings with len less than 2/3 (can be added optionally to Normalizer)
+- Noise removal (optional and depends on context e.g html tags, twitter hashtags, etc)
     
     
 **Some nice resources that can be used to improve our tool:**
