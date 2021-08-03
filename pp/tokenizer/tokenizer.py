@@ -1,3 +1,4 @@
+from typing import List
 from pathlib import Path
 import re
 from ._tokenization_rules import *
@@ -12,7 +13,7 @@ class RuleBasedTokenizer:
         self._mwe_lexicon = utils.load_words(PATH + '/mwe_lexicon.txt')
         self._abbrevations = utils.load_words(PATH + '/abbrevations.txt')
 
-    def tokenize(self, input_sentence, rules=rules, split_characters=split, split_token='<*>'):
+    def tokenize(self, input_sentence: str, rules=rules, split_characters=split, split_token='<*>') -> List[str]:
         """
         Given a string of tokens, returns list of string tokens.
         """
@@ -82,6 +83,5 @@ class RuleBasedTokenizer:
                         index += expression_length
 
             index += 1
-
 
         return list_of_token_strings

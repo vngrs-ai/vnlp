@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+from typing import List
 from pathlib import Path
 import string
 
@@ -14,7 +15,7 @@ PATH = str(Path(__file__).parent / PATH)
 
 
 # https://stackoverflow.com/questions/2460177/edit-distance-in-python
-def levenshtein_distance(s1, s2):
+def _levenshtein_distance(s1, s2):
     if len(s1) > len(s2):
         s1, s2 = s2, s1
 
@@ -33,6 +34,8 @@ def levenshtein_distance(s1, s2):
 # Göker and Buğlalılar, 
 # “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”. 
 # Hacettepe University, Thesis for Degree of Master of Science in Computer Engineering
+
+# Deascification is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
 
 class Normalizer():
     def __init__(self):
@@ -93,11 +96,11 @@ class Normalizer():
         consonant_distance_list = []
 
         for s2 in self._words_lexicon:
-            dist = levenshtein_distance(s1, s2)
+            dist = _levenshtein_distance(s1, s2)
             distance_list.append(dist)
 
             s2_consonant = "".join([l for l in s2 if l in self._consonants])
-            consonant_dist = levenshtein_distance(s1_consonant, s2_consonant)
+            consonant_dist = _levenshtein_distance(s1_consonant, s2_consonant)
             consonant_distance_list.append(consonant_dist)
 
         df_sorted = pd.DataFrame({'Distance': distance_list, 'Consonant_Distance': consonant_distance_list}).sort_values(by = ['Consonant_Distance', 'Distance'])
@@ -106,14 +109,38 @@ class Normalizer():
         return most_similar_word
         
     # High Level Function
-    def normalize(self, list_of_tokens, remove_punctuations = True, convert_to_lowercase = True,
-                  convert_number_to_word = True, remove_accent_marks = True, normalize_via_lexicon = True,
-                  normalize_via_levenshtein = False, deascify = False):
+    def normalize(self, list_of_tokens: List[str], remove_punctuations: bool = True, 
+                  convert_to_lowercase: bool = True, convert_number_to_word: bool = True, 
+                  remove_accent_marks: bool = True, normalize_via_lexicon: bool = True,
+                  normalize_via_levenshtein: bool = False, deascify: bool = False) -> List[str]:
         """
         Given list of tokens, returns list of normalized tokens
-        
-        use_levenshtein: Whether to use levenshtein distance to normalize unknown words
-        to known words.
+
+        Args:
+            remove_punctuations (bool): Whether to remove punctuations 
+            "merhaba." -> "merhaba"
+
+            convert_to_lowercase (bool): Whether to convert letters to lowercase
+            "Merhaba" -> "merhaba"
+
+            convert_number_to_word (bool): Whether to convert numbers from numeric form to text form
+            "3" -> "üç"
+
+            remove_accent_marks (bool): Whether to remove accent marks
+            "merhâbâ" -> "merhaba"
+
+            normalize_via_lexicon (bool): Whether to normalize spelling mistakes/typos
+            according looking into up pre-defined typo lexicon.
+            
+            use_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
+            according to its similarity to known words. Calculates 2 distances:
+            First calculates levenshtein distance for all characters.
+            Then calculates levenshtein distance for consonants only.
+            This part is implemented based on “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”.
+
+            deascify (bool): Whether to de-ascify characters for Turkish words.
+            "dusunuyorum" -> "düşünüyorum"
+            Deascifier is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
         """
         normalized_list_of_tokens = []
         

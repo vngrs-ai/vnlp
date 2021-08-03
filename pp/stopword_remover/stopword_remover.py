@@ -1,3 +1,5 @@
+from typing import List
+
 from pathlib import Path
 
 import pandas as pd
@@ -9,6 +11,7 @@ PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
 
 # Static stopwords list are taken from https://github.com/ahmetax/trstop
+# and some minor improvements are done by removing numbers from it
 
 # Dynamic stopword algorithm is implemented according to:
 # Saif, Fernandez, He, Alani. 
@@ -21,11 +24,14 @@ class StopwordRemover:
         self.static_stop_words = utils.load_words(PATH + '/turkce_stop_words.txt')
         self.dynamic_stop_words = []
         self.stop_words = self.static_stop_words.copy()
+        self.rare_words = []
 
-    def dynamically_detect_stop_words(self, list_of_tokens, drop_rare_words = False):
+    def dynamically_detect_stop_words(self, list_of_tokens: List[str], rare_words_freq: int = 0):
         """
         Dynamically detects stop words and updates self.dynamic_stop_words list.
-        drop_rare_words: flag to drop words with frequency of 1.
+        Args:
+            rare_words_freq (int): Maximum frequency of words when deciding rarity.
+            Default value is 0 so it does not detect and drop any rare words.
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         
@@ -39,9 +45,12 @@ class StopwordRemover:
         stop_words_extracted = df_words.loc[:argmax_second_der, 'word'].values.tolist()
         self.dynamic_stop_words += [x for x in stop_words_extracted if x not in self.dynamic_stop_words]
         
-        # Adds frequency 1 words to stop_words list
-        if drop_rare_words:
-            self.stop_words += df_words.loc[df_words['counts'] == 1, 'word'].values.tolist()
+        # Determine rare_words according to given rare_words_freq value
+        # Add them to dynamic_stop_words list
+        rare_words = df_words.loc[df_words['counts'] <= rare_words_freq, 'word'].values.tolist()
+        stop_words_extracted += rare_words
+        self.rare_words += rare_words
+        self.dynamic_stop_words += self.rare_words
         
         print("Dynamically detected stopwords are:", stop_words_extracted)
 
@@ -52,7 +61,7 @@ class StopwordRemover:
         self.stop_words = sorted(list(set(self.static_stop_words).union(set(self.dynamic_stop_words))))
         print('List of stop words is unified and updated.')
 
-    def drop_stop_words(self, list_of_tokens):
+    def drop_stop_words(self, list_of_tokens: List[str]) -> List[str]:
         """
         Given list of tokens, returns list of tokens without drop words.
         """

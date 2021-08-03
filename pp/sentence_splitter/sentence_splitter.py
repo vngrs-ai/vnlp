@@ -1,3 +1,4 @@
+from typing import List
 from pathlib import Path
 from enum import Enum
 import warnings
@@ -157,7 +158,7 @@ class RuleBasedSentenceSplitter():
         return sentences
 
     # higher level function that is called by the user to split
-    def split_sentences(self, text):
+    def split_sentences(self, text: str) -> List[str]:
         """
         Given a string of sentences, returns list of strings,
         where each string in the list is a sentence.
