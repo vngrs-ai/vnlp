@@ -44,6 +44,8 @@ Consists of:
 
 **TODO:**
 - Replace print statements with logging
+- Expand lexicons
+- Find a better Tokenizer
 
 **Potential improvements:**
 - Named Entity Recognition:
@@ -63,4 +65,5 @@ Consists of:
     
 **Some nice resources that can be used to improve our tool:**
 - https://github.com/topics/turkish-nlp
+- https://pypi.org/project/spark-nlp/
 - https://github.com/MeteHanC/turkishnlp

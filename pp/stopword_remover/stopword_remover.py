@@ -1,5 +1,5 @@
 from typing import List
-
+import logging
 from pathlib import Path
 
 import pandas as pd
@@ -52,14 +52,14 @@ class StopwordRemover:
         self.rare_words += rare_words
         self.dynamic_stop_words += self.rare_words
         
-        print("Dynamically detected stopwords are:", stop_words_extracted)
+        logging.info("Dynamically detected stopwords are: " + ", ".join(stop_words_extracted))
 
     def unify_stop_words(self):
         """
         Updates self.stop_words by merging static and dynamic ones.
         """
         self.stop_words = sorted(list(set(self.static_stop_words).union(set(self.dynamic_stop_words))))
-        print('List of stop words is unified and updated.')
+        logging.info('List of stop words is unified and updated.')
 
     def drop_stop_words(self, list_of_tokens: List[str]) -> List[str]:
         """
