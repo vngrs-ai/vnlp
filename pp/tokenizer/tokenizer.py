@@ -1,87 +1,46 @@
-from typing import List
-from pathlib import Path
-import re
-from ._tokenization_rules import *
-from .. import _utils as utils
+__version__ = '0.0.0.1'
 
-PATH = "../_resources/"
-PATH = str(Path(__file__).parent / PATH)
+from typing import Tuple, Union
 
-class RuleBasedTokenizer:
+import regex as re
+
+class WordTokenizer:
+    __slots__ = 'pre_compiled_regexes'
 
     def __init__(self):
-        self._mwe_lexicon = utils.load_words(PATH + '/mwe_lexicon.txt')
-        self._abbrevations = utils.load_words(PATH + '/abbrevations.txt')
+        suffixes: str
+        numbers: str
+        any_word: str
+        punctuations: str
 
-    def tokenize(self, input_sentence: str, rules=rules, split_characters=split, split_token='<*>') -> List[str]:
-        """
-        Given a string of tokens, returns list of string tokens.
-        """
+        suffixes = r"[a-zğçşöüı]{3,}' ?[a-zğçşöüı]+"
+        numbers = r"%\d{2,}[.,:/\d-]+"
+        any_word = r"[a-zğçşöüı_+%\.()@&`’/\\\d-]+"
+        punctuations = r"[a-zğçşöüı]*[,!?;:]"
+        self.pre_compiled_regexes = re.compile(
+            "|".join(
+                [suffixes,
+                 numbers,
+                 any_word,
+                 punctuations
+                 ]
+            ), re.I
+        )
 
-        sentence = input_sentence
+    def tokenize(self, sentence: str) -> Tuple:
+        words: Union[list, tuple]
+        dots: str
 
-        # Check regular expressions for matches and add split:
-        for rule in rules:
-            sentence = re.sub(rule, " \g<0> ", sentence)   #The backreference \g<0> substitutes in the entire substring matched by the RE.
-
-        # Split from all splitted characters
-        working_sentence = re.sub(split_characters, split_token, sentence)
-        list_of_token_strings = [x.strip() for x in working_sentence.split(split_token) if x.strip() !=""]
-
-        original_list_of_token_strings = list(list_of_token_strings)
-
-        # Normalization:
-        index = 0
-        inserted_dots = 0
-        for token in original_list_of_token_strings:
-            index += 1
-            if token[-1] == '.':
-                abbrevation = False
-                # Check if abbrevation:
-                if token in self._abbrevations:
-                    abbrevation = True
-                if not abbrevation:
-                    new_token = token[:-1]
-                    list_of_token_strings.insert(index + inserted_dots, '.')
-                    list_of_token_strings[index + inserted_dots-1] = new_token
-                    inserted_dots += 1
-
-        # Multi Word Expressions
-        # Known bug:
-        # If MWE appears at the end of the sentence,
-        # Bug appears.
-
-        original_length = len(original_list_of_token_strings)
-        original_list_of_token_strings = list(list_of_token_strings)
-        index = 0
-
-        while index < original_length:
-
-            token = original_list_of_token_strings[index]
-
-            for expression in self._mwe_lexicon:
-                expression_length = expression.count(' ') + 1
-                check_index = index
-                is_multiword = True
-
-                for i in range(expression_length):
-                    if index+i >= original_length:
-                        continue
-                    else:
-                        if original_list_of_token_strings[index+i] not in expression:
-                            is_multiword = False
-
-                if is_multiword:
-                    # Pass if already multiword:
-                    if token.count(' ') == 0:
-                        list_of_token_strings.insert(index, expression)
-
-                        for deleter in range(expression_length):
-                            if index+1 < original_length:
-                                list_of_token_strings.pop(index + 1)
-
-                        index += expression_length
-
-            index += 1
-
-        return list_of_token_strings
+        try:
+            words = self.pre_compiled_regexes.findall(sentence)
+        except (re.error, TypeError):
+            return ()
+        else:
+            # If last word ends with dot, it should be another word
+            words = tuple(words)
+            if words:
+                end_dots = re.search(r'\b(\.+)$', words[-1])
+                if end_dots:
+                    dots = end_dots.group(1)
+                    words = words[:-1] + (words[-1][:-len(dots)],) + (dots,)
+            return words

@@ -10,7 +10,6 @@ Consists of:
 
 #### ------------------------------------------------------------------------------------------------
 
-
 **Morphological Analysis**
 - Lemmatization
 
@@ -41,11 +40,28 @@ Consists of:
 - Documentation is improved:
     - Doc-strings are updated with Typing
     - Readme.md file is expanded with details, DONE, TODO, Potential improvements and resources
+- Replace print statements with logging
+- Find a better Tokenizer:
+    - TrTokenizer:
+        - Doc and source: https://github.com/apdullahyayik/TrTokenizer
+        - Replaced our CMPE561 implementation with this for now. But there's a chance our implementation is better.
+        - Drops characters like $ # €.
+        - We can decide to continue with this one or not in future according to custom needs.
+        
+    - NLTK:
+        - Doc: https://www.nltk.org/api/nltk.tokenize.html
+        - Contains a variety of Tokenizers: Tweet, Punct, etc
+        - Easy to use with simple Import
+        
+    - Spacy:
+        - Doc: https://spacy.io/api/tokenizer
+        - Sample code: https://machinelearningknowledge.ai/complete-guide-to-spacy-tokenizer-with-examples/
+        - Contains TR language support, but did not even handle multi-whitespace. No reason to use this for now.
 
 **TODO:**
-- Replace print statements with logging
+- Create requirements.txt
 - Expand lexicons
-- Find a better Tokenizer
+
 
 **Potential improvements:**
 - Named Entity Recognition:
