@@ -50,18 +50,17 @@ Consists of:
         
     - NLTK:
         - Doc: https://www.nltk.org/api/nltk.tokenize.html
-        - Contains a variety of Tokenizers: Tweet, Punct, etc
+        - Contains a variety of Tokenizers: Tweet, MWE, Punct, etc
         - Easy to use with simple Import
         
     - Spacy:
         - Doc: https://spacy.io/api/tokenizer
         - Sample code: https://machinelearningknowledge.ai/complete-guide-to-spacy-tokenizer-with-examples/
         - Contains TR language support, but did not even handle multi-whitespace. No reason to use this for now.
+- Create requirements.txt
 
 **TODO:**
-- Create requirements.txt
 - Expand lexicons
-
 
 **Potential improvements:**
 - Named Entity Recognition:
