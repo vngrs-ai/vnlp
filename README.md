@@ -62,6 +62,7 @@ Consists of:
 
 **TODO:**
 - Expand lexicons
+- Find a better name other than pp/preprocessing :)
 
 **Potential improvements:**
 - Named Entity Recognition:
