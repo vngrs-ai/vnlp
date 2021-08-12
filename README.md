@@ -35,6 +35,7 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
+- Deascifier added to Normalizer.
 - Tokenizer removes extra whitespaces
 - detect_rare_words flag of Normalizer is updated and is now a more flexible, integer argument.
 - Documentation is improved:
@@ -61,6 +62,7 @@ Consists of:
 
 **TODO:**
 - Expand lexicons
+- Find a better name other than pp/preprocessing :)
 
 **Potential improvements:**
 - Named Entity Recognition:
