@@ -21,7 +21,7 @@ PATH = str(Path(__file__).parent / PATH)
 class StopwordRemover:
 
     def __init__(self):
-        self.static_stop_words = utils.load_words(PATH + '/turkce_stop_words.txt')
+        self.static_stop_words = utils.load_words(PATH + '/turkish_stop_words.txt')
         self.dynamic_stop_words = []
         self.stop_words = self.static_stop_words.copy()
         self.rare_words = []

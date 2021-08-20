@@ -30,10 +30,12 @@ def _levenshtein_distance(s1, s2):
         distances = distances_
     return distances[-1]
 
-# Normalization according to Levenshtein distance is implemented according to:
+# Normalization according to Levenshtein distance is implemented using a method proposed by
 # Göker and Buğlalılar, 
 # “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”. 
 # Hacettepe University, Thesis for Degree of Master of Science in Computer Engineering
+# However our method first measures Levenshtein distance for all characters first
+# Then measures according to Göker's method.
 
 # Deascification is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
 
@@ -41,21 +43,17 @@ class Normalizer():
     def __init__(self):
 
         # Multiword Lexicon
-        mwe = pd.read_csv(PATH +'/mwe_lexicon.txt', sep = "\n", on_bad_lines="skip", header = None).values.reshape(-1).tolist()
+        dict_mwe = dict.fromkeys(pd.read_csv(PATH +'/mwe_lexicon.txt', sep = "\n", on_bad_lines="skip", header = None).values.reshape(-1).tolist())
 
         # General Purpose Typo, Abbreviation, Social Media, etc. Normalization Lexicon
-        df = pd.read_csv(PATH +'/typo_correction_lexicon.txt', sep = "\n", na_filter = False, header = None, on_bad_lines= "skip")
-        df = df[0].str.split("=", expand = True)
-        df = pd.concat([df[0], df[1].str.split(',', expand = True)], axis = 1).iloc[:, 0:2]
-        df.columns = ['typo', 'correct']
-        df = df.iloc[500:,:].reset_index(drop = True)
+        dict_typo = dict(pd.read_csv(PATH +'/typo_correction_lexicon.txt').values)
 
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
-        words_lexicon = pd.read_csv(PATH + '/merged_words_lexicon.csv', na_filter = False).values.reshape(-1).tolist()
+        dict_words_lexicon = dict.fromkeys(pd.read_csv(PATH + '/turkish_known_words_lexicon.csv', na_filter = False).values.reshape(-1).tolist())
 
-        self._words_lexicon = words_lexicon
-        self._mwe_lexicon = mwe
-        self._general_purpose_lexicon = df
+        self._words_lexicon = dict_words_lexicon
+        self._mwe_lexicon = dict_mwe
+        self._typo_lexicon = dict_typo
         
         self._vowels = set("aeiou")
         self._consonants = set(string.ascii_lowercase) - self._vowels
@@ -85,8 +83,8 @@ class Normalizer():
     def _general_purpose_normalize_by_lexicon(self, token):
         if token in self._words_lexicon:
             return token
-        elif token is self._general_purpose_lexicon['typo'].values:
-            return self._general_purpose_lexicon['correct'][self._general_purpose_lexicon['typo'] == token].values[0]
+        elif token is self._typo_lexicon:
+            return self._typo_lexicon[token]
         else:
             return token
     
@@ -94,8 +92,11 @@ class Normalizer():
         s1_consonant = "".join([l for l in s1 if l in self._consonants])
         distance_list = []
         consonant_distance_list = []
+        s2_list = []    # to keep track of known words when measuring similarity because dict is unordered
 
         for s2 in self._words_lexicon:
+            s2_list.append(s2)
+
             dist = _levenshtein_distance(s1, s2)
             distance_list.append(dist)
 
@@ -103,8 +104,10 @@ class Normalizer():
             consonant_dist = _levenshtein_distance(s1_consonant, s2_consonant)
             consonant_distance_list.append(consonant_dist)
 
-        df_sorted = pd.DataFrame({'Distance': distance_list, 'Consonant_Distance': consonant_distance_list}).sort_values(by = ['Consonant_Distance', 'Distance'])
-        most_similar_word = self._words_lexicon[df_sorted.index[0]]
+        # This can be modified to idxmin of distance only to speedup a bit
+        # But this sort part takes 1% time of this function
+        df_sorted = pd.DataFrame({'Distance': distance_list, 'Consonant_Distance': consonant_distance_list}, index = s2_list).sort_values(by = ['Consonant_Distance', 'Distance'])
+        most_similar_word = df_sorted.index[0]
 
         return most_similar_word
         
