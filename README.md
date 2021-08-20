@@ -35,6 +35,8 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
+- Lookup tables (df and list) are replaced with hashmaps tables to speedup the program
+- Lexicon naming and structure is improved
 - Deascifier added to Normalizer.
 - Tokenizer removes extra whitespaces
 - detect_rare_words flag of Normalizer is updated and is now a more flexible, integer argument.
