@@ -49,7 +49,7 @@ class Normalizer():
         dict_typo = dict(pd.read_csv(PATH +'/typo_correction_lexicon.txt').values)
 
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
-        dict_words_lexicon = dict.fromkeys(pd.read_csv(PATH + '/turkish_known_words_lexicon.csv', na_filter = False).values.reshape(-1).tolist())
+        dict_words_lexicon = dict.fromkeys(pd.read_csv(PATH + '/turkish_known_words_lexicon.txt', na_filter = False).values.reshape(-1).tolist())
 
         self._words_lexicon = dict_words_lexicon
         self._mwe_lexicon = dict_mwe
