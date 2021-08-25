@@ -18,6 +18,11 @@ PATH = str(Path(__file__).parent / PATH)
 # “On Stopwords, Filtering and Data Sparsity for Sentiment Analysis of Twitter”.  
 # Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), pp. 810–817, 2014.
 
+# Automatic cut-point of stop-words is determined by:
+# Satopaa, Albrecht, Irwin, Raghavan.
+# Detecting Knee Points in System Behavior”.  
+# Distributed Computing Systems Workshops (ICDCSW), 2011 31st International Conference, 2011.
+
 class StopwordRemover:
 
     def __init__(self):
