@@ -9,6 +9,7 @@ import pandas as pd
 from num2words import num2words
 
 from ._deasciifier import Deasciifier
+from..morph_analyzer import MorphAnalyzer
 
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
@@ -58,6 +59,8 @@ class Normalizer():
         self._vowels = set("aeiou")
         self._consonants = set(string.ascii_lowercase) - self._vowels
         self._non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
+
+        self._morph_analyzer = MorphAnalyzer()
     
     def _remove_punctuations(self, token):
         return ''.join([t for t in token if t not in string.punctuation])
@@ -81,9 +84,9 @@ class Normalizer():
     """
     
     def _general_purpose_normalize_by_lexicon(self, token):
-        if token in self._words_lexicon:
+        if self._is_token_valid_turkish:
             return token
-        elif token is self._typo_lexicon:
+        elif token in self._typo_lexicon:
             return self._typo_lexicon[token]
         else:
             return token
@@ -110,6 +113,11 @@ class Normalizer():
         most_similar_word = df_sorted.index[0]
 
         return most_similar_word
+
+    def _is_token_valid_turkish(self, token):
+        valid_according_to_morph_analyzer = not (self._morph_analyzer.model.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
+        valid_according_to_lexicon = token in self._words_lexicon
+        return valid_according_to_morph_analyzer or valid_according_to_lexicon
         
     # High Level Function
     def normalize(self, list_of_tokens: List[str], remove_punctuations: bool = True, 
@@ -135,7 +143,7 @@ class Normalizer():
             normalize_via_lexicon (bool): Whether to normalize spelling mistakes/typos
             according looking into up pre-defined typo lexicon.
             
-            use_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
+            normalize_via_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
             according to its similarity to known words. Calculates 2 distances:
             First calculates levenshtein distance for all characters.
             Then calculates levenshtein distance for consonants only.
@@ -146,7 +154,6 @@ class Normalizer():
             Deascifier is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
         """
         normalized_list_of_tokens = []
-        
         for token in list_of_tokens:
             if remove_punctuations:
                 token = self._remove_punctuations(token)
@@ -166,12 +173,13 @@ class Normalizer():
             if deascify:
                 deascifier = Deasciifier(token)
                 token = deascifier.convert_to_turkish()
-                
-            if normalize_via_lexicon:
+
+            if normalize_via_lexicon and (not self._is_token_valid_turkish(token)):
                 token = self._general_purpose_normalize_by_lexicon(token)
         
-            if (token not in self._words_lexicon) & (normalize_via_levenshtein):
+            if normalize_via_levenshtein and (not self._is_token_valid_turkish(token)):
                 token = self._return_most_similar_word(token)
+
             if token != '':
                 normalized_list_of_tokens.append(token)
         
