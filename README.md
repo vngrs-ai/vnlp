@@ -18,9 +18,10 @@ Consists of:
 - Lowercase
 - Converts numbers to word form
 - Removes accent marks
-- Spelling/typo correction
-    - pre-defined typos lexicon
+- Spelling/typo correction using:
+    - Pre-defined typos lexicon
     - Levenshtein distance
+    - Morphological Analyzer
     
 **Sentence Splitting**
 
@@ -35,6 +36,7 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
+- Typo/Spelling correction now uses Morphological Analyzer.
 - Lookup tables (df and list) are replaced with hashmaps tables to speedup the program
 - Lexicon naming and structure is improved
 - Deascifier added to Normalizer.
@@ -63,6 +65,7 @@ Consists of:
 - Create requirements.txt
 
 **TODO:**
+- Use C-based python-Levenshtein
 - Expand lexicons
 - Find a better name other than pp/preprocessing :)
 
