@@ -64,6 +64,13 @@ Consists of:
         - Contains TR language support, but did not even handle multi-whitespace. No reason to use this for now.
 - Create requirements.txt
 
+**Currently Working on:**
+- NER:
+    - Data collection
+    - Data standardization
+    - Tokenization and Detokenizer
+    - Train Bidirectional-RNN model
+
 **TODO:**
 - Use C-based python-Levenshtein
 - Expand lexicons
