@@ -7,6 +7,7 @@ Consists of:
 - Sentence Splitter
 - Stopword Remover
 - Tokenizer
+- NER (soon...)
 
 #### ------------------------------------------------------------------------------------------------
 
