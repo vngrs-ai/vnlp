@@ -11,11 +11,11 @@ from nltk.tokenize import WordPunctTokenizer
 from ._utils import create_ner_model
 
 import os
-resources_path = os.path.join(os.path.dirname(__file__), "resources/")
+RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
-MODEL_LOC = resources_path + "model_weights.hdf5"
-TOKENIZER_X_LOC = resources_path + "tokenizer_X.pickle"
-TOKENIZER_Y_LOC = resources_path + "tokenizer_y.pickle"
+MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
+TOKENIZER_X_LOC = RESOURCES_PATH + "tokenizer_X.pickle"
+TOKENIZER_Y_LOC = RESOURCES_PATH + "tokenizer_y.pickle"
 
 VOCAB_SIZE = 140
 SEQ_LEN = 256
