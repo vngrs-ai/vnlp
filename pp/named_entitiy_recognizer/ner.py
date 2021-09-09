@@ -130,8 +130,14 @@ class NamedEntityRecognizer:
         if len_text > SEQ_LEN:
             
             num_tokens = len(word_punct_tokenized)
-            first_half_tokens, first_half_entities = self.predict(" ".join(word_punct_tokenized[:num_tokens // 2]))
-            second_half_tokens, second_half_entities = self.predict(" ".join(word_punct_tokenized[(num_tokens // 2):]))
+            
+            first_half_result = self.predict(" ".join(word_punct_tokenized[:num_tokens // 2]))
+            first_half_tokens = [pair[0] for pair in first_half_result]
+            first_half_entities = [pair[1] for pair in first_half_result]
+            
+            second_half_result = self.predict(" ".join(word_punct_tokenized[(num_tokens // 2):]))
+            second_half_tokens =  [pair[0] for pair in second_half_result]
+            second_half_entities = [pair[1] for pair in second_half_result]
 
             word_punct_tokenized = first_half_tokens + second_half_tokens
             decoded_entities = first_half_entities + second_half_entities
@@ -140,6 +146,6 @@ class NamedEntityRecognizer:
             charlevel_pred = self._predict_char_level(word_punct_tokenized)
             decoded_entities = self._charner_decoder(word_punct_tokenized, charlevel_pred)
             
-        token_entitiy_pairs = [(t,e) for t,e in zip(word_punct_tokenized, decoded_entities)]
+        token_entity_pairs = [(t,e) for t,e in zip(word_punct_tokenized, decoded_entities)]
         
-        return token_entitiy_pairs
+        return token_entity_pairs
