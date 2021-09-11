@@ -23,7 +23,7 @@ https://github.com/savasy/Turkish-Bert-Based-NERModel
 - They are processed by NLTK.WordPunctTokenized() so that each punctuation becomes a new token.
 - Punctuation labels are strictly 'O'.
 - B/I prefixes are removed, other entities are converted to 'O' and all entities are standardized to: ['O', 'PER', 'LOC', 'ORG']
-
+- TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction.DUMP_train in train data is further noise reduced version of original form, consisting of 20 % of original dataset.
 
 You can track which row comes from which dataset from below indices:
 File: gungor.ner.train.14.only_consistent-train.txt start index: 0 end_index 25512
@@ -32,6 +32,7 @@ File: tdd.ai-xtreme-tr-train.txt start index: 44801 end_index 64799
 File: teghub-TurkishNER-BERT-train.txt start index: 64800 end_index 94144
 File: twitter_train.txt start index: 94145 end_index 94231
 File: wikiann-train.txt start index: 94232 end_index 114230
+File: TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction.DUMP_train.txt start index: 114231 end_index 224093
 
 File: gungor.ner.dev.14.only_consistent-dev.txt start index: 0 end_index 2952
 File: tdd.ai-ner-news-dataset-dev.txt start index: 2953 end_index 7084
