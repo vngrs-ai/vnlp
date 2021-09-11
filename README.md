@@ -7,7 +7,7 @@ Consists of:
 - Sentence Splitter
 - Stopword Remover
 - Tokenizer
-- NER (soon...)
+- NER
 
 #### ------------------------------------------------------------------------------------------------
 
@@ -37,6 +37,11 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
+- NER (CHARNer) is added, with a SOTA denoised Turkish NER dataset!
+    - Data collection
+    - Data standardization
+    - Tokenization and Detokenizer
+    - Train Bidirectional-RNN model
 - Typo/Spelling correction now uses Morphological Analyzer.
 - Lookup tables (df and list) are replaced with hashmaps tables to speedup the program
 - Lexicon naming and structure is improved
@@ -66,11 +71,6 @@ Consists of:
 - Create requirements.txt
 
 **Currently Working on:**
-- NER:
-    - Data collection
-    - Data standardization
-    - Tokenization and Detokenizer
-    - Train Bidirectional-RNN model
 
 **TODO:**
 - Use C-based python-Levenshtein
@@ -78,8 +78,10 @@ Consists of:
 - Find a better name other than pp/preprocessing :)
 
 **Potential improvements:**
+- Turkish Embedding
+- Dependency Parsing
 - Named Entity Recognition:
-    - Person, Location, Number, Date
+    - Number, Date
     - Remove HTML: convert it to <HTML_LINK> token
     - Remove URLs: convert it to <URL> token
     - Remove Emoji and Emoticon: convert to <EMO> token
