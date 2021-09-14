@@ -37,6 +37,7 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
+- Use C-based python-Levenshtein (16x speed-up in normalization_via_levenshtein!)
 - NER (CHARNer) is added, with a SOTA denoised Turkish NER dataset!
     - Data collection
     - Data standardization
@@ -71,15 +72,14 @@ Consists of:
 - Create requirements.txt
 
 **Currently Working on:**
+- Turkish Embedding
 
 **TODO:**
-- Use C-based python-Levenshtein
 - Expand lexicons
 - Find a better name other than pp/preprocessing :)
 
 **Potential improvements:**
-- Turkish Embedding
-- Dependency Parsing
+- Dependency Parsing / Constituency Parsing
 - Named Entity Recognition:
     - Number, Date
     - Remove HTML: convert it to <HTML_LINK> token

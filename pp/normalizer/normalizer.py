@@ -7,29 +7,13 @@ import string
 import pandas as pd
 
 from num2words import num2words
+from Levenshtein import distance as levenshtein_distance
 
 from ._deasciifier import Deasciifier
 from..morph_analyzer import MorphAnalyzer
 
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
-
-
-# https://stackoverflow.com/questions/2460177/edit-distance-in-python
-def _levenshtein_distance(s1, s2):
-    if len(s1) > len(s2):
-        s1, s2 = s2, s1
-
-    distances = range(len(s1) + 1)
-    for i2, c2 in enumerate(s2):
-        distances_ = [i2+1]
-        for i1, c1 in enumerate(s1):
-            if c1 == c2:
-                distances_.append(distances[i1])
-            else:
-                distances_.append(1 + min((distances[i1], distances[i1 + 1], distances_[-1])))
-        distances = distances_
-    return distances[-1]
 
 # Normalization according to Levenshtein distance is implemented using a method proposed by
 # Göker and Buğlalılar, 
@@ -100,11 +84,11 @@ class Normalizer():
         for s2 in self._words_lexicon:
             s2_list.append(s2)
 
-            dist = _levenshtein_distance(s1, s2)
+            dist = levenshtein_distance(s1, s2)
             distance_list.append(dist)
 
             s2_consonant = "".join([l for l in s2 if l in self._consonants])
-            consonant_dist = _levenshtein_distance(s1_consonant, s2_consonant)
+            consonant_dist = levenshtein_distance(s1_consonant, s2_consonant)
             consonant_distance_list.append(consonant_dist)
 
         # This can be modified to idxmin of distance only to speedup a bit
