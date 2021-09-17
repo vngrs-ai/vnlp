@@ -72,9 +72,11 @@ Consists of:
 - Create requirements.txt
 
 **Currently Working on:**
-- Turkish Embedding
+- Turkish Embeddings
 
 **TODO:**
+- Tokenization should return WordPunctTokenizer with MWE exception. 
+It should take a boolean flag to drop_punct and drop punctuations then. Also remember to remove whitespaces.
 - Expand lexicons
 - Find a better name other than pp/preprocessing :)
 
