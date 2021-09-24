@@ -1,4 +1,4 @@
-﻿#
+#
 # This is a non-breaking prefix list for the Turkish language.
 # The file is used for sentence tokenization (text -> sentence splitting).
 #

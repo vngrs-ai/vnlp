@@ -44,3 +44,22 @@ class WordTokenizer:
                     dots = end_dots.group(1)
                     words = words[:-1] + (words[-1][:-len(dots)],) + (dots,)
             return words
+
+
+# Tokenizer can be either updated extensively or simply removed
+# since tokenization needs vary a lot depending on the task
+"""
+from nltk.tokenize import WordPunctTokenizer, MWETokenizer
+f = open("mwe_lexicon.txt", 'r', encoding = 'utf-8')
+mwe = [line.rstrip().strip('\ufeff') for line in f]
+sentence= "Gelirken istanbul'a türk hava yolları'nı kullanarak"
+tokens = WordPunctTokenizer().tokenize(sentence)
+mwe_tokenizer = MWETokenizer()
+
+tuples_of_mwe = [tuple(m.split()) for m in mwe]
+for _tuple in tuples_of_mwe:
+    mwe_tokenizer.add_mwe(_tuple)
+    
+mwe_tokenizer.tokenize(tokens)
+
+"""
