@@ -1,6 +1,0 @@
-pymongo
-Cython==0.27.3
-numpy==1.14.0
-tornado==4.5.3
-dynet==2.0.2
-pandas==0.22.0

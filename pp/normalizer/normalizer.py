@@ -10,7 +10,7 @@ from num2words import num2words
 from Levenshtein import distance as levenshtein_distance
 
 from ._deasciifier import Deasciifier
-from..morph_analyzer import MorphAnalyzer
+from ..stemmer_morph_analyzer import StemmerAnalyzer
 
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
@@ -44,7 +44,7 @@ class Normalizer():
         self._consonants = set(string.ascii_lowercase) - self._vowels
         self._non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
 
-        self._morph_analyzer = MorphAnalyzer()
+        self._stemmer_analyzer = StemmerAnalyzer()
     
     def _remove_punctuations(self, token):
         return ''.join([t for t in token if t not in string.punctuation])
@@ -99,9 +99,9 @@ class Normalizer():
         return most_similar_word
 
     def _is_token_valid_turkish(self, token):
-        valid_according_to_morph_analyzer = not (self._morph_analyzer.model.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
+        valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
         valid_according_to_lexicon = token in self._words_lexicon
-        return valid_according_to_morph_analyzer or valid_according_to_lexicon
+        return valid_according_to_stemmer_analyzer or valid_according_to_lexicon
         
     # High Level Function
     def normalize(self, list_of_tokens: List[str], remove_punctuations: bool = True, 
