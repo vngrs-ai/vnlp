@@ -1,0 +1,958 @@
+<DOC> <DOC>+BDTag
+<TITLE> <TITLE>+BTTag
+<S> <S>+BSTag
+Hazine hazine+Noun+A3sg+Pnon+Nom hazin+Adj^DB+Noun+Zero+A3sg+Pnon+Dat Hazine+Noun+Prop+A3sg+Pnon+Nom
+Merkez'i Merkez+Noun+Prop+A3sg+Pnon+Acc Merkez+Noun+Prop+A3sg+P3sg+Nom
+rahatlattı rahatla+Verb^DB+Verb+Caus+Pos+Past+A3sg
+</S> </S>+ESTag
+</TITLE> </TITLE>+ETTag
+<S> <S>+BSTag
+Geçen geçen+Adj geç+Verb+Pos^DB+Adj+PresPart Geçen+Noun+Prop+A3sg+Pnon+Nom
+hafta hafta+Noun+A3sg+Pnon+Nom
+kısa kısa+Adj kıs+Verb+Pos+Opt+A3sg
+vadeli vade+Noun+A3sg+Pnon+Nom^DB+Adj+With
+avans avans+Noun+A3sg+Pnon+Nom
+hesabına hesap+Noun+A3sg+P3sg+Dat hesap+Noun+A3sg+P2sg+Dat
+48.7 48.7+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+geri geri+Adj geri+Adverb geri+Noun+A3sg+Pnon+Dat geri+Noun+A3sg+Pnon+Nom
+ödeme ödeme+Noun+A3sg+Pnon+Nom öde+Verb+Neg+Imp+A2sg öde+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom ödem+Noun+A3sg+Pnon+Dat
+yapan yap+Verb+Pos^DB+Adj+PresPart
+Hazine hazine+Noun+A3sg+Pnon+Nom hazin+Adj^DB+Noun+Zero+A3sg+Pnon+Dat Hazine+Noun+Prop+A3sg+Pnon+Nom
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası'nı Banka+Noun+Prop+A3sg+P3sg+Acc
+rahatlattı rahatla+Verb^DB+Verb+Caus+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Hazine'nin Hazine+Noun+Prop+A3sg+Pnon+Gen Hazine+Noun+Prop+A3sg+P2sg+Gen Hazine+Noun+Prop+A3sg+P2sg+Gen
+kullanabileceği kullan+Verb+Pos^DB+Verb+Able^DB+Adj+FutPart+P3sg kullan+Verb+Pos^DB+Verb+Able^DB+Noun+FutPart+A3sg+P3sg+Nom kul+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Verb+Able^DB+Adj+FutPart+P3sg kul+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Verb+Able^DB+Noun+FutPart+A3sg+P3sg+Nom
+avans avans+Noun+A3sg+Pnon+Nom
+69.1 69.1+Num+Real
+trilyona trilyon+Num+Card^DB+Noun+Zero+A3sg+Pnon+Dat
+çıkarken çık+Verb+Pos+Aor^DB+Adverb+While çıkar+Noun+A3sg+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While
+, ,+Punc
+döviz döviz+Noun+A3sg+Pnon+Nom
+rezervlerinde rezerv+Noun+A3pl+P3sg+Loc rezerv+Noun+A3pl+P2sg+Loc rezerv+Noun+A3pl+P3pl+Loc rezerv+Noun+A3sg+P3pl+Loc
+45 45+Num+Card
+milyon milyon+Num+Card
+dolarlık dolar+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Ness+A3sg+Pnon+Nom dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Ness+A3sg+Pnon+Nom dolar+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+erime eri+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom er+Noun+A3sg+P1sg+Dat eri+Verb+Neg+Imp+A2sg erim+Noun+A3sg+Pnon+Dat
+gözlendi gözle+Verb^DB+Verb+Pass+Pos+Past+A3sg göz+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+YILBAŞINDAN yılbaş+Noun+A3sg+P3sg+Abl yılbaş+Noun+A3sg+P2sg+Abl
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+yana yan+Noun+A3sg+Pnon+Dat yan+Verb+Pos+Opt+A3sg yana+Postp+PCAbl
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası banka+Noun+A3sg+P3sg+Nom banka+Noun^DB+Adj+Almost
+kaynaklarına kaynak+Noun+A3pl+P3sg+Dat kaynakla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Dat kaynakla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Dat kaynak+Noun+A3pl+P3pl+Dat kaynak+Noun+A3sg+P3pl+Dat kaynak+Noun+A3pl+P2sg+Dat
+yüklenen yükle+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart yük+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Adj+PresPart
+Hazine hazine+Noun+A3sg+Pnon+Nom hazin+Adj^DB+Noun+Zero+A3sg+Pnon+Dat Hazine+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+geçen geçen+Adj geç+Verb+Pos^DB+Adj+PresPart
+hafta hafta+Noun+A3sg+Pnon+Nom
+durumunu durum+Noun+A3sg+P3sg+Acc durum+Noun+A3sg+P2sg+Acc
+düzeltti düzel+Verb^DB+Verb+Caus+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Geçen geçen+Adj geç+Verb+Pos^DB+Adj+PresPart Geçen+Noun+Prop+A3sg+Pnon+Nom
+hafta hafta+Noun+A3sg+Pnon+Nom
+48.7 48.7+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+avans avans+Noun+A3sg+Pnon+Nom
+kapatan kapa+Verb^DB+Verb+Caus+Pos^DB+Adj+PresPart
+Hazine hazine+Noun+A3sg+Pnon+Nom hazin+Adj^DB+Noun+Zero+A3sg+Pnon+Dat Hazine+Noun+Prop+A3sg+Pnon+Nom
+kullanabileceği kullan+Verb+Pos^DB+Verb+Able^DB+Adj+FutPart+P3sg kullan+Verb+Pos^DB+Verb+Able^DB+Noun+FutPart+A3sg+P3sg+Nom kul+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Verb+Able^DB+Adj+FutPart+P3sg kul+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Verb+Able^DB+Noun+FutPart+A3sg+P3sg+Nom
+kısa kısa+Adj kıs+Verb+Pos+Opt+A3sg
+vadeli vade+Noun+A3sg+Pnon+Nom^DB+Adj+With
+avans avans+Noun+A3sg+Pnon+Nom
+tutarını tutar+Noun+A3sg+P3sg+Acc tut+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Acc tut+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Acc tutar+Noun+A3sg+P2sg+Acc
+da da+Conj
+69.1 69.1+Num+Real
+trilyona trilyon+Num+Card^DB+Noun+Zero+A3sg+Pnon+Dat
+çıkardı çık+Verb^DB+Verb+Caus+Pos+Past+A3sg çık+Verb+Pos+Aor+Past+A3sg çıkar+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası'nın Banka+Noun+Prop+A3sg+P3sg+Gen
+17 17+Num+Card
+- -+Punc
+24 24+Num+Card
+Ocak ocak+Noun+A3sg+Pnon+Nom Ocak+Noun+Prop+A3sg+Pnon+Nom
+tarihli tarih+Noun+A3sg+Pnon+Nom^DB+Adj+With
+bilançosuna bilanço+Noun+A3sg+P3sg+Dat
+göre göre+Postp+PCDat gör+Verb+Pos+Opt+A3sg
+484.6 484.6+Num+Real
+trilyon trilyon+Num+Card
+lira lira+Noun+A3sg+Pnon+Nom
+olan ol+Verb+Pos^DB+Adj+PresPart
+kısa kısa+Adj kıs+Verb+Pos+Opt+A3sg
+vadeli vade+Noun+A3sg+Pnon+Nom^DB+Adj+With
+avans avans+Noun+A3sg+Pnon+Nom
+, ,+Punc
+bir bir+Num+Card bir+Det bir+Adverb bir+Adj
+haftada hafta+Noun+A3sg+Pnon+Loc
+48.7 48.7+Num+Real
+trilyonluk trilyon+Num+Card^DB+Noun+Ness+A3sg+Pnon+Nom
+azalışla azal+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Ins
+24 24+Num+Card
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+435.8 435.8+Num+Real
+trilyon trilyon+Num+Card
+liraya lira+Noun+A3sg+Pnon+Dat
+indi in+Verb+Pos+Past+A3sg in+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Hazine'nin Hazine+Noun+Prop+A3sg+Pnon+Gen Hazine+Noun+Prop+A3sg+P2sg+Gen Hazine+Noun+Prop+A3sg+P2sg+Gen
+geri geri+Adj geri+Adverb geri+Noun+A3sg+Pnon+Dat geri+Noun+A3sg+Pnon+Nom
+ödemesiyle ödeme+Noun+A3sg+P3sg+Ins öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Ins
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası'nın Banka+Noun+Prop+A3sg+P3sg+Gen
+iç iç+Adj iç+Noun+A3sg+Pnon+Nom iç+Verb+Pos+Imp+A2sg
+varlıkları varlık+Noun+A3pl+P3sg+Nom varlık+Noun+A3pl+P3pl+Nom varlık+Noun+A3sg+P3pl+Nom varlık+Noun+A3pl+Pnon+Acc var+Adj^DB+Noun+Ness+A3pl+P3pl+Nom var+Adj^DB+Noun+Ness+A3sg+P3pl+Nom var+Adj^DB+Noun+Ness+A3pl+Pnon+Acc var+Adj^DB+Noun+Ness+A3pl+P3sg+Nom
+önemli önem+Noun+A3sg+Pnon+Nom^DB+Adj+With
+ölçüde ölçü+Noun+A3sg+Pnon+Loc
+geriledi gerile+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+17 17+Num+Card
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+738.9 738.9+Num+Real
+trilyon trilyon+Num+Card
+lira lira+Noun+A3sg+Pnon+Nom
+olan ol+Verb+Pos^DB+Adj+PresPart
+iç iç+Noun+A3sg+Pnon+Nom iç+Verb+Pos+Imp+A2sg iç+Adj
+varlıklar varlık+Noun+A3pl+Pnon+Nom var+Adj^DB+Noun+Ness+A3pl+Pnon+Nom
+toplamı toplam+Noun+A3sg+P3sg+Nom topla+Noun+A3sg+P1sg+Acc toplam+Noun+A3sg+Pnon+Acc
+72.1 72.1+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+azalışla azal+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Ins
+666.8 666.8+Num+Real
+trilyona trilyon+Num+Card^DB+Noun+Zero+A3sg+Pnon+Dat
+düştü düş+Verb+Pos+Past+A3sg düş+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Kamuya kamu+Noun+A3sg+Pnon+Dat
+açılan aç+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart açı+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Imp+A2sg
+kredilerin kredi+Noun+A3pl+Pnon+Gen kredi+Noun+A3pl+P2sg+Nom
+gerilemesi gerile+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Nom gerile+Verb+Pos^DB+Noun+Inf2^DB+Adj+Almost
+yanında yan+Noun+A3sg+P3sg+Loc yan+Noun+A3sg+P2sg+Loc
+Açık açık+Adj Açık+Noun+Prop+A3sg+Pnon+Nom açık+Adverb
+Piyasa piyasa+Noun+A3sg+Pnon+Nom
+İşlemleri işlem+Noun+A3pl+P3sg+Nom işlem+Noun+A3pl+Pnon+Acc işlem+Noun+A3pl+P3pl+Nom işlem+Noun+A3sg+P3pl+Nom
+yoluyla yol+Noun+A3sg+P3sg+Ins
+piyasadan piyasa+Noun+A3sg+Pnon+Abl
+çekilen çek+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart çeki+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Imp+A2sg
+likiditenin likidite+Noun+A3sg+Pnon+Gen likidite+Noun+A3sg+P2sg+Gen
+etkisiyle etki+Noun+A3sg+P3sg+Ins
+72.1 72.1+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+iç iç+Adj iç+Noun+A3sg+Pnon+Nom iç+Verb+Pos+Imp+A2sg
+varlıkların varlık+Noun+A3pl+Pnon+Gen varlık+Noun+A3pl+P2sg+Nom var+Adj^DB+Noun+Ness+A3pl+Pnon+Gen var+Adj^DB+Noun+Ness+A3pl+P2sg+Nom
+azalışı azal+Verb+Pos^DB+Noun+Inf3+A3sg+P3sg+Nom azal+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Acc
+ile ile+Postp+PCNom il+Noun+A3sg+Pnon+Dat ile+Conj
+birlikte birlikte+Postp+PCIns birlikte+Adverb birlik+Noun+A3sg+Pnon+Loc bir+Adj^DB+Noun+Ness+A3sg+Pnon+Loc bir+Num+Card^DB+Noun+Ness+A3sg+Pnon+Loc
+rezerv rezerv+Noun+A3sg+Pnon+Nom
+para para+Noun+A3sg+Pnon+Nom par+Noun+A3sg+Pnon+Dat
+ve ve+Conj
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası banka+Noun+A3sg+P3sg+Nom banka+Noun^DB+Adj+Almost
+parasında para+Noun+A3sg+P3sg+Loc
+da da+Conj
+gerileme gerile+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom ger+Verb^DB+Verb+Pass^DB+Verb+Able+Neg+Imp+A2sg gerile+Verb+Neg+Imp+A2sg
+gözlendi gözle+Verb^DB+Verb+Pass+Pos+Past+A3sg göz+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+17 17+Num+Card
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+158.5 158.5+Num+Real
+trilyon trilyon+Num+Card
+olan ol+Verb+Pos^DB+Adj+PresPart
+Açık açık+Adj Açık+Noun+Prop+A3sg+Pnon+Nom açık+Adverb
+piyasa piyasa+Noun+A3sg+Pnon+Nom
+İşlemleri işlem+Noun+A3pl+P3sg+Nom işlem+Noun+A3pl+Pnon+Acc işlem+Noun+A3pl+P3pl+Nom işlem+Noun+A3sg+P3pl+Nom
+borcu borç+Noun+A3sg+P3sg+Nom bor+Noun+A3sg+Pnon+Nom^DB+Adj+Agt bor+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Nom bor+Adj^DB+Noun+Agt+A3sg+Pnon+Nom borç+Noun+A3sg+Pnon+Acc
+10 10+Num+Card
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+artışla art+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Ins
+24 24+Num+Card
+Ocak ocak+Noun+A3sg+Pnon+Nom Ocak+Noun+Prop+A3sg+Pnon+Nom
+itibarı itibar+Noun+A3sg+P3sg+Nom itibar+Noun+A3sg+Pnon+Acc
+ile ile+Postp+PCNom il+Noun+A3sg+Pnon+Dat ile+Conj
+168.5 168.5+Num+Real
+trilyona trilyon+Num+Card^DB+Noun+Zero+A3sg+Pnon+Dat
+çıktı çık+Verb+Pos+Past+A3sg çıktı+Noun+A3sg+Pnon+Nom
+</S> </S>+ESTag
+<S> <S>+BSTag
+638.6 638.6+Num+Real
+trilyon trilyon+Num+Card
+lira lira+Noun+A3sg+Pnon+Nom
+düzeyinde düzey+Noun+A3sg+P3sg+Loc düzey+Noun+A3sg+P2sg+Loc
+olan ol+Verb+Pos^DB+Adj+PresPart
+rezerv rezerv+Noun+A3sg+Pnon+Nom
+para para+Noun+A3sg+Pnon+Nom par+Noun+A3sg+Pnon+Dat
+ise i+Verb+Pos+Cond+A3sg is+Noun+A3sg+Pnon+Dat
+27.8 27.8+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+azalışla azal+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Ins
+610.8 610.8+Num+Real
+trilyona trilyon+Num+Card^DB+Noun+Zero+A3sg+Pnon+Dat
+geriledi gerile+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Bununla bu+Pron+Demons+A3sg+Pnon+Ins
+birlikte birlikte+Postp+PCIns birlikte+Adverb birlik+Noun+A3sg+Pnon+Loc bir+Adj^DB+Noun+Ness+A3sg+Pnon+Loc bir+Num+Card^DB+Noun+Ness+A3sg+Pnon+Loc
+399.7 399.7+Num+Real
+trilyon trilyon+Num+Card
+lira lira+Noun+A3sg+Pnon+Nom
+olan ol+Verb+Pos^DB+Adj+PresPart
+emisyon emisyon+Noun+A3sg+Pnon+Nom
+miktarı miktar+Noun+A3sg+P3sg+Nom miktar+Noun+A3sg+Pnon+Acc
+23.4 23.4+Num+Real
+trilyon trilyon+Num+Card
+liralık lira+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor lira+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+bir bir+Det bir+Adverb bir+Adj bir+Num+Card
+azalışla azal+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Ins
+376.3 376.3+Num+Real
+indi in+Verb+Pos+Past+A3sg in+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Ancak ancak+Conj ancak+Adverb
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası banka+Noun+A3sg+P3sg+Nom banka+Noun^DB+Adj+Almost
+TL Tl+Noun+Prop+A3sg+Pnon+Nom
+yönünden yön+Noun+A3sg+P3sg+Abl yön+Noun+A3sg+P2sg+Abl
+rahatlarken rahatla+Verb+Pos+Aor^DB+Adverb+While rahat+Noun+A3pl+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While rahat+Adj^DB+Noun+Zero+A3pl+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While
+, ,+Punc
+döviz döviz+Noun+A3sg+Pnon+Nom
+rezervlerinde rezerv+Noun+A3pl+P3sg+Loc rezerv+Noun+A3pl+P2sg+Loc rezerv+Noun+A3pl+P3pl+Loc rezerv+Noun+A3sg+P3pl+Loc
+erime eri+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom er+Noun+A3sg+P1sg+Dat eri+Verb+Neg+Imp+A2sg erim+Noun+A3sg+Pnon+Dat
+gözlendi gözle+Verb^DB+Verb+Pass+Pos+Past+A3sg göz+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+17 17+Num+Card
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+16 16+Num+Card
+milyar milyar+Num+Card
+358 358+Num+Card
+milyon milyon+Num+Card
+dolar dolar+Noun+A3sg+Pnon+Nom do+Noun+A3pl+Pnon+Nom dol+Verb+Pos+Aor+A3sg dol+Verb+Pos+Aor^DB+Adj+Zero dola+Verb+Pos+Aor+A3sg dola+Verb+Pos+Aor^DB+Adj+Zero
+olan ol+Verb+Pos^DB+Adj+PresPart
+Banka'nın Banka+Noun+Prop+A3sg+Pnon+Gen Banka+Noun+Prop+A3sg+P2sg+Gen
+döviz döviz+Noun+A3sg+Pnon+Nom
+rezervleri rezerv+Noun+A3pl+P3sg+Nom rezerv+Noun+A3pl+Pnon+Acc rezerv+Noun+A3pl+P3pl+Nom rezerv+Noun+A3sg+P3pl+Nom
+, ,+Punc
+45 45+Num+Card
+milyon milyon+Num+Card
+dolar dolar+Noun+A3sg+Pnon+Nom do+Noun+A3pl+Pnon+Nom dol+Verb+Pos+Aor+A3sg dol+Verb+Pos+Aor^DB+Adj+Zero dola+Verb+Pos+Aor+A3sg dola+Verb+Pos+Aor^DB+Adj+Zero
+azalarak azal+Verb+Pos^DB+Adverb+ByDoingSo
+24 24+Num+Card
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+16 16+Num+Card
+milyar milyar+Num+Card
+313 313+Num+Card
+milyon milyon+Num+Card
+dolara dolar+Noun+A3sg+Pnon+Dat do+Noun+A3pl+Pnon+Dat
+geriledi gerile+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Ocak'ta Ocak+Noun+Prop+A3sg+Pnon+Loc
+356 356+Num+Card
+milyon milyon+Num+Card
+$ ***UNKNOWN
+borç borç+Noun+A3sg+Pnon+Nom
+ödendi öde+Verb^DB+Verb+Pass+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+DIŞ dış+Adj dış+Noun+A3sg+Pnon+Nom
+borç borç+Noun+A3sg+Pnon+Nom
+ödemeleri ödeme+Noun+A3pl+P3sg+Nom öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom öde+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom ödeme+Noun+A3pl+Pnon+Acc ödeme+Noun+A3pl+P3pl+Nom ödeme+Noun+A3sg+P3pl+Nom
+, ,+Punc
+yılın yıl+Noun+A3sg+Pnon+Gen yıl+Noun+A3sg+P2sg+Nom yıl+Verb^DB+Verb+Pass+Pos+Imp+A2sg yıl+Verb+Pos+Imp+A2pl
+ilk ilk+Adj ilk+Adverb
+ayında ay+Noun+A3sg+P3sg+Loc ay+Noun+A3sg+P2sg+Loc ayı+Noun+A3sg+P2sg+Loc
+356.39 356.39+Num+Real
+milyon milyon+Num+Card
+dolar dolar+Noun+A3sg+Pnon+Nom do+Noun+A3pl+Pnon+Nom dol+Verb+Pos+Aor+A3sg dol+Verb+Pos+Aor^DB+Adj+Zero dola+Verb+Pos+Aor+A3sg dola+Verb+Pos+Aor^DB+Adj+Zero
+olarak ol+Verb+Pos^DB+Adverb+ByDoingSo
+gerçekleşti gerçek+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos+Past+A3sg gerçekle+Verb+Recip+Pos+Past+A3sg gerçek+Adj^DB+Verb+Become+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası banka+Noun+A3sg+P3sg+Nom banka+Noun^DB+Adj+Almost
+verilerine veri+Noun+A3pl+P3sg+Dat veri+Noun+A3pl+P2sg+Dat veri+Noun+A3pl+P3pl+Dat veri+Noun+A3sg+P3pl+Dat
+göre göre+Postp+PCDat gör+Verb+Pos+Opt+A3sg
+, ,+Punc
+2 2+Num+Card
+- -+Punc
+29 29+Num+Card
+Ocak ocak+Noun+A3sg+Pnon+Nom Ocak+Noun+Prop+A3sg+Pnon+Nom
+tarihleri tarih+Noun+A3pl+P3pl+Nom tarihle+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom tarih+Noun+A3pl+P3sg+Nom tarih+Noun+A3pl+Pnon+Acc tarih+Noun+A3sg+P3pl+Nom
+arasındaki ara+Noun+A3sg+P3sg+Loc^DB+Adj+Rel
+ödemelerin ödeme+Noun+A3pl+Pnon+Gen öde+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Nom öde+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Gen ödeme+Noun+A3pl+P2sg+Nom
+253.42 253.42+Num+Real
+milyon milyon+Num+Card
+doları dolar+Noun+A3sg+P3sg+Nom do+Noun+A3pl+Pnon+Acc do+Noun+A3pl+P3sg+Nom do+Noun+A3sg+P3pl+Nom do+Noun+A3pl+P3pl+Nom dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dolar+Noun+A3sg+Pnon+Acc
+Hazine'ye Hazine+Noun+Prop+A3sg+Pnon+Dat
+, ,+Punc
+55.12 55.12+Num+Real
+milyon milyon+Num+Card
+doları dolar+Noun+A3sg+P3sg+Nom do+Noun+A3pl+Pnon+Acc do+Noun+A3pl+P3sg+Nom do+Noun+A3sg+P3pl+Nom do+Noun+A3pl+P3pl+Nom dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dolar+Noun+A3sg+Pnon+Acc
+Merkez merkez+Noun+A3sg+Pnon+Nom
+Bankası'na Banka+Noun+Prop+A3sg+P3sg+Dat
+, ,+Punc
+47.85 47.85+Num+Real
+milyon milyon+Num+Card
+doları dolar+Noun+A3sg+P3sg+Nom do+Noun+A3pl+Pnon+Acc do+Noun+A3pl+P3sg+Nom do+Noun+A3sg+P3pl+Nom do+Noun+A3pl+P3pl+Nom dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom dolar+Noun+A3sg+Pnon+Acc
+diğer diğer+Adj
+kamu kamu+Noun+A3sg+Pnon+Nom
+kuruluşlarına kuruluş+Noun+A3pl+P3sg+Dat kur+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf3+A3pl+P3sg+Dat kur+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf3+A3pl+P2sg+Dat kur+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf3+A3sg+P3pl+Dat kur+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf3+A3pl+P3pl+Dat kuruluş+Noun+A3pl+P3pl+Dat kuruluş+Noun+A3sg+P3pl+Dat kuruluş+Noun+A3pl+P2sg+Dat
+ait ait+Postp+PCDat
+bulunuyor bulun+Verb+Pos+Prog1+A3sg bul+Verb^DB+Verb+Pass+Pos+Prog1+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Geçen geçen+Adj geç+Verb+Pos^DB+Adj+PresPart Geçen+Noun+Prop+A3sg+Pnon+Nom
+yıl yıl+Noun+A3sg+Pnon+Nom yıl+Verb+Pos+Imp+A2sg
+gerçekleştirilen gerçek+Adj^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart gerçekle+Verb+Recip^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart gerçek+Noun+A3sg+Pnon+Nom^DB+Verb+Become^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart
+dış dış+Adj dış+Noun+A3sg+Pnon+Nom
+borç borç+Noun+A3sg+Pnon+Nom
+ödemelerinin ödeme+Noun+A3pl+P3sg+Gen öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Gen öde+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Gen öde+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Gen öde+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Gen ödeme+Noun+A3pl+P2sg+Gen ödeme+Noun+A3pl+P3pl+Gen ödeme+Noun+A3sg+P3pl+Gen
+toplamı toplam+Noun+A3sg+P3sg+Nom topla+Noun+A3sg+P1sg+Acc toplam+Noun+A3sg+Pnon+Acc
+, ,+Punc
+9 9+Num+Card
+milyar milyar+Num+Card
+413.93 413.93+Num+Real
+milyon milyon+Num+Card
+dolar dolar+Noun+A3sg+Pnon+Nom do+Noun+A3pl+Pnon+Nom dol+Verb+Pos+Aor+A3sg dol+Verb+Pos+Aor^DB+Adj+Zero dola+Verb+Pos+Aor+A3sg dola+Verb+Pos+Aor^DB+Adj+Zero
+olmuştu ol+Verb+Pos+Narr+Past+A3sg
+</S> </S>+ESTag
+</DOC> </DOC>+EDTag
+<DOC> <DOC>+BDTag
+<TITLE> <TITLE>+BTTag
+<S> <S>+BSTag
+Petrol petrol+Noun+A3sg+Pnon+Nom
+piyasalarında piyasa+Noun+A3pl+P3sg+Loc piyasa+Noun+A3pl+P3pl+Loc piyasa+Noun+A3sg+P3pl+Loc piyasa+Noun+A3pl+P2sg+Loc
+Irak Irak+Noun+Prop+A3sg+Pnon+Nom ırak+Adj
+şoku şok+Noun+A3sg+P3sg+Nom şok+Noun+A3sg+Pnon+Acc
+</S> </S>+ESTag
+</TITLE> </TITLE>+ETTag
+<S> <S>+BSTag
+Sema sema+Noun+A3sg+Pnon+Nom Sema+Noun+Prop+A3sg+Pnon+Nom
+EMİROĞLU emiroğlu+Noun+A3sg+Pnon+Nom emiroğ+Noun+A3sg+Pnon+Nom^DB+Adj+With emiroğ+Noun+A3sg+Pnon+Nom^DB+Adj+With^DB+Noun+Zero+A3sg+Pnon+Nom emiroğl+Noun+A3sg+Pnon+Acc emiroğl+Noun+A3sg+P3sg+Nom
+- -+Punc
+NEW new+Noun+A3sg+Pnon+Nom
+YORK York+Noun+Prop+A3sg+Pnon+Nom
+/ /+Punc
+BM bm+Noun+A3sg+Pnon+Nom
+</S> </S>+ESTag
+<S> <S>+BSTag
+IRAK Irak+Noun+Prop+A3sg+Pnon+Nom ırak+Adj
+petrolünün petrol+Noun+A3sg+P3sg+Gen petrol+Noun+A3sg+P2sg+Gen
+Kerkük Kerkük+Noun+Prop+A3sg+Pnon+Nom
+- -+Punc
+Yumurtalık yumurtalık+Noun+Prop+A3sg+Pnon+Nom Yumurtalık+Noun+Prop+A3sg+Pnon+Nom yumurtalık+Noun+A3sg+Pnon+Nom yumurta+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom yumurta+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor
+boru boru+Noun+A3sg+Pnon+Nom bor+Noun+A3sg+P3sg+Nom bor+Noun+A3sg+Pnon+Acc bor+Adj^DB+Noun+Zero+A3sg+P3sg+Nom bor+Adj^DB+Noun+Zero+A3sg+Pnon+Acc
+hattından hat+Noun+A3sg+P3sg+Abl hat+Noun+A3sg+P2sg+Abl
+akmasını ak+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Acc
+sağlayan sağla+Verb+Pos^DB+Adj+PresPart
+BM bm+Noun+A3sg+Pnon+Nom
+kararının karar+Noun+A3sg+P3sg+Gen kar+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Gen kar+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Gen karar+Noun+A3sg+P2sg+Gen
+uygulanması uygula+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3sg+P3sg+Nom uygula+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2^DB+Adj+Almost
+, ,+Punc
+petrol petrol+Noun+A3sg+Pnon+Nom
+fiyatlarının fiyat+Noun+A3pl+P3sg+Gen fiyatla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Gen fiyatla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Gen fiyat+Noun+A3pl+P3pl+Gen fiyat+Noun+A3sg+P3pl+Gen fiyat+Noun+A3pl+P2sg+Gen
+, ,+Punc
+beklenenin bekle+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+Pnon+Gen bekle+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+P2sg+Nom bek+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+P2sg+Nom bek+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+Pnon+Gen
+aksine aksine+Adverb akis+Noun+A3sg+P3sg+Dat akis+Noun+A3sg+P2sg+Dat aksi+Adj^DB+Noun+Zero+A3sg+P2sg+Dat
+hızla hız+Noun+A3sg+Pnon+Ins
+artmasına art+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Dat
+neden neden+Noun+A3sg+Pnon+Nom neden+Adverb ne+Pron+Ques+A3sg+Pnon+Abl
+olurken ol+Verb+Pos+Aor^DB+Adverb+While olur+Noun+A3sg+Pnon+Nom^DB+Verb+Zero^DB+Adverb+While
+, ,+Punc
+petrol petrol+Noun+A3sg+Pnon+Nom
+satış sat+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Nom sat+Verb+Recip+Pos+Imp+A2sg
+kotası kota+Noun+A3sg+P3sg+Nom kota+Noun^DB+Adj+Almost
+, ,+Punc
+miktara miktar+Noun+A3sg+Pnon+Dat
+değil değil+Conj değ+Verb^DB+Verb+Pass+Pos+Imp+A2sg değil+Verb+Pres+A3sg
+, ,+Punc
+paraya para+Noun+A3sg+Pnon+Dat
+göre göre+Postp+PCDat gör+Verb+Pos+Opt+A3sg
+belirlendiği belirle+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom belirle+Verb^DB+Verb+Pass+Pos^DB+Adj+PastPart+P3sg
+için için+Postp+PCNom iç+Noun+A3sg+P2sg+Nom iç+Noun+A3sg+Pnon+Gen iç+Verb+Pos+Imp+A2pl
+, ,+Punc
+Irak'ın Irak+Noun+Prop+A3sg+Pnon+Gen Irak+Noun+Prop+A3sg+P2sg+Nom
+bazı bazı+Adj baz+Noun+A3sg+P3sg+Nom baz+Noun+A3sg+Pnon+Acc bazı+Det
+firmalarla firma+Noun+A3pl+Pnon+Ins
+imzaladığı imzala+Verb+Pos^DB+Adj+PastPart+P3sg imzala+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+satış sat+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Nom sat+Verb+Recip+Pos+Imp+A2sg
+sözleşmeleri sözleşme+Noun+A3pl+P3sg+Nom sözleşme+Noun+A3pl+Pnon+Acc sözleşme+Noun+A3pl+P3pl+Nom sözleşme+Noun+A3sg+P3pl+Nom sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc sözleş+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom sözleş+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom
+iptal iptal+Noun+A3sg+Pnon+Nom
+ediliyor et+Verb^DB+Verb+Pass+Pos+Prog1+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Irak'a Irak+Noun+Prop+A3sg+Pnon+Dat
+" "+Punc
+gıdaya gıda+Noun+A3sg+Pnon+Dat
+karşı karşı+Postp+PCDat karşı+Adverb karşı+Adj karşı+Noun+A3sg+Pnon+Dat karşı+Noun+A3sg+Pnon+Nom
+kısıtlı kısıt+Noun+A3sg+Pnon+Nom^DB+Adj+With
+miktarda miktar+Noun+A3sg+Pnon+Loc
+petrol petrol+Noun+A3sg+Pnon+Nom
+satış sat+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Nom sat+Verb+Recip+Pos+Imp+A2sg
+" "+Punc
+izni izin+Noun+A3sg+P3sg+Nom izin+Noun+A3sg+Pnon+Acc
+veren ver+Verb+Pos^DB+Adj+PresPart vere+Noun+A3sg+P2sg+Nom
+BM'nin Bm+Noun+Prop+A3sg+Pnon+Gen
+987 987+Num+Card
+sayılı sayılı+Adj sayı+Noun+A3sg+Pnon+Nom^DB+Adj+With
+kararı karar+Noun+A3sg+P3sg+Nom kar+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom karar+Noun+A3sg+Pnon+Acc
+Bağdat Bağdat+Noun+Prop+A3sg+Pnon+Nom bağda+Verb^DB+Verb+Caus+Pos+Imp+A2sg
+yönetimine yönetim+Noun+A3sg+P3sg+Dat yönetim+Noun+A3sg+P2sg+Dat
+, ,+Punc
+ilk ilk+Adj ilk+Adverb
+altı altı+Num+Card alt+Noun+A3sg+P3sg+Nom alt+Noun+A3sg+Pnon+Acc
+ay ay+Noun+A3sg+Pnon+Nom ay+Interj ay+Verb+Pos+Imp+A2sg
+içinde iç+Noun+A3sg+P3sg+Loc iç+Noun+A3sg+P2sg+Loc
+2 2+Num+Card
+milyar milyar+Num+Card
+dolar dolar+Noun+A3sg+Pnon+Nom do+Noun+A3pl+Pnon+Nom dol+Verb+Pos+Aor+A3sg dol+Verb+Pos+Aor^DB+Adj+Zero dola+Verb+Pos+Aor+A3sg dola+Verb+Pos+Aor^DB+Adj+Zero
+değerinde değer+Noun+A3sg+P3sg+Loc değ+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Loc değ+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Loc değer+Noun+A3sg+P2sg+Loc
+petrol petrol+Noun+A3sg+Pnon+Nom
+satmasına sat+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Dat
+izin izin+Noun+A3sg+Pnon+Nom iz+Noun+A3sg+Pnon+Gen iz+Noun+A3sg+P2sg+Nom
+veriyor ver+Verb+Pos+Prog1+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Kendisine kendi+Pron+Reflex+A3sg+P3sg+Dat
+tanınan tanı+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart
+petrol petrol+Noun+A3sg+Pnon+Nom
+satış sat+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Nom sat+Verb+Recip+Pos+Imp+A2sg
+kotasını kota+Noun+A3sg+P3sg+Acc
+dolduracak dol+Verb^DB+Verb+Caus+Pos^DB+Adj+FutPart+Pnon dol+Verb^DB+Verb+Caus+Pos+Fut+A3sg
+kadar kadar+Postp+PCDat kadar+Noun+A3sg+Pnon+Nom
+sözleşme sözleşme+Noun+A3sg+Pnon+Nom sözleş+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom sözleş+Verb+Neg+Imp+A2sg söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Neg+Imp+A2sg söz+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom
+imzalayan imzala+Verb+Pos^DB+Adj+PresPart
+Irak'ın Irak+Noun+Prop+A3sg+Pnon+Gen Irak+Noun+Prop+A3sg+P2sg+Nom
+birkaç birkaç+Det
+ay ay+Noun+A3sg+Pnon+Nom ay+Interj ay+Verb+Pos+Imp+A2sg
+içinde iç+Noun+A3sg+P3sg+Loc iç+Noun+A3sg+P2sg+Loc
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+kotanın kota+Noun+A3sg+Pnon+Gen kota+Noun+A3sg+P2sg+Gen kotan+Noun+A3sg+P2sg+Nom kotan+Noun+A3sg+Pnon+Gen
+üzerine üzer+Noun+A3sg+P3sg+Dat üzer+Noun+A3sg+P2sg+Dat üz+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Dat üz+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Dat
+çıkacak çık+Verb+Pos^DB+Adj+FutPart+Pnon çık+Verb+Pos+Fut+A3sg
+kadar kadar+Postp+PCDat kadar+Noun+A3sg+Pnon+Nom
+taleple talep+Noun+A3sg+Pnon+Ins
+karşılaşacağı karşılaş+Verb+Pos^DB+Adj+FutPart+P3sg karşıla+Verb+Recip+Pos^DB+Adj+FutPart+P3sg karşıla+Verb+Recip+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom karşılaş+Verb+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom karşı+Adj^DB+Verb+Become+Pos^DB+Adj+FutPart+P3sg karşı+Adj^DB+Verb+Become+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom karşı+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Adj+FutPart+P3sg karşı+Noun+A3sg+Pnon+Nom^DB+Verb+Become+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom
+ve ve+Conj
+BM'den Bm+Noun+Prop+A3sg+Pnon+Abl
+, ,+Punc
+kotanın kota+Noun+A3sg+Pnon+Gen kota+Noun+A3sg+P2sg+Gen kotan+Noun+A3sg+P2sg+Nom kotan+Noun+A3sg+Pnon+Gen
+arttırılmasını art+Verb^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3sg+P3sg+Acc
+isteyeceği iste+Verb+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom iste+Verb+Pos^DB+Adj+FutPart+P3sg
+belirtiliyor belir+Verb^DB+Verb+Caus^DB+Verb+Pass+Pos+Prog1+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Ancak ancak+Conj ancak+Adverb
+başta baş+Noun+A3sg+Pnon+Loc başta+Adverb
+ABD Abd+Noun+Prop+A3sg+Pnon+Nom
+olmak ol+Verb+Pos^DB+Noun+Inf1+A3sg+Pnon+Nom
+üzere üzere+Postp+PCNom
+BM bm+Noun+A3sg+Pnon+Nom
+Güvenlik güvenlik+Noun+A3sg+Pnon+Nom güven+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor güven+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+Konseyi'ne Konsey+Noun+Prop+A3sg+P3sg+Dat
+üye üye+Noun+A3sg+Pnon+Nom
+ülkelerin ülke+Noun+A3pl+Pnon+Gen ülke+Noun+A3pl+P2sg+Nom
+diplomatları diplomat+Noun+A3pl+P3pl+Nom diplomat+Noun+A3sg+P3pl+Nom diplomat+Noun+A3pl+Pnon+Acc diplomat+Noun+A3pl+P3sg+Nom
+ilk ilk+Adj ilk+Adverb
+altı altı+Num+Card alt+Noun+A3sg+P3sg+Nom alt+Noun+A3sg+Pnon+Acc
+aylık ay+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor aylık+Noun+A3sg+Pnon+Nom ay+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+süre süre+Noun+A3sg+Pnon+Nom sür+Verb+Pos+Opt+A3sg
+doluncaya dol+Verb+Pos^DB+Adverb+When^DB+Noun+Zero+A3sg+Pnon+Dat
+kadar kadar+Postp+PCDat kadar+Noun+A3sg+Pnon+Nom
+Irak'ın Irak+Noun+Prop+A3sg+Pnon+Gen Irak+Noun+Prop+A3sg+P2sg+Nom
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+talebini talep+Noun+A3sg+P3sg+Acc talep+Noun+A3sg+P2sg+Acc
+gözönüne gözön+Noun+A3sg+P3sg+Dat gözön+Noun+A3sg+P2sg+Dat
+bile bile+Adverb bil+Verb+Pos+Opt+A3sg bile+Verb+Pos+Imp+A2sg
+almayacaklarını al+Verb+Neg^DB+Noun+FutPart+A3pl+P3pl+Acc al+Verb+Neg^DB+Noun+FutPart+A3sg+P3pl+Acc al+Verb+Neg^DB+Noun+FutPart+A3pl+P3sg+Acc al+Verb+Neg^DB+Noun+FutPart+A3pl+P2sg+Acc
+bildirdiler bil+Verb^DB+Verb+Caus+Pos+Past+A3pl
+</S> </S>+ESTag
+<S> <S>+BSTag
+Bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+nedenle neden+Noun+A3sg+Pnon+Ins
+, ,+Punc
+aralarında ara+Noun+A3pl+P3pl+Loc arala+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Loc arala+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Loc ara+Noun+A3sg+P3pl+Loc ara+Noun+A3pl+P3sg+Loc ara+Noun+A3pl+P2sg+Loc
+ABD'nin Abd+Noun+Prop+A3sg+Pnon+Gen
+TEACO teaco+Noun+A3sg+Pnon+Nom
+Inc ınc+Noun+A3sg+Pnon+Nom
+. .+Punc
+, ,+Punc
+İtalya'nın İtalya+Noun+Prop+A3sg+Pnon+Gen İtalya+Noun+Prop+A3sg+P2sg+Gen
+AGIP agıp+Noun+A3sg+Pnon+Nom
+SPA spa+Noun+A3sg+Pnon+Nom sp+Noun+A3sg+Pnon+Dat
+ve ve+Conj
+Japonya'nın Japonya+Noun+Prop+A3sg+Pnon+Gen Japonya+Noun+Prop+A3sg+P2sg+Gen
+Mitsubishi Mitsubishi+Noun+Prop+A3sg+Pnon+Nom
+Corp corp+Noun+A3sg+Pnon+Nom
+. .+Punc
+' '+Punc
+un un+Noun+A3sg+Pnon+Nom
+da da+Conj
+bulunduğu bulun+Verb+Pos^DB+Adj+PastPart+P3sg bul+Verb^DB+Verb+Pass+Pos^DB+Adj+PastPart+P3sg bul+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+dünya dünya+Noun+A3sg+Pnon+Nom
+çapındaki çap+Noun+A3sg+P3sg+Loc^DB+Adj+Rel çap+Noun+A3sg+P2sg+Loc^DB+Adj+Rel
+pek pek+Adverb
+çok çok+Adj çok+Det çok+Adverb çok+Postp+PCAbl
+şirket şirket+Noun+A3sg+Pnon+Nom
+Irak'ın Irak+Noun+Prop+A3sg+Pnon+Gen Irak+Noun+Prop+A3sg+P2sg+Nom
+, ,+Punc
+BM'nin Bm+Noun+Prop+A3sg+Pnon+Gen
+tanıdığı tanı+Verb+Pos^DB+Adj+PastPart+P3sg tanıdık+Noun+A3sg+Pnon+Acc tanıdık+Noun+A3sg+P3sg+Nom tanı+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+parametreler parametre+Noun+A3pl+Pnon+Nom
+içinde iç+Noun+A3sg+P3sg+Loc iç+Noun+A3sg+P2sg+Loc
+kalabilmek kal+Verb+Pos^DB+Verb+Able^DB+Noun+Inf1+A3sg+Pnon+Nom
+için için+Postp+PCNom iç+Noun+A3sg+P2sg+Nom iç+Noun+A3sg+Pnon+Gen iç+Verb+Pos+Imp+A2pl
+Ocak ocak+Noun+A3sg+Pnon+Nom Ocak+Noun+Prop+A3sg+Pnon+Nom
+ayı ay+Noun+A3sg+P3sg+Nom ay+Noun+A3sg+Pnon+Acc ayı+Noun+A3sg+Pnon+Nom
+hacimlerini hacim+Noun+A3pl+P3sg+Acc hacim+Noun+A3pl+P2sg+Acc hacim+Noun+A3pl+P3pl+Acc hacim+Noun+A3sg+P3pl+Acc
+yarı yarı+Noun+A3sg+Pnon+Nom yar+Noun+A3sg+P3sg+Nom yar+Noun+A3sg+Pnon+Acc yarı+Adj
+yarıya yarı+Noun+A3sg+Pnon+Dat
+azalttığını azal+Verb^DB+Verb+Caus+Pos^DB+Noun+PastPart+A3sg+P3sg+Acc azal+Verb^DB+Verb+Caus+Pos^DB+Noun+PastPart+A3sg+P2sg+Acc
+bildirdi bil+Verb^DB+Verb+Caus+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+açıklama açıkla+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom açıkla+Verb+Neg+Imp+A2sg
+, ,+Punc
+piyasalara piyasa+Noun+A3pl+Pnon+Dat
+, ,+Punc
+" "+Punc
+Irak'tan Irak+Noun+Prop+A3sg+Pnon+Abl
+beklenenden bekle+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+Pnon+Abl bek+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+Pnon+Abl
+daha daha+Adverb
+az az+Adj az+Adverb az+Verb+Pos+Imp+A2sg az+Postp+PCAbl
+miktarda miktar+Noun+A3sg+Pnon+Loc
+petrol petrol+Noun+A3sg+Pnon+Nom
+akacağı ak+Verb+Pos^DB+Noun+FutPart+A3sg+P3sg+Nom ak+Verb+Pos^DB+Adj+FutPart+P3sg
+" "+Punc
+sinyalini sinyal+Noun+A3sg+P3sg+Acc sinyal+Noun+A3sg+P2sg+Acc
+verince ver+Verb+Pos^DB+Adverb+When veri+Noun+A3sg+P2sg+Equ
+, ,+Punc
+fiyatları fiyat+Noun+A3pl+P3sg+Nom fiyatla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom fiyat+Noun+A3pl+P3pl+Nom fiyat+Noun+A3sg+P3pl+Nom fiyat+Noun+A3pl+Pnon+Acc
+yükseltici yüksel+Verb^DB+Verb+Caus+Pos^DB+Noun+Agt+A3sg+Pnon+Nom yükseltici+Noun+A3sg+Pnon+Nom yükselti+Noun+A3sg+Pnon+Nom^DB+Adj+Agt yükselti+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Nom yüksel+Verb^DB+Verb+Caus+Pos^DB+Adj+Agt
+bir bir+Det bir+Adverb bir+Adj bir+Num+Card
+etki etki+Noun+A3sg+Pnon+Nom etki+Verb+Pos+Imp+A2sg
+yaptı yap+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Irak Irak+Noun+Prop+A3sg+Pnon+Nom ırak+Adj
+, ,+Punc
+petrol petrol+Noun+A3sg+Pnon+Nom
+fiyatları fiyat+Noun+A3pl+P3sg+Nom fiyatla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Nom fiyat+Noun+A3pl+P3pl+Nom fiyat+Noun+A3sg+P3pl+Nom fiyat+Noun+A3pl+Pnon+Acc
+arttığı art+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom art+Verb+Pos^DB+Adj+PastPart+P3sg
+sürece süre+Noun+A3sg+Pnon+Equ süreç+Noun+A3sg+Pnon+Dat
+2 2+Num+Card
+milyon milyon+Num+Card
+dolarlık dolar+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor dol+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Ness+A3sg+Pnon+Nom dola+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Ness+A3sg+Pnon+Nom dolar+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+satış sat+Verb+Pos^DB+Noun+Inf3+A3sg+Pnon+Nom sat+Verb+Recip+Pos+Imp+A2sg
+sınırını sınır+Noun+A3sg+P3sg+Acc sınır+Noun+A3sg+P2sg+Acc
+aşmamak aş+Verb+Neg^DB+Noun+Inf1+A3sg+Pnon+Nom
+için için+Postp+PCNom iç+Noun+A3sg+P2sg+Nom iç+Noun+A3sg+Pnon+Gen iç+Verb+Pos+Imp+A2pl
+, ,+Punc
+daha daha+Adverb
+az az+Adj az+Adverb az+Verb+Pos+Imp+A2sg az+Postp+PCAbl
+petrol petrol+Noun+A3sg+Pnon+Nom
+satmak sat+Verb+Pos^DB+Noun+Inf1+A3sg+Pnon+Nom
+zorunda zor+Adj^DB+Noun+Zero+A3sg+P3sg+Loc zor+Adj^DB+Noun+Zero+A3sg+P2sg+Loc
+kalacak kal+Verb+Pos+Fut+A3sg kal+Verb+Pos^DB+Adj+FutPart+Pnon
+</S> </S>+ESTag
+<S> <S>+BSTag
+Bakan bakan+Noun+A3sg+Pnon+Nom bak+Verb+Pos^DB+Adj+PresPart Bakan+Noun+Prop+A3sg+Pnon+Nom bakan+Adj
+Çelik'ten Çelik+Noun+Prop+A3sg+Pnon+Abl
+sendikacıya sendika+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Dat
+suç suç+Noun+A3sg+Pnon+Nom
+duyurusu duyuru+Noun+A3sg+P3sg+Nom duyuru+Noun^DB+Adj+Almost
+</S> </S>+ESTag
+<S> <S>+BSTag
+ÇALIŞMA çalış+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom çalış+Verb+Neg+Imp+A2sg çalış+Verb+Pos^DB+Noun+Inf+A3sg+Pnon+Nom
+ve ve+Conj
+Sosyal sosyal+Adj Sosyal+Noun+Prop+A3sg+Pnon+Nom
+Güvenlik güvenlik+Noun+A3sg+Pnon+Nom güven+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor güven+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+Bakanı bakan+Noun+A3sg+P3sg+Nom bak+Verb+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+P3sg+Nom bak+Verb+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3sg+Pnon+Acc bakan+Noun+A3sg+Pnon+Acc
+Necati Necati+Noun+Prop+A3sg+Pnon+Nom
+Çelik Çelik+Noun+Prop+A3sg+Pnon+Nom çelik+Noun+A3sg+Pnon+Nom çelik+Adj
+, ,+Punc
+kendisine kendi+Pron+Reflex+A3sg+P3sg+Dat
+hakaret hakaret+Noun+A3sg+Pnon+Nom
+ettiği et+Verb+Pos^DB+Adj+PastPart+P3sg et+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+ve ve+Conj
+suçlamalarda suçla+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Loc
+bulunduğu bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom bul+Verb^DB+Verb+Pass+Pos^DB+Adj+PastPart+P3sg bul+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom bulun+Verb+Pos^DB+Adj+PastPart+P3sg
+gerekçesiyle gerekçe+Noun+A3sg+P3sg+Ins
+, ,+Punc
+Türkiye Türkiye+Noun+Prop+A3sg+Pnon+Nom türki+Adj^DB+Noun+Zero+A3sg+Pnon+Dat
+Kamu kamu+Noun+A3sg+Pnon+Nom
+- -+Punc
+Sen sen+Pron+Pers+A2sg+Pnon+Nom
+Genel genel+Adj Genel+Noun+Prop+A3sg+Pnon+Nom
+Başkanı başkan+Noun+A3sg+P3sg+Nom başka+Adj^DB+Noun+Zero+A3sg+P2sg+Acc başka+Postp+PCAbl^DB+Noun+Zero+A3sg+P2sg+Acc başkan+Noun+A3sg+Pnon+Acc
+Resul Resul+Noun+Prop+A3sg+Pnon+Nom resul+Noun+A3sg+Pnon+Nom
+Akay Akay+Noun+Prop+A3sg+Pnon+Nom
+hakkında hak+Noun+A3sg+P3sg+Loc hak+Noun+A3sg+P2sg+Loc
+suç suç+Noun+A3sg+Pnon+Nom
+duyurusunda duyuru+Noun+A3sg+P3sg+Loc
+bulundu bulun+Verb+Pos+Past+A3sg bul+Verb^DB+Verb+Pass+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Çelik Çelik+Noun+Prop+A3sg+Pnon+Nom çelik+Noun+A3sg+Pnon+Nom çelik+Adj
+, ,+Punc
+Ankara Ankara+Noun+Prop+A3sg+Pnon+Nom
+Cumhuriyet cumhuriyet+Noun+A3sg+Pnon+Nom Cumhuriyet+Noun+Prop+A3sg+Pnon+Nom
+Savcılığı'na Savcılık+Noun+Prop+A3sg+P3sg+Dat
+verdiği ver+Verb+Pos^DB+Adj+PastPart+P3sg ver+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+suç suç+Noun+A3sg+Pnon+Nom
+duyurusu duyuru+Noun+A3sg+P3sg+Nom duyuru+Noun^DB+Adj+Almost
+dilekçesinde dilekçe+Noun+A3sg+P3sg+Loc
+, ,+Punc
+Akay'ın Akay+Noun+Prop+A3sg+Pnon+Gen Akay+Noun+Prop+A3sg+P2sg+Nom
+, ,+Punc
+" "+Punc
+yaptığı yap+Verb+Pos^DB+Adj+PastPart+P3sg yap+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+açıklamalarda açıkla+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Loc
+kendisine kendi+Pron+Reflex+A3sg+P3sg+Dat
+hakarette hakaret+Noun+A3sg+Pnon+Loc
+ve ve+Conj
+suçlamalarda suçla+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Loc
+bulunduğunu bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Acc bul+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Acc bul+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P2sg+Acc bulun+Verb+Pos^DB+Noun+PastPart+A3sg+P2sg+Acc
+" "+Punc
+ifade ifade+Noun+A3sg+Pnon+Nom
+etti et+Verb+Pos+Past+A3sg et+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Suç suç+Noun+A3sg+Pnon+Nom
+duyurusu duyuru+Noun+A3sg+P3sg+Nom duyuru+Noun^DB+Adj+Almost
+üzerine üzer+Noun+A3sg+P3sg+Dat üzer+Noun+A3sg+P2sg+Dat üz+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Dat üz+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Dat
+Çankaya Çankaya+Noun+Prop+A3sg+Pnon+Nom
+Karakolu'nda Karakol+Noun+Prop+A3sg+P3sg+Loc
+ifade ifade+Noun+A3sg+Pnon+Nom
+veren ver+Verb+Pos^DB+Adj+PresPart vere+Noun+A3sg+P2sg+Nom
+Akay Akay+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Çelik'e Çelik+Noun+Prop+A3sg+Pnon+Dat
+hakarette hakaret+Noun+A3sg+Pnon+Loc
+bulunmadığını bulun+Verb+Neg^DB+Noun+PastPart+A3sg+P3sg+Acc bul+Verb^DB+Verb+Pass+Neg^DB+Noun+PastPart+A3sg+P3sg+Acc bul+Verb^DB+Verb+Pass+Neg^DB+Noun+PastPart+A3sg+P2sg+Acc bulun+Verb+Neg^DB+Noun+PastPart+A3sg+P2sg+Acc
+, ,+Punc
+eski eski+Adj eski+Verb+Pos+Imp+A2sg
+bir bir+Det bir+Adverb bir+Adj bir+Num+Card
+sendikacı sendika+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Nom sendika+Noun+A3sg+Pnon+Nom^DB+Adj+Agt
+olmasından ol+Verb+Pos^DB+Noun+Inf2+A3sg+P3sg+Abl
+dolayı dolayı+Postp+PCAbl dolay+Noun+A3sg+P3sg+Nom dolay+Noun+A3sg+Pnon+Acc dolayı+Noun+A3sg+Pnon+Nom
+kendisi kendi+Pron+Reflex+A3sg+P3sg+Nom
+ile ile+Postp+PCNom il+Noun+A3sg+Pnon+Dat ile+Conj
+dost dost+Noun+A3sg+Pnon+Nom dost+Adj
+olduğunu ol+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Acc ol+Verb+Pos^DB+Noun+PastPart+A3sg+P2sg+Acc
+söyledi söyle+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Öte öte+Noun+A3sg+Pnon+Nom öt+Verb+Pos+Opt+A3sg Öte+Noun+Prop+A3sg+Pnon+Nom öte+Noun+A3sg+Pnon+Dat öte+Postp+PCAbl
+yandan yan+Noun+A3sg+Pnon+Abl
+, ,+Punc
+Çelik'in Çelik+Noun+Prop+A3sg+Pnon+Gen Çelik+Noun+Prop+A3sg+P2sg+Nom Çelik+Noun+Prop+A3sg+P2sg+Nom
+, ,+Punc
+kendisine kendi+Pron+Reflex+A3sg+P3sg+Dat
+hakaret hakaret+Noun+A3sg+Pnon+Nom
+ettiği et+Verb+Pos^DB+Adj+PastPart+P3sg et+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+gerekçesiyle gerekçe+Noun+A3sg+P3sg+Ins
+Akay Akay+Noun+Prop+A3sg+Pnon+Nom
+ile ile+Conj il+Noun+A3sg+Pnon+Dat ile+Postp+PCNom
+Türkiye Türkiye+Noun+Prop+A3sg+Pnon+Nom türki+Adj^DB+Noun+Zero+A3sg+Pnon+Dat
+Kamu kamu+Noun+A3sg+Pnon+Nom
+- -+Punc
+Sen sen+Pron+Pers+A2sg+Pnon+Nom
+İstanbul İstanbul+Noun+Prop+A3sg+Pnon+Nom
+Temsilcisi temsilci+Noun+A3sg+P3sg+Nom temsilci+Noun^DB+Adj+Almost temsil+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+P3sg+Nom temsil+Noun+A3sg+Pnon+Nom^DB+Noun+Agt^DB+Adj+Almost
+Hanefi Hanefi+Noun+Prop+A3sg+Pnon+Nom
+Bostancı Bostancı+Noun+Prop+A3sg+Pnon+Nom bostan+Noun+A3sg+Pnon+Nom^DB+Adj+Agt bostan+Noun+A3sg+Pnon+Nom^DB+Noun+Agt+A3sg+Pnon+Nom
+hakkında hak+Noun+A3sg+P3sg+Loc hak+Noun+A3sg+P2sg+Loc
+1'er 1+Num+Distrib
+milyar milyar+Num+Card
+lira lira+Noun+A3sg+Pnon+Nom
+tazminat tazminat+Noun+A3sg+Pnon+Nom
+istemiyle istem+Noun+A3sg+P3sg+Ins
+açtığı aç+Verb+Pos^DB+Adj+PastPart+P3sg aç+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+davanın dava+Noun+A3sg+Pnon+Gen dava+Noun+A3sg+P2sg+Gen
+ilk ilk+Adj ilk+Adverb
+duruşması duruşma+Noun+A3sg+P3sg+Nom dur+Verb+Recip+Pos^DB+Noun+Inf2^DB+Adj+Almost dur+Verb+Recip+Pos^DB+Noun+Inf2+A3sg+P3sg+Nom duruşma+Noun^DB+Adj+Almost
+ise i+Verb+Pos+Cond+A3sg is+Noun+A3sg+Pnon+Dat
+11 11+Num+Card
+Mart'ta Mart+Noun+Prop+A3sg+Pnon+Loc
+Ankara'da Ankara+Noun+Prop+A3sg+Pnon+Loc
+yapılacak yap+Verb^DB+Verb+Pass+Pos+Fut+A3sg yap+Verb^DB+Verb+Pass+Pos^DB+Adj+FutPart+Pnon
+</S> </S>+ESTag
+</DOC> </DOC>+EDTag
+<DOC> <DOC>+BDTag
+<TITLE> <TITLE>+BTTag
+<S> <S>+BSTag
+Refah'ın Refah+Noun+Prop+A3sg+Pnon+Gen Refah+Noun+Prop+A3sg+P2sg+Nom Refah+Noun+Prop+A3sg+P2sg+Nom
+boy boy+Noun+A3sg+Pnon+Nom
+hedefi hedef+Noun+A3sg+P3sg+Nom hedef+Noun+A3sg+Pnon+Acc
+rektörler rektör+Noun+A3pl+Pnon+Nom
+</S> </S>+ESTag
+</TITLE> </TITLE>+ETTag
+<S> <S>+BSTag
+HÜKÜMETTE hükümet+Noun+A3sg+Pnon+Loc
+türbana türban+Noun+A3sg+Pnon+Dat
+serbestlik serbest+Adj^DB+Noun+Ness+A3sg+Pnon+Nom
+getirme getir+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom getir+Verb+Neg+Imp+A2sg
+girişimiyle girişim+Noun+A3sg+P3sg+Ins
+başlayan başla+Verb+Pos^DB+Adj+PresPart
+kriz kriz+Noun+A3sg+Pnon+Nom
+büyürken büyü+Verb+Pos+Aor^DB+Adverb+While
+, ,+Punc
+RP'de Rp+Noun+Prop+A3sg+Pnon+Loc
+hazırlanan hazırla+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart hazırla+Verb+Reflex+Pos^DB+Adj+PresPart hazır+Adj^DB+Verb+Acquire+Pos^DB+Adj+PresPart
+bir bir+Det bir+Adverb bir+Adj bir+Num+Card
+rapor rapor+Noun+A3sg+Pnon+Nom
+, ,+Punc
+Türkiye Türkiye+Noun+Prop+A3sg+Pnon+Nom türki+Adj^DB+Noun+Zero+A3sg+Pnon+Dat
+çapındaki çap+Noun+A3sg+P3sg+Loc^DB+Adj+Rel çap+Noun+A3sg+P2sg+Loc^DB+Adj+Rel
+61 61+Num+Card
+üniversiteden üniversite+Noun+A3sg+Pnon+Abl
+yalnızca yalnızca+Adverb yalnız+Adj^DB+Adverb+Ly yalnız+Adj^DB+Adj+AsIf yalnız+Adj^DB+Noun+Zero+A3sg+Pnon+Equ
+5'inde 5+Num+Card^DB+Noun+Zero+A3sg+P3sg+Loc 5+Num+Card^DB+Noun+Zero+A3sg+P2sg+Loc
+türban türban+Noun+A3sg+Pnon+Nom
+ve ve+Conj
+başörtüsüne başörtü+Noun+A3sg+P3sg+Dat
+izin izin+Noun+A3sg+Pnon+Nom iz+Noun+A3sg+Pnon+Gen iz+Noun+A3sg+P2sg+Nom
+verilmediğini ver+Verb^DB+Verb+Pass+Neg^DB+Noun+PastPart+A3sg+P3sg+Acc ver+Verb^DB+Verb+Pass+Neg^DB+Noun+PastPart+A3sg+P2sg+Acc
+ortaya orta+Noun+A3sg+Pnon+Dat ortay+Noun+A3sg+Pnon+Dat
+çıkardı çık+Verb^DB+Verb+Caus+Pos+Past+A3sg çık+Verb+Pos+Aor+Past+A3sg çıkar+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+RP rp+Noun+A3sg+Pnon+Nom
+, ,+Punc
+YÖK yök+Noun+A3sg+Pnon+Nom
+Başkanı başkan+Noun+A3sg+P3sg+Nom başka+Adj^DB+Noun+Zero+A3sg+P2sg+Acc başka+Postp+PCAbl^DB+Noun+Zero+A3sg+P2sg+Acc başkan+Noun+A3sg+Pnon+Acc
+Kemal Kemal+Noun+Prop+A3sg+Pnon+Nom kemal+Noun+A3sg+Pnon+Nom
+Gürüz'le Gürüz+Noun+Prop+A3sg+Pnon+Ins
+birlikte birlikte+Postp+PCIns birlikte+Adverb birlik+Noun+A3sg+Pnon+Loc bir+Adj^DB+Noun+Ness+A3sg+Pnon+Loc bir+Num+Card^DB+Noun+Ness+A3sg+Pnon+Loc
+türban türban+Noun+A3sg+Pnon+Nom
+yasağı yasak+Noun+A3sg+P3sg+Nom yasak+Noun+A3sg+Pnon+Acc
+uyguladıkları uygula+Verb+Pos^DB+Noun+PastPart+A3sg+P3pl+Nom uygula+Verb+Pos^DB+Adj+PastPart+P3pl uygula+Verb+Pos^DB+Noun+PastPart+A3pl+P3pl+Nom uygula+Verb+Pos^DB+Noun+PastPart+A3pl+P3sg+Nom
+gerekçesiyle gerekçe+Noun+A3sg+P3sg+Ins
+ODTÜ odtü+Noun+A3sg+Pnon+Nom
+, ,+Punc
+Hacettepe Hacettepe+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Gazi Gazi+Noun+Prop+A3sg+Pnon+Nom gazi+Noun+A3sg+Pnon+Nom gazi+Adj
+, ,+Punc
+İstanbul İstanbul+Noun+Prop+A3sg+Pnon+Nom
+ve ve+Conj
+Ege Ege+Noun+Prop+A3sg+Pnon+Nom ege+Noun+A3sg+Pnon+Nom
+üniversitelerinin üniversite+Noun+A3pl+P3sg+Gen üniversite+Noun+A3pl+P2sg+Gen üniversite+Noun+A3pl+P3pl+Gen üniversite+Noun+A3sg+P3pl+Gen
+rektörlerini rektör+Noun+A3pl+P3pl+Acc rektör+Noun+A3pl+P3sg+Acc rektör+Noun+A3pl+P2sg+Acc rektör+Noun+A3sg+P3pl+Acc
+hedef hedef+Noun+A3sg+Pnon+Nom
+seçti seç+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+RP'li Rp+Noun+Prop+A3sg+Pnon+Nom^DB+Adj+With Rp+Noun+Prop+A3sg+Pnon+Nom^DB+Adj+With^DB+Noun+Zero+A3sg+Pnon+Nom
+öğretim öğretim+Noun+A3sg+Pnon+Nom öğreti+Noun+A3sg+P1sg+Nom
+üyelerinin üye+Noun+A3pl+P3sg+Gen üye+Noun+A3pl+P2sg+Gen üye+Noun+A3pl+P3pl+Gen üye+Noun+A3sg+P3pl+Gen
+oluşturduğu oluş+Verb^DB+Verb+Caus+Pos^DB+Adj+PastPart+P3sg oluş+Verb^DB+Verb+Caus+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+ekonomik ekonomik+Adj
+ve ve+Conj
+sosyal sosyal+Adj
+araştırmalar araştır+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Nom ara+Verb+Recip^DB+Verb+Caus+Pos^DB+Noun+Inf2+A3pl+Pnon+Nom
+merkezi merkez+Noun+A3sg+P3sg+Nom merkez+Noun+A3sg+Pnon+Acc merkezi+Adj
+( (+Punc
+ESAM esam+Noun+A3sg+Pnon+Nom esa+Noun+A3sg+P1sg+Nom
+) )+Punc
+ve ve+Conj
+gençlik gençlik+Noun+A3sg+Pnon+Nom genç+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor genç+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom genç+Adj^DB+Noun+Ness+A3sg+Pnon+Nom
+örgütü örgüt+Noun+A3sg+P3sg+Nom örgüt+Noun+A3sg+Pnon+Acc
+Milli milli+Adj Milli+Noun+Prop+A3sg+Pnon+Nom mil+Noun+A3sg+Pnon+Nom^DB+Adj+With
+Gençlik gençlik+Noun+A3sg+Pnon+Nom Gençlik+Noun+Prop+A3sg+Pnon+Nom genç+Adj^DB+Noun+Ness+A3sg+Pnon+Nom genç+Noun+A3sg+Pnon+Nom^DB+Adj+FitFor genç+Noun+A3sg+Pnon+Nom^DB+Noun+Ness+A3sg+Pnon+Nom
+Vakfı'nın Vakıf+Noun+Prop+A3sg+P3sg+Gen
+( (+Punc
+MGV mgv+Noun+A3sg+Pnon+Nom
+) )+Punc
+ulaştırdığı ulaş+Verb^DB+Verb+Caus+Pos^DB+Adj+PastPart+P3sg ula+Verb+Recip^DB+Verb+Caus+Pos^DB+Adj+PastPart+P3sg ula+Verb+Recip^DB+Verb+Caus+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom ulaş+Verb^DB+Verb+Caus+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+bilgilerle bilgi+Noun+A3pl+Pnon+Ins
+hazırlanan hazırla+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart hazırla+Verb+Reflex+Pos^DB+Adj+PresPart hazır+Adj^DB+Verb+Acquire+Pos^DB+Adj+PresPart
+" "+Punc
+üniversiteler üniversite+Noun+A3pl+Pnon+Nom
+ve ve+Conj
+başörtüsü başörtü+Noun+A3sg+P3sg+Nom başörtü+Noun^DB+Adj+Almost
+" "+Punc
+konulu konu+Noun+A3sg+Pnon+Nom^DB+Adj+With
+rapor rapor+Noun+A3sg+Pnon+Nom
+, ,+Punc
+üniversitelerdeki üniversite+Noun+A3pl+Pnon+Loc^DB+Adj+Rel
+türban türban+Noun+A3sg+Pnon+Nom
+yasağının yasak+Noun+A3sg+P3sg+Gen yasak+Noun+A3sg+P2sg+Gen
+RP'nin Rp+Noun+Prop+A3sg+Pnon+Gen
+savunduğu savun+Verb+Pos^DB+Adj+PastPart+P3sg savun+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+yaygınlıkta yaygın+Adj^DB+Noun+Ness+A3sg+Pnon+Loc
+olmadığını ol+Verb+Neg^DB+Noun+PastPart+A3sg+P3sg+Acc ol+Verb+Neg^DB+Noun+PastPart+A3sg+P2sg+Acc
+ortaya orta+Noun+A3sg+Pnon+Dat ortay+Noun+A3sg+Pnon+Dat
+koydu koy+Verb+Pos+Past+A3sg koy+Noun+A3sg+Pnon+Nom^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Raporda rapor+Noun+A3sg+Pnon+Loc
+, ,+Punc
+türban türban+Noun+A3sg+Pnon+Nom
+ve ve+Conj
+başörtüsü başörtü+Noun+A3sg+P3sg+Nom başörtü+Noun^DB+Adj+Almost
+yasağının yasak+Noun+A3sg+P3sg+Gen yasak+Noun+A3sg+P2sg+Gen
+uygulandığı uygula+Verb^DB+Verb+Pass+Pos^DB+Adj+PastPart+P3sg uygula+Verb^DB+Verb+Pass+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+üniversitelerin üniversite+Noun+A3pl+Pnon+Gen üniversite+Noun+A3pl+P2sg+Nom
+en en+Adverb en+Noun+A3sg+Pnon+Nom
+fazla fazla+Adj faz+Noun+A3sg+Pnon+Ins fazla+Adverb fazla+Postp+PCAbl
+öğrenciye öğrenci+Noun+A3sg+Pnon+Dat
+sahip sahip+Noun+A3sg+Pnon+Nom
+olmalarına ol+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Dat ol+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Dat ol+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Dat ol+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Dat
+da da+Conj
+dikkat dikkat+Noun+A3sg+Pnon+Nom
+çekildi çek+Verb^DB+Verb+Pass+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Raporda rapor+Noun+A3sg+Pnon+Loc
+TBMM'de Tbmm+Noun+Prop+A3sg+Pnon+Loc
+önceki önce+Noun+A3sg+Pnon+Nom^DB+Adj+Rel önce+Postp+PCAbl^DB+Noun+Zero+A3sg+Pnon+Nom^DB+Adj+Rel
+gün gün+Noun+A3sg+Pnon+Nom
+YÖK yök+Noun+A3sg+Pnon+Nom
+yasasında yasa+Noun+A3sg+P3sg+Loc yas+Verb+Pos^DB+Noun+FeelLike+A3sg+P2sg+Loc
+sağlanan sağla+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart sağ+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos^DB+Adj+PresPart
+değişiklikten değişik+Adj^DB+Noun+Ness+A3sg+Pnon+Abl
+sonra sonra+Postp+PCAbl sonra+Adverb sonra+Noun+A3sg+Pnon+Nom
+, ,+Punc
+YÖK yök+Noun+A3sg+Pnon+Nom
+Başkanı başkan+Noun+A3sg+P3sg+Nom başka+Adj^DB+Noun+Zero+A3sg+P2sg+Acc başka+Postp+PCAbl^DB+Noun+Zero+A3sg+P2sg+Acc başkan+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Kemal Kemal+Noun+Prop+A3sg+Pnon+Nom kemal+Noun+A3sg+Pnon+Nom
+Gürüz'le Gürüz+Noun+Prop+A3sg+Pnon+Ins
+birlikte birlikte+Postp+PCIns birlikte+Adverb birlik+Noun+A3sg+Pnon+Loc bir+Adj^DB+Noun+Ness+A3sg+Pnon+Loc bir+Num+Card^DB+Noun+Ness+A3sg+Pnon+Loc
+ODTÜ odtü+Noun+A3sg+Pnon+Nom
+Rektörü rektör+Noun+A3sg+P3sg+Nom rektör+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Süha Süha+Noun+Prop+A3sg+Pnon+Nom
+Sevük Sevük+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Hacettepe Hacettepe+Noun+Prop+A3sg+Pnon+Nom
+Üniversitesi üniversite+Noun+A3sg+P3sg+Nom üniversite+Noun^DB+Adj+Almost
+Rektörü rektör+Noun+A3sg+P3sg+Nom rektör+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Yüksel Yüksel+Noun+Prop+A3sg+Pnon+Nom yüksel+Verb+Pos+Imp+A2sg yük+Noun+A3sg+Pnon+Nom^DB+Adj+Related
+Bozer Bozer+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Gazi Gazi+Noun+Prop+A3sg+Pnon+Nom gazi+Noun+A3sg+Pnon+Nom gazi+Adj
+Üniversitesi üniversite+Noun+A3sg+P3sg+Nom üniversite+Noun^DB+Adj+Almost
+Rektörü rektör+Noun+A3sg+P3sg+Nom rektör+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Enver Enver+Noun+Prop+A3sg+Pnon+Nom
+Hasanoğlu hasanoğlu+Noun+A3sg+Pnon+Nom hasanoğ+Noun+A3sg+Pnon+Nom^DB+Adj+With hasanoğ+Noun+A3sg+Pnon+Nom^DB+Adj+With^DB+Noun+Zero+A3sg+Pnon+Nom hasanoğl+Noun+A3sg+Pnon+Acc hasanoğl+Noun+A3sg+P3sg+Nom
+, ,+Punc
+İstanbul İstanbul+Noun+Prop+A3sg+Pnon+Nom
+Üniversitesi üniversite+Noun+A3sg+P3sg+Nom üniversite+Noun^DB+Adj+Almost
+Rektörü rektör+Noun+A3sg+P3sg+Nom rektör+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Bülent Bülent+Noun+Prop+A3sg+Pnon+Nom
+Berkarda Berkarda+Noun+Prop+A3sg+Pnon+Nom
+ve ve+Conj
+Ege Ege+Noun+Prop+A3sg+Pnon+Nom ege+Noun+A3sg+Pnon+Nom
+Üniversitesi üniversite+Noun+A3sg+P3sg+Nom üniversite+Noun^DB+Adj+Almost
+Rektörü rektör+Noun+A3sg+P3sg+Nom rektör+Noun+A3sg+Pnon+Acc
+Prof. profesör+Noun+A3sg+Pnon+Nom
+Dr. doktor+Noun+A3sg+Pnon+Nom
+Rafet Rafet+Noun+Prop+A3sg+Pnon+Nom
+Saygılı'nın Saygılı+Noun+Prop+A3sg+Pnon+Gen Saygılı+Noun+Prop+A3sg+P2sg+Gen
+, ,+Punc
+mutlaka mutlaka+Adverb
+görevden görev+Noun+A3sg+Pnon+Abl
+alınmaları al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc al+Verb^DB+Verb+Pass+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom alın+Verb+Pos^DB+Noun+Inf2+A3pl+P3pl+Nom alın+Verb+Pos^DB+Noun+Inf2+A3sg+P3pl+Nom alın+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Acc alın+Verb+Pos^DB+Noun+Inf2+A3pl+P3sg+Nom
+istendi iste+Verb^DB+Verb+Pass+Pos+Past+A3sg is+Noun+A3sg+Pnon+Abl^DB+Verb+Zero+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+TEPKİLER tepki+Noun+A3pl+Pnon+Nom
+</S> </S>+ESTag
+<S> <S>+BSTag
+REFAH Refah+Noun+Prop+A3sg+Pnon+Nom refah+Noun+A3sg+Pnon+Nom
+Partisi'nin Parti+Noun+Prop+A3sg+P3sg+Gen
+üniversitelerde üniversite+Noun+A3pl+Pnon+Loc
+türbanı türban+Noun+A3sg+Pnon+Acc türban+Noun+A3sg+P3sg+Nom
+serbest serbest+Adj
+bırakma bırak+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Nom bırak+Verb+Neg+Imp+A2sg
+girişimlerine girişim+Noun+A3pl+P3sg+Dat girişim+Noun+A3pl+P2sg+Dat girişim+Noun+A3pl+P3pl+Dat girişim+Noun+A3sg+P3pl+Dat
+Ankara'daki Ankara+Noun+Prop+A3sg+Pnon+Loc^DB+Adj+Rel
+4 4+Num+Card
+üniversitenin üniversite+Noun+A3sg+Pnon+Gen üniversite+Noun+A3sg+P2sg+Gen
+Tıp tıb+Noun+A3sg+Pnon+Nom
+fakültelerinden fakülte+Noun+A3pl+P3sg+Abl fakülte+Noun+A3pl+P2sg+Abl fakülte+Noun+A3pl+P3pl+Abl fakülte+Noun+A3sg+P3pl+Abl
+büyük büyük+Adj
+tepki tepki+Noun+A3sg+Pnon+Nom tepki+Verb+Pos+Imp+A2sg
+geldi gel+Verb+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Ankara Ankara+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Başkent başkent+Noun+A3sg+Pnon+Nom Başkent+Noun+Prop+A3sg+Pnon+Nom
+, ,+Punc
+Hacettepe Hacettepe+Noun+Prop+A3sg+Pnon+Nom
+ve ve+Conj
+Gazi Gazi+Noun+Prop+A3sg+Pnon+Nom gazi+Noun+A3sg+Pnon+Nom gazi+Adj
+Üniversiteleri üniversite+Noun+A3pl+P3pl+Nom üniversite+Noun+A3pl+Pnon+Acc üniversite+Noun+A3pl+P3sg+Nom üniversite+Noun+A3sg+P3pl+Nom
+Tıp tıb+Noun+A3sg+Pnon+Nom
+Fakülteleri fakülte+Noun+A3pl+P3sg+Nom fakülte+Noun+A3pl+Pnon+Acc fakülte+Noun+A3pl+P3pl+Nom fakülte+Noun+A3sg+P3pl+Nom
+öğretim öğretim+Noun+A3sg+Pnon+Nom öğreti+Noun+A3sg+P1sg+Nom
+üyelerinin üye+Noun+A3pl+P3sg+Gen üye+Noun+A3pl+P2sg+Gen üye+Noun+A3pl+P3pl+Gen üye+Noun+A3sg+P3pl+Gen
+imzasıyla imza+Noun+A3sg+P3sg+Ins
+dün dün+Noun+A3sg+Pnon+Nom
+yapılan yap+Verb^DB+Verb+Pass+Pos^DB+Adj+PresPart yapı+Noun+A3sg+Pnon+Nom^DB+Verb+Acquire+Pos+Imp+A2sg
+yazılı yazılı+Noun+A3sg+Pnon+Nom yazı+Noun+A3sg+Pnon+Nom^DB+Adj+With
+açıklamada açıkla+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Loc
+, ,+Punc
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+girişimlerin girişim+Noun+A3pl+Pnon+Gen girişim+Noun+A3pl+P2sg+Nom
+Cumhuriyeti cumhuriyet+Noun+A3sg+P3sg+Nom cumhuriyet+Noun+A3sg+Pnon+Acc
+temelden temel+Noun+A3sg+Pnon+Abl
+yıkmaya yık+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Dat yık+Verb+Neg+Opt+A3sg
+yönelik yönelik+Postp+PCDat
+boyutlara boyut+Noun+A3pl+Pnon+Dat
+ulaştığı ulaş+Verb+Pos^DB+Adj+PastPart+P3sg ula+Verb+Recip+Pos^DB+Adj+PastPart+P3sg ula+Verb+Recip+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom ulaş+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Nom
+ifade ifade+Noun+A3sg+Pnon+Nom
+edildi et+Verb^DB+Verb+Pass+Pos+Past+A3sg
+</S> </S>+ESTag
+<S> <S>+BSTag
+Açıklamada açıkla+Verb+Pos^DB+Noun+Inf2+A3sg+Pnon+Loc
+, ,+Punc
+insan insan+Noun+A3sg+Pnon+Nom
+haklarının hak+Noun+A3pl+P3sg+Gen hakla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P3sg+Gen hakla+Verb+Pos+Aor^DB+Adj+Zero^DB+Noun+Zero+A3sg+P2sg+Gen hak+Noun+A3pl+P3pl+Gen hak+Noun+A3sg+P3pl+Gen hak+Noun+A3pl+P2sg+Gen
+arkasına arka+Noun+A3sg+P3sg+Dat
+sığınılarak sığın+Verb^DB+Verb+Pass+Pos^DB+Adverb+ByDoingSo
+yürütülen yürü+Verb^DB+Verb+Caus^DB+Verb+Pass+Pos^DB+Adj+PresPart
+bu bu+Det bu+Pron+Demons+A3sg+Pnon+Nom
+çalışmaların çalış+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Gen çalış+Verb+Pos^DB+Noun+Inf2+A3pl+P2sg+Nom
+en en+Adverb en+Noun+A3sg+Pnon+Nom
+somut somut+Adj
+örneğinin örnek+Noun+A3sg+P3sg+Gen örnek+Noun+A3sg+P2sg+Gen
+kıyafet kıyafet+Noun+A3sg+Pnon+Nom
+devrimlerine devrim+Noun+A3pl+P3sg+Dat devrim+Noun+A3pl+P2sg+Dat devrim+Noun+A3pl+P3pl+Dat devrim+Noun+A3sg+P3pl+Dat
+aykırı aykırı+Adj
+düzenlemeler düzenle+Verb+Pos^DB+Noun+Inf2+A3pl+Pnon+Nom
+olduğuna ol+Verb+Pos^DB+Noun+PastPart+A3sg+P3sg+Dat ol+Verb+Pos^DB+Noun+PastPart+A3sg+P2sg+Dat
+dikkat dikkat+Noun+A3sg+Pnon+Nom
+çekildi çek+Verb^DB+Verb+Pass+Pos+Past+A3sg
+</S> </S>+ESTag
+</DOC> </DOC>+EDTag
