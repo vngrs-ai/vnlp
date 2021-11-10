@@ -7,6 +7,7 @@ Consists of:
 - Normalizer
 - Sentence Splitter
 - Stopword Remover
+- Turkish Embeddings
 
 #### ------------------------------------------------------------------------------------------------
 
