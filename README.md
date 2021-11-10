@@ -34,7 +34,9 @@ Consists of:
 #### ------------------------------------------------------------------------------------------------
 
 **Recently DONE**:
-- Use C-based python-Levenshtein (16x speed-up in normalization_via_levenshtein!)
+- Morphological Disambiguation Implementation in Tensorflow 2
+- Turkish Embeddings
+- Use C-based python-Levenshtein (16x speed-up!)
 - NER (CHARNer) is added, with a SOTA denoised Turkish NER dataset!
     - Data collection
     - Data standardization
@@ -69,13 +71,11 @@ Consists of:
 - Create requirements.txt
 
 **Currently Working on:**
-- Turkish Embeddings
+
 
 **TODO:**
-- Tokenization should return WordPunctTokenizer with MWE exception. 
-It should take a boolean flag to drop_punct and drop punctuations then. Also remember to remove whitespaces.
-- Expand lexicons
 - Find a better name other than pp/preprocessing :)
+- Expand lexicons
 
 **Potential improvements:**
 - Dependency Parsing / Constituency Parsing
