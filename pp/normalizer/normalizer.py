@@ -46,35 +46,45 @@ class Normalizer():
 
         self._stemmer_analyzer = StemmerAnalyzer()
     
-    def _remove_punctuations(self, token):
-        return ''.join([t for t in token if t not in string.punctuation])
+
+    def remove_punctuations(self, text: str)-> str:
+        return ''.join([t for t in text if t not in string.punctuation])
     
-    def _convert_to_lower_case(self, token):
-        return token.lower()
+    def convert_number_to_word(self, tokens: List[str])-> List[str]:
+        converted_tokens = []
+        for token in tokens:
+            if token.isnumeric():
+                converted_tokens.append(num2words(float(token), lang = 'tr'))
+            else:
+                converted_tokens.append(token)
+
+        return converted_tokens
     
-    def _convert_number_to_word(self, number):
-        return num2words(number, lang = 'tr')
+    def remove_accent_marks(self, text: str)-> str:
+        return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
     
-    def _remove_accent_marks(self, token):
-        return ''.join(self._non_turkish_accent_marks.get(char, char) for char in token)
-    """
-    def multiword_replace(self, token):
-        if token in self.mwe_lexicon['corrected_expression'].values:
-            return token
-        elif token in self.mwe_lexicon['original_expression'].values:
-            return self.mwe_lexicon['corrected_expression'][self.mwe_lexicon['original_expression'] == token].values[0].split(' ')
-        else:
-            return token
-    """
+    def correct_typos(self, tokens: List[str], use_levenshtein: bool = False) -> List[str]:
+        corrected_tokens = []
+        for token in tokens:
+            if self._is_token_valid_turkish(token):
+                corrected_tokens.append(token)
+            elif token in self._typo_lexicon:
+                corrected_tokens.append(self._typo_lexicon[token])
+            elif use_levenshtein:
+                corrected_tokens.append(self._return_most_similar_word(token))
+            else:
+                corrected_tokens.append(token)
+        
+        return corrected_tokens
+
+    def deasciify(self, tokens: List[str]) -> List[str]:
+        deasciified_tokens = []
+        for token in tokens:
+            deasciifier = Deasciifier(token)
+            deasciified_tokens.append(deasciifier.convert_to_turkish())
+        return deasciified_tokens
     
-    def _general_purpose_normalize_by_lexicon(self, token):
-        if self._is_token_valid_turkish:
-            return token
-        elif token in self._typo_lexicon:
-            return self._typo_lexicon[token]
-        else:
-            return token
-    
+
     def _return_most_similar_word(self, s1):
         s1_consonant = "".join([l for l in s1 if l in self._consonants])
         distance_list = []
@@ -96,75 +106,39 @@ class Normalizer():
         df_sorted = pd.DataFrame({'Distance': distance_list, 'Consonant_Distance': consonant_distance_list}, index = s2_list).sort_values(by = ['Consonant_Distance', 'Distance'])
         most_similar_word = df_sorted.index[0]
 
-        return most_similar_word
+        return most_similar_word    
 
     def _is_token_valid_turkish(self, token):
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
         valid_according_to_lexicon = token in self._words_lexicon
         return valid_according_to_stemmer_analyzer or valid_according_to_lexicon
         
-    # High Level Function
-    def normalize(self, list_of_tokens: List[str], remove_punctuations: bool = True, 
-                  convert_to_lowercase: bool = True, convert_number_to_word: bool = True, 
-                  remove_accent_marks: bool = True, normalize_via_lexicon: bool = True,
-                  normalize_via_levenshtein: bool = False, deascify: bool = False) -> List[str]:
         """
         Given list of tokens, returns list of normalized tokens
 
         Args:
-            remove_punctuations (bool): Whether to remove punctuations 
-            "merhaba." -> "merhaba"
+        remove_punctuations (bool): Whether to remove punctuations 
+        "merhaba." -> "merhaba"
 
-            convert_to_lowercase (bool): Whether to convert letters to lowercase
-            "Merhaba" -> "merhaba"
+        convert_to_lowercase (bool): Whether to convert letters to lowercase
+        "Merhaba" -> "merhaba"
 
-            convert_number_to_word (bool): Whether to convert numbers from numeric form to text form
-            "3" -> "üç"
+        convert_number_to_word (bool): Whether to convert numbers from numeric form to text form
+        "3" -> "üç"
 
-            remove_accent_marks (bool): Whether to remove accent marks
-            "merhâbâ" -> "merhaba"
+        remove_accent_marks (bool): Whether to remove accent marks
+        "merhâbâ" -> "merhaba"
 
-            normalize_via_lexicon (bool): Whether to normalize spelling mistakes/typos
-            according looking into up pre-defined typo lexicon.
-            
-            normalize_via_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
-            according to its similarity to known words. Calculates 2 distances:
-            First calculates levenshtein distance for all characters.
-            Then calculates levenshtein distance for consonants only.
-            This part is implemented based on “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”.
+        normalize_via_lexicon (bool): Whether to normalize spelling mistakes/typos
+        according looking into up pre-defined typo lexicon.
+        
+        normalize_via_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
+        according to its similarity to known words. Calculates 2 distances:
+        First calculates levenshtein distance for all characters.
+        Then calculates levenshtein distance for consonants only.
+        This part is implemented based on “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”.
 
-            deascify (bool): Whether to de-ascify characters for Turkish words.
-            "dusunuyorum" -> "düşünüyorum"
-            Deascifier is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
+        deascify (bool): Whether to de-ascify characters for Turkish words.
+        "dusunuyorum" -> "düşünüyorum"
+        Deascifier is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
         """
-        normalized_list_of_tokens = []
-        for token in list_of_tokens:
-            if remove_punctuations:
-                token = self._remove_punctuations(token)
-            if convert_to_lowercase:
-                token = self._convert_to_lower_case(token)
-            if token in self._mwe_lexicon:
-                return token
-            
-            if token.isnumeric() & convert_number_to_word:
-                token = self._convert_number_to_word(float(token))
-                normalized_list_of_tokens.append(token)
-                continue
-            
-            if remove_accent_marks:
-                token = self._remove_accent_marks(token)
-
-            if deascify:
-                deascifier = Deasciifier(token)
-                token = deascifier.convert_to_turkish()
-
-            if normalize_via_lexicon and (not self._is_token_valid_turkish(token)):
-                token = self._general_purpose_normalize_by_lexicon(token)
-        
-            if normalize_via_levenshtein and (not self._is_token_valid_turkish(token)):
-                token = self._return_most_similar_word(token)
-
-            if token != '':
-                normalized_list_of_tokens.append(token)
-        
-        return normalized_list_of_tokens
