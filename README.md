@@ -2,23 +2,20 @@
 NLP Preprocessing module for Turkish language
 
 Consists of:
-- Morphological Analyzer/Disambiguator
+- Stemmer: Morphological Analyzer & Disambiguator
+- NER: Named Entity Recognizer
 - Normalizer
 - Sentence Splitter
 - Stopword Remover
-- Tokenizer
-- NER
 
 #### ------------------------------------------------------------------------------------------------
 
-**Morphological Analysis**
-- Lemmatization
+**Stemmer: Morphological Analyzer & Disambiguator**
 
 **Normalization:**
-- Removes punctuations
-- Lowercase
-- Converts numbers to word form
-- Removes accent marks
+- Punctuation Remover
+- Convert numbers to word form
+- Remove accent marks
 - Spelling/typo correction using:
     - Pre-defined typos lexicon
     - Levenshtein distance
@@ -32,7 +29,6 @@ Consists of:
     - frequent words
     - rare words
 
-**Tokenization**
 
 #### ------------------------------------------------------------------------------------------------
 
