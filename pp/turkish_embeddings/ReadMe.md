@@ -5,7 +5,7 @@ Can be downloaded from:
 - Word2Vec: https://drive.google.com/drive/folders/172rLVXgMwTl3MwXdgXGn9qHnlSYt7AdO?usp=sharing
 - FastText: https://drive.google.com/drive/folders/1FnmS1bVtOKK49D-PHzTp740No7MdJlEE?usp=sharing
 
-- Trained with the a corpus of size 32 GB, that includes:
+- Trained with a corpus of size 32 GB, that includes:
 	- OSCAR
 	- OPUS
 	- AI-KU corpus
