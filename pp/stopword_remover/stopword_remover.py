@@ -5,15 +5,17 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 
-from .. import _utils as utils
-
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
 
 class StopwordRemover:
 
     def __init__(self):
-        self.static_stop_words = utils.load_words(PATH + '/turkish_stop_words.txt')
+
+        # Loading static stop words from the lexicon
+        f = open(PATH + '/turkish_stop_words.txt', encoding = 'utf-8')
+
+        self.static_stop_words = [line.strip() for line in f]
         self.dynamic_stop_words = []
         self.stop_words = self.static_stop_words.copy()
         self.rare_words = []

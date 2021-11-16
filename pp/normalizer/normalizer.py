@@ -51,7 +51,7 @@ class Normalizer():
         Sample use:
         normalizer = Normalizer()
         print(normalizer.remove_punctuations("merhaba..."))
-        
+
         merhaba
         """
         return ''.join([t for t in text if t not in string.punctuation])
@@ -102,6 +102,8 @@ class Normalizer():
     def correct_typos(self, tokens: List[str], use_levenshtein: bool = False) -> List[str]:
         """
         Corrects spelling mistakes and typos.
+        Args:
+        use_levenshtein(bool): Whether to use levenshtein distance measure to find the correct word
 
         Input:
         tokens(List[str]): list of tokens
