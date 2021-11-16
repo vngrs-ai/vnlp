@@ -15,15 +15,6 @@ from ..stemmer_morph_analyzer import StemmerAnalyzer
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
 
-# Normalization according to Levenshtein distance is implemented using a method proposed by
-# Göker and Buğlalılar, 
-# “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”. 
-# Hacettepe University, Thesis for Degree of Master of Science in Computer Engineering
-# However our method first measures Levenshtein distance for all characters first
-# Then measures according to Göker's method.
-
-# Deascification is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
-
 class Normalizer():
     def __init__(self):
 
@@ -48,9 +39,39 @@ class Normalizer():
     
 
     def remove_punctuations(self, text: str)-> str:
+        """
+        Removes punctuations from the given string.
+
+        Input:
+        text(str): string of text
+
+        Output:
+        text(str): string of text stripped from punctuations
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.remove_punctuations("merhaba..."))
+        
+        merhaba
+        """
         return ''.join([t for t in text if t not in string.punctuation])
     
     def convert_number_to_word(self, tokens: List[str])-> List[str]:
+        """
+        Converts numbers to word forms in a given list of tokens.
+
+        Input:
+        tokens(List[str]): List of strings of tokens
+
+        Output:
+        converted_tokens(List[str]): List of strings of converted tokens
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.convert_number_to_word("bugün 3 yumurta yedim".split()))
+
+        ["bugün", "üç", "yumurta", "yedim"]
+        """
         converted_tokens = []
         for token in tokens:
             if token.isnumeric():
@@ -61,9 +82,39 @@ class Normalizer():
         return converted_tokens
     
     def remove_accent_marks(self, text: str)-> str:
+        """
+        Removes accent marks from the given string.
+
+        Input:
+        text(str): string of text
+
+        Output:
+        text(str): string of text stripped from accent marks
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.remove_accent_marks("merhâbâ"))
+
+        merhaba
+        """
         return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
     
     def correct_typos(self, tokens: List[str], use_levenshtein: bool = False) -> List[str]:
+        """
+        Corrects spelling mistakes and typos.
+
+        Input:
+        tokens(List[str]): list of tokens
+
+        Output:
+        corrected_tokens(List[str]): list of corrected tokens
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split()))
+
+        ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
+        """
         corrected_tokens = []
         for token in tokens:
             if self._is_token_valid_turkish(token):
@@ -78,6 +129,21 @@ class Normalizer():
         return corrected_tokens
 
     def deasciify(self, tokens: List[str]) -> List[str]:
+        """
+        Deasciification for Turkish.
+
+        Input:
+        tokens(List[str]): list of tokens
+
+        Output:
+        deasciified_tokens(List[str]): list of deasciified tokens
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
+
+        ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
+        """
         deasciified_tokens = []
         for token in tokens:
             deasciifier = Deasciifier(token)
@@ -112,33 +178,3 @@ class Normalizer():
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
         valid_according_to_lexicon = token in self._words_lexicon
         return valid_according_to_stemmer_analyzer or valid_according_to_lexicon
-        
-        """
-        Given list of tokens, returns list of normalized tokens
-
-        Args:
-        remove_punctuations (bool): Whether to remove punctuations 
-        "merhaba." -> "merhaba"
-
-        convert_to_lowercase (bool): Whether to convert letters to lowercase
-        "Merhaba" -> "merhaba"
-
-        convert_number_to_word (bool): Whether to convert numbers from numeric form to text form
-        "3" -> "üç"
-
-        remove_accent_marks (bool): Whether to remove accent marks
-        "merhâbâ" -> "merhaba"
-
-        normalize_via_lexicon (bool): Whether to normalize spelling mistakes/typos
-        according looking into up pre-defined typo lexicon.
-        
-        normalize_via_levenshtein (bool): Whether to use levenshtein distance to normalize unknown words
-        according to its similarity to known words. Calculates 2 distances:
-        First calculates levenshtein distance for all characters.
-        Then calculates levenshtein distance for consonants only.
-        This part is implemented based on “NEURAL TEXT NORMALIZATION FOR TURKISH SOCIAL MEDIA”.
-
-        deascify (bool): Whether to de-ascify characters for Turkish words.
-        "dusunuyorum" -> "düşünüyorum"
-        Deascifier is ported from Emre Sevinç's implementation in https://github.com/emres/turkish-deasciifier
-        """

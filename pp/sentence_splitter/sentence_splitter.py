@@ -162,6 +162,18 @@ class RuleBasedSentenceSplitter():
         """
         Given a string of sentences, returns list of strings,
         where each string in the list is a sentence.
+
+        Input:
+        text(str): String of sentences
+
+        Output:
+        text(List[str]): List of string of splitted sentences
+
+        Sample use:
+        ss = SentenceSplitter()
+        ss.split_sentences("Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haber!")
+        ['Av. Meryem beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı."',
+        'Bu harika bir haber!']
         """
         splitter = RuleBasedSentenceSplitter()
         return splitter._split(text=text)

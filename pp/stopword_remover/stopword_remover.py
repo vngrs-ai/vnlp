@@ -10,19 +10,6 @@ from .. import _utils as utils
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
 
-# Static stopwords list are taken from https://github.com/ahmetax/trstop
-# and some minor improvements are done by removing numbers from it
-
-# Dynamic stopword algorithm is implemented according to:
-# Saif, Fernandez, He, Alani. 
-# “On Stopwords, Filtering and Data Sparsity for Sentiment Analysis of Twitter”.  
-# Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), pp. 810–817, 2014.
-
-# Automatic cut-point of stop-words is determined by:
-# Satopaa, Albrecht, Irwin, Raghavan.
-# Detecting Knee Points in System Behavior”.  
-# Distributed Computing Systems Workshops (ICDCSW), 2011 31st International Conference, 2011.
-
 class StopwordRemover:
 
     def __init__(self):
@@ -37,6 +24,9 @@ class StopwordRemover:
         Args:
             rare_words_freq (int): Maximum frequency of words when deciding rarity.
             Default value is 0 so it does not detect and drop any rare words.
+
+        Input:
+        list_of_tokens(List[str]): list of string tokens
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         
@@ -69,5 +59,13 @@ class StopwordRemover:
     def drop_stop_words(self, list_of_tokens: List[str]) -> List[str]:
         """
         Given list of tokens, returns list of tokens without drop words.
+
+        Input:
+        list_of_tokens(List[str]): list of string tokens
+
+        Output:
+        tokens_without_stopwords(List[str]): list of string tokens, stripped of stopwords
         """
-        return [token for token in list_of_tokens if token not in self.stop_words]
+        
+        tokens_without_stopwords = [token for token in list_of_tokens if token not in self.stop_words]
+        return tokens_without_stopwords

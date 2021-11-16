@@ -70,13 +70,12 @@ class StemmerAnalyzer:
         Output:
         result (List[str]): list of selected morphological analysis for each token
 
-        Example use:
+        Sample use:
         from pp.stemmer_morph_analyzer import StemmerAnalyzer
         stemmer = StemmerAnalyzer()
         sentence = ma.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
         stemmer.predict(sentence)
 
-        # output
         ['eser+Noun+A3sg+Pnon+Nom',
         'miktar+Noun+A3sg+Pnon+Loc^DB+Adj+Rel',
         'geçici+Adj',
