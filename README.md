@@ -1,4 +1,4 @@
-### Turkish-NLP-preprocessing-module
+## Turkish-NLP-preprocessing-module
 NLP Preprocessing module for Turkish language
 
 Consists of:
@@ -23,7 +23,7 @@ Consists of:
 	- Word2Vec
 	
 
-#### Usage:
+### Usage:
 **Sentence Splitter:**
 ```
 from pp.sentence_splitter import SentenceSplitter
