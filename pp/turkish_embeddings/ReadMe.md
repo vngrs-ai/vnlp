@@ -2,8 +2,8 @@
 
 Can be downloaded from:
 
-- Word2Vec: https://drive.google.com/drive/folders/172rLVXgMwTl3MwXdgXGn9qHnlSYt7AdO?usp=sharing
-- FastText: https://drive.google.com/drive/folders/1FnmS1bVtOKK49D-PHzTp740No7MdJlEE?usp=sharing
+- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec.zip
+- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText.zip
 
 - Trained with a corpus of size 32 GB, that includes:
 	- OSCAR
