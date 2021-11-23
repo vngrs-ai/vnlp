@@ -99,7 +99,7 @@ class Normalizer():
         """
         return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
     
-    def correct_typos(self, tokens: List[str], use_levenshtein: bool = False) -> List[str]:
+    def correct_typos(self, tokens: List[str], use_levenshtein: bool = True) -> List[str]:
         """
         Corrects spelling mistakes and typos.
         Args:
