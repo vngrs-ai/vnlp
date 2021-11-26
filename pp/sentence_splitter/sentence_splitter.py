@@ -1,7 +1,6 @@
 from typing import List
 from pathlib import Path
 from enum import Enum
-import warnings
 import regex
 
 PATH = "../_resources/"
@@ -38,15 +37,10 @@ class RuleBasedSentenceSplitter():
     # lower level function used by the class to split given string into list of strings, thus sentences
     def _split(self, text):
 
-        if text is None:
-            warnings.warn("Text is None.", SentenceSplitterWarning)
-            return []
-
-        if not text:
+        if (text is None) | (not text):
             return []
 
         # Sentence Breaker Rules:
-
         # Sentence markes such as "?", "!" that are not period, followed by sentence starter
         text = regex.sub(
             pattern=r'([?!]) +([\'"([\u00bf\u00A1\p{Initial_Punctuation}]*[\p{Uppercase_Letter}\p{Other_Letter}])',

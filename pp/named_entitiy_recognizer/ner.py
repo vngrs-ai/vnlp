@@ -2,8 +2,8 @@ from typing import List, Tuple
 
 import pickle
 
+import pandas as pd
 import numpy as np
-from scipy import stats
 import tensorflow as tf
 
 from nltk.tokenize import WordPunctTokenizer
@@ -83,7 +83,7 @@ class NamedEntityRecognizer:
             upper_bound = cumsum_of_lens[idx + 1]
 
             island = arg_max_pred[lower_bound:upper_bound]
-            mode_value = stats.mode(island).mode[0]
+            mode_value = pd.Series.mode(island).values[0]
             detokenized_pred = self.tokenizer_y.sequences_to_texts([[mode_value]])[0]
             decoded_entities.append(detokenized_pred)
             
