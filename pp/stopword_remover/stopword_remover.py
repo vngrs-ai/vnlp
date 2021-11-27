@@ -2,8 +2,10 @@ from typing import List
 import logging
 from pathlib import Path
 
-import pandas as pd
 import numpy as np
+
+# To suppress zero and nan division errors
+np.seterr(divide='ignore', invalid='ignore')
 
 PATH = "../_resources/"
 PATH = str(Path(__file__).parent / PATH)
@@ -31,20 +33,32 @@ class StopwordRemover:
         list_of_tokens(List[str]): list of string tokens
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
+        sorted_indices = cnts.argsort()[::-1] # I need them in descending order
+        unq = unq[sorted_indices]
+        cnts = cnts[sorted_indices]
         
         if len(unq) < 3:
             raise ValueError('Number of tokens must be at least 3 for Dynamic Stop Word Detection')
             
-        df_words = pd.DataFrame({'word': unq, 'counts': cnts}).sort_values(by = 'counts', ascending = False).reset_index(drop = True)
+        # Below is equivalent to:
+        # df_words['counts'].pct_change().abs().pct_change().abs().dropna().idxmax()
         
-        # Adds most frequent words to stop_words list
-        argmax_second_der = df_words['counts'].pct_change().abs().pct_change().abs().dropna().idxmax()
-        stop_words_extracted = df_words.loc[:argmax_second_der, 'word'].values.tolist()
+        # First deriv
+        diffs_one = np.diff(cnts)
+        pct_change_one = np.abs(diffs_one / cnts[:-1])
+        # Second deriv
+        diffs_two = np.diff(pct_change_one)
+        pct_change_two = np.abs(diffs_two / pct_change_one[:-1])
+        pct_change_two = pct_change_two[~np.isnan(pct_change_two)] # removing nan
+        argmax_second_der = np.argmax(pct_change_two)
+        
+        # +2 is due to shifting twice due to np.diff()
+        stop_words_extracted = unq[:argmax_second_der + 2].tolist()
         self.dynamic_stop_words += [x for x in stop_words_extracted if x not in self.dynamic_stop_words]
         
         # Determine rare_words according to given rare_words_freq value
         # Add them to dynamic_stop_words list
-        rare_words = df_words.loc[df_words['counts'] <= rare_words_freq, 'word'].values.tolist()
+        rare_words = unq[cnts <= rare_words_freq].tolist()
         stop_words_extracted += rare_words
         self.rare_words += rare_words
         self.dynamic_stop_words += self.rare_words
