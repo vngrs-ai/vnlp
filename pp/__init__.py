@@ -4,9 +4,8 @@
 from .normalizer.normalizer import Normalizer
 from .sentence_splitter.sentence_splitter import RuleBasedSentenceSplitter as SentenceSplitter
 from .stopword_remover.stopword_remover import StopwordRemover
-from .tokenizer.tokenizer import RuleBasedTokenizer as Tokenizer
+from .named_entity_recognizer import NamedEntityRecognizer
+from .stemmer_morph_analyzer import  StemmerAnalyzer
 
-from .morph_analyzer.morph_analyzer import  MorphAnalyzer
-
-__all__ = ['MorphAnalyzer', 'Normalizer', 'SentenceSplitter', 'StopwordRemover', 'Tokenizer']
+__all__ = ['Normalizer', 'SentenceSplitter', 'StopwordRemover', 'NamedEntityRecognizer', 'StemmerAnalyzer']
 """
