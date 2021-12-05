@@ -5,8 +5,7 @@ import pickle
 import numpy as np
 import tensorflow as tf
 
-from nltk.tokenize import WordPunctTokenizer
-
+from ..utils import WordPunctTokenize
 from ._utils import create_ner_model
 
 import os
@@ -125,7 +124,7 @@ class NamedEntityRecognizer:
         ('çalışıyorum', 'O'),
         ('.'), 'O']
         """
-        word_punct_tokenized = WordPunctTokenizer().tokenize(text)
+        word_punct_tokenized = WordPunctTokenize(text)
 
         # if len chars (including whitespaces) > sequence length, split it recursively
         len_text = len(list(" ".join(word_punct_tokenized)))

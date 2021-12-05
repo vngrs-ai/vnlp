@@ -2,5 +2,4 @@ numpy==1.19.5
 num2words==0.5.10
 regex==2021.8.28
 tensorflow==2.4.1
-nltk==3.6.2
 python_Levenshtein==0.12.2

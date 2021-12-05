@@ -3,7 +3,7 @@ from typing import List
 import pickle
 
 import numpy as np
-from nltk.tokenize import WordPunctTokenizer
+from ..utils import WordPunctTokenize
 
 from ._melik_utils import create_model, process_data
 from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize
@@ -98,7 +98,7 @@ class StemmerAnalyzer:
         'franklin+Noun+A3sg+Pnon+Nom']
         
         """
-        tokens = WordPunctTokenizer().tokenize(input_sentence)
+        tokens = WordPunctTokenize(input_sentence)
 
         # Obtaining Analyses
         sentence = [[], []]

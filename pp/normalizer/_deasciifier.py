@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import string
 class Deasciifier:
       """
       This class provides a function to deasciify a given Turkish text.
@@ -13,7 +13,6 @@ class Deasciifier:
       my_deasciified_turkish_txt = deasciifier.convert_to_turkish()
       print my_deasciified_turkish_txt.encode("utf-8")
       """
-      import string
 
       turkish_pattern_table = {u'c':
                                {"bu aXa": -1, "Cki Xi": -2, "na Xog": 3,
