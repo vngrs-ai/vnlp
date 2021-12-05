@@ -22,6 +22,21 @@ Consists of:
 	- FastText
 	- Word2Vec
 	
+### Installation:
+open shell.
+write
+```
+git clone https://github.com/vngrs-ai/Turkish-NLP-preprocessing-module.git
+cd Turkish-NLP-preprocessing-module
+python setup.py install
+```
+
+For Linux/MacOS, you might need to use
+```
+python3 setup.py install
+```
+instead.
+
 
 ### Usage:
 **Sentence Splitter:**
