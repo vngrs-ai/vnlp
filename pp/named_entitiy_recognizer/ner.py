@@ -5,10 +5,19 @@ import pickle
 import numpy as np
 import tensorflow as tf
 
-from ..utils import WordPunctTokenize
 from ._utils import create_ner_model
 
+# Resolving parent dependencies
+from inspect import getsourcefile
 import os
+import sys
+current_path = os.path.abspath(getsourcefile(lambda:0))
+current_dir = os.path.dirname(current_path)
+parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
+sys.path.insert(0, parent_dir)
+
+from utils import WordPunctTokenize
+
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
 MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
