@@ -161,6 +161,8 @@ ner.predict("Benim adım Melikşah, 28 yaşındayım, İstanbul'da ikamet ediyor
 Download from below links first and place under directory pp/turkish_embeddings:
 - Word2Vec: https://drive.google.com/drive/folders/172rLVXgMwTl3MwXdgXGn9qHnlSYt7AdO?usp=sharing
 - FastText: https://drive.google.com/drive/folders/1FnmS1bVtOKK49D-PHzTp740No7MdJlEE?usp=sharing
+
+You need gensim to execute code below.
 ```
 from gensim.models import Word2Vec, FastText
 # Word2Vec
