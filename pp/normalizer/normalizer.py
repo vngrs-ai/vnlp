@@ -35,6 +35,31 @@ class Normalizer():
         self._non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
 
         self._stemmer_analyzer = StemmerAnalyzer()
+
+
+    def lower_case(self, text: str) -> str:
+        """
+        Converts a string of text to lowercase for Turkish language.
+        This is needed because Python does not properly handle all Turkish characters. e.g "İ" -> "i"
+
+        Input:
+        text(str): string of text
+
+        Output:
+        text(str): string of text in lowercase form
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ"))
+        
+        'test karakterleri: iığüöşç'
+
+        """
+        turkish_lowercase_dict = {"İ": "i", "I": "ı", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ş": "ş", "Ç": "ç"}
+        for k, v in turkish_lowercase_dict.items():
+            text = text.replace(k, v)
+
+        return text.lower()
     
 
     def remove_punctuations(self, text: str)-> str:
@@ -51,7 +76,7 @@ class Normalizer():
         normalizer = Normalizer()
         print(normalizer.remove_punctuations("merhaba..."))
 
-        merhaba
+        'merhaba'
         """
         return ''.join([t for t in text if t not in string.punctuation])
     
@@ -112,7 +137,7 @@ class Normalizer():
         normalizer = Normalizer()
         print(normalizer.remove_accent_marks("merhâbâ"))
 
-        merhaba
+        'merhaba'
         """
         return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
     
