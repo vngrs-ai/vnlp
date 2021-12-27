@@ -23,18 +23,12 @@ class Normalizer():
             mwe = [line.strip() for line in f]
         dict_mwe = dict.fromkeys(mwe)
 
-        # General Purpose Typo, Abbreviation, Social Media, etc. Normalization Lexicon
-        with open(PATH +'/typo_correction_lexicon.txt', 'r', encoding = 'utf-8') as f:
-            typo = [line.strip().split(',') for line in f]
-        dict_typo = dict(typo)
-
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
         with open(PATH +'/turkish_known_words_lexicon.txt', 'r', encoding = 'utf-8') as f:
             words_lexicon = [line.strip() for line in f]
         dict_words_lexicon = dict.fromkeys(words_lexicon)
 
         self._mwe_lexicon = dict_mwe
-        self._typo_lexicon = dict_typo
         self._words_lexicon = dict_words_lexicon
         
         self._vowels = set("aeiou")
@@ -127,8 +121,6 @@ class Normalizer():
         for token in tokens:
             if self._is_token_valid_turkish(token):
                 corrected_tokens.append(token)
-            elif token in self._typo_lexicon:
-                corrected_tokens.append(self._typo_lexicon[token])
             elif use_levenshtein:
                 corrected_tokens.append(self._return_most_similar_word(token))
             else:
