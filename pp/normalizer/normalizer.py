@@ -6,7 +6,6 @@ import string
 
 import numpy as np
 
-from num2words import num2words
 from Levenshtein import distance as levenshtein_distance
 
 from ._deasciifier import Deasciifier
@@ -56,29 +55,47 @@ class Normalizer():
         """
         return ''.join([t for t in text if t not in string.punctuation])
     
-    def convert_number_to_word(self, tokens: List[str])-> List[str]:
+    def convert_number_to_word(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
         """
         Converts numbers to word forms in a given list of tokens.
 
         Input:
         tokens(List[str]): List of strings of tokens
 
+        Args:
+        num_dec_digits: number of precision (decimal points) for floats
+
         Output:
         converted_tokens(List[str]): List of strings of converted tokens
 
         Sample use:
         normalizer = Normalizer()
-        print(normalizer.convert_number_to_word("bugün 3 yumurta yedim".split()))
+        print(normalizer.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split()))
 
-        ["bugün", "üç", "yumurta", "yedim"]
+        ['sabah',
+        'üç',
+        'yumurta',
+        'yedim',
+        've',
+        'tartıldığımda',
+        'bir',
+        'virgül',
+        'on',
+        'beş',
+        'kilogram',
+        'aldığımı',
+        'gördüm']
         """
         converted_tokens = []
         for token in tokens:
-            if token.isnumeric():
-                converted_tokens.append(num2words(float(token), lang = 'tr'))
-            else:
+            # Try to convert token to number
+            try:
+                num = float(token)
+                converted_tokens+= self._num_to_words(num, num_dec_digits).split()
+            # If fails, then return it as string
+            except:
                 converted_tokens.append(token)
-
+                
         return converted_tokens
     
     def remove_accent_marks(self, text: str)-> str:
@@ -178,3 +195,77 @@ class Normalizer():
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
         valid_according_to_lexicon = token in self._words_lexicon
         return valid_according_to_stemmer_analyzer or valid_according_to_lexicon
+
+    def _int_to_words(self, main_num, put_commas = False):
+        """
+        This function is adapted from:
+        https://github.com/Omerktn/Turkish-Lexical-Representation-of-Numbers/blob/master/src.py
+        """
+        
+        # yüz=10^2 ve vigintilyon=10^63, ith element is 10^3 times greater then (i-1)th.
+        tp = [" yüz", " bin", "", "", " milyon", " milyar", " trilyon", " katrilyon", " kentilyon",
+            " seksilyon", " septilyon", " oktilyon", " nonilyon", " desilyon", " undesilyon",
+            " dodesilyon", " tredesilyon", " katordesilyon", " seksdesilyon", " septendesilyon",
+            " oktodesilyon", " novemdesilyon", " vigintilyon"]
+
+        # dec[]: every decimal digit,  ten[]: every tenth number
+        dec = ["", " bir", " iki", " üç", " dört", " beş", " altı", " yedi", " sekiz", " dokuz"]
+        ten = ["", " on", " yirmi", " otuz", " kırk", " elli", " altmış", " yetmiş", " seksen", " doksan"]
+
+        text = ""
+
+        # get length of main_num
+        num = main_num
+        leng = 0
+        while num != 0:
+            num = num // 10
+            leng += 1
+
+        if main_num == 0:
+            text = " sıfır"
+
+        # split main_num to (three digit) pieces and read them by mod 3.
+        for i in range(leng, 0, -1):
+            digit = int((main_num // (10 ** (i - 1))) % 10)
+
+            if i % 3 == 0:
+                if digit == 1:
+                    text += tp[0]
+                else:
+                    text += dec[digit] + tp[0]
+            elif i % 3 == 1:
+                if i > 3:
+                    text += dec[digit] + tp[i - 3]
+                else:
+                    text += dec[digit]
+                if i>3 and put_commas: 
+                    text += ","
+            elif i % 3 == 2:
+                text += ten[digit]
+        
+        return text[1:]
+
+    def _num_to_words(self, num, num_dec_digits):
+        integer_part = int(num)
+        decimal_part = round(num % 1, num_dec_digits)
+
+        # if number is int (considering significant decimal digits)
+        if decimal_part < 10**-num_dec_digits:
+            return self._int_to_words(integer_part)
+        # if number is float
+        else:
+            str_decimal = '{:f}'.format(round(num % 1, num_dec_digits))[2:]
+            
+            zeros_after_decimal = 0
+            for char in str_decimal:
+                if char =="0":
+                    zeros_after_decimal+=1
+                else:
+                    break
+            str_decimal_stripped_from_zeros = str_decimal.strip("0") # strip gets rid of heading and trailing 0s in string form
+            if str_decimal_stripped_from_zeros == "":
+                decimal_part = 0
+            else:
+                decimal_part = int(str_decimal_stripped_from_zeros)
+
+            return self._int_to_words(integer_part) + " virgül " + "sıfır " * zeros_after_decimal + self._int_to_words(decimal_part)
