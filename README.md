@@ -57,9 +57,13 @@ ss.split_sentences('4. Murat, diğer yazım şekli ile IV. Murat, alkollü içec
 from pp.normalizer import Normalizer
 n = Normalizer()
 
+# Converts a string of text to lowercase for Turkish language.
+n.lower_case("Test karakterleri: İIĞÜÖŞÇ")
+'test karakterleri: iığüöşç'
+
 # Correct Spelling Mistakes and Typos
-n.correct_typos("kasitli yazişm hatasıı ekliyoruum".split(), use_levenshtein = True)
-['kasıtlı', 'yazım', 'hatası', 'ekliyorum']
+n.correct_typos("kasssıtllı yazişm hatasıı".split())
+['kasıtlı', 'yazım', 'hatası']
 
 # Punctuation Removal
 n.remove_punctuations("noktalamalı test cümlesidir...")
@@ -70,8 +74,20 @@ n.deasciify("boyle sey gormedim duymadim".split())
 ['böyle', 'şey', 'görmedim', 'duymadım']
 
 # Convert Numbers to Word Form
-n.convert_number_to_word("sabah 3 yumurta yedim".split())
-['sabah', 'üç', 'yumurta', 'yedim']
+n.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
+['sabah',
+'üç',
+'yumurta',
+'yedim',
+'ve',
+'tartıldığımda',
+'bir',
+'virgül',
+'on',
+'beş',
+'kilogram',
+'aldığımı',
+'gördüm']
 
 # Remove accent marks
 n.remove_accent_marks("merhâbâ gûzel yîlkî atî")
