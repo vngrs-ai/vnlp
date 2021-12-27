@@ -141,7 +141,7 @@ class Normalizer():
         """
         return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
     
-    def correct_typos(self, tokens: List[str], use_levenshtein: bool = True) -> List[str]:
+    def correct_typos(self, tokens: List[str], use_consonants: bool = True) -> List[str]:
         """
         Corrects spelling mistakes and typos.
         Args:
@@ -163,10 +163,8 @@ class Normalizer():
         for token in tokens:
             if self._is_token_valid_turkish(token):
                 corrected_tokens.append(token)
-            elif use_levenshtein:
-                corrected_tokens.append(self._return_most_similar_word(token))
             else:
-                corrected_tokens.append(token)
+                corrected_tokens.append(self._return_most_similar_word(token, use_consonants))
         
         return corrected_tokens
 
@@ -193,7 +191,7 @@ class Normalizer():
         return deasciified_tokens
     
 
-    def _return_most_similar_word(self, s1):
+    def _return_most_similar_word(self, s1, use_consonants):
         s1_consonant = "".join([l for l in s1 if l in self._consonants])
         distance_list = []
         consonant_distance_list = []
@@ -205,15 +203,19 @@ class Normalizer():
             dist = levenshtein_distance(s1, s2)
             distance_list.append(dist)
 
-            s2_consonant = "".join([l for l in s2 if l in self._consonants])
-            consonant_dist = levenshtein_distance(s1_consonant, s2_consonant)
-            consonant_distance_list.append(consonant_dist)
+            if use_consonants:
+                s2_consonant = "".join([l for l in s2 if l in self._consonants])
+                consonant_dist = levenshtein_distance(s1_consonant, s2_consonant)
+                consonant_distance_list.append(consonant_dist)
 
         # This can be modified to idxmin of distance only to speedup a bit
         # But this sort part takes 1% time of this function
-        table_distances = np.array([s2_list, distance_list, consonant_distance_list]).T
-        sorted_table_distances = table_distances[np.lexsort((table_distances[:, 2].astype(int), table_distances[:, 1].astype(int)))]
-        most_similar_word = sorted_table_distances[0, 0]
+        if use_consonants:
+            table_distances = np.array([s2_list, distance_list, consonant_distance_list]).T
+            sorted_table_distances = table_distances[np.lexsort((table_distances[:, 2].astype(int), table_distances[:, 1].astype(int)))]
+            most_similar_word = sorted_table_distances[0, 0]
+        else:
+            most_similar_word = s2_list[np.argmin(distance_list)]
         return most_similar_word
 
     def _is_token_valid_turkish(self, token):
