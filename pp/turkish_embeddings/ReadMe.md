@@ -5,7 +5,7 @@ Can be downloaded from:
 - Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec.zip
 - FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText.zip
 
-- Trained with a corpus of size 32 GB, that includes:
+- Trained on a corpus of 32 GBs, made of 288 million sentences and 4.07 billion words consisting of:
 	- OSCAR
 	- OPUS
 	- AI-KU corpus
