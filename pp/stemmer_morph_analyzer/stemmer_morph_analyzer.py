@@ -130,12 +130,23 @@ class StemmerAnalyzer:
         X, _ = process_data([sentence], self.tokenizer_char, self.tokenizer_tag, STEM_MAX_LEN, TAG_MAX_LEN, SURFACE_TOKEN_MAX_LEN,    
                                   SENTENCE_MAX_LEN, NUM_MAX_ANALYSIS, exclude_unambigious = False, shuffle = False)
 
-        # Model Output (indices)
-        predicted_indices = np.argmax(self.model.predict(X), axis = -1)
 
-        # If ambiguity level is 1, override model output with 0
         ambig_levels = np.array([len(analyses) for analyses in sentence[1]])
-        predicted_indices[ambig_levels == 1] = 0
+
+        # Model Output (indices)
+        probs_of_sentence = self.model.predict(X)
+        predicted_indices = []
+        for idx, probs_of_single_token in enumerate(probs_of_sentence):
+            ambig_level_of_token = ambig_levels[idx]
+            # Below code prevents model from giving output higher than the ambiguity level
+            # e.g. in an edge case, when ambiguity is 3, model returned 7.
+            # instead of argmax over all indices, now I return argmax of first ambig_level_of_token
+            # from output layer
+            probs_of_single_token = probs_of_single_token[:ambig_level_of_token]
+            predicted_indice_for_token = np.argmax(probs_of_single_token)
+            predicted_indices.append(predicted_indice_for_token)
+
+        predicted_indices = np.array(predicted_indices)
 
         # Obtaining Result
         result = []
