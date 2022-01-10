@@ -78,7 +78,7 @@ class Normalizer():
 
         'merhaba'
         """
-        return ''.join([t for t in text if t not in string.punctuation])
+        return ''.join([t for t in text if t.isalnum()])
     
     def convert_number_to_word(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
         """
