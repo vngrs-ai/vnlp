@@ -29,4 +29,4 @@ Can be downloaded from:
 	- Old newspapers corpus
 	- TR Wiki dump (17.09.21)
 	- Universal Dependencies (tr_boun-ud, tr_imst-ud, tr_pud-ud)
-- Trained for 10 epochs.
+- Trained for 10 epochs with window value of 5.
