@@ -194,15 +194,29 @@ dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iy
 ```
 
 **Turkish Embeddings: Word2Vec & FastText:**
-Download from below links first and place under directory pp/turkish_embeddings:
-- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_large.zip
-- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_large.zip
+- They come in 3 sizes:
+	- Large: vocabulary_size: 128_000, embedding_size: 256
+	- Medium: vocabulary_size: 64_000, embedding_size: 128
+	- Small: vocabulary_size: 32_000, embedding_size: 64
 
-You need gensim to execute the code below.
+- Download from below links first, unzip the content and place under directory pp/turkish_embeddings:
+	- Large:
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_large.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_large.zip
+	- Medium:
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_medium.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_medium.zip
+		
+	- Small:
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_small.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_small.zip
+
+
+You need gensim to execute the sample code below.
 ```
 from gensim.models import Word2Vec, FastText
 # Word2Vec
-model = Word2Vec.load('pp/turkish_embeddings/Word2Vec.model')
+model = Word2Vec.load('pp/turkish_embeddings/Word2Vec_large.model')
 model.wv.most_similar('gandalf', topn = 20)
 [('saruman', 0.7291593551635742),
  ('thorin', 0.6473978161811829),
@@ -226,7 +240,7 @@ model.wv.most_similar('gandalf', topn = 20)
  ('vader', 0.5258742570877075)]
  
 # FastText
-model = Word2Vec.load('pp/turkish_embeddings/FastText.model')
+model = Word2Vec.load('pp/turkish_embeddings/FastText_large.model')
 model.wv.most_similar('yamaçlardan', topn = 20)
 [('kayalardan', 0.8601457476615906),
  ('kayalıklardan', 0.8567330837249756),
