@@ -6,7 +6,7 @@
 	- I did not use Viterbi Decoder, mine is simple Mode operation among each character output.
 	
 - It achieves over 0.96 F1 micro score.
-- It is trained with all of train, dev and test data after development phase so you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available within resources/data directory.
+- After development phase, final model in the repository is trained with all of train, dev and test data after development phase so you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available within resources/data directory.
 - I gathered, parsed and denoised a very extensive dataset. Since TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction is a very noisy dataset therefore it is psuedolabelled and a subset of it selected to be included to train set.
 Details are as below:
 

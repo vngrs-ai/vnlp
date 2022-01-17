@@ -8,5 +8,5 @@
 	- My network optionally uses Deep RNNs.
 
 - It achieves 0.943 accuracy on ambigious tokens and 0.964 accuracy on all tokens of trmorph2006 test set, compared to 0.910 and 0.964 in the original paper.
-- After development phase, model is trained on all of train, test and handtagged sets of trmorph2006, trmorph2016 and trmorph2018 sets, therefore you cannot evaluate on these handtagged at this point. However, data is available in the repository and training notebook can be found to conduct tests.
+- After development phase, final model in the repository is trained on all of train, test and handtagged sets of trmorph2006, trmorph2016 and trmorph2018 sets, therefore you cannot evaluate on these handtagged at this point. However, data is available in the repository and training notebook can be found to conduct tests.
 - As analyzer, it uses Yildiz's analyzer, which can be found here: https://github.com/erayyildiz/LookupAnalyzerDisambiguator
