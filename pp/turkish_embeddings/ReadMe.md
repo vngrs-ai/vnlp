@@ -1,6 +1,6 @@
 #### Word2Vec and FastText embeddings
 
-They come in 3 sizes:
+- They come in 3 sizes:
 	- Large: vocabulary_size: 128_000, embedding_size: 256
 	- Medium: vocabulary_size: 64_000, embedding_size: 128
 	- Small: vocabulary_size: 32_000, embedding_size: 64
