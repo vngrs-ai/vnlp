@@ -1,6 +1,6 @@
 #### Stemmer: Morphological Analyzer & Disambiguator
 
-- This is an implementation of The Role of Context in Neural Morphological Disambiguation, which can be found here: https://aclanthology.org/C16-1018.pdf
+- This is an implementation of "The Role of Context in Neural Morphological Disambiguation", which can be found here: https://aclanthology.org/C16-1018.pdf
 - There are slight modifications to original paper:
 	- My network uses GRU instead of LSTM, which decreases the number of parameters by 25% with no actual performance penalty.
 	- My network has an extra Dense layer before output(p) layer.

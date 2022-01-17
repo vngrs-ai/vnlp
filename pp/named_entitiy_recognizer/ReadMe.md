@@ -1,6 +1,6 @@
 #### CharNER
 
-- This is an implementation of CharNER: Character-Level Named Entity Recognition, which can be found here: https://aclanthology.org/C16-1087/
+- This is an implementation of "CharNER: Character-Level Named Entity Recognition", which can be found here: https://aclanthology.org/C16-1087/
 - There are slight modifications to original paper:
 	- I did not train for all languages, but only Turkish.
 	- I did not use Viterbi Decoder, mine is simple Mode operation among each character output.
