@@ -18,6 +18,7 @@ Consists of:
 		- Rare words
 - Stemmer: Morphological Analyzer & Disambiguator
 - NER: Named Entity Recognizer
+- Dependency Parser
 - Turkish Embeddings
 	- FastText
 	- Word2Vec
@@ -171,6 +172,25 @@ ner.predict("Benim adım Melikşah, 28 yaşındayım, İstanbul'da ikamet ediyor
  ('birlikte', 'O'),
  ('çalışıyorum', 'O'),
  ('.', 'O')]
+```
+
+**Dependency Parser**
+```
+from pp.dependency_parser import DependencyParser
+dp = DependencyParser()
+
+dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+[(1, 'Onun', 6, 'obl'),
+ (2, 'için', 1, 'case'),
+ (3, 'yol', 4, 'nmod:poss'),
+ (4, 'arkadaşlarımızı', 6, 'obj'),
+ (5, 'titizlikle', 6, 'advmod'),
+ (6, 'seçer', 0, 'root'),
+ (7, ',', 10, 'punct'),
+ (8, 'kendilerini', 10, 'obj'),
+ (9, 'iyice', 10, 'advmod'),
+ (10, 'sınarız', 6, 'conj'),
+ (11, '.', 10, 'punct')]
 ```
 
 **Turkish Embeddings: Word2Vec & FastText:**
