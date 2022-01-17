@@ -69,11 +69,40 @@ class DependencyParser:
         self.tokenizer_label = tokenizer_label
         self.tokenizer_tag = tokenizer_tag
 
+        # I don't want StemmerAnalyzer to occupy any memory in GPU!
         with tf.device('/cpu:0'):
             sa = StemmerAnalyzer()
         self.sa = sa
 
-    def predict(self, sentence: str) -> List[Tuple[str, int, str]]:
+    def predict(self, sentence: str) -> List[Tuple[int, str, int, str]]:
+
+        """
+        High level user function
+
+        Input:
+        sentence (str): string of text(sentence)
+
+        Output:
+        result (List[Tuple[int, str, int, str]]): list of selected morphological analysis for each token
+
+        Sample use:
+        from pp.dependency_parser import DependencyParser
+        dp = DependencyParser()
+        dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+
+        [(1, 'Onun', 6, 'obl'),
+        (2, 'için', 1, 'case'),
+        (3, 'yol', 4, 'nmod:poss'),
+        (4, 'arkadaşlarımızı', 6, 'obj'),
+        (5, 'titizlikle', 6, 'advmod'),
+        (6, 'seçer', 0, 'root'),
+        (7, ',', 10, 'punct'),
+        (8, 'kendilerini', 10, 'obj'),
+        (9, 'iyice', 10, 'advmod'),
+        (10, 'sınarız', 6, 'conj'),
+        (11, '.', 10, 'punct')]
+        
+        """
 
         sentence_word_punct_tokenized = WordPunctTokenize(sentence)
         sentence_analysis_result = self.sa.predict(sentence)
