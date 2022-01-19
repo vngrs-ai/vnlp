@@ -16,7 +16,7 @@ current_dir = os.path.dirname(current_path)
 parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
 sys.path.insert(0, parent_dir)
 
-from utils import WordPunctTokenize
+from tokenizer import WordPunctTokenize
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 

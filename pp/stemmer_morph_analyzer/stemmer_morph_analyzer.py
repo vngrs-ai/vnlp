@@ -16,7 +16,7 @@ current_dir = os.path.dirname(current_path)
 parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
 sys.path.insert(0, parent_dir)
 
-from utils import WordPunctTokenize
+from tokenizer import TreebankWordTokenize
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
@@ -107,7 +107,7 @@ class StemmerAnalyzer:
         'franklin+Noun+A3sg+Pnon+Nom']
         
         """
-        tokens = WordPunctTokenize(input_sentence)
+        tokens = TreebankWordTokenize(input_sentence)
 
         # Obtaining Analyses
         sentence = [[], []]

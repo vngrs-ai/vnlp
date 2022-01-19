@@ -3,11 +3,11 @@
 - This is an implementation of "CharNER: Character-Level Named Entity Recognition", which can be found here: https://aclanthology.org/C16-1087/
 - There are slight modifications to original paper:
 	- I did not train for all languages, but only Turkish.
-	- I did not use Viterbi Decoder, mine is simple Mode operation among each character output.
+	- I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
 	
 - It achieves over 0.96 F1 micro score.
-- After development phase, final model in the repository is trained with all of train, dev and test data after development phase so you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available within resources/data directory.
-- I gathered, parsed and denoised a very extensive dataset. Since TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction is a very noisy dataset therefore it is psuedolabelled and a subset of it selected to be included to train set.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 25 epochs. Therefore you should not test it on this test set. However you can train from scratch for evaluation using train data only which is available within resources/data directory.
+- I gathered, parsed and denoised a very extensive dataset. Since TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction is a very noisy dataset, it is psuedolabelled and a subset of it is selected to be included in the train set.
 Details are as below:
 
 Train, dev and test sets are created by processing and merging multiple datasets in the literature.

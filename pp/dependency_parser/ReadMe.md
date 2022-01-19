@@ -10,7 +10,7 @@ rather than implementing the network proposed there.
 
 - It achieves 0.6846 LAS and 0.8041 on Conll on test sets of Universal Dependencies 2.9.
 - Starting with 0.001 learning rate, lr decay of 0.95 is used after the first epoch.
-- After development phase, final model in the repository is trained with all of train, dev and test data after development phase so you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available on https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-4611.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 16 epochs. Therefore you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available on https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-4611.
 - UD 2.9 consists of:
 	- UD_Turkish_German-SAGT
 	- UD_Turkish-Atis
