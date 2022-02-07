@@ -13,9 +13,9 @@ class CustomNonPaddingTokenLoss(tf.keras.losses.Loss):
         loss = loss * mask
         return tf.reduce_sum(loss) / tf.reduce_sum(mask)
 
-def create_ner_model(vocab_size, embed_size, seq_len, num_rnn_stacks, rnn_dim, mlp_dim, num_classes, dropout):
+def create_ner_model(char_vocab_size, embed_size, seq_len_max, num_rnn_stacks, rnn_dim, mlp_dim, num_classes, dropout):
     model = tf.keras.models.Sequential()
-    model.add(tf.keras.layers.Embedding(input_dim = vocab_size, output_dim = embed_size, input_length=seq_len))
+    model.add(tf.keras.layers.Embedding(input_dim = char_vocab_size, output_dim = embed_size, input_length=seq_len_max))
 
     for _ in range(num_rnn_stacks):
         model.add(tf.keras.layers.Bidirectional(tf.keras.layers.GRU(rnn_dim, return_sequences = True)))
@@ -24,9 +24,5 @@ def create_ner_model(vocab_size, embed_size, seq_len, num_rnn_stacks, rnn_dim, m
     model.add(tf.keras.layers.Dense(mlp_dim, activation = 'relu'))
     model.add(tf.keras.layers.Dropout(dropout))
     model.add(tf.keras.layers.Dense(num_classes, activation = 'softmax'))
-
-    # Part below is not neccesary for inference, but allows training
-    loss = CustomNonPaddingTokenLoss()
-    model.compile(optimizer='adam', loss = loss)
 
     return model

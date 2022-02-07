@@ -5,9 +5,9 @@
 	- I did not train for all languages, but only Turkish.
 	- I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
 	
-- It achieves over 0.96 F1 micro score.
-- After development phase, final model in the repository is trained with all of train, dev and test data for 25 epochs. Therefore you should not test it on this test set. However you can train from scratch for evaluation using train data only which is available within resources/data directory.
-- I gathered, parsed and denoised a very extensive dataset. Since TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction is a very noisy dataset, it is psuedolabelled and a subset of it is selected to be included in the train set.
+- It achieves 0.96 F1 micro score.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 30 epochs with learning rate decay of 0.95 after epoch 10. Therefore you should not test it on this test set. However you can train from scratch for evaluation using train data only.
+- I gathered, parsed and denoised a very extensive dataset.
 Details are as below:
 
 Train, dev and test sets are created by processing and merging multiple datasets in the literature.
@@ -35,24 +35,4 @@ https://github.com/savasy/Turkish-Bert-Based-NERModel
 - They are processed by NLTK.WordPunctTokenized() so that each punctuation becomes a new token.
 - Punctuation labels are strictly 'O'.
 - B/I prefixes are removed, other entities are converted to 'O' and all entities are standardized to: ['O', 'PER', 'LOC', 'ORG']
-- TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction.DUMP_train in train data is further noise reduced version of original form, consisting of 20 % of original dataset.
-
-You can track which row comes from which dataset from below indices:
-File: gungor.ner.train.14.only_consistent-train.txt start index: 0 end_index 25512
-File: tdd.ai-ner-news-dataset-train.txt start index: 25513 end_index 44800
-File: tdd.ai-xtreme-tr-train.txt start index: 44801 end_index 64799
-File: teghub-TurkishNER-BERT-train.txt start index: 64800 end_index 94144
-File: twitter_train.txt start index: 94145 end_index 94231
-File: wikiann-train.txt start index: 94232 end_index 114230
-File: TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction.DUMP_train.txt start index: 114231 end_index 224093
-
-File: gungor.ner.dev.14.only_consistent-dev.txt start index: 0 end_index 2952
-File: tdd.ai-ner-news-dataset-dev.txt start index: 2953 end_index 7084
-File: tdd.ai-xtreme-tr-dev.txt start index: 7085 end_index 17083
-File: teghub-TurkishNER-BERT-dev.txt start index: 17084 end_index 19908
-File: wikiann-dev.txt start index: 19909 end_index 29907
-
-File: gungor.ner.test.14.only_consistent-test.txt start index: 0 end_index 2913
-File: tdd.ai-xtreme-tr-test.txt start index: 2914 end_index 12912
-File: teghub-TurkishNER-BERT-test.txt start index: 12913 end_index 16240
-File: wikiann-test.txt start index: 16241 end_index 26239
+- TWNERTC_TC_Coarse Grained NER_DomainDependent_NoiseReduction.DUMP_train in train data is further noise reduced version of original form, consisting of 20 % of original dataset. Despite denoising, including this dataset hurts model performance because it contains lots of errors. Therefore it is not used in neither development, nor production phases of training.
