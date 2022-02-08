@@ -167,7 +167,7 @@ class Normalizer():
         """
         corrected_tokens = []
         for token in tokens:
-            if self._is_token_valid_turkish(token):
+            if (self._is_token_valid_turkish(token)) or (token in self._words_lexicon):
                 corrected_tokens.append(token)
             elif token in self._typo_lexicon:
                 corrected_tokens.append(self._typo_lexicon[token])
