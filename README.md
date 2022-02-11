@@ -24,7 +24,7 @@ Consists of:
 	- FastText
 	- Word2Vec
 	
-### Installation:
+### Installation
 open shell.
 write
 ```
@@ -41,7 +41,7 @@ instead.
 
 
 ### Usage:
-**Sentence Splitter:**
+**Sentence Splitter**
 ```
 from pp.sentence_splitter import SentenceSplitter
 ss = SentenceSplitter()
@@ -54,7 +54,7 @@ ss.split_sentences('4. Murat, diğer yazım şekli ile IV. Murat, alkollü içec
 ['4. Murat, diğer yazım şekli ile IV. Murat, alkollü içecekleri halka yasaklamıştı.']
 ```
 
-**Normalizer:**
+**Normalizer**
 ```
 from pp.normalizer import Normalizer
 n = Normalizer()
@@ -96,7 +96,7 @@ n.remove_accent_marks("merhâbâ gûzel yîlkî atî")
 'merhaba guzel yılkı atı'
 ```
 
-**Stopword Remover:**
+**Stopword Remover**
 ```
 from pp.stopword_remover import StopwordRemover
 sr = StopwordRemover()
@@ -116,7 +116,7 @@ sr.drop_stop_words("aşı olmak önemli demiş miydim".split())
 ['önemli', 'demiş', 'miydim']
 ```
 
-**Stemmer: Morphological Analyzer & Disambiguator:**
+**Stemmer: Morphological Analyzer & Disambiguator**
 ```
 from pp.stemmer_morph_analyzer import StemmerAnalyzer
 sa = StemmerAnalyzer()
@@ -144,7 +144,7 @@ sa.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinde
  'franklin+Noun+A3sg+Pnon+Nom']
 ```
  
-**NER: Named Entity Recognizer:**
+**Named Entity Recognizer (NER)**
 ```
 from pp.named_entitiy_recognizer import NamedEntityRecognizer
 ner = NamedEntityRecognizer()
@@ -194,7 +194,7 @@ dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iy
 (11, '.', 10, 'punct')]
 ```
 
-**Part of Speech Tagger**
+**Part of Speech (POS) Tagger**
 ```
 from pp.part_of_speech_tagger import PoSTagger
 pos = PoSTagger()
