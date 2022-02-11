@@ -123,7 +123,10 @@ class DependencyParser:
         sentence_word_punct_tokenized = TreebankWordTokenize(sentence)
         sentence_analysis_result = self.stemmer_analyzer.predict(sentence)
         sentence_analysis_result = [sentence_analysis.replace('^', '+') for sentence_analysis in sentence_analysis_result]
-        num_tokens_in_sentence = len(sentence_analysis_result)
+        num_tokens_in_sentence = len(sentence_word_punct_tokenized)
+
+        if num_tokens_in_sentence > SENTENCE_MAX_LEN:
+            raise ValueError('Sentence is too long. Try again by splitting it into smaller pieces.')
 
         if not len(sentence_analysis_result) == num_tokens_in_sentence:
             raise Exception(sentence, "Length of sentence and sentence_analysis_result don't match")
