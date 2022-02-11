@@ -125,6 +125,7 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
 def preprocess_word(word):
     word = word.replace('’', "'")
     word = normalizer.lower_case(word)
+    word = convert_numbers_to_zero(word)
     return word
 
 
@@ -230,9 +231,9 @@ def process_single_word_input(t, whole_words_in_sentence, sentence_analysis_resu
             else:
                 words.append(whole_word)
 
+    words = [preprocess_word(word) for word in words]
+                
     word = words[t]
-    word = convert_numbers_to_zero(word)
-        
     word = tokenizer_word.texts_to_sequences([[word]]) # this wont have padding
     
     tags = word_and_tags[1:]
