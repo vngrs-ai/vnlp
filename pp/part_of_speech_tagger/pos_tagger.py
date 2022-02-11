@@ -108,7 +108,7 @@ class PoSTagger:
         whole_tokens_in_sentence = TreebankWordTokenize(sentence)
         sentence_analysis_result = self.sa.predict(sentence)
         sentence_analysis_result = [sentence_analysis.replace('^', '+') for sentence_analysis in sentence_analysis_result]
-        num_tokens_in_sentence = len(sentence_analysis_result)
+        num_tokens_in_sentence = len(whole_tokens_in_sentence)
 
         if not len(sentence_analysis_result) == num_tokens_in_sentence:
             raise Exception(sentence, "Length of sentence and sentence_analysis_result don't match")
