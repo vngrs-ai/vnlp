@@ -17,8 +17,9 @@ Consists of:
 		- Frequent words
 		- Rare words
 - Stemmer: Morphological Analyzer & Disambiguator
-- NER: Named Entity Recognizer
+- Named Entity Recognizer (NER) 
 - Dependency Parser
+- Part of Speech (POS) Tagger
 - Turkish Embeddings
 	- FastText
 	- Word2Vec
@@ -180,17 +181,34 @@ from pp.dependency_parser import DependencyParser
 dp = DependencyParser()
 
 dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
-[(1, 'Onun', 6, 'obl'),
- (2, 'için', 1, 'case'),
- (3, 'yol', 4, 'nmod:poss'),
- (4, 'arkadaşlarımızı', 6, 'obj'),
- (5, 'titizlikle', 6, 'advmod'),
- (6, 'seçer', 0, 'root'),
- (7, ',', 10, 'punct'),
- (8, 'kendilerini', 10, 'obj'),
- (9, 'iyice', 10, 'advmod'),
- (10, 'sınarız', 6, 'conj'),
- (11, '.', 10, 'punct')]
+[(1, 'Onun', 5, 'obl'),
+(2, 'için', 1, 'case'),
+(3, 'yol', 1, 'nmod'),
+(4, 'arkadaşlarımızı', 5, 'obj'),
+(5, 'titizlikle', 6, 'obl'),
+(6, 'seçer', 7, 'acl'),
+(7, ',', 10, 'punct'),
+(8, 'kendilerini', 10, 'obj'),
+(9, 'iyice', 8, 'advmod'),
+(10, 'sınarız', 0, 'root'),
+(11, '.', 10, 'punct')]
+```
+
+**Part of Speech Tagger**
+```
+from pp.part_of_speech_tagger import PoSTagger
+pos = PoSTagger()
+
+pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
+
+[('Vapurla', 'NOUN'),
+("Beşiktaş'a", 'PROPN'),
+('geçip', 'ADV'),
+('yürüyerek', 'ADV'),
+('Maçka', 'PROPN'),
+("Parkı'na", 'NOUN'),
+('ulaştım', 'VERB'),
+('.', 'PUNCT')]
 ```
 
 **Turkish Embeddings: Word2Vec & FastText:**
