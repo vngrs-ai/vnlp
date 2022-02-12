@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 
 from ._melik_utils import create_model, process_data
-from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize
+from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize, to_lower
 
 # Resolving parent dependencies
 from inspect import getsourcefile
@@ -43,6 +43,8 @@ TAG_RNN_DIM = 128
 NUM_RNN_STACKS = 1
 DROPOUT = 0.2
 EMBED_JOIN_TYPE = 'add'
+
+CAPITALIZE_PNONS = False
 
 
 class StemmerAnalyzer:
@@ -156,10 +158,10 @@ class StemmerAnalyzer:
         # Slight update to Result
         for idx, r in enumerate(result):
             splitted = r.split("+")
-            root = splitted[0]
+            root = to_lower(splitted[0])
             tags = splitted[1:]
 
-            if "Prop" in tags:
+            if ("Prop" in tags) and CAPITALIZE_PNONS:
                 root = capitalize(root)
                 result[idx] = "+".join([root] + tags)
                 
