@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 
 from ._melik_utils import create_model, process_data
-from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize, to_lower
+from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize
 
 # Resolving parent dependencies
 from inspect import getsourcefile
@@ -158,7 +158,7 @@ class StemmerAnalyzer:
         # Slight update to Result
         for idx, r in enumerate(result):
             splitted = r.split("+")
-            root = to_lower(splitted[0])
+            root = splitted[0]
             tags = splitted[1:]
 
             if ("Prop" in tags) and CAPITALIZE_PNONS:

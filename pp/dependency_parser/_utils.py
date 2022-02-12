@@ -134,7 +134,7 @@ def create_dependency_parser_model(word_embedding_vocab_size, word_embedding_vec
     # FC LAYERS
     fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * 8, activation = 'relu')(current_left_right_concat)
     fc_layer_one = tf.keras.layers.Dropout(dropout)(fc_layer_one)
-    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(current_left_right_concat)
+    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(fc_layer_one)
     fc_layer_two = tf.keras.layers.Dropout(dropout)(fc_layer_two)
     arc_label_output = tf.keras.layers.Dense(arc_label_vector_len, activation = 'sigmoid')(fc_layer_two)
 

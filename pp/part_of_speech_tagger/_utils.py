@@ -66,7 +66,6 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
 
     # Left Context POS Tags
     left_context_pos_input = tf.keras.layers.Input(shape = (sentence_max_len, pos_vocab_size + 1))
-    #left_context_pos_embedded = pos_embedding_layer(left_context_pos_input)
     
     left_context_word_td_tags_pos_concatenated = tf.keras.layers.Concatenate()([left_context_word_embedded, left_context_td_tag_rnn_output
                                                                                ,left_context_pos_input])
@@ -111,7 +110,7 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
     # FC LAYERS
     fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * 8, activation = 'relu')(current_left_right_concat)
     fc_layer_one = tf.keras.layers.Dropout(dropout)(fc_layer_one)
-    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(current_left_right_concat)
+    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(fc_layer_one)
     fc_layer_two = tf.keras.layers.Dropout(dropout)(fc_layer_two)
     pos_label_output = tf.keras.layers.Dense(pos_vocab_size + 1, activation = 'sigmoid')(fc_layer_two)
 
