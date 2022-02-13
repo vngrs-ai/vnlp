@@ -67,6 +67,7 @@ LC_NUM_RNN_UNITS = TAG_NUM_RNN_UNITS * RNN_UNITS_MULTIPLIER
 LC_ARC_LABEL_NUM_RNN_UNITS = TAG_NUM_RNN_UNITS * RNN_UNITS_MULTIPLIER
 RC_NUM_RNN_UNITS = TAG_NUM_RNN_UNITS * RNN_UNITS_MULTIPLIER
 ARC_LABEL_VECTOR_LEN = SENTENCE_MAX_LEN + 1 + LABEL_VOCAB_SIZE + 1
+FC_UNITS_MULTIPLIERS = (8, 4)
 WORD_FORM = 'whole'
 DROPOUT = 0.2
 
@@ -76,7 +77,7 @@ class DependencyParser:
                                                     POS_VOCAB_SIZE, POS_EMBEDDING_VECTOR_SIZE,
                                                     SENTENCE_MAX_LEN, TAG_MAX_LEN, ARC_LABEL_VECTOR_LEN, NUM_RNN_STACKS, 
                                                     TAG_NUM_RNN_UNITS, LC_NUM_RNN_UNITS, LC_ARC_LABEL_NUM_RNN_UNITS, RC_NUM_RNN_UNITS,
-                                                    DROPOUT, TAG_EMBEDDING_MATRIX)
+                                                    DROPOUT, TAG_EMBEDDING_MATRIX, FC_UNITS_MULTIPLIERS)
         self.model.load_weights(MODEL_LOC)
         self.tokenizer_word = tokenizer_word
         self.tokenizer_tag = tokenizer_tag

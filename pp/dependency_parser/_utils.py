@@ -17,7 +17,7 @@ def create_dependency_parser_model(word_embedding_vocab_size, word_embedding_vec
                                    pos_vocab_size, pos_embedding_vector_size,
                                    sentence_max_len, tag_max_len, arc_label_vector_len, num_rnn_stacks, 
                                    tag_num_rnn_units, lc_num_rnn_units, lc_arc_label_num_rnn_units, rc_num_rnn_units,
-                                   dropout, tag_embedding_matrix):
+                                   dropout, tag_embedding_matrix, fc_units_multipliers):
     """
     Notes:
         - Add can be used instead of Concatenate but reduction of params is small
@@ -132,9 +132,9 @@ def create_dependency_parser_model(word_embedding_vocab_size, word_embedding_vec
     
     # ===============================================
     # FC LAYERS
-    fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * 8, activation = 'relu')(current_left_right_concat)
+    fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * fc_units_multipliers[0], activation = 'relu')(current_left_right_concat)
     fc_layer_one = tf.keras.layers.Dropout(dropout)(fc_layer_one)
-    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(fc_layer_one)
+    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * fc_units_multipliers[1], activation = 'relu')(fc_layer_one)
     fc_layer_two = tf.keras.layers.Dropout(dropout)(fc_layer_two)
     arc_label_output = tf.keras.layers.Dense(arc_label_vector_len, activation = 'sigmoid')(fc_layer_two)
 

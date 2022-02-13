@@ -53,11 +53,12 @@ WORD_EMBEDDING_VOCAB_SIZE = 63_991 # Word2Vec_medium.model
 WORD_EMBEDDING_MATRIX = np.zeros((WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE))
 TAG_EMBEDDING_MATRIX = np.zeros((127, 32))
 
-NUM_RNN_STACKS = 2
-RNN_UNITS_MULTIPLIER = 2
+NUM_RNN_STACKS = 1
+RNN_UNITS_MULTIPLIER = 1
 TAG_NUM_RNN_UNITS = WORD_EMBEDDING_VECTOR_SIZE
 LC_NUM_RNN_UNITS = TAG_NUM_RNN_UNITS * RNN_UNITS_MULTIPLIER
 RC_NUM_RNN_UNITS = TAG_NUM_RNN_UNITS * RNN_UNITS_MULTIPLIER
+FC_UNITS_MULTIPLIERS = (2, 1)
 WORD_FORM = 'whole'
 DROPOUT = 0.2
 
@@ -66,7 +67,7 @@ class PoSTagger:
         self.model = create_pos_tagger_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                              POS_VOCAB_SIZE, SENTENCE_MAX_LEN, TAG_MAX_LEN, NUM_RNN_STACKS, 
                                              TAG_NUM_RNN_UNITS, LC_NUM_RNN_UNITS, RC_NUM_RNN_UNITS,
-                                             DROPOUT, TAG_EMBEDDING_MATRIX)
+                                             DROPOUT, TAG_EMBEDDING_MATRIX, FC_UNITS_MULTIPLIERS)
 
         self.model.load_weights(MODEL_LOC)
         self.tokenizer_word = tokenizer_word

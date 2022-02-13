@@ -13,7 +13,7 @@ tag_max_len = 15
 def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_size, word_embedding_matrix,
                             pos_vocab_size, sentence_max_len, tag_max_len, num_rnn_stacks, 
                             tag_num_rnn_units, lc_num_rnn_units, rc_num_rnn_units,
-                            dropout, tag_embedding_matrix):
+                            dropout, tag_embedding_matrix, fc_units_multipliers):
     """
     Notes:
         - Add can be used instead of Concatenate but reduction of params is small
@@ -108,9 +108,9 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
     
     # ===============================================
     # FC LAYERS
-    fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * 8, activation = 'relu')(current_left_right_concat)
+    fc_layer_one = tf.keras.layers.Dense(tag_num_rnn_units * fc_units_multipliers[0], activation = 'relu')(current_left_right_concat)
     fc_layer_one = tf.keras.layers.Dropout(dropout)(fc_layer_one)
-    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * 4, activation = 'relu')(fc_layer_one)
+    fc_layer_two = tf.keras.layers.Dense(tag_num_rnn_units * fc_units_multipliers[1], activation = 'relu')(fc_layer_one)
     fc_layer_two = tf.keras.layers.Dropout(dropout)(fc_layer_two)
     pos_label_output = tf.keras.layers.Dense(pos_vocab_size + 1, activation = 'sigmoid')(fc_layer_two)
 
