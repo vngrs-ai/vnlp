@@ -42,8 +42,8 @@ class Normalizer():
 
         self._stemmer_analyzer = StemmerAnalyzer()
 
-
-    def lower_case(self, text: str) -> str:
+    @staticmethod
+    def lower_case(text: str) -> str:
         """
         Converts a string of text to lowercase for Turkish language.
         This is needed because Python does not properly handle all Turkish characters. e.g "İ" -> "i"
@@ -67,8 +67,8 @@ class Normalizer():
 
         return text.lower()
     
-
-    def remove_punctuations(self, text: str)-> str:
+    @staticmethod
+    def remove_punctuations(text: str)-> str:
         """
         Removes punctuations from the given string.
 

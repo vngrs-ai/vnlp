@@ -85,11 +85,14 @@ class DependencyParser:
         self.tokenizer_label = tokenizer_label
 
         # I don't want StemmerAnalyzer and PosTagger to occupy any memory in GPU!
+        
         with tf.device('/cpu:0'):
             stemmer_analyzer = StemmerAnalyzer()
-            pos_tagger = PoSTagger()
-        self.stemmer_analyzer = stemmer_analyzer
-        self.pos_tagger = pos_tagger
+            self.stemmer_analyzer = stemmer_analyzer
+            # stemmer_analyzer is passed to PoSTagger to prevent chain stemmer_analyzer initializations
+            pos_tagger = PoSTagger(self.stemmer_analyzer) 
+            self.pos_tagger = pos_tagger
+        
 
     def predict(self, sentence: str) -> List[Tuple[int, str, int, str]]:
 
@@ -144,7 +147,7 @@ class DependencyParser:
                                           arcs, labels, pos_tags, WORD_FORM)
 
             # Predicting
-            raw_pred = self.model(X)[0]
+            raw_pred = self.model.predict(X)[0]
             
             arc = np.argmax(raw_pred[:SENTENCE_MAX_LEN + 1]) # +1 is due to reserving of arc 0 for root
             label = np.argmax(raw_pred[SENTENCE_MAX_LEN + 1: SENTENCE_MAX_LEN + 1 + LABEL_VOCAB_SIZE + 1])

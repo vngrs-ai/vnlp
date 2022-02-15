@@ -63,7 +63,7 @@ WORD_FORM = 'whole'
 DROPOUT = 0.2
 
 class PoSTagger:
-    def __init__(self):
+    def __init__(self, stemmer_analyzer = None):
         self.model = create_pos_tagger_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                              POS_VOCAB_SIZE, SENTENCE_MAX_LEN, TAG_MAX_LEN, NUM_RNN_STACKS, 
                                              TAG_NUM_RNN_UNITS, LC_NUM_RNN_UNITS, RC_NUM_RNN_UNITS,
@@ -75,9 +75,10 @@ class PoSTagger:
         self.tokenizer_pos_label = tokenizer_pos_label
 
         # I don't want StemmerAnalyzer to occupy any memory in GPU!
-        with tf.device('/cpu:0'):
-            sa = StemmerAnalyzer()
-        self.sa = sa
+        if stemmer_analyzer is None:
+            with tf.device('/cpu:0'):
+                stemmer_analyzer = StemmerAnalyzer()
+        self.stemmer_analyzer = stemmer_analyzer
 
     def predict(self, sentence: str) -> List[Tuple[str, str]]:
 
@@ -107,7 +108,7 @@ class PoSTagger:
         """
 
         whole_tokens_in_sentence = TreebankWordTokenize(sentence)
-        sentence_analysis_result = self.sa.predict(sentence)
+        sentence_analysis_result = self.stemmer_analyzer.predict(sentence)
         sentence_analysis_result = [sentence_analysis.replace('^', '+') for sentence_analysis in sentence_analysis_result]
         num_tokens_in_sentence = len(whole_tokens_in_sentence)
 

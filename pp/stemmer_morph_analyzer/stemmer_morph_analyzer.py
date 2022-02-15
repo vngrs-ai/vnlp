@@ -49,7 +49,6 @@ CAPITALIZE_PNONS = False
 
 class StemmerAnalyzer:
     def __init__(self):
-
         with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
             tokenizer_char = pickle.load(handle)
         
