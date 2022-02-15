@@ -29,5 +29,5 @@ setup(
     package_data={'': ['_resources', '*.txt', '*.hdf5', '*.md', '*.pickle']},
     include_package_data=True,
     install_requires=['numpy==1.19.5', 'regex==2021.8.28', 
-                      'tensorflow>=2.4.1', 'python_Levenshtein==0.12.2'],
+                      'tensorflow==2.4.1', 'python_Levenshtein==0.12.2'],
     )
