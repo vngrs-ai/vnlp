@@ -10,12 +10,7 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
                             pos_vocab_size, sentence_max_len, tag_max_len, num_rnn_stacks, 
                             tag_num_rnn_units, lc_num_rnn_units, rc_num_rnn_units,
                             dropout, tag_embedding_matrix, fc_units_multipliers):
-    """
-    Notes:
-        - Add can be used instead of Concatenate but reduction of params is small
-          and implementation cost is high with several requirements of layer shapes.
-          Therefore it's not worth implementing
-    """
+
     # OOV token is included in tokenizer_word, so I don't need to set (input_dim = word_embedding_vocab_size + 1)
     word_embedding_layer = tf.keras.layers.Embedding(input_dim = word_embedding_vocab_size, output_dim = word_embedding_vector_size, 
                                               weights=[word_embedding_matrix], trainable = False)
