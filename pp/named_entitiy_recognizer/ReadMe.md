@@ -1,4 +1,4 @@
-#### CharNER
+#### Named Entity Recognizer (NER)
 
 - This is an implementation of "CharNER: Character-Level Named Entity Recognition", which can be found here: https://aclanthology.org/C16-1087/
 - There are slight modifications to original paper:
