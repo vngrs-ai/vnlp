@@ -211,6 +211,16 @@ pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.
 ('.', 'PUNCT')]
 ```
 
+**Sentiment Analyzer**
+```
+from pp.sentiment_analyzer import SentimentAnalyzer
+sentiment_analyzer = SentimentAnalyzer()
+
+sentiment_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
+
+0.15
+```
+
 **Turkish Embeddings: Word2Vec & FastText:**
 - They come in 3 sizes:
 	- Large: vocabulary_size: 128_000, embedding_size: 256
