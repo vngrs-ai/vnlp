@@ -2,7 +2,7 @@
 
 - This is a Deep GRU based Sentiment Analysis classifier implementation.
 - It uses pre-trained Word2Vec_medium embeddings, another part of this project as word embeddings.
-- It achieves 0.9348 Accuracy, 0.9220 on F1_macro_score and 0.8914 F1 score (treating class 0 as minority) on test set. Final model is trained on all of train, dev and test data.
+- It achieves 0.9345 Accuracy, 0.9230 on F1_macro_score and 0.8935 F1 score (treating class 0 as minority) on test set. Final model is trained on all of train, dev and test data.
 - The data I gathered, compiled and standardized are found in the links below:
 	- https://www.kaggle.com/baharyilmaz/turkish-sentiment-analysis/data
 	- https://www.kaggle.com/egebasturk1/yemeksepeti-sentiment-analysis/data
