@@ -83,8 +83,7 @@ class StemmerAnalyzer:
         Sample use:
         from pp.stemmer_morph_analyzer import StemmerAnalyzer
         stemmer = StemmerAnalyzer()
-        sentence = ma.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
-        stemmer.predict(sentence)
+        ma.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
 
         ['eser+Noun+A3sg+Pnon+Nom',
         'miktar+Noun+A3sg+Pnon+Loc^DB+Adj+Rel',

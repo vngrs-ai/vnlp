@@ -6,7 +6,7 @@
 	- I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
 	
 - It achieves over 0.96 Accuracy and 0.92 F1_macro_score.
-- After development phase, final model in the repository is trained with all of train, dev and test data for 40 epochs with learning rate decay of 0.95 after epoch 10. Therefore you should not test it on this test set. However you can train from scratch for evaluation using train data only.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 40 epochs with learning rate decay of 0.95 after epoch 10.
 - I gathered, parsed and denoised a very extensive dataset.
 Details are as below:
 

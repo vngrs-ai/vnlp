@@ -7,8 +7,9 @@ which can be found here: https://aclanthology.org/C16-1087/
 - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
 
 - It achieves 0.90 Accuracy and 0.75 F1_macro_score on test sets of Universal Dependencies 2.9.
+- Data is found at: https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-4611
 - Starting with 0.001 learning rate, lr decay of 0.95 is used after the 5th epoch, with class weights given below.
-- After development phase, final model in the repository is trained with all of train, dev and test data for 20 epochs. Therefore you should not test it on the this test set. However you can train from scratch for evaluation using train data only which is available on https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-4611
+- After development phase, final model in the repository is trained with all of train, dev and test data for 20 epochs.
 - UD 2.9 consists of below datasets with evaluation metrics on each one's test set:
 	- UD_Turkish-Atis: Accuracy: 0.9774 - F1_macro_score: 0.9832
 	- UD_Turkish-BOUN: Accuracy: 0.8683 - F1_macro_score: 0.7701

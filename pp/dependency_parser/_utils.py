@@ -16,7 +16,8 @@ def create_dependency_parser_model(word_embedding_vocab_size, word_embedding_vec
                                    dropout, tag_embedding_matrix, fc_units_multipliers):
 
     word_embedding_layer = tf.keras.layers.Embedding(input_dim = word_embedding_vocab_size, output_dim = word_embedding_vector_size, 
-                                              weights=[word_embedding_matrix], trainable = False)
+                                                     embeddings_initializer=tf.keras.initializers.Constant(word_embedding_matrix), 
+                                                     trainable = False)
     pos_embedding_layer = tf.keras.layers.Embedding(input_dim = pos_vocab_size + 1, output_dim = pos_embedding_vector_size)
     
     # ===============================================

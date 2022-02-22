@@ -13,7 +13,8 @@ def create_pos_tagger_model(word_embedding_vocab_size, word_embedding_vector_siz
 
     # OOV token is included in tokenizer_word, so I don't need to set (input_dim = word_embedding_vocab_size + 1)
     word_embedding_layer = tf.keras.layers.Embedding(input_dim = word_embedding_vocab_size, output_dim = word_embedding_vector_size, 
-                                              weights=[word_embedding_matrix], trainable = False)
+                                                     embeddings_initializer=tf.keras.initializers.Constant(word_embedding_matrix), 
+                                                     trainable = False)
     
     # ===============================================
     # CURRENT WORD
