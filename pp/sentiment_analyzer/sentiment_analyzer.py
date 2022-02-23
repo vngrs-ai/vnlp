@@ -99,9 +99,7 @@ class SentimentAnalyzer:
         # if text is longer than the length the model is trained on
         if num_int_tokens > TEXT_MAX_LEN:
             first_half_of_preprocessed_text = " ".join(preprocessed_text.split()[:num_preprocessed_text_tokens // 2])
-            print('First half:', first_half_of_preprocessed_text)
             second_half_of_preprocessed_text = " ".join(preprocessed_text.split()[num_preprocessed_text_tokens // 2:])
-            print('Second half:', second_half_of_preprocessed_text)
             prob = (self.predict_proba(first_half_of_preprocessed_text) + self.predict_proba(second_half_of_preprocessed_text)) / 2
 
         else:
