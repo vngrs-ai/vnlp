@@ -92,8 +92,21 @@ class SentimentAnalyzer:
         """
         preprocessed_text = preprocess_text(input_text)
         integer_tokenized_text = self.tokenizer_word.texts_to_sequences([preprocessed_text])
-        padded_text = tf.keras.preprocessing.sequence.pad_sequences(integer_tokenized_text, maxlen = TEXT_MAX_LEN, 
-                                              padding = 'pre', truncating = 'pre')
-        prob = self.model.predict(padded_text)[0][0]
+        
+        num_preprocessed_text_tokens = len(preprocessed_text.split())
+        num_int_tokens = len(integer_tokenized_text[0])
+
+        # if text is longer than the length the model is trained on
+        if num_int_tokens > TEXT_MAX_LEN:
+            first_half_of_preprocessed_text = " ".join(preprocessed_text.split()[:num_preprocessed_text_tokens // 2])
+            print('First half:', first_half_of_preprocessed_text)
+            second_half_of_preprocessed_text = " ".join(preprocessed_text.split()[num_preprocessed_text_tokens // 2:])
+            print('Second half:', second_half_of_preprocessed_text)
+            prob = (self.predict_proba(first_half_of_preprocessed_text) + self.predict_proba(second_half_of_preprocessed_text)) / 2
+
+        else:
+            padded_text = tf.keras.preprocessing.sequence.pad_sequences(integer_tokenized_text, maxlen = TEXT_MAX_LEN, 
+                                                padding = 'pre', truncating = 'pre')
+            prob = self.model.predict(padded_text)[0][0]
 
         return prob
