@@ -13,17 +13,11 @@ RESOURCES_PATH = str(Path(__file__).parent / RESOURCES_PATH)
 class Normalizer():
     def __init__(self):
 
-        # Multiword Lexicon
-        with open(RESOURCES_PATH +'/mwe_lexicon.txt', 'r', encoding = 'utf-8') as f:
-            mwe = [line.strip() for line in f]
-        dict_mwe = dict.fromkeys(mwe)
-
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
         with open(RESOURCES_PATH +'/turkish_known_words_lexicon.txt', 'r', encoding = 'utf-8') as f:
             words_lexicon = [line.strip() for line in f]
         dict_words_lexicon = dict.fromkeys(words_lexicon)
 
-        self._mwe_lexicon = dict_mwe
         self._words_lexicon = dict_words_lexicon
         
         self._vowels = set("aeiou")
