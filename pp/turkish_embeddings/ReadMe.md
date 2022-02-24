@@ -17,7 +17,7 @@ Can be downloaded from:
 	- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_small.zip
 	- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_small.zip
 
-- All tokens are converted to lowercase. Punctuations are numbers are NOT removed. Every numeric character is converted to 0 so should you when using these embeddings. E.g. "10-05-2010" becomes "00-00-0000".
+- All tokens are converted to lowercase. Punctuations and numbers are NOT removed. Every numeric character is converted to 0 so should you when using these embeddings. E.g. "10-05-2010" becomes "00-00-0000".
 
 - Trained on a corpus of 32 GBs, made of 288 million sentences and 4.07 billion words consisting of:
 	- OSCAR
