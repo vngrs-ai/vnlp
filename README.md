@@ -64,8 +64,8 @@ n.lower_case("Test karakterleri: İIĞÜÖŞÇ")
 'test karakterleri: iığüöşç'
 
 # Correct Spelling Mistakes and Typos
-n.correct_typos("kasssıtllı yazişm hatasıı".split())
-['kasıtlı', 'yazım', 'hatası']
+n.correct_typos("kassıtlı yaezım hatasssı ekliyorumm".split())
+['kasıtlı', 'yazım', 'hatası', 'ekliyorum']
 
 # Punctuation Removal
 n.remove_punctuations("noktalamalı test cümlesidir...")
