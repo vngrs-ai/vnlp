@@ -48,7 +48,7 @@ POS_VOCAB_SIZE = len(tokenizer_pos_label.word_index)
 
 # Model Config
 WORD_EMBEDDING_VECTOR_SIZE = 128 # Word2Vec_medium.model
-WORD_EMBEDDING_VOCAB_SIZE = 63_991 # Word2Vec_medium.model
+WORD_EMBEDDING_VOCAB_SIZE = 63_992 # Word2Vec_medium.model
 # WORD_EMBEDDING_MATRIX and TAG_EMBEDDING MATRIX are initialized as Zeros, will be overwritten when model is loaded.
 WORD_EMBEDDING_MATRIX = np.zeros((WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE))
 TAG_EMBEDDING_MATRIX = np.zeros((127, 32))
