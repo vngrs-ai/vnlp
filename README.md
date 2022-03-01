@@ -29,7 +29,7 @@ open shell.
 write
 ```
 git clone https://github.com/vngrs-ai/VNLP.git
-cd Turkish-NLP-preprocessing-module
+cd VNLP
 python setup.py install
 ```
 

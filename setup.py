@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='vnlp',
+    name='VNLP',
     version='0.1',
     description='NLP Tools for Turkish Language.',
     author='Meliksah Turker',
