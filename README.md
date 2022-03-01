@@ -4,13 +4,12 @@ NLP Preprocessing module for Turkish language
 Consists of:
 - Sentence Splitter
 - Normalizer:
-	- Punctuation Remover
-	- Convert numbers to word form
-	- Remove accent marks
-	- Spelling Mistake & Typo correction using:
-		- Pre-defined typos lexicon
-		- Levenshtein distance
-		- Morphological Analyzer
+		- Lowercasing
+		- Punctuation removal
+		- Accent mark removal
+		- Deascification
+		- Converts numbers to word form
+		- Spelling/Typo correction
 - Stopword Remover:
 	- Static
 	- Dynamic
@@ -20,6 +19,7 @@ Consists of:
 - Named Entity Recognizer (NER) 
 - Dependency Parser
 - Part of Speech (POS) Tagger
+- Sentiment Analyzer
 - Turkish Embeddings
 	- FastText
 	- Word2Vec
@@ -43,40 +43,40 @@ instead.
 ### Usage:
 **Sentence Splitter**
 ```
-from pp.sentence_splitter import SentenceSplitter
-ss = SentenceSplitter()
+from vnlp import SentenceSplitter
+sent_splitter = SentenceSplitter()
 
-ss.split_sentences('Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haber!')
+sent_splitter.split_sentences('Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haberdi!')
 ['Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı."',
- 'Bu harika bir haber!']
+ 'Bu harika bir haberdi!']
  
-ss.split_sentences('4. Murat, diğer yazım şekli ile IV. Murat, alkollü içecekleri halka yasaklamıştı.')
+sent_splitter.split_sentences('4. Murat, diğer yazım şekli ile IV. Murat, alkollü içecekleri halka yasaklamıştı.')
 ['4. Murat, diğer yazım şekli ile IV. Murat, alkollü içecekleri halka yasaklamıştı.']
 ```
 
 **Normalizer**
 ```
-from pp.normalizer import Normalizer
-n = Normalizer()
+from vnlp import Normalizer
+normalizer = Normalizer()
 
 # Converts a string of text to lowercase for Turkish language.
-n.lower_case("Test karakterleri: İIĞÜÖŞÇ")
+normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ")
 'test karakterleri: iığüöşç'
 
 # Correct Spelling Mistakes and Typos
-n.correct_typos("kassıtlı yaezım hatasssı ekliyorumm".split())
+normalizer.correct_typos("kassıtlı yaezım hatasssı ekliyorumm".split())
 ['kasıtlı', 'yazım', 'hatası', 'ekliyorum']
 
 # Punctuation Removal
-n.remove_punctuations("noktalamalı test cümlesidir...")
+normalizer.remove_punctuations("noktalamalı test cümlesidir...")
 'noktalamalı test cümlesidir'
  
 # Deasciification
-n.deasciify("boyle sey gormedim duymadim".split())
+normalizer.deasciify("boyle sey gormedim duymadim".split())
 ['böyle', 'şey', 'görmedim', 'duymadım']
 
 # Convert Numbers to Word Form
-n.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
+normalizer.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
 ['sabah',
 'üç',
 'yumurta',
@@ -92,36 +92,36 @@ n.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogr
 'gördüm']
 
 # Remove accent marks
-n.remove_accent_marks("merhâbâ gûzel yîlkî atî")
+normalizer.remove_accent_marks("merhâbâ gûzel yîlkî atî")
 'merhaba guzel yılkı atı'
 ```
 
 **Stopword Remover**
 ```
-from pp.stopword_remover import StopwordRemover
-sr = StopwordRemover()
+from vnlp import StopwordRemover
+stopword_remover = StopwordRemover()
 
-sr.drop_stop_words("acaba bugün kahvaltıda kahve yerine çay mı içsem ya da neyse süt içeyim".split())
+stopword_remover.drop_stop_words("acaba bugün kahvaltıda kahve yerine çay mı içsem ya da neyse süt içeyim".split())
 ['bugün', 'kahvaltıda', 'kahve', 'çay', 'içsem', 'süt', 'içeyim']
  
-sr.dynamically_detect_stop_words("ben bugün gidip aşı olacağım sonra da eve gelip telefon açacağım aşı nasıl etkiledi eve gelip anlatırım aşı olmak bu dönemde çok ama ama ama ama çok önemli".split())
+stopword_remover.dynamically_detect_stop_words("ben bugün gidip aşı olacağım sonra da eve gelip telefon açacağım aşı nasıl etkiledi eve gelip anlatırım aşı olmak bu dönemde çok ama ama ama ama çok önemli".split())
 print(sr.dynamic_stop_words)
 ['ama', 'aşı', 'gelip', 'çok', 'eve', 'bu']
 
 # adding dynamically detected stop words to stop words lexicon
-sr.unify_stop_words()
+stopword_remover.unify_stop_words()
 
 # "aşı" has become a stopword now
-sr.drop_stop_words("aşı olmak önemli demiş miydim".split())
+stopword_remover.drop_stop_words("aşı olmak önemli demiş miydim".split())
 ['önemli', 'demiş', 'miydim']
 ```
 
 **Stemmer: Morphological Analyzer & Disambiguator**
 ```
-from pp.stemmer_morph_analyzer import StemmerAnalyzer
-sa = StemmerAnalyzer()
+from vnlp import StemmerAnalyzer
+stemmer_analyzer = StemmerAnalyzer()
 
-sa.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
+stemmer_analyzer.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
 ['eser+Noun+A3sg+Pnon+Nom',
  'miktar+Noun+A3sg+Pnon+Loc^DB+Adj+Rel',
  'geçici+Adj',
@@ -146,15 +146,15 @@ sa.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinde
  
 **Named Entity Recognizer (NER)**
 ```
-from pp.named_entitiy_recognizer import NamedEntityRecognizer
+from vnlp import NamedEntityRecognizer
 ner = NamedEntityRecognizer()
 
-ner.predict("Benim adım Melikşah, 28 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda Aydın ile birlikte çalışıyorum.")
+ner.predict("Benim adım Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda Aydın ile birlikte çalışıyorum.")
 [('Benim', 'O'),
  ('adım', 'O'),
  ('Melikşah', 'PER'),
  (',', 'O'),
- ('28', 'O'),
+ ('29', 'O'),
  ('yaşındayım', 'O'),
  (',', 'O'),
  ('İstanbul', 'LOC'),
@@ -177,10 +177,10 @@ ner.predict("Benim adım Melikşah, 28 yaşındayım, İstanbul'da ikamet ediyor
 
 **Dependency Parser**
 ```
-from pp.dependency_parser import DependencyParser
-dp = DependencyParser()
+from vnlp import DependencyParser
+dep_parser = DependencyParser()
 
-dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
 [(1, 'Onun', 5, 'obl'),
 (2, 'için', 1, 'case'),
 (3, 'yol', 1, 'nmod'),
@@ -196,29 +196,37 @@ dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iy
 
 **Part of Speech (POS) Tagger**
 ```
-from pp.part_of_speech_tagger import PoSTagger
-pos = PoSTagger()
+from vnlp import PoSTagger
+pos_tagger = PoSTagger()
 
-pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
+pos_tagger.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
 
 [('Vapurla', 'NOUN'),
-("Beşiktaş'a", 'PROPN'),
-('geçip', 'ADV'),
-('yürüyerek', 'ADV'),
-('Maçka', 'PROPN'),
-("Parkı'na", 'NOUN'),
-('ulaştım', 'VERB'),
-('.', 'PUNCT')]
+ ("Beşiktaş'a", 'PROPN'),
+ ('geçip', 'ADV'),
+ ('yürüyerek', 'VERB'),
+ ('Maçka', 'PROPN'),
+ ("Parkı'na", 'NOUN'),
+ ('ulaştım', 'VERB'),
+ ('.', 'PUNCT')]
 ```
 
 **Sentiment Analyzer**
 ```
-from pp.sentiment_analyzer import SentimentAnalyzer
+from vnlp import SentimentAnalyzer
 sentiment_analyzer = SentimentAnalyzer()
 
 sentiment_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
 
-0.15
+0.007
+
+sentiment_analyzer.predict("Servis daha iyi olabilirdi ama lezzet ve hız geçer not aldı.")
+
+1
+
+sentiment_analyzer.predict_proba("Yemekleriniz o kadar şahaneydi ki artık uzun bir süre meksika yemeği yemeyi düşünmüyorum.")
+
+0.448
 ```
 
 **Turkish Embeddings: Word2Vec & FastText:**
@@ -227,7 +235,7 @@ sentiment_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atışt�
 	- Medium: vocabulary_size: 64_000, embedding_size: 128
 	- Small: vocabulary_size: 32_000, embedding_size: 64
 
-- Download from below links first, unzip the content and place under directory pp/turkish_embeddings:
+- Download from below links first, unzip the content and place under directory vnlp/turkish_embeddings:
 	- Large:
 		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_large.zip
 		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_large.zip
@@ -244,7 +252,7 @@ You need gensim to execute the sample code below.
 ```
 from gensim.models import Word2Vec, FastText
 # Word2Vec
-model = Word2Vec.load('pp/turkish_embeddings/Word2Vec_large.model')
+model = Word2Vec.load('vnlp/turkish_embeddings/Word2Vec_large.model')
 model.wv.most_similar('gandalf', topn = 20)
 [('saruman', 0.7291593551635742),
  ('thorin', 0.6473978161811829),
@@ -268,7 +276,7 @@ model.wv.most_similar('gandalf', topn = 20)
  ('vader', 0.5258742570877075)]
  
 # FastText
-model = Word2Vec.load('pp/turkish_embeddings/FastText_large.model')
+model = Word2Vec.load('vnlp/turkish_embeddings/FastText_large.model')
 model.wv.most_similar('yamaçlardan', topn = 20)
 [('kayalardan', 0.8601457476615906),
  ('kayalıklardan', 0.8567330837249756),

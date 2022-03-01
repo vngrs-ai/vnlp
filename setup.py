@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='vngrs-nlp',
+    name='vnlp',
     version='0.1',
     description='NLP Tools for Turkish Language.',
     author='Meliksah Turker',
@@ -26,8 +26,8 @@ setup(
     'Programming Language :: Python :: 3.7'
 ],
     packages=find_packages(exclude=['turkish_embeddings']),
-    package_data={'': ['_resources', '*.txt', '*.hdf5', '*.md', '*.pickle']},
+    package_data={'': ['_resources', 'resources', '*.txt', '*.hdf5', '*.md', '*.pickle']},
     include_package_data=True,
     install_requires=['numpy==1.19.5', 'regex==2021.8.28', 
-                      'tensorflow==2.4.1', 'cyhunspell==2.0.2'] #'python_Levenshtein==0.12.2'
+                      'tensorflow==2.4.1', 'cyhunspell==2.0.2']
     )

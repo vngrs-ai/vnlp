@@ -7,7 +7,7 @@ import numpy as np
 
 from ..stemmer_morph_analyzer import StemmerAnalyzer
 from ..part_of_speech_tagger import PoSTagger
-
+from ..tokenizer import TreebankWordTokenize
 from ._utils import (create_dependency_parser_model, process_single_word_input)
 
 # Resolving parent dependencies
@@ -19,7 +19,6 @@ current_dir = os.path.dirname(current_path)
 parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
 sys.path.insert(0, parent_dir)
 
-from tokenizer import TreebankWordTokenize
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
