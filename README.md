@@ -4,12 +4,12 @@ NLP Preprocessing module for Turkish language
 Consists of:
 - Sentence Splitter
 - Normalizer:
-		- Lowercasing
-		- Punctuation removal
-		- Accent mark removal
-		- Deascification
-		- Converts numbers to word form
-		- Spelling/Typo correction
+	- Spelling/Typo correction
+	- Converts numbers to word form
+	- Deascification
+	- Lowercasing
+	- Punctuation removal
+	- Accent mark removal
 - Stopword Remover:
 	- Static
 	- Dynamic
@@ -28,7 +28,7 @@ Consists of:
 open shell.
 write
 ```
-git clone https://github.com/vngrs-ai/Turkish-NLP-preprocessing-module.git
+git clone https://github.com/vngrs-ai/VNLP.git
 cd Turkish-NLP-preprocessing-module
 python setup.py install
 ```
