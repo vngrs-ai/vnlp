@@ -1,7 +1,8 @@
 include README.md
-recursive-include resources *
-recursive-include TTS *.md
-recursive-include TTS *.py
-recursive-include TTS *.pickle
-recursive-include TTS *.hdf5
-recursive-include TTS *.txt
+recursive-include vnlp *.md
+recursive-include vnlp *.py
+recursive-include vnlp *.pickle
+recursive-include vnlp *.hdf5
+recursive-include vnlp *.txt
+recursive-include vnlp *.aff
+recursive-include vnlp *.dic
