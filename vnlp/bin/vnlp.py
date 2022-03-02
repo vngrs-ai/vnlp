@@ -5,34 +5,32 @@ from vnlp import (StemmerAnalyzer, NamedEntityRecognizer, DependencyParser, PoST
 
 
 def main():
-    """
-    List of tasks:
+    help_text = 'usage: vnlp [--task] [--text] \
+    \
+    # List of available tasks:\
+    stemming_morph_analysis\
+    named_entity_recognition\
+    dependency_parsing\
+    part_of_speech_tagging\
+    sentiment_analysis\
+    split_sentences\
+    correct_typos\
+    convert_numbers_to_words\
+    deasciify\
+    lower_case\
+    remove_punctuations\
+    remove_accent_marks\
+    drop_stop_words\
+    \
+    # Example usage:\
+    $ vnlp --task stemming_morph_analysis --text "Üniversite sınavlarına canla başla çalışıyorlardı."\
+    '
 
-    # Deep NN based functions
-    stemming_morph_analysis
-    named_entity_recognition
-    dependency_parsing
-    part_of_speech_tagging
-    sentiment_analysis
-
-    # Rule, Regex and Lexicon based functions
-    split_sentences
-    correct_typos
-    convert_numbers_to_words
-    deasciify
-    lower_case
-    remove_punctuations
-    remove_accent_marks
-    drop_stop_words
-    
-    Example:
-
-    $ vnlp --task stemming_morph_analysis --text "Üniversite sınavlarına canla başla çalışıyorlardı."
-
-    """
     parser = argparse.ArgumentParser()
     parser.add_argument('--task', type=str, required=True)
     parser.add_argument('--text', type=str, required=True)
+    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
+                        help=help_text)
     args = parser.parse_args()
 
     task = args.task
