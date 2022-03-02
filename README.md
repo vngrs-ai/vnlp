@@ -1,5 +1,5 @@
-## Turkish-NLP-preprocessing-module
-NLP Preprocessing module for Turkish language
+## VNLP: Turkish NLP Tools
+State of the art, lightweight NLP models for Turkish language.
 
 Consists of:
 - Sentence Splitter
