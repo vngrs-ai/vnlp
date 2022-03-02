@@ -29,6 +29,6 @@ setup(
     #package_data={'': ['_resources', 'resources', '*.txt', '*.hdf5', '*.md', '*.pickle']},
     include_package_data=True,
     install_requires=['regex==2021.8.28', 'numpy==1.19.5', 
-                      'tensorflof==2.4.1', 'cyhunspell==2.0.2'],
+                      'tensorflow==2.4.1', 'cyhunspell==2.0.2'],
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]}
     )
