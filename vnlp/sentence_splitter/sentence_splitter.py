@@ -3,7 +3,7 @@ from pathlib import Path
 from enum import Enum
 import regex
 
-PATH = "../_resources/"
+PATH = "../resources/"
 PATH = str(Path(__file__).parent / PATH)
 
 # Based on the scripts developed by Philipp Koehn and Josh Schroeder: https://pypi.org/project/sentence-splitter/

@@ -7,7 +7,7 @@ import numpy as np
 # To suppress zero and nan division errors
 np.seterr(divide='ignore', invalid='ignore')
 
-PATH = "../_resources/"
+PATH = "../resources/"
 PATH = str(Path(__file__).parent / PATH)
 
 class StopwordRemover:

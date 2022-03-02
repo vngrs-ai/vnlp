@@ -7,7 +7,7 @@ from hunspell import Hunspell
 from ._deasciifier import Deasciifier
 from ..stemmer_morph_analyzer import StemmerAnalyzer
 
-RESOURCES_PATH = "../_resources/"
+RESOURCES_PATH = "../resources/"
 RESOURCES_PATH = str(Path(__file__).parent / RESOURCES_PATH)
 
 class Normalizer():
