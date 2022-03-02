@@ -1,4 +1,0 @@
-numpy==1.19.5
-regex==2021.8.28
-tensorflow==2.4.1
-python_Levenshtein==0.12.2
