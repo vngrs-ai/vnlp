@@ -76,7 +76,7 @@ normalizer.deasciify("boyle sey gormedim duymadim".split())
 ['böyle', 'şey', 'görmedim', 'duymadım']
 
 # Convert Numbers to Word Form
-normalizer.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
+normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
 ['sabah',
 'üç',
 'yumurta',

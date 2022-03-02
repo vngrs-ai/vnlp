@@ -71,7 +71,7 @@ class Normalizer():
         """
         return ''.join([t for t in text if (t.isalnum() or t == " ")])
     
-    def convert_number_to_word(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
+    def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
         """
         Converts numbers to word forms in a given list of tokens.
 
@@ -86,7 +86,7 @@ class Normalizer():
 
         Sample use:
         normalizer = Normalizer()
-        print(normalizer.convert_number_to_word("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split()))
+        print(normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split()))
 
         ['sabah',
         'üç',
