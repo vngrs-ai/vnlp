@@ -1,0 +1,6 @@
+include README.md
+recursive-include TTS *.md
+recursive-include TTS *.py
+recursive-include TTS *.pickle
+recursive-include TTS *.hdf5
+recursive-include TTS *.txt
