@@ -1,5 +1,7 @@
 ## VNLP: Turkish NLP Tools
 State of the art, lightweight NLP models for Turkish language.
+Developed by VNGRS.
+https://vngrs.com/
 
 Consists of:
 - Sentence Splitter
