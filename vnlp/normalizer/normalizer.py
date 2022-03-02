@@ -19,10 +19,6 @@ class Normalizer():
         dict_words_lexicon = dict.fromkeys(words_lexicon)
 
         self._words_lexicon = dict_words_lexicon
-        
-        self._vowels = set("aeiou")
-        self._consonants = set(string.ascii_lowercase) - self._vowels
-        self._non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
 
         self._stemmer_analyzer = StemmerAnalyzer()
         self._hunspell = Hunspell('tr_TR', hunspell_data_dir= RESOURCES_PATH + '/tdd-hunspell-tr-1.1.0')
@@ -70,6 +66,49 @@ class Normalizer():
         'merhaba'
         """
         return ''.join([t for t in text if (t.isalnum() or t == " ")])
+
+    @staticmethod
+    def remove_accent_marks(text: str)-> str:
+        """
+        Removes accent marks from the given string.
+
+        Input:
+        text(str): string of text
+
+        Output:
+        text(str): string of text stripped from accent marks
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.remove_accent_marks("merhâbâ"))
+
+        'merhaba'
+        """
+        _non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
+        return ''.join(_non_turkish_accent_marks.get(char, char) for char in text)
+
+    @staticmethod
+    def deasciify(tokens: List[str]) -> List[str]:
+        """
+        Deasciification for Turkish.
+
+        Input:
+        tokens(List[str]): list of tokens
+
+        Output:
+        deasciified_tokens(List[str]): list of deasciified tokens
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
+
+        ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
+        """
+        deasciified_tokens = []
+        for token in tokens:
+            deasciifier = Deasciifier(token)
+            deasciified_tokens.append(deasciifier.convert_to_turkish())
+        return deasciified_tokens
     
     def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
         """
@@ -114,24 +153,6 @@ class Normalizer():
                 
         return converted_tokens
     
-    def remove_accent_marks(self, text: str)-> str:
-        """
-        Removes accent marks from the given string.
-
-        Input:
-        text(str): string of text
-
-        Output:
-        text(str): string of text stripped from accent marks
-
-        Sample use:
-        normalizer = Normalizer()
-        print(normalizer.remove_accent_marks("merhâbâ"))
-
-        'merhaba'
-        """
-        return ''.join(self._non_turkish_accent_marks.get(char, char) for char in text)
-    
     def correct_typos(self, tokens: List[str]) -> List[str]:
         """
         Corrects spelling mistakes and typos.
@@ -162,28 +183,6 @@ class Normalizer():
                     corrected_tokens.append(token)
         
         return corrected_tokens
-
-    def deasciify(self, tokens: List[str]) -> List[str]:
-        """
-        Deasciification for Turkish.
-
-        Input:
-        tokens(List[str]): list of tokens
-
-        Output:
-        deasciified_tokens(List[str]): list of deasciified tokens
-
-        Sample use:
-        normalizer = Normalizer()
-        print(normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
-
-        ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
-        """
-        deasciified_tokens = []
-        for token in tokens:
-            deasciifier = Deasciifier(token)
-            deasciified_tokens.append(deasciifier.convert_to_turkish())
-        return deasciified_tokens
 
     def _is_token_valid_turkish(self, token):
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
