@@ -84,6 +84,10 @@ def main():
         stopword_remover = StopwordRemover()
         result = stopword_remover.drop_stop_words(input_text.split())
 
+    else:
+        print(help_text)
+
+    print(result)
     return result
 
 
