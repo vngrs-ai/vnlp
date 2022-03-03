@@ -1,4 +1,4 @@
-![Alt text](vnlp.png)
+![Alt text](vnlp.png =100x100)
 ![](vnlp.png | width=100)
 ## VNLP: Turkish NLP Tools
 State of the art, lightweiht NLP models for Turkish language.
