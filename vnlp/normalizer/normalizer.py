@@ -84,7 +84,8 @@ class Normalizer():
 
         'merhaba'
         """
-        _non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u'}
+        _non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u',
+                                     'Â':'A', 'Ô':'o', 'Î':'ı', 'Ê':'e', 'Û': 'u'}
         return ''.join(_non_turkish_accent_marks.get(char, char) for char in text)
 
     @staticmethod
