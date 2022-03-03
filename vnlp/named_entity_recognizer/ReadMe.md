@@ -4,9 +4,9 @@
 - There are slight modifications to original paper:
 	- I did not train for all languages, but only Turkish.
 	- I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
-	
-- It achieves over 0.96 Accuracy and 0.92 F1_macro_score.
-- After development phase, final model in the repository is trained with all of train, dev and test data for 40 epochs with learning rate decay of 0.95 after epoch 10.
+
+- It achieves over 0.9589 Accuracy and 0.9200 F1_macro_score.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 40 epochs with learning rate decay of 0.95 after epoch 10, therefore you cannot evaluate on test sets using the model weights found in this repository. However, model_weights trained on train and dev sets only are available at: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/model_weights/ner_trained_on_train_dev.hdf5 . Hence you can place this under resources and evaluate on test sets.
 - I gathered, parsed and denoised a very extensive dataset.
 Details are as below:
 
