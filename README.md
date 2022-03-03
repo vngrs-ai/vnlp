@@ -1,6 +1,4 @@
-![Alt text](vnlp.png)
-
-<img src="https://github.com/vngrs-ai/VNLP/blob/main/vnlp.png" width="48">
+<img src="https://github.com/vngrs-ai/VNLP/blob/main/vnlp.png" width="256">
 
 ## VNLP: Turkish NLP Tools
 State of the art, lightweiht NLP models for Turkish language.
