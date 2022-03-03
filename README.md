@@ -1,7 +1,7 @@
 <img src="https://github.com/vngrs-ai/VNLP/blob/main/vnlp.png" width="256">
 
 ## VNLP: Turkish NLP Tools
-State of the art, lightweiht NLP tools for Turkish language.
+State of the art, lightweight NLP tools for Turkish language.
 Developed by VNGRS.
 https://vngrs.com/
 
