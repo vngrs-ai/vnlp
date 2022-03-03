@@ -30,7 +30,7 @@ setup(
     packages=find_packages(exclude=['turkish_embeddings']),
     include_package_data=True,
     install_requires=['tensorflow<2.6.0; python_version < "3.8"',
-                      'tensorflow>2.6.0; python_version >= "3.8"',
+                      'tensorflow>=2.6.0; python_version >= "3.8"',
                       'regex==2021.8.28', 'cyhunspell==2.0.2'],
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]}
     )
