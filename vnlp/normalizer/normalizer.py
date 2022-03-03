@@ -157,7 +157,7 @@ class Normalizer():
 
         Sample use:
         normalizer = Normalizer()
-        print(normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split()))
+        print(normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1,15 kilogram aldığımı gördüm".split()))
 
         ['sabah',
         'üç',
