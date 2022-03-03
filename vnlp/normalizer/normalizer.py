@@ -111,7 +111,7 @@ class Normalizer():
             deasciified_tokens.append(deasciifier.convert_to_turkish())
         return deasciified_tokens
 
-def correct_typos(self, tokens: List[str]) -> List[str]:
+    def correct_typos(self, tokens: List[str]) -> List[str]:
         """
         Corrects spelling mistakes and typos.
 
@@ -200,7 +200,7 @@ def correct_typos(self, tokens: List[str]) -> List[str]:
         tp = [" yüz", " bin", "", "", " milyon", " milyar", " trilyon", " katrilyon", " kentilyon",
             " seksilyon", " septilyon", " oktilyon", " nonilyon", " desilyon", " undesilyon",
             " dodesilyon", " tredesilyon", " katordesilyon", " seksdesilyon", " septendesilyon",
-            " oktodesilyon", " novemdesilyon", " vigintilyon"]
+            " oktodesilyon", " nove mdesilyon", " vigintilyon"]
 
         # dec[]: every decimal digit,  ten[]: every tenth number
         dec = ["", " bir", " iki", " üç", " dört", " beş", " altı", " yedi", " sekiz", " dokuz"]
