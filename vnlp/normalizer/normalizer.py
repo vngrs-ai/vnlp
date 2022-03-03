@@ -142,7 +142,7 @@ class Normalizer():
         
         return corrected_tokens
     
-    def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
+    def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6, decimal_seperator: str = ',')-> List[str]:
         """
         Converts numbers to word forms in a given list of tokens.
 
@@ -175,6 +175,19 @@ class Normalizer():
         """
         converted_tokens = []
         for token in tokens:
+            if decimal_seperator == ',':
+                # if decimal seperator is comma, then thousands seperator is dot and it will be converted to python's
+                # thousands seperator underscore.
+                # furthermore, comma will be converted to dot, python's decimal seperator.
+                token = token.replace('.', '_').replace(',', '.') 
+            elif decimal_seperator == '.':
+                # if decimal seperator is dot, then thousands seperator is comma and it will be converted to python's
+                # thousands seperator underscore.
+                token = token.replace(',', '_')
+            else:
+                raise ValueError(decimal_seperator, 'is not a valid decimal seperator value. Use either "." or ","')
+
+
             # Try to convert token to number
             try:
                 num = float(token)
