@@ -1,42 +1,52 @@
 import argparse
 
 from vnlp import (StemmerAnalyzer, NamedEntityRecognizer, DependencyParser, PoSTagger,
-                  SentimentAnalyzer, SentenceSplitter, Normalizer)
+                  SentimentAnalyzer, SentenceSplitter, Normalizer, StopwordRemover)
 
 
 def main():
-    help_text = 'usage: vnlp [--task] [--text] \
-    \
-    # List of available tasks:\
-    stemming_morph_analysis\
-    named_entity_recognition\
-    dependency_parsing\
-    part_of_speech_tagging\
-    sentiment_analysis\
-    split_sentences\
-    correct_typos\
-    convert_numbers_to_words\
-    deasciify\
-    lower_case\
-    remove_punctuations\
-    remove_accent_marks\
-    drop_stop_words\
-    \
-    # Example usage:\
-    $ vnlp --task stemming_morph_analysis --text "Üniversite sınavlarına canla başla çalışıyorlardı."\
-    '
+
+    list_tasks = '\
+        # List of available tasks:\n\
+        stemming_morph_analysis\n\
+        named_entity_recognition\n\
+        dependency_parsing\n\
+        part_of_speech_tagging\n\
+        sentiment_analysis\n\
+        split_sentences\n\
+        correct_typos\n\
+        convert_numbers_to_words\n\
+        deasciify\n\
+        lower_case\n\
+        remove_punctuations\n\
+        remove_accent_marks\n\
+        drop_stop_words\n\
+        '
+
+    example_usage = '\
+        $ vnlp --task stemming_morph_analysis --text "Üniversite sınavlarına canla başla çalışıyorlardı."\n\
+        $ vnlp --task correct_typos --text "kassıtlı yaezım hatasssı ekliyorumm"\
+        '
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--task', type=str, required=True)
-    parser.add_argument('--text', type=str, required=True)
-    parser.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,
-                        help=help_text)
+    parser.add_argument('--task', type=str, action = 'store', help = 'Task to be performed on text, e.g: sentiment_analysis')
+    parser.add_argument('--text', type=str, action = 'store', help = 'Input text to be processed')
+    parser.add_argument('--list_tasks', action = 'store_true', help = 'Lists available tasks/functions')
+    parser.add_argument('--example_usage', action = 'store_true', help = 'Shows usage examples')
     args = parser.parse_args()
 
     task = args.task
     input_text = args.text
 
-    if task == 'stemming_morph_analysis':
+    if args.list_tasks:
+        print(list_tasks)
+        return
+
+    if args.example_usage:
+        print(example_usage)
+        return
+
+    elif task == 'stemming_morph_analysis':
         stemmer_analyzer = StemmerAnalyzer()
         result = stemmer_analyzer.predict(input_text)
     
@@ -54,7 +64,7 @@ def main():
 
     elif task == 'sentiment_analysis':
         sentiment_analyzer = SentimentAnalyzer()
-        result = sentiment_analyzer.predict(input_text)
+        result = str(sentiment_analyzer.predict(input_text))
 
     elif task == 'split_sentences':
         sentence_splitter = SentenceSplitter()
@@ -62,14 +72,17 @@ def main():
 
     elif task == 'correct_typos':
         normalizer = Normalizer()
-        result = normalizer.correct_typos(input_text.split())
+        result_as_list = normalizer.correct_typos(input_text.split())
+        result = " ".join(result_as_list)
 
     elif task == 'convert_numbers_to_words':
         normalizer = Normalizer()
-        result = normalizer.convert_numbers_to_words(input_text.split())
+        result_as_list = normalizer.convert_numbers_to_words(input_text.split())
+        result = " ".join(result_as_list)
 
     elif task == 'deasciify':
-        result = Normalizer.deasciify(input_text.split())
+        result_as_list = Normalizer.deasciify(input_text.split())
+        result = " ".join(result_as_list)
 
     elif task == 'lower_case':
         result = Normalizer.lower_case(input_text)
@@ -82,12 +95,9 @@ def main():
 
     elif task == 'drop_stop_words':
         stopword_remover = StopwordRemover()
-        result = stopword_remover.drop_stop_words(input_text.split())
+        result_as_list = stopword_remover.drop_stop_words(input_text.split())
+        result = " ".join(result_as_list)
 
-    else:
-        print(help_text)
-
-    print(result)
     return result
 
 
