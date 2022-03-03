@@ -110,6 +110,37 @@ class Normalizer():
             deasciifier = Deasciifier(token)
             deasciified_tokens.append(deasciifier.convert_to_turkish())
         return deasciified_tokens
+
+def correct_typos(self, tokens: List[str]) -> List[str]:
+        """
+        Corrects spelling mistakes and typos.
+
+        Input:
+        tokens(List[str]): list of tokens
+
+        Output:
+        corrected_tokens(List[str]): list of corrected tokens
+
+        Sample use:
+        normalizer = Normalizer()
+        print(normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split()))
+
+        ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
+        """
+        corrected_tokens = []
+        for token in tokens:
+            if (self._is_token_valid_turkish(token)) or (self._hunspell.spell(token)):
+                corrected_tokens.append(token)
+            else:
+                hunspell_suggestions = self._hunspell.suggest(token)
+                if len(hunspell_suggestions) > 0:
+                    corrected_token = hunspell_suggestions[0]
+                    corrected_tokens.append(corrected_token)
+                else:
+                    # there is no suggestion so return the original token
+                    corrected_tokens.append(token)
+        
+        return corrected_tokens
     
     def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6)-> List[str]:
         """
@@ -153,37 +184,6 @@ class Normalizer():
                 converted_tokens.append(token)
                 
         return converted_tokens
-    
-    def correct_typos(self, tokens: List[str]) -> List[str]:
-        """
-        Corrects spelling mistakes and typos.
-
-        Input:
-        tokens(List[str]): list of tokens
-
-        Output:
-        corrected_tokens(List[str]): list of corrected tokens
-
-        Sample use:
-        normalizer = Normalizer()
-        print(normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split()))
-
-        ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
-        """
-        corrected_tokens = []
-        for token in tokens:
-            if (self._is_token_valid_turkish(token)) or (self._hunspell.spell(token)):
-                corrected_tokens.append(token)
-            else:
-                hunspell_suggestions = self._hunspell.suggest(token)
-                if len(hunspell_suggestions) > 0:
-                    corrected_token = hunspell_suggestions[0]
-                    corrected_tokens.append(corrected_token)
-                else:
-                    # there is no suggestion so return the original token
-                    corrected_tokens.append(token)
-        
-        return corrected_tokens
 
     def _is_token_valid_turkish(self, token):
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
