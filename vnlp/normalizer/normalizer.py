@@ -36,8 +36,7 @@ class Normalizer():
         text(str): string of text in lowercase form
 
         Sample use:
-        normalizer = Normalizer()
-        print(normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ"))
+        print(Normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ"))
         
         'test karakterleri: iığüöşç'
 
@@ -60,8 +59,7 @@ class Normalizer():
         text(str): string of text stripped from punctuations
 
         Sample use:
-        normalizer = Normalizer()
-        print(normalizer.remove_punctuations("merhaba..."))
+        print(Normalizer.remove_punctuations("merhaba..."))
 
         'merhaba'
         """
@@ -79,8 +77,7 @@ class Normalizer():
         text(str): string of text stripped from accent marks
 
         Sample use:
-        normalizer = Normalizer()
-        print(normalizer.remove_accent_marks("merhâbâ"))
+        print(Normalizer.remove_accent_marks("merhâbâ"))
 
         'merhaba'
         """
@@ -100,8 +97,7 @@ class Normalizer():
         deasciified_tokens(List[str]): list of deasciified tokens
 
         Sample use:
-        normalizer = Normalizer()
-        print(normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
+        print(Normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
 
         ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
         """

@@ -78,24 +78,12 @@ sent_splitter.split_sentences('4. Murat, diğer yazım şekli ile IV. Murat, alk
 from vnlp import Normalizer
 normalizer = Normalizer()
 
-# Converts a string of text to lowercase for Turkish language.
-normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ")
-'test karakterleri: iığüöşç'
-
 # Correct Spelling Mistakes and Typos
 normalizer.correct_typos("kassıtlı yaezım hatasssı ekliyorumm".split())
 ['kasıtlı', 'yazım', 'hatası', 'ekliyorum']
 
-# Punctuation Removal
-normalizer.remove_punctuations("noktalamalı test cümlesidir...")
-'noktalamalı test cümlesidir'
- 
-# Deasciification
-normalizer.deasciify("boyle sey gormedim duymadim".split())
-['böyle', 'şey', 'görmedim', 'duymadım']
-
 # Convert Numbers to Word Form
-normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1.15 kilogram aldığımı gördüm".split())
+normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1,15 kilogram aldığımı gördüm".split())
 ['sabah',
 'üç',
 'yumurta',
@@ -110,8 +98,21 @@ normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 
 'aldığımı',
 'gördüm']
 
+# Below are static methods that require no initialization
+# Deasciification
+Normalizer.deasciify("boyle sey gormedim duymadim".split())
+['böyle', 'şey', 'görmedim', 'duymadım']
+
+# Converts a string of text to lowercase for Turkish language.
+Normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ")
+'test karakterleri: iığüöşç'
+
+# Punctuation Removal
+Normalizer.remove_punctuations("noktalamalı test cümlesidir...")
+'noktalamalı test cümlesidir'
+
 # Remove accent marks
-normalizer.remove_accent_marks("merhâbâ gûzel yîlkî atî")
+Normalizer.remove_accent_marks("merhâbâ gûzel yîlkî atî")
 'merhaba guzel yılkı atı'
 ```
 
