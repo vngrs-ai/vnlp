@@ -45,6 +45,16 @@ instead.
 
 
 ### Usage:
+#### CLI
+```
+$ vnlp --task sentiment_analysis --text "Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk."
+0
+
+# To list available tasks/functionality:
+$ vnlp --list_tasks
+```
+
+#### Python
 **Sentence Splitter**
 ```
 from vnlp import SentenceSplitter
