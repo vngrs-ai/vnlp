@@ -254,17 +254,17 @@ sentiment_analyzer.predict_proba("Yemekleriniz o kadar şahaneydi ki artık uzun
 	- Medium: vocabulary_size: 64_000, embedding_size: 128
 	- Small: vocabulary_size: 32_000, embedding_size: 64
 
-- Download from below links first, unzip the content and place under directory vnlp/turkish_embeddings:
+- Can be downloaded from below links:
 	- Large:
-		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_large.zip
-		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_large.zip
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/Word2Vec_large.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/FastText_large.zip
 	- Medium:
-		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_medium.zip
-		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_medium.zip
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/Word2Vec_medium.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/FastText_medium.zip
 		
 	- Small:
-		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/Word2Vec_small.zip
-		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/turkish-embeddings/trained_models/FastText_small.zip
+		- Word2Vec: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/Word2Vec_small.zip
+		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/FastText_small.zip
 
 
 You need gensim to execute the sample code below.
