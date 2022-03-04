@@ -1,5 +1,4 @@
 from typing import List
-import logging
 from pathlib import Path
 
 import numpy as np
@@ -17,20 +16,20 @@ class StopwordRemover:
         # Loading static stop words from the lexicon
         f = open(PATH + '/turkish_stop_words.txt', encoding = 'utf-8')
 
-        self.static_stop_words = [line.strip() for line in f]
-        self.dynamic_stop_words = []
-        self.stop_words = self.static_stop_words.copy()
-        self.rare_words = []
+        self.stop_words = dict.fromkeys([line.strip() for line in f])
 
-    def dynamically_detect_stop_words(self, list_of_tokens: List[str], rare_words_freq: int = 0):
+    def dynamically_detect_stop_words(self, list_of_tokens: List[str], rare_words_freq: int = 0) -> List[str]:
         """
-        Dynamically detects stop words and updates self.dynamic_stop_words list.
+        Dynamically detects stop words and returns them as List of strings.
         Args:
             rare_words_freq (int): Maximum frequency of words when deciding rarity.
-            Default value is 0 so it does not detect and drop any rare words.
+            Default value is 0 so it does not detect any rare words by default.
 
         Input:
         list_of_tokens(List[str]): list of string tokens
+
+        Output:
+        detected_stop_words(List[str]): list of string tokens
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         sorted_indices = cnts.argsort()[::-1] # I need them in descending order
@@ -38,7 +37,7 @@ class StopwordRemover:
         cnts = cnts[sorted_indices]
         
         if len(unq) < 3:
-            raise ValueError('Number of tokens must be at least 3 for Dynamic Stop Word Detection')
+            raise ValueError('Number of unique tokens must be at least 3 for Dynamic Stop Word Detection')
             
         # Below is equivalent to:
         # df_words['counts'].pct_change().abs().pct_change().abs().dropna().idxmax()
@@ -53,24 +52,20 @@ class StopwordRemover:
         argmax_second_der = np.argmax(pct_change_two)
         
         # +2 is due to shifting twice due to np.diff()
-        stop_words_extracted = unq[:argmax_second_der + 2].tolist()
-        self.dynamic_stop_words += [x for x in stop_words_extracted if x not in self.dynamic_stop_words]
+        detected_stop_words = unq[:argmax_second_der + 2].tolist()
         
         # Determine rare_words according to given rare_words_freq value
         # Add them to dynamic_stop_words list
         rare_words = unq[cnts <= rare_words_freq].tolist()
-        stop_words_extracted += rare_words
-        self.rare_words += rare_words
-        self.dynamic_stop_words += self.rare_words
-        
-        logging.info("Dynamically detected stopwords are: " + ", ".join(stop_words_extracted))
+        detected_stop_words += rare_words
 
-    def unify_stop_words(self):
+        return detected_stop_words
+
+    def add_to_stop_words(self, novel_stop_words: List[str]):
         """
-        Updates self.stop_words by merging static and dynamic ones.
+        Updates self.stop_words by adding given novel_stop_words to existing dictionary.
         """
-        self.stop_words = sorted(list(set(self.static_stop_words).union(set(self.dynamic_stop_words))))
-        logging.info('List of stop words is unified and updated.')
+        self.stop_words.update(dict.fromkeys(novel_stop_words))
 
     def drop_stop_words(self, list_of_tokens: List[str]) -> List[str]:
         """
@@ -82,6 +77,5 @@ class StopwordRemover:
         Output:
         tokens_without_stopwords(List[str]): list of string tokens, stripped of stopwords
         """
-        
         tokens_without_stopwords = [token for token in list_of_tokens if token not in self.stop_words]
         return tokens_without_stopwords
