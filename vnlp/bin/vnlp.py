@@ -1,4 +1,15 @@
 import argparse
+import os
+
+# To suppress tensorflow warnings such as below:
+"""
+This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) 
+to use the following CPU instructions in performance-critical operations: 
+AVX2 FMA To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags. 
+I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:176]
+None of the MLIR Optimization Passes are enabled (registered 2)
+"""
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 from vnlp import (StemmerAnalyzer, NamedEntityRecognizer, DependencyParser, PoSTagger,
                   SentimentAnalyzer, SentenceSplitter, Normalizer, StopwordRemover)
