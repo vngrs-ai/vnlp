@@ -32,5 +32,6 @@ setup(
     install_requires=['tensorflow<2.6.0; python_version < "3.8"',
                       'tensorflow>=2.6.0; python_version >= "3.8"',
                       'regex==2021.8.28', 'cyhunspell'],
+    extras_require={"extras": ['gensim', 'spacy']}
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]}
     )
