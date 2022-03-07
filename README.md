@@ -212,6 +212,14 @@ dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendil
 (9, 'iyice', 8, 'advmod'),
 (10, 'sınarız', 0, 'root'),
 (11, '.', 10, 'punct')]
+
+Spacy's submodule Displacy can be used to visualize DependencyParser result.
+import spacy
+from pp.dependency_parser import DependencyParser
+dependency_parser = DependencyParser()
+result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
+spacy.displacy.render(result, style="dep", manual = True)
+
 ```
 
 **Part of Speech (POS) Tagger**
