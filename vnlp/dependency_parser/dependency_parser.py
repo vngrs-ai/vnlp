@@ -93,7 +93,7 @@ class DependencyParser:
             self.pos_tagger = pos_tagger
         
 
-    def predict(self, sentence: str) -> List[Tuple[int, str, int, str]]:
+    def predict(self, sentence: str, displacy_format: bool = False) -> List[Tuple[int, str, int, str]]:
 
         """
         High level user function
@@ -104,10 +104,14 @@ class DependencyParser:
         Output:
         result (List[Tuple[int, str, int, str]]): list of (word_index, token, arc, label)
 
+        Args:
+        displacy_format (boolean): When set True, returns the result in spacy.displacy format to
+        allow visualization.
+
         Sample use:
         from pp.dependency_parser import DependencyParser
-        dp = DependencyParser()
-        dp.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+        dependency_parser = DependencyParser()
+        dependency_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
 
         [(1, 'Onun', 5, 'obl'),
         (2, 'için', 1, 'case'),
@@ -121,6 +125,12 @@ class DependencyParser:
         (10, 'sınarız', 0, 'root'),
         (11, '.', 10, 'punct')]
         
+        Visualization with Spacy:
+        import spacy
+        from pp.dependency_parser import DependencyParser
+        dependency_parser = DependencyParser()
+        result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
+        spacy.displacy.render(result, style="dep", manual = True)
         """
 
         sentence_word_punct_tokenized = TreebankWordTokenize(sentence)
@@ -134,7 +144,8 @@ class DependencyParser:
         if not len(sentence_analysis_result) == num_tokens_in_sentence:
             raise Exception(sentence, "Length of sentence and sentence_analysis_result don't match")
 
-        pos_tags = [pos for (word, pos) in self.pos_tagger.predict(sentence)]
+        pos_result = self.pos_tagger.predict(sentence)
+        pos_tags = [pos for (word, pos) in pos_result]
 
         arcs = []
         labels = []
@@ -155,8 +166,30 @@ class DependencyParser:
             labels.append(label)
 
         # 0 arc index is reserved for root, therefore arc = 1 means word is dependent on the first word
-        result = []
+        dp_result = []
         for idx, word in enumerate(sentence_word_punct_tokenized):
-            result.append((idx + 1, word, arcs[idx], tokenizer_label.sequences_to_texts([[labels[idx]]])[0]))
+            dp_result.append((idx + 1, word, arcs[idx], tokenizer_label.sequences_to_texts([[labels[idx]]])[0]))
 
-        return result
+        if not displacy_format:
+            return dp_result
+        else:
+            dp_result_displacy_format = {'words': [],
+                   'arcs': []}
+            for dp_res, pos_res in zip(dp_result, pos_result):
+                word = dp_res[1]
+                pos_tag = pos_res[1]
+                
+                arc_source = dp_res[0] - 1
+                arc_dest = dp_res[2] - 1
+                dp_label = dp_res[3]
+                
+                dp_result_displacy_format['words'].append({'text': word, 'tag': pos_tag})
+                if arc_dest < 0:
+                    continue
+                else:
+                    if arc_source <= arc_dest:
+                        dp_result_displacy_format['arcs'].append({'start': arc_source, 'end': arc_dest, 'label': dp_label, 'dir': 'right'})
+                    else:
+                        dp_result_displacy_format['arcs'].append({'start': arc_dest, 'end': arc_source, 'label': dp_label, 'dir': 'left'})
+
+            return dp_result_displacy_format
