@@ -48,6 +48,10 @@ python3 setup.py install
 ```
 instead.
 
+To install extra dependencies to read word embeddings and visualize dependency parsing tree
+```
+pip install -e '.[extras]'
+```
 
 ### Usage:
 #### CLI
