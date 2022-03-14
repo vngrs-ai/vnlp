@@ -52,6 +52,7 @@ To install extra dependencies to read word embeddings and visualize dependency p
 ```
 pip install -e '.[extras]'
 ```
+or you can simply install gensim and spacy manually.
 
 ### Usage:
 #### CLI
