@@ -1,6 +1,7 @@
 from typing import List, Tuple
 
 import pickle
+import re
 
 import numpy as np
 import tensorflow as tf
@@ -100,7 +101,7 @@ class NamedEntityRecognizer:
             
         return decoded_entities
 
-    def predict(self, text: str) -> List[Tuple[str, str]]:
+    def predict(self, text: str, displacy_format: bool = False) -> List[Tuple[str, str]]:
         """
         High level API for Named Entity Recognition.
 
@@ -109,7 +110,7 @@ class NamedEntityRecognizer:
         and white-space separated tokenized text.
 
         Output:
-        token_entity_pairs (List[Tuple[str, str]]): 
+        ner_result (List[Tuple[str, str]]): 
 
         Sample use:
         ner = NER()
@@ -157,6 +158,57 @@ class NamedEntityRecognizer:
             charlevel_pred = self._predict_char_level(word_punct_tokenized)
             decoded_entities = self._charner_decoder(word_punct_tokenized, charlevel_pred)
             
-        token_entity_pairs = [(t,e) for t,e in zip(word_punct_tokenized, decoded_entities)]
+        ner_result = [(t,e) for t,e in zip(word_punct_tokenized, decoded_entities)]
         
-        return token_entity_pairs
+        if not displacy_format:
+            return ner_result
+        else:
+            # Obtain Token Start and End indices
+            token_loc = {}
+            for duo in ner_result:
+                word = duo[0]
+                
+                # https://stackoverflow.com/a/13989661/4505301
+                if word == '.':
+                    continue
+                    
+                if not word in token_loc:
+                    token_loc[word] = []
+                for match in re.finditer(word, text):
+                    start, end = match.start(), match.end()
+                    
+                    if not (start, end) in token_loc[word]:
+                        token_loc[word].append((start, end))
+
+            # Process for Spacy
+            ner_result_displacy_format = {'text': text,
+                'ents': [],
+                'title': None}
+
+            is_continuation = False
+            ents = {}
+            for idx, duo in enumerate(ner_result):
+                word = duo[0]
+                entity = duo[1]
+                
+                # https://stackoverflow.com/a/13989661/4505301
+                if word == '.':
+                    continue
+                
+                start, end = token_loc[word][0]
+                del token_loc[word][0]
+                
+                if not (entity == 'O'):
+                    if not is_continuation:
+                        ents['start'] = start
+                        ents['label'] = entity
+                    
+                    if (idx != (len(ner_result) -1)) and (ner_result[idx + 1][1] == entity):
+                        is_continuation = True
+                    else:
+                        ents['end'] = end
+                        ner_result_displacy_format['ents'].append(ents)
+                        ents = {}
+                        is_continuation = False
+
+            return ner_result_displacy_format
