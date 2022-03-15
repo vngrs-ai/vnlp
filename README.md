@@ -198,6 +198,13 @@ ner.predict("Benim adım Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyor
  ('birlikte', 'O'),
  ('çalışıyorum', 'O'),
  ('.', 'O')]
+
+# Spacy's submodule Displacy can be used to visualize DependencyParser result.
+import spacy
+from vnlp import NamedEntityRecognizer
+ner = NamedEntityRecognizer()
+result = from.predict("Bu örnek bir cümledir.", displacy_format = True)
+spacy.displacy.render(result, style="ent", manual = True)
 ```
 
 **Dependency Parser**
@@ -218,7 +225,7 @@ dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendil
 (10, 'sınarız', 0, 'root'),
 (11, '.', 10, 'punct')]
 
-Spacy's submodule Displacy can be used to visualize DependencyParser result.
+# Spacy's submodule Displacy can be used to visualize DependencyParser result.
 import spacy
 from pp.dependency_parser import DependencyParser
 dependency_parser = DependencyParser()
