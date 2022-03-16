@@ -1,7 +1,7 @@
 #### Part of Speech (POS) Tagger
 
 - This POS Tagger is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing",
-which can be found here: https://aclanthology.org/C16-1087/
+which can be found here: https://aclanthology.org/K18-2012/
 - I indicate "inspire" because I simply used the approach of using Morphological Tags and Pre-trained word embeddings as input for the model.
 - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %77 of model weights, hence the model size as well.
 - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
