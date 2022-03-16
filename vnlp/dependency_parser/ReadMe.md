@@ -1,7 +1,7 @@
 #### Dependency Parser
 
 - This dependency parser is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing",
-which can be found here: https://aclanthology.org/C16-1087/
+which can be found here: https://aclanthology.org/K18-2012/
 - I indicate "inspire" because I simply used the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input for the model, rather than implementing the network proposed there.
 - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %56 of model weights, hence the model size as well.
 - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
