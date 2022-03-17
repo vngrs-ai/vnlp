@@ -205,6 +205,7 @@ class Normalizer():
         """
         This function is adapted from:
         https://github.com/Omerktn/Turkish-Lexical-Representation-of-Numbers/blob/master/src.py
+        It had a few bugs with numbers like 1000, 1010, which are resolved.
         """
         
         # yüz=10^2 ve vigintilyon=10^63, ith element is 10^3 times greater then (i-1)th.
@@ -232,15 +233,19 @@ class Normalizer():
         # split main_num to (three digit) pieces and read them by mod 3.
         for i in range(leng, 0, -1):
             digit = int((main_num // (10 ** (i - 1))) % 10)
-
             if i % 3 == 0:
                 if digit == 1:
                     text += tp[0]
+                elif digit == 0:
+                    text += dec[digit]
                 else:
                     text += dec[digit] + tp[0]
             elif i % 3 == 1:
-                if i > 3:
-                    text += dec[digit] + tp[i - 3]
+                if (i > 3):
+                    if main_num > 1999:
+                        text += dec[digit] + tp[i - 3]
+                    else:
+                        text += tp[i - 3]
                 else:
                     text += dec[digit]
                 if i>3 and put_commas: 
