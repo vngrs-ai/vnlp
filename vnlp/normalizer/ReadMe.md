@@ -1,6 +1,6 @@
 #### Normalizer
 
-Contains functionality:
+Contains following functionality:
 - Spelling/typo correction uses Stemmer and Hunspell(tdd-hunspell-tr-1.1.0 dict) algorithm. For details see at pp/_resources/tdd-hunspell-tr-1.1.0/README.MD
 - Deasciification
 - Convert numbers to word form
