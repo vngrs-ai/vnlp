@@ -169,7 +169,8 @@ class NamedEntityRecognizer:
                 word = duo[0]
 
                 # https://stackoverflow.com/a/13989661/4505301
-                if word == '.':
+                # https://stackoverflow.com/questions/66400611/
+                if not any([s.isalpha() for s in word]):
                     continue
 
                 if not word in token_loc:
@@ -203,7 +204,8 @@ class NamedEntityRecognizer:
                 entity = duo[1]
                 
                 # https://stackoverflow.com/a/13989661/4505301
-                if word == '.':
+                # https://stackoverflow.com/questions/66400611/
+                if not any([s.isalpha() for s in word]):
                     continue
                 
                 start, end = token_loc[word][0]
