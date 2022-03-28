@@ -6,9 +6,17 @@ import regex
 PATH = "../resources/"
 PATH = str(Path(__file__).parent / PATH)
 
-# Based on the scripts developed by Philipp Koehn and Josh Schroeder: https://pypi.org/project/sentence-splitter/
-# Simplified for custom needs and Turkish language
 class RuleBasedSentenceSplitter():
+    """
+    This is a rule based sentence splitter adapted from Philipp Koehn and Josh Schroeder's project found at https://pypi.org/project/sentence-splitter/ .
+
+    The code is reduced and simplifed for Turkish language.
+    Abbreviations lexicon is expanded.
+
+    Methods:
+        split_sentences(text):
+            Returns strings of splitted sentences.
+    """
 
     class _PrefixType(Enum):
         DEFAULT = 1
@@ -154,20 +162,23 @@ class RuleBasedSentenceSplitter():
     # higher level function that is called by the user to split
     def split_sentences(self, text: str) -> List[str]:
         """
-        Given a string of sentences, returns list of strings,
-        where each string in the list is a sentence.
+        Given a string of sentences, returns list of strings, where each string in the list is a sentence.
 
-        Input:
-        text(str): String of sentences
+        Args:
+            text:
+                String of input sentences.
 
-        Output:
-        text(List[str]): List of string of splitted sentences
+        Returns:
+            text:
+                List of string of splitted sentences.
 
-        Sample use:
-        ss = SentenceSplitter()
-        ss.split_sentences("Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haber!")
-        ['Av. Meryem beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı."',
-        'Bu harika bir haber!']
+        Example:
+            from vnlp import SentenceSplitter
+            sentence_splitter = SentenceSplitter()
+            sentence_splitter.split_sentences('Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haber.')
+            
+            ['Av. Meryem beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı."',
+            'Bu harika bir haber.']
         """
-        splitter = RuleBasedSentenceSplitter()
-        return splitter._split(text=text)
+
+        return self._split(text)

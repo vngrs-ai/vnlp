@@ -1,2 +1,2 @@
 Since Tokenization highly depends on custom needs depending on domain, task, etc, Tokenizers here exist as utility functions to other functionality in VNLP.
-Therefore you should tokenize your text according to your needs.
+Therefore VNLP mostly assumes that you tokenize your text according to your needs, then use the related functionality offered by VNLP

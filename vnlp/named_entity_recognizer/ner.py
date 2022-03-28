@@ -34,10 +34,29 @@ EMBED_SIZE = 32
 RNN_DIM = 128
 NUM_RNN_STACKS = 5
 MLP_DIM = 32
-NUM_CLASSES = 5 #Equals to len(tokenizer_label.index_word) + 1. +1 is reserved to 0, which corresponds to padded values.
+NUM_CLASSES = 5 # Equals to len(tokenizer_label.index_word) + 1. +1 is reserved to 0, which corresponds to padded values.
 DROPOUT = 0.3
 
 class NamedEntityRecognizer:
+    """
+    Named Entity Recognizer class.
+
+    - This is an implementation of "CharNER: Character-Level Named Entity Recognition", which can be found here: https://aclanthology.org/C16-1087/
+    - There are slight modifications to original paper:
+        - I did not train for all languages, but only Turkish.
+        - I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
+    - It achieves 0.9589 Accuracy and 0.9200 F1_macro_score.
+    - For more details about training procedure and evaluation metrics, see ReadMe.md
+
+    Attributes:
+        model: Tensorflow model.
+        tokenizer_char: A Keras tokenizer for characters.
+        tokenizer_label: A Keras tokenizer for named entity labels.
+
+    Methods:
+        predict(text):
+            Returns tuples of (token, entity).
+    """
     def __init__(self):
         self.model = create_ner_model(CHAR_VOCAB_SIZE, EMBED_SIZE, SEQ_LEN_MAX, NUM_RNN_STACKS, RNN_DIM, MLP_DIM, NUM_CLASSES, DROPOUT)
         self.model.load_weights(MODEL_LOC)
@@ -54,13 +73,15 @@ class NamedEntityRecognizer:
 
     def _predict_char_level(self, word_punct_tokenized: List[str]) -> List[int]:
         """
-        Input:
-        word_punct_tokenized List[str]: List of tokens (WordPunct level)
-        i.e: ["İstanbul", "'", "da", "yaşıyorum", "."]
+        Returns char level predictions in integers, which will be passed to decoder.
 
-        Output:
-        arg_max_pred (List[int]): List of integers, indicating classes
-        that can be fed into sequences_to_text function.
+        Args:
+            word_punct_tokenized:
+                List of tokens, tokenized by WordPunctTokenizer.
+
+        Returns:
+            arg_max_pred:
+                List of integers, indicating entity classes for each character.
         """
         white_space_joined_word_punct_tokens = " ".join(word_punct_tokenized)
         white_space_joined_word_punct_tokens = [char for char in white_space_joined_word_punct_tokens]
@@ -73,14 +94,15 @@ class NamedEntityRecognizer:
 
     def _charner_decoder(self, word_punct_tokenized: List[str], arg_max_pred: List[int]) -> List[str]:
         """
-        Input:
-        word_punct_tokenized: List[str] : List of tokens (WordPunct level)
-        i.e: ["İstanbul", "'", "da", "yaşıyorum", "."]
+        Args:
+            word_punct_tokenized:
+                List of tokens, tokenized by WordPunctTokenizer.
+            arg_max_pred:
+                List of integers, indicating entity classes for each character.
         
-        arg_max_pred: List[int] : argmax(axis = -1) of model output
-        
-        Output:
-        decoded_entities: List[str] : List of entities, one entity per token
+        Returns:
+            decoded_entities:
+                List of entities, one entity per token.
         """
         
         lens = [0] + [len(token) + 1 for token in word_punct_tokenized]
@@ -103,37 +125,49 @@ class NamedEntityRecognizer:
 
     def predict(self, text: str, displacy_format: bool = False) -> List[Tuple[str, str]]:
         """
-        High level API for Named Entity Recognition.
+        High level user API for Named Entity Recognition.
 
-        Input:
-        text (str): String of text. Works for both untokenized raw text
-        and white-space separated tokenized text.
+        Args:
+            text:
+                String of input text. Works for both untokenized raw text and white-space separated tokenized text.
+            displacy_format:
+                When set True, returns the result in spacy.displacy format to allow visualization.
 
-        Output:
-        ner_result (List[Tuple[str, str]]): 
+        Returns:
+            ner_result:
+                NER result as pairs of (token, entity).
 
-        Sample use:
-        ner = NER()
-        print(ner.predict("Ben Melikşah, 28 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda çalışıyorum."))
-        [('Ben', 'O'),
-        ('Melikşah', 'PER'),
-        (',', 'O'),
-        ('28', 'O'),
-        ('yaşındayım', 'O'),
-        (',', 'O'),
-        ('İstanbul', 'LOC'),
-        ("'", 'O'),
-        ('da', 'O'),
-        ('ikamet', 'O'),
-        ('ediyorum', 'O'),
-        ('ve', 'O'),
-        ('VNGRS', 'ORG'),
-        ('AI', 'ORG'),
-        ('Takımı', 'ORG'),
-        ("'", 'O'),
-        ('nda', 'O'),
-        ('çalışıyorum', 'O'),
-        ('.'), 'O']
+        Example:
+            from vnlp import NamedEntityRecognizer
+            ner = NamedEntityRecognizer()
+            ner.predict("Ben Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda çalışıyorum.")
+
+            [('Ben', 'O'),
+            ('Melikşah', 'PER'),
+            (',', 'O'),
+            ('29', 'O'),
+            ('yaşındayım', 'O'),
+            (',', 'O'),
+            ('İstanbul', 'LOC'),
+            ("'", 'O'),
+            ('da', 'O'),
+            ('ikamet', 'O'),
+            ('ediyorum', 'O'),
+            ('ve', 'O'),
+            ('VNGRS', 'ORG'),
+            ('AI', 'ORG'),
+            ('Takımı', 'ORG'),
+            ("'", 'O'),
+            ('nda', 'O'),
+            ('çalışıyorum', 'O'),
+            ('.'), 'O']
+
+            Visualization with Spacy:
+            import spacy
+            from vnlp import NamedEntityRecognizer
+            ner = NamedEntityRecognizer()
+            result = ner.predict("İstanbul'dan Foça'ya giderken Zeynep ile Bursa'ya uğradık.", displacy_format = True)
+            spacy.displacy.render(result, style="ent", manual = True)
         """
         word_punct_tokenized = WordPunctTokenize(text)
 

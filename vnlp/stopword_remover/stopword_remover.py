@@ -10,6 +10,34 @@ PATH = "../resources/"
 PATH = str(Path(__file__).parent / PATH)
 
 class StopwordRemover:
+    """
+    Stopword Remover class.
+
+    Consists of Static and Dynamic stopword detection methods.
+    Static stopwords list are taken from https://github.com/ahmetax/trstop and some minor improvements are done by removing numbers from it.
+
+    - Dynamic stopword algorithm is implemented according to two papers below:
+        - Saif, Fernandez, He, Alani. 
+        “On Stopwords, Filtering and Data Sparsity for Sentiment Analysis of Twitter”.  
+        Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), pp. 810–817, 2014.
+
+        - Automatic cut-point of stop-words is determined according to:
+        Satopaa, Albrecht, Irwin, Raghavan.
+        Detecting Knee Points in System Behavior”.  
+        Distributed Computing Systems Workshops (ICDCSW), 2011 31st International Conference, 2011.
+
+    Attributes:
+        stop_words: static stopwords list.
+
+    Methods:
+        dynamically_detect_stop_words(tokens):
+            Returns dynamically detected stop words.
+        add_to_stop_words(tokens):
+            Updates stop_words dictionary by adding given tokens.
+        drop_stop_words(tokens):
+            Removes stopwords from given list of tokens and returns the result.
+        
+    """
 
     def __init__(self):
 
@@ -21,15 +49,17 @@ class StopwordRemover:
     def dynamically_detect_stop_words(self, list_of_tokens: List[str], rare_words_freq: int = 0) -> List[str]:
         """
         Dynamically detects stop words and returns them as List of strings.
+
         Args:
-            rare_words_freq (int): Maximum frequency of words when deciding rarity.
-            Default value is 0 so it does not detect any rare words by default.
+            list_of_tokens:
+                List of input string tokens
+            rare_words_freq:
+                Maximum frequency of words when deciding rarity.
+                Default value is 0 so it does not detect any rare words by default.
 
-        Input:
-        list_of_tokens(List[str]): list of string tokens
-
-        Output:
-        detected_stop_words(List[str]): list of string tokens
+        Returns:
+            detected_stop_words:
+                List of dynamically detected stop words.
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         sorted_indices = cnts.argsort()[::-1] # I need them in descending order
@@ -64,18 +94,24 @@ class StopwordRemover:
     def add_to_stop_words(self, novel_stop_words: List[str]):
         """
         Updates self.stop_words by adding given novel_stop_words to existing dictionary.
+
+        Args:
+            novel_stop_words:
+                Tokens to be updated to existing stop_words dictionary.
         """
         self.stop_words.update(dict.fromkeys(novel_stop_words))
 
     def drop_stop_words(self, list_of_tokens: List[str]) -> List[str]:
         """
-        Given list of tokens, returns list of tokens without drop words.
+        Given list of tokens, drops stop words and returns list of remaining tokens.
 
-        Input:
-        list_of_tokens(List[str]): list of string tokens
+        Args:
+            list_of_tokens:
+                List of input string tokens.
 
-        Output:
-        tokens_without_stopwords(List[str]): list of string tokens, stripped of stopwords
+        Returns:
+            tokens_without_stopwords:
+                List of string tokens, stripped of stopwords
         """
         tokens_without_stopwords = [token for token in list_of_tokens if token not in self.stop_words]
         return tokens_without_stopwords

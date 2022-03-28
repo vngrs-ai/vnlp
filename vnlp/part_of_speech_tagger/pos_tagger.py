@@ -63,6 +63,27 @@ WORD_FORM = 'whole'
 DROPOUT = 0.2
 
 class PoSTagger:
+    """
+    Part of Speech Tagger class.
+
+    - This POS Tagger is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing", which can be found here: https://aclanthology.org/K18-2012/
+    - I indicate "inspire" because I simply used the approach of using Morphological Tags and Pre-trained word embeddings as input for the model.
+    - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %77 of model weights, hence the model size as well.
+    - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
+    - It achieves 0.89 Accuracy and 0.71 F1_macro_score on test sets of Universal Dependencies 2.9.
+    - For more details about training procedure and evaluation metrics, see ReadMe.md
+
+    Attributes:
+        model: Tensorflow model.
+        tokenizer_word: A Keras tokenizer for words.
+        tokenizer_tag: A Keras tokenizer for morphological tags. It is obtained from StemmerAnalyzer.
+        tokenizer_pos_label: A Keras tokenizer for part of speech labels.
+
+    Methods:
+        predict(sentence):
+            Returns pairs of (token, pos_label).
+
+    """
     def __init__(self, stemmer_analyzer = None):
         self.model = create_pos_tagger_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                              POS_VOCAB_SIZE, SENTENCE_MAX_LEN, TAG_MAX_LEN, NUM_RNN_STACKS, 
@@ -83,27 +104,29 @@ class PoSTagger:
     def predict(self, sentence: str) -> List[Tuple[str, str]]:
 
         """
-        High level user function
+        High level user API for Part of Speech Tagging.
 
-        Input:
-        sentence (str): string of text(sentence)
+        Args:
+            sentence:
+                String of input text(sentence).
 
-        Output:
-        result (List[Tuple[str, str]]): list of (token, pos_tag)
+        Returns:
+            result:
+                List of (token, pos_label).
 
-        Sample use:
-        from pp.part_of_speech_tagger import PoSTagger
-        pos = PoSTagger()
-        pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
+        Example:
+            from vnlp import PoSTagger
+            pos = PoSTagger()
+            pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
 
-        [('Vapurla', 'NOUN'),
-        ("Beşiktaş'a", 'PROPN'),
-        ('geçip', 'ADV'),
-        ('yürüyerek', 'ADV'),
-        ('Maçka', 'PROPN'),
-        ("Parkı'na", 'NOUN'),
-        ('ulaştım', 'VERB'),
-        ('.', 'PUNCT')]
+            [('Vapurla', 'NOUN'),
+            ("Beşiktaş'a", 'PROPN'),
+            ('geçip', 'ADV'),
+            ('yürüyerek', 'ADV'),
+            ('Maçka', 'PROPN'),
+            ("Parkı'na", 'NOUN'),
+            ('ulaştım', 'VERB'),
+            ('.', 'PUNCT')]
         
         """
 
@@ -112,6 +135,7 @@ class PoSTagger:
         sentence_analysis_result = [sentence_analysis.replace('^', '+') for sentence_analysis in sentence_analysis_result]
         num_tokens_in_sentence = len(whole_tokens_in_sentence)
 
+        # This is for debugging purposes in case a consistency occurs during tokenization.
         if not len(sentence_analysis_result) == num_tokens_in_sentence:
             raise Exception(sentence, "Length of sentence and sentence_analysis_result don't match")
 

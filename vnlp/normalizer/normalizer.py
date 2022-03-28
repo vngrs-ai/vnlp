@@ -12,6 +12,32 @@ RESOURCES_PATH = str(Path(__file__).parent / RESOURCES_PATH)
 
 class Normalizer():
     def __init__(self):
+        """
+        Normalizer class contains following functions to process and normalize text.
+
+        - Spelling/typo correction uses Stemmer and Hunspell(tdd-hunspell-tr-1.1.0 dict) algorithm. For details see at vnlp/_resources/tdd-hunspell-tr-1.1.0/README.MD
+        - Deasciification
+        - Convert numbers to word form
+        - Lower case
+        - Punctuation Remover
+        - Remove accent marks
+
+        For more details, see ReadMe.md.
+
+        Methods:
+            lower_case(text): 
+                Converts characters to lowercase for Turkish.
+            remove_punctuations(text):
+                Removes punctuations from text.
+            remove_accent_marks(text):
+                Removes accent marks and returns cleaned version of characters.
+            deasciify(tokens):
+                Deasciifies the text written in non-Turkish keyboard.
+            correct_typos(tokens):
+                Detects and corrects the typos.
+            convert_numbers_to_words(tokens):
+                Converts numbers to written text form.
+        """
 
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
         with open(RESOURCES_PATH +'/turkish_known_words_lexicon.txt', 'r', encoding = 'utf-8') as f:
@@ -27,19 +53,22 @@ class Normalizer():
     def lower_case(text: str) -> str:
         """
         Converts a string of text to lowercase for Turkish language.
-        This is needed because Python does not properly handle all Turkish characters. e.g "İ" -> "i"
-
-        Input:
-        text(str): string of text
-
-        Output:
-        text(str): string of text in lowercase form
-
-        Sample use:
-        print(Normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ"))
         
-        'test karakterleri: iığüöşç'
+        This is needed because Python does not properly handle all Turkish characters, e.g., "İ" -> "i".
 
+        Args:
+            text:
+                String of input text.
+
+        Returns:
+            text:
+                String of text in lowercase form.
+
+        Example:
+            from vnlp import Normalizer
+            Normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ")
+        
+            'test karakterleri: iığüöşç'
         """
         turkish_lowercase_dict = {"İ": "i", "I": "ı", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ş": "ş", "Ç": "ç"}
         for k, v in turkish_lowercase_dict.items():
@@ -52,16 +81,17 @@ class Normalizer():
         """
         Removes punctuations from the given string.
 
-        Input:
-        text(str): string of text
+        Args:
+            text: String of input text.
 
-        Output:
-        text(str): string of text stripped from punctuations
+        Returns:
+            text: String of text stripped from punctuations.
 
-        Sample use:
-        print(Normalizer.remove_punctuations("merhaba..."))
+        Example:
+            from vnlp import Normalizer
+            Normalizer.remove_punctuations("merhaba,.!")
 
-        'merhaba'
+            'merhaba'
         """
         return ''.join([t for t in text if (t.isalnum() or t == " ")])
 
@@ -70,16 +100,19 @@ class Normalizer():
         """
         Removes accent marks from the given string.
 
-        Input:
-        text(str): string of text
+        Args:
+            text:
+                String of input text.
 
-        Output:
-        text(str): string of text stripped from accent marks
+        Returns:
+            text:
+                String of text stripped from accent marks.
 
-        Sample use:
-        print(Normalizer.remove_accent_marks("merhâbâ"))
+        Example:
+            from vnlp import Normalizer
+            Normalizer.remove_accent_marks("merhâbâ")
 
-        'merhaba'
+            'merhaba'
         """
         _non_turkish_accent_marks = {'â':'a', 'ô':'o', 'î':'ı', 'ê':'e', 'û':'u',
                                      'Â':'A', 'Ô':'o', 'Î':'ı', 'Ê':'e', 'Û': 'u'}
@@ -88,18 +121,23 @@ class Normalizer():
     @staticmethod
     def deasciify(tokens: List[str]) -> List[str]:
         """
-        Deasciification for Turkish.
+        Deasciifies the given text for Turkish.
+        
+        This function uses Emre Sevinç's implementation, which can be found at https://github.com/emres/turkish-deasciifier
 
-        Input:
-        tokens(List[str]): list of tokens
+        Args:
+            tokens:
+                List of input tokens.
 
-        Output:
-        deasciified_tokens(List[str]): list of deasciified tokens
+        Returns:
+            deasciified_tokens:
+                List of deasciified tokens.
 
-        Sample use:
-        print(Normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split()))
+        Example:
+            from vnlp import Normalizer
+            Normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split())
 
-        ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
+            ["düşünüyorum", "da", "böyle", "şey", "görmedim", "duymadım"]
         """
         deasciified_tokens = []
         for token in tokens:
@@ -109,19 +147,25 @@ class Normalizer():
 
     def correct_typos(self, tokens: List[str]) -> List[str]:
         """
-        Corrects spelling mistakes and typos.
+        Detects and corrects spelling mistakes and typos.
 
-        Input:
-        tokens(List[str]): list of tokens
+        This implementation uses StemmerAnalyzer and Hunspell to detect typos.
+        Detected typos are corrected by Hunspell algorithm using "tdd-hunspell-tr-1.1.0" dict.
 
-        Output:
-        corrected_tokens(List[str]): list of corrected tokens
+        Args:
+            tokens:
+                List of input tokens.
 
-        Sample use:
-        normalizer = Normalizer()
-        print(normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split()))
+        Returns:
+            corrected_tokens:
+                List of corrected tokens.
 
-        ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
+        Example:
+            from vnlp import Normalizer
+            normalizer = Normalizer()
+            normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split())
+
+            ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
         """
         corrected_tokens = []
         for token in tokens:
@@ -140,34 +184,40 @@ class Normalizer():
     
     def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6, decimal_seperator: str = ',')-> List[str]:
         """
-        Converts numbers to word forms in a given list of tokens.
-
-        Input:
-        tokens(List[str]): List of strings of tokens
+        Converts numbers to word forms.
 
         Args:
-        num_dec_digits: number of precision (decimal points) for floats
+            tokens:
+                List of strings of input tokens.
+            num_dec_digits:
+                Number of precision (decimal points) for floats.
+            decimal_seperator:
+                Decimal seperator character. Can be either "." or ",".
 
-        Output:
-        converted_tokens(List[str]): List of strings of converted tokens
+        Returns:
+            converted_tokens:
+                List of strings of converted tokens
+        Raises:
+            ValueError: Given 'decimal seperator' is not a valid decimal seperator value. Use either "." or ",".
 
-        Sample use:
-        normalizer = Normalizer()
-        print(normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1,15 kilogram aldığımı gördüm".split()))
+        Example:
+            from vnlp import Normalizer
+            normalizer = Normalizer()
+            normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1,15 kilogram aldığımı gördüm".split())
 
-        ['sabah',
-        'üç',
-        'yumurta',
-        'yedim',
-        've',
-        'tartıldığımda',
-        'bir',
-        'virgül',
-        'on',
-        'beş',
-        'kilogram',
-        'aldığımı',
-        'gördüm']
+            ['sabah',
+            'üç',
+            'yumurta',
+            'yedim',
+            've',
+            'tartıldığımda',
+            'bir',
+            'virgül',
+            'on',
+            'beş',
+            'kilogram',
+            'aldığımı',
+            'gördüm']
         """
         converted_tokens = []
         for token in tokens:
@@ -197,6 +247,9 @@ class Normalizer():
         return converted_tokens
 
     def _is_token_valid_turkish(self, token):
+        """
+        Checks whether given token is valid according to Turkish.
+        """
         valid_according_to_stemmer_analyzer = not (self._stemmer_analyzer.candidate_generator.get_analysis_candidates(token)[0][-1] == 'Unknown')
         valid_according_to_lexicon = token in self._words_lexicon
         return valid_according_to_stemmer_analyzer or valid_according_to_lexicon
@@ -205,7 +258,7 @@ class Normalizer():
         """
         This function is adapted from:
         https://github.com/Omerktn/Turkish-Lexical-Representation-of-Numbers/blob/master/src.py
-        It had a few bugs with numbers like 1000, 1010, which are resolved.
+        It had a few bugs with numbers like 1000 and 1010, which are resolved.
         """
         
         # yüz=10^2 ve vigintilyon=10^63, ith element is 10^3 times greater then (i-1)th.

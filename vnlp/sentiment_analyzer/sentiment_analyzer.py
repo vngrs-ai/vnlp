@@ -36,6 +36,25 @@ DROPOUT = 0.2
 
 
 class SentimentAnalyzer:
+    """
+    Sentiment Analysis class.
+
+    - This is a Deep GRU based Sentiment Analysis classifier implementation.
+    - It uses pre-trained Word2Vec_medium embeddings, another part of this project as word embeddings.
+    - It achieves 0.9345 Accuracy, 0.9230 on F1_macro_score and 0.8935 F1 score (treating class 0 as minority) on test set.
+    - For more details about training procedure and evaluation metrics, see ReadMe.md
+
+    Attributes:
+        model: Tensorflow model.
+        tokenizer_word: A Keras tokenizer for words.
+    
+    Methods:
+        predict(text):
+            Returns the sentiment result. 1: positive, 0: negative.
+        predict_proba(text):
+            Returns the probability that given text has positive sentiment.
+
+    """
     def __init__(self):
         self.model = create_sentiment_analysis_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                                      NUM_RNN_UNITS, NUM_RNN_STACKS, DROPOUT)
@@ -48,23 +67,25 @@ class SentimentAnalyzer:
 
     def predict(self, input_text: str) -> int:
         """
-        High level user function to obtain sentiment label
-        1: positive sentiment
-        0: negative sentiment
-
-        Input:
-        input_text (str): string of text
-
-        Output:
-        result (int): Sentiment label of input_text
-
-        Sample use:
-        from pp.sentiment_analyzer import SentimentAnalyzer
-        sent_analyzer = SentimentAnalyzer()
-        sent_analyzer.predict("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
+        High level user API for discrete Sentiment Analysis prediction.
         
-        0
+        1: Positive sentiment.
+        0: Negative sentiment.
 
+        Args:
+            input_text: 
+                String of input text.
+
+        Returns:
+            result:
+                Sentiment label of input_text.
+
+        Example:
+            from vnlp import SentimentAnalyzer
+            sentiment_analyzer = SentimentAnalyzer()
+            sentiment_analyzer.predict("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
+            
+            0
         """
 
         prob = self.predict_proba(input_text)
@@ -74,21 +95,22 @@ class SentimentAnalyzer:
 
     def predict_proba(self, input_text: str) -> float:
         """
-        High level user function to obtain probability score for sentiment
+        High level user API for probability estimation of Sentiment Analysis.
 
-        Input:
-        input_text (str): string of text
+        Args:
+            input_text: 
+                String of input text.
 
-        Output:
-        result (float): Probability that given input_text is positive sentiment
+        Returns:
+            result:
+                Probability that the input text has positive sentiment.
 
-        Sample use:
-        from pp.sentiment_analyzer import SentimentAnalyzer
-        sent_analyzer = SentimentAnalyzer()
-        sent_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
-        
-        0.15
-
+        Example:
+            from vnlp import SentimentAnalyzer
+            sentiment_analyzer = SentimentAnalyzer()
+            sentiment_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
+            
+            0.15
         """
         preprocessed_text = preprocess_text(input_text)
         integer_tokenized_text = self.tokenizer_word.texts_to_sequences([preprocessed_text])

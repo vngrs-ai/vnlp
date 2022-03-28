@@ -71,6 +71,28 @@ WORD_FORM = 'whole'
 DROPOUT = 0.2
 
 class DependencyParser:
+    """
+    Dependency Parser class.
+
+    - This dependency parser is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing",
+    which can be found here: https://aclanthology.org/K18-2012/
+    - I indicate "inspire" because I simply used the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input for the model, rather than implementing the network proposed there.
+    - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %56 of model weights, hence the model size as well.
+    - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
+    - It achieves 0.6914 LAS (Labeled Attachment Score) and 0.8048 UAS (Unlabeled Attachment Score) on all of test sets of Universal Dependencies 2.9.
+    - For more details about training procedure and evaluation metrics, see ReadMe.md
+
+    Attributes:
+        model: Tensorflow model.
+        tokenizer_word: A Keras tokenizer for words.
+        tokenizer_tag: A Keras tokenizer for morphological tags. It is obtained from StemmerAnalyzer.
+        tokenizer_pos: A Keras tokenizer for part of speech tags. It is obtained from PoSTagger.
+        tokenizer_label: A Keras tokenizer for dependency labels.
+
+    Methods:
+        predict(sentence):
+            Returns tuples of (token_index, token, arc, label).
+    """
     def __init__(self):
         self.model = create_dependency_parser_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                                     POS_VOCAB_SIZE, POS_EMBEDDING_VECTOR_SIZE,
@@ -84,7 +106,6 @@ class DependencyParser:
         self.tokenizer_label = tokenizer_label
 
         # I don't want StemmerAnalyzer and PosTagger to occupy any memory in GPU!
-        
         with tf.device('/cpu:0'):
             stemmer_analyzer = StemmerAnalyzer()
             self.stemmer_analyzer = stemmer_analyzer
@@ -96,41 +117,44 @@ class DependencyParser:
     def predict(self, sentence: str, displacy_format: bool = False) -> List[Tuple[int, str, int, str]]:
 
         """
-        High level user function
-
-        Input:
-        sentence (str): string of text(sentence)
-
-        Output:
-        result (List[Tuple[int, str, int, str]]): list of (word_index, token, arc, label)
+        High level user API for Dependency Parsing.
 
         Args:
-        displacy_format (boolean): When set True, returns the result in spacy.displacy format to
-        allow visualization.
-
-        Sample use:
-        from pp.dependency_parser import DependencyParser
-        dependency_parser = DependencyParser()
-        dependency_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
-
-        [(1, 'Onun', 5, 'obl'),
-        (2, 'için', 1, 'case'),
-        (3, 'yol', 1, 'nmod'),
-        (4, 'arkadaşlarımızı', 5, 'obj'),
-        (5, 'titizlikle', 6, 'obl'),
-        (6, 'seçer', 7, 'acl'),
-        (7, ',', 10, 'punct'),
-        (8, 'kendilerini', 10, 'obj'),
-        (9, 'iyice', 8, 'advmod'),
-        (10, 'sınarız', 0, 'root'),
-        (11, '.', 10, 'punct')]
+            sentence:
+                String of input text(sentence).
+            displacy_format:
+                When set True, returns the result in spacy.displacy format to allow visualization.
         
-        Visualization with Spacy:
-        import spacy
-        from pp.dependency_parser import DependencyParser
-        dependency_parser = DependencyParser()
-        result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
-        spacy.displacy.render(result, style="dep", manual = True)
+        Returns:
+            result:
+                List of (token_index, token, arc, label).
+
+        Raises:
+            ValueError: Sentence is too long. Try again by splitting it into smaller pieces.
+
+        Example:
+            from vnlp import DependencyParser
+            dependency_parser = DependencyParser()
+            dependency_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+
+            [(1, 'Onun', 5, 'obl'),
+            (2, 'için', 1, 'case'),
+            (3, 'yol', 1, 'nmod'),
+            (4, 'arkadaşlarımızı', 5, 'obj'),
+            (5, 'titizlikle', 6, 'obl'),
+            (6, 'seçer', 7, 'acl'),
+            (7, ',', 10, 'punct'),
+            (8, 'kendilerini', 10, 'obj'),
+            (9, 'iyice', 8, 'advmod'),
+            (10, 'sınarız', 0, 'root'),
+            (11, '.', 10, 'punct')]
+            
+            Visualization with Spacy:
+            import spacy
+            from vnlp import DependencyParser
+            dependency_parser = DependencyParser()
+            result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
+            spacy.displacy.render(result, style="dep", manual = True)
         """
 
         sentence_word_punct_tokenized = TreebankWordTokenize(sentence)
@@ -141,6 +165,7 @@ class DependencyParser:
         if num_tokens_in_sentence > SENTENCE_MAX_LEN:
             raise ValueError('Sentence is too long. Try again by splitting it into smaller pieces.')
 
+        # This is for debugging purposes in case a consistency occurs during tokenization.
         if not len(sentence_analysis_result) == num_tokens_in_sentence:
             raise Exception(sentence, "Length of sentence and sentence_analysis_result don't match")
 
