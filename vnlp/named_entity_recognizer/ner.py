@@ -80,8 +80,7 @@ class NamedEntityRecognizer:
                 List of tokens, tokenized by WordPunctTokenizer.
 
         Returns:
-            arg_max_pred:
-                List of integers, indicating entity classes for each character.
+            List of integers, indicating entity classes for each character.
         """
         white_space_joined_word_punct_tokens = " ".join(word_punct_tokenized)
         white_space_joined_word_punct_tokens = [char for char in white_space_joined_word_punct_tokens]
@@ -101,8 +100,7 @@ class NamedEntityRecognizer:
                 List of integers, indicating entity classes for each character.
         
         Returns:
-            decoded_entities:
-                List of entities, one entity per token.
+            decoded_entities: List of entities, one entity per token.
         """
         
         lens = [0] + [len(token) + 1 for token in word_punct_tokenized]
@@ -134,10 +132,10 @@ class NamedEntityRecognizer:
                 When set True, returns the result in spacy.displacy format to allow visualization.
 
         Returns:
-            ner_result:
-                NER result as pairs of (token, entity).
+            ner_result: NER result as pairs of (token, entity).
 
-        Example:
+        Example::
+        
             from vnlp import NamedEntityRecognizer
             ner = NamedEntityRecognizer()
             ner.predict("Ben Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda çalışıyorum.")
@@ -162,7 +160,7 @@ class NamedEntityRecognizer:
             ('çalışıyorum', 'O'),
             ('.'), 'O']
 
-            Visualization with Spacy:
+            # Visualization with Spacy:
             import spacy
             from vnlp import NamedEntityRecognizer
             ner = NamedEntityRecognizer()

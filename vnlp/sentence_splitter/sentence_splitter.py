@@ -169,10 +169,10 @@ class RuleBasedSentenceSplitter():
                 String of input sentences.
 
         Returns:
-            text:
-                List of string of splitted sentences.
+             List of splitted sentences.
 
-        Example:
+        Example::
+        
             from vnlp import SentenceSplitter
             sentence_splitter = SentenceSplitter()
             sentence_splitter.split_sentences('Av. Meryem Beşer, 3.5 yıldır süren dava ile ilgili dedi ki, "Duruşma bitti, dava lehimize sonuçlandı." Bu harika bir haber.')

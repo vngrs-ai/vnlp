@@ -58,8 +58,7 @@ class StopwordRemover:
                 Default value is 0 so it does not detect any rare words by default.
 
         Returns:
-            detected_stop_words:
-                List of dynamically detected stop words.
+            List of dynamically detected stop words.
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         sorted_indices = cnts.argsort()[::-1] # I need them in descending order
@@ -110,8 +109,7 @@ class StopwordRemover:
                 List of input string tokens.
 
         Returns:
-            tokens_without_stopwords:
-                List of string tokens, stripped of stopwords
+            List of tokens stripped of stopwords
         """
         tokens_without_stopwords = [token for token in list_of_tokens if token not in self.stop_words]
         return tokens_without_stopwords

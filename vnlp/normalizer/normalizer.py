@@ -1,6 +1,5 @@
 from typing import List
 from pathlib import Path
-import string
 
 from hunspell import Hunspell
 
@@ -61,10 +60,10 @@ class Normalizer():
                 String of input text.
 
         Returns:
-            text:
-                String of text in lowercase form.
+            String of text in lowercase form.
 
-        Example:
+        Example::
+        
             from vnlp import Normalizer
             Normalizer.lower_case("Test karakterleri: İIĞÜÖŞÇ")
         
@@ -85,9 +84,10 @@ class Normalizer():
             text: String of input text.
 
         Returns:
-            text: String of text stripped from punctuations.
+            String of text stripped from punctuations.
 
-        Example:
+        Example::
+
             from vnlp import Normalizer
             Normalizer.remove_punctuations("merhaba,.!")
 
@@ -105,10 +105,10 @@ class Normalizer():
                 String of input text.
 
         Returns:
-            text:
-                String of text stripped from accent marks.
+            String of text stripped from accent marks.
 
-        Example:
+        Example::
+
             from vnlp import Normalizer
             Normalizer.remove_accent_marks("merhâbâ")
 
@@ -130,10 +130,10 @@ class Normalizer():
                 List of input tokens.
 
         Returns:
-            deasciified_tokens:
-                List of deasciified tokens.
+            List of deasciified tokens.
 
-        Example:
+        Example::
+
             from vnlp import Normalizer
             Normalizer.deasciify("dusunuyorum da boyle sey gormedim duymadim".split())
 
@@ -157,10 +157,10 @@ class Normalizer():
                 List of input tokens.
 
         Returns:
-            corrected_tokens:
-                List of corrected tokens.
+            List of corrected tokens.
 
-        Example:
+        Example::
+
             from vnlp import Normalizer
             normalizer = Normalizer()
             normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split())
@@ -195,12 +195,13 @@ class Normalizer():
                 Decimal seperator character. Can be either "." or ",".
 
         Returns:
-            converted_tokens:
-                List of strings of converted tokens
+            List of converted tokens
+
         Raises:
             ValueError: Given 'decimal seperator' is not a valid decimal seperator value. Use either "." or ",".
 
-        Example:
+        Example::
+
             from vnlp import Normalizer
             normalizer = Normalizer()
             normalizer.convert_numbers_to_words("sabah 3 yumurta yedim ve tartıldığımda 1,15 kilogram aldığımı gördüm".split())

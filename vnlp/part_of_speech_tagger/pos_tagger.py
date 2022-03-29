@@ -111,10 +111,10 @@ class PoSTagger:
                 String of input text(sentence).
 
         Returns:
-            result:
-                List of (token, pos_label).
+             List of (token, pos_label).
 
-        Example:
+        Example::
+        
             from vnlp import PoSTagger
             pos = PoSTagger()
             pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")

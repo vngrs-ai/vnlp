@@ -105,10 +105,10 @@ class StemmerAnalyzer:
                 String of input text(sentence).
 
         Returns:
-            result:
-                List of selected stem and morphological analysis result for each token.
+            List of selected stem and morphological analysis result for each token.
 
-        Example:
+        Example::
+        
             from vnlp import StemmerAnalyzer
             stemmer = StemmerAnalyzer()
             stemmer.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")

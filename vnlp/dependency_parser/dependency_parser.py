@@ -74,8 +74,7 @@ class DependencyParser:
     """
     Dependency Parser class.
 
-    - This dependency parser is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing",
-    which can be found here: https://aclanthology.org/K18-2012/
+    - This dependency parser is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing", which can be found here: https://aclanthology.org/K18-2012/
     - I indicate "inspire" because I simply used the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input for the model, rather than implementing the network proposed there.
     - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %56 of model weights, hence the model size as well.
     - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
@@ -126,13 +125,13 @@ class DependencyParser:
                 When set True, returns the result in spacy.displacy format to allow visualization.
         
         Returns:
-            result:
-                List of (token_index, token, arc, label).
-
+            List of (token_index, token, arc, label).
+                
         Raises:
             ValueError: Sentence is too long. Try again by splitting it into smaller pieces.
 
-        Example:
+        Example::
+
             from vnlp import DependencyParser
             dependency_parser = DependencyParser()
             dependency_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
@@ -149,7 +148,7 @@ class DependencyParser:
             (10, 'sınarız', 0, 'root'),
             (11, '.', 10, 'punct')]
             
-            Visualization with Spacy:
+            # Visualization with Spacy:
             import spacy
             from vnlp import DependencyParser
             dependency_parser = DependencyParser()

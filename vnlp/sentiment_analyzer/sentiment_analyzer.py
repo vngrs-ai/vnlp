@@ -77,10 +77,10 @@ class SentimentAnalyzer:
                 String of input text.
 
         Returns:
-            result:
-                Sentiment label of input_text.
+             Sentiment label of input_text.
 
-        Example:
+        Example::
+
             from vnlp import SentimentAnalyzer
             sentiment_analyzer = SentimentAnalyzer()
             sentiment_analyzer.predict("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
@@ -102,10 +102,10 @@ class SentimentAnalyzer:
                 String of input text.
 
         Returns:
-            result:
-                Probability that the input text has positive sentiment.
+            Probability that the input text has positive sentiment.
 
-        Example:
+        Example::
+        
             from vnlp import SentimentAnalyzer
             sentiment_analyzer = SentimentAnalyzer()
             sentiment_analyzer.predict_proba("Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk.")
