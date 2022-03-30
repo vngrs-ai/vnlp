@@ -1,5 +1,3 @@
-from typing import List
-
 import pickle
 
 import numpy as np
