@@ -13,13 +13,14 @@ class Normalizer:
     """
     Normalizer class 
     
-    It contains the following functions to process and normalize text:
-    - Spelling/Typo correction
-    - Deasciification
-    - Convert numbers to word form
-    - Lower case
-    - Punctuation Remover
-    - Remove accent marks
+    - It contains the following functions to process and normalize text:
+
+        - Spelling/Typo correction
+        - Deasciification
+        - Convert numbers to word form
+        - Lower case
+        - Punctuation Remover
+        - Remove accent marks
 
     - For more details about the algorithms and datasets, see `Readme <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/normalizer/ReadMe.md>`_.
     """
