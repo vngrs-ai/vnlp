@@ -130,15 +130,12 @@ stopword_remover.drop_stop_words("acaba bugün kahvaltıda kahve yerine çay mı
 ['bugün', 'kahvaltıda', 'kahve', 'çay', 'içsem', 'süt', 'içeyim']
  
 stopword_remover.dynamically_detect_stop_words("ben bugün gidip aşı olacağım sonra da eve gelip telefon açacağım aşı nasıl etkiledi eve gelip anlatırım aşı olmak bu dönemde çok ama ama ama ama çok önemli".split())
-print(sr.dynamic_stop_words)
+print(stopword_remover.dynamic_stop_words)
 ['ama', 'aşı', 'gelip', 'çok', 'eve', 'bu']
 
-# adding dynamically detected stop words to stop words lexicon
-stopword_remover.unify_stop_words()
+# Updates self.stop_words by adding given novel_stop_words to existing dictionary.
+stopword_remover.add_to_stop_words(['ama', 'aşı', 'gelip', 'eve'])
 
-# "aşı" has become a stopword now
-stopword_remover.drop_stop_words("aşı olmak önemli demiş miydim".split())
-['önemli', 'demiş', 'miydim']
 ```
 
 **Stemmer: Morphological Analyzer & Disambiguator**
@@ -203,7 +200,7 @@ ner.predict("Benim adım Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyor
 import spacy
 from vnlp import NamedEntityRecognizer
 ner = NamedEntityRecognizer()
-result = from.predict("Bu örnek bir cümledir.", displacy_format = True)
+result = ner.predict("Bu örnek bir cümledir.", displacy_format = True)
 spacy.displacy.render(result, style="ent", manual = True)
 ```
 
@@ -227,7 +224,7 @@ dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendil
 
 # Spacy's submodule Displacy can be used to visualize DependencyParser result.
 import spacy
-from pp.dependency_parser import DependencyParser
+from vnlp import DependencyParser
 dependency_parser = DependencyParser()
 result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
@@ -288,7 +285,7 @@ sentiment_analyzer.predict_proba("Yemekleriniz o kadar şahaneydi ki artık uzun
 		- FastText: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/FastText_small.zip
 
 
-You need gensim to execute the sample code below.
+Gensim is needed to execute the sample code below.
 ```
 from gensim.models import Word2Vec, FastText
 # Word2Vec
