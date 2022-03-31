@@ -14,29 +14,12 @@ class StopwordRemover:
     Stopword Remover class.
 
     Consists of Static and Dynamic stopword detection methods.
-    Static stopwords list are taken from https://github.com/ahmetax/trstop and some minor improvements are done by removing numbers from it.
 
-    - Dynamic stopword algorithm is implemented according to two papers below:
-        - Saif, Fernandez, He, Alani. 
-        “On Stopwords, Filtering and Data Sparsity for Sentiment Analysis of Twitter”.  
-        Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), pp. 810–817, 2014.
+    Static stopwords list is taken from `Zemberek <https://github.com/ahmetax/trstop>`_  and some minor improvements are done.
 
-        - Automatic cut-point of stop-words is determined according to:
-        Satopaa, Albrecht, Irwin, Raghavan.
-        Detecting Knee Points in System Behavior”.  
-        Distributed Computing Systems Workshops (ICDCSW), 2011 31st International Conference, 2011.
-
-    Attributes:
-        stop_words: static stopwords list.
-
-    Methods:
-        dynamically_detect_stop_words(tokens):
-            Returns dynamically detected stop words.
-        add_to_stop_words(tokens):
-            Updates stop_words dictionary by adding given tokens.
-        drop_stop_words(tokens):
-            Removes stopwords from given list of tokens and returns the result.
-        
+    - Dynamic stopword algorithm is implemented according to two papers.
+    - `On Stopwords, Filtering and Data Sparsity for Sentiment Analysis of Twitter <https://aclanthology.org/L14-1265/>`_ proposes to classify stopwords according to their frequency..
+    - `Finding a "Kneedle" in a Haystack: Detecting Knee Points in System Behavior <https://ieeexplore.ieee.org/document/5961514>`_ proposes to determine a cut-point automatically.
     """
 
     def __init__(self):
@@ -48,17 +31,30 @@ class StopwordRemover:
 
     def dynamically_detect_stop_words(self, list_of_tokens: List[str], rare_words_freq: int = 0) -> List[str]:
         """
-        Dynamically detects stop words and returns them as List of strings.
+        Dynamically detects stop words and returns them as list of tokens.
+        
+        Use a large corpus with at least hundreds of unique tokens for a reasonable result.
 
         Args:
             list_of_tokens:
-                List of input string tokens
+                List of input tokens
             rare_words_freq:
                 Maximum frequency of words when deciding rarity.
                 Default value is 0 so it does not detect any rare words by default.
 
         Returns:
             List of dynamically detected stop words.
+
+        Raises:
+            ValueError: Number of unique tokens must be at least 3 for Dynamic Stop Word Detection.
+
+        Example::
+
+            from vnlp import StopwordRemover
+            stopword_remover = StopwordRemover()
+            stopword_remover.dynamically_detect_stop_words(""ben bugün gidip aşı olacağım sonra da eve gelip telefon açacağım aşı nasıl etkiledi eve gelip anlatırım aşı olmak bu dönemde çok ama ama ama ama çok önemli"".split())
+
+            ['ama', 'aşı', 'gelip', 'eve']
         """
         unq, cnts = np.unique(list_of_tokens, return_counts = True)
         sorted_indices = cnts.argsort()[::-1] # I need them in descending order
@@ -66,7 +62,7 @@ class StopwordRemover:
         cnts = cnts[sorted_indices]
         
         if len(unq) < 3:
-            raise ValueError('Number of unique tokens must be at least 3 for Dynamic Stop Word Detection')
+            raise ValueError('Number of unique tokens must be at least 3 for Dynamic Stop Word Detection.')
             
         # Below is equivalent to:
         # df_words['counts'].pct_change().abs().pct_change().abs().dropna().idxmax()
@@ -96,7 +92,13 @@ class StopwordRemover:
 
         Args:
             novel_stop_words:
-                Tokens to be updated to existing stop_words dictionary.
+                Tokens to be added to existing stop_words dictionary.
+
+        Example::
+            
+            from vnlp import StopwordRemover
+            stopword_remover = StopwordRemover()
+            stopword_remover.add_to_stop_words(['ama', 'aşı', 'gelip', 'eve'])
         """
         self.stop_words.update(dict.fromkeys(novel_stop_words))
 
@@ -106,10 +108,18 @@ class StopwordRemover:
 
         Args:
             list_of_tokens:
-                List of input string tokens.
+                List of input tokens.
 
         Returns:
             List of tokens stripped of stopwords
+
+        Example::
+
+            from vnlp import StopwordRemover
+            stopword_remover = StopwordRemover()
+            stopword_remover.drop_stop_words("acaba bugün kahvaltıda kahve yerine çay mı içsem ya da neyse süt içeyim".split())
+            
+            ['bugün', 'kahvaltıda', 'kahve', 'çay', 'içsem', 'süt', 'içeyim']
         """
         tokens_without_stopwords = [token for token in list_of_tokens if token not in self.stop_words]
         return tokens_without_stopwords

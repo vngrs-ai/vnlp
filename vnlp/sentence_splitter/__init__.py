@@ -1,3 +1,3 @@
-from .sentence_splitter import RuleBasedSentenceSplitter as SentenceSplitter
+from .sentence_splitter import SentenceSplitter
 
 __all__ = ["SentenceSplitter"]

@@ -74,23 +74,12 @@ class DependencyParser:
     """
     Dependency Parser class.
 
-    - This dependency parser is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing", which can be found here: https://aclanthology.org/K18-2012/
-    - I indicate "inspire" because I simply used the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input for the model, rather than implementing the network proposed there.
-    - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %56 of model weights, hence the model size as well.
-    - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
+    - This dependency parser is *inspired* by `Tree-stack LSTM in Transition Based Dependency Parsing <https://aclanthology.org/K18-2012/>`_.
+    - Inspire is emphasized because simply the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input to the model is followed, rather than implementing the network proposed there.
     - It achieves 0.6914 LAS (Labeled Attachment Score) and 0.8048 UAS (Unlabeled Attachment Score) on all of test sets of Universal Dependencies 2.9.
-    - For more details about training procedure and evaluation metrics, see ReadMe.md
+    - Input data is processed by NLTK.TreebankWordTokenize().
+    - For more details about the training procedure, dataset and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/dependency_parser/ReadMe.md>`_.
 
-    Attributes:
-        model: Tensorflow model.
-        tokenizer_word: A Keras tokenizer for words.
-        tokenizer_tag: A Keras tokenizer for morphological tags. It is obtained from StemmerAnalyzer.
-        tokenizer_pos: A Keras tokenizer for part of speech tags. It is obtained from PoSTagger.
-        tokenizer_label: A Keras tokenizer for dependency labels.
-
-    Methods:
-        predict(sentence):
-            Returns tuples of (token_index, token, arc, label).
     """
     def __init__(self):
         self.model = create_dependency_parser_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
@@ -120,7 +109,7 @@ class DependencyParser:
 
         Args:
             sentence:
-                String of input text(sentence).
+                Input text(sentence).
             displacy_format:
                 When set True, returns the result in spacy.displacy format to allow visualization.
         

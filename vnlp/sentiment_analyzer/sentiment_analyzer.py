@@ -38,20 +38,8 @@ class SentimentAnalyzer:
     Sentiment Analysis class.
 
     - This is a Deep GRU based Sentiment Analysis classifier implementation.
-    - It uses pre-trained Word2Vec_medium embeddings, another part of this project as word embeddings.
     - It achieves 0.9345 Accuracy, 0.9230 on F1_macro_score and 0.8935 F1 score (treating class 0 as minority) on test set.
-    - For more details about training procedure and evaluation metrics, see ReadMe.md
-
-    Attributes:
-        model: Tensorflow model.
-        tokenizer_word: A Keras tokenizer for words.
-    
-    Methods:
-        predict(text):
-            Returns the sentiment result. 1: positive, 0: negative.
-        predict_proba(text):
-            Returns the probability that given text has positive sentiment.
-
+    - For more details about the training procedure and the dataset, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/sentiment_analyzer/ReadMe.md>`_.
     """
     def __init__(self):
         self.model = create_sentiment_analysis_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
@@ -68,11 +56,12 @@ class SentimentAnalyzer:
         High level user API for discrete Sentiment Analysis prediction.
         
         1: Positive sentiment.
+        
         0: Negative sentiment.
 
         Args:
             input_text: 
-                String of input text.
+                Input text.
 
         Returns:
              Sentiment label of input_text.
@@ -97,7 +86,7 @@ class SentimentAnalyzer:
 
         Args:
             input_text: 
-                String of input text.
+                Input text.
 
         Returns:
             Probability that the input text has positive sentiment.

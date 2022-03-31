@@ -6,16 +6,13 @@ import regex
 PATH = "../resources/"
 PATH = str(Path(__file__).parent / PATH)
 
-class RuleBasedSentenceSplitter():
+class SentenceSplitter:
     """
-    This is a rule based sentence splitter adapted from Philipp Koehn and Josh Schroeder's project found at https://pypi.org/project/sentence-splitter/ .
+    This is a rule based sentence splitter adapted from `Philipp Koehn and Josh Schroeder's project <https://pypi.org/project/sentence-splitter/>`_.
 
     The code is reduced and simplifed for Turkish language.
+    
     Abbreviations lexicon is expanded.
-
-    Methods:
-        split_sentences(text):
-            Returns strings of splitted sentences.
     """
 
     class _PrefixType(Enum):
@@ -28,9 +25,9 @@ class RuleBasedSentenceSplitter():
             for line in prefix_file.readlines():
 
                 if '#NUMERIC_ONLY#' in line:
-                    prefix_type = RuleBasedSentenceSplitter._PrefixType.NUMERIC_ONLY
+                    prefix_type = SentenceSplitter._PrefixType.NUMERIC_ONLY
                 else:
-                    prefix_type = RuleBasedSentenceSplitter._PrefixType.DEFAULT
+                    prefix_type = SentenceSplitter._PrefixType.DEFAULT
 
                 # non_brekaing_prefixes_tr file contains comments for ease of read
                 # so this part removes them
@@ -103,7 +100,7 @@ class RuleBasedSentenceSplitter():
                     """Check if \\1 is a known honorific and \\2 is empty."""
                     if prefix_:
                         if prefix_ in self._non_breaking_prefixes:
-                            if self._non_breaking_prefixes[prefix_] == RuleBasedSentenceSplitter._PrefixType.DEFAULT:
+                            if self._non_breaking_prefixes[prefix_] == SentenceSplitter._PrefixType.DEFAULT:
                                 if not starting_punct_:
                                     return True
                     return False
@@ -132,7 +129,7 @@ class RuleBasedSentenceSplitter():
                         number."""
                         if prefix_:
                             if prefix_ in self._non_breaking_prefixes:
-                                if self._non_breaking_prefixes[prefix_] == RuleBasedSentenceSplitter._PrefixType.NUMERIC_ONLY:
+                                if self._non_breaking_prefixes[prefix_] == SentenceSplitter._PrefixType.NUMERIC_ONLY:
                                     if not starting_punct_:
                                         if regex.search(pattern='^[0-9]+', string=next_word, flags=regex.UNICODE):
                                             return True
@@ -166,7 +163,7 @@ class RuleBasedSentenceSplitter():
 
         Args:
             text:
-                String of input sentences.
+                Input sentences.
 
         Returns:
              List of splitted sentences.

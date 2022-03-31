@@ -49,30 +49,17 @@ CAPITALIZE_PNONS = False
 
 class StemmerAnalyzer:
     """
-    StemmerAnalyzer (Morphological Analyzer & Disambiguator) Class.
+    StemmerAnalyzer Class.
 
-    - This is an implementation of "The Role of Context in Neural Morphological Disambiguation", which can be found here: https://aclanthology.org/C16-1018.pdf
+    This is a Morphological Disambiguator.
+
+    - This is an implementation of `The Role of Context in Neural Morphological Disambiguation <https://aclanthology.org/C16-1018.pdf>`_.
     - There are slight modifications to original paper:
-        - My network uses GRU instead of LSTM, which decreases the number of parameters by 25% with no actual performance penalty.
-        - My network has an extra Dense layer before output(p) layer.
-        - My network optionally uses Concatenation instead of Addition while merging representations of stems & tags, and left & right surface form contexts.
-        - My network optionally uses Deep RNNs, although current configuration results in single layer RNNs.
-        - I shuffle the positions of candidates and labels in every batch.
-    - It achieves:
-        - trmorph2006: 0.9596 accuracy on ambigious tokens and 0.9745 accuracy on all tokens, compared to 0.910 and 0.964 in the original paper.
-        - trmorph2018: 0.9433 accuracy on ambigious tokens and 0.9578 accuracy on all tokens
-    - For more details about training procedure and evaluation metrics, see ReadMe.md
-    - As analyzer, it uses Yildiz's analyzer, which can be found here: https://github.com/erayyildiz/LookupAnalyzerDisambiguator
-
-    Attributes:
-        model: Tensorflow model.
-        tokenizer_char: A Keras tokenizer for characters.
-        tokenizer_tag: A Keras tokenizer for morphological tags.
-        candidate_generator: Morphological Analyzer that generates candidates to be disambiguated.
-    
-    Methods:
-        predict(text):
-            Returns stem and morphological tags for each token.
+    - This version uses GRU instead of LSTM, which decreases the number of parameters by 25% with no actual performance penalty.
+    - This version has an extra Dense layer before the output(p) layer.
+    - The positions of candidates and labels are shuffled in every batch.
+    - It achieves 0.9596 accuracy on ambigious tokens and 0.9745 accuracy on all tokens on trmorph2006 dataset, compared to 0.910 and 0.964 in the original paper.
+    - For more details about the implementation details, training procedure and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/stemmer_morph_analyzer/ReadMe.md>`_.
     """
     def __init__(self):
         with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
@@ -98,41 +85,27 @@ class StemmerAnalyzer:
 
     def predict(self, input_sentence: str) -> List[str]:
         """
-        High level user API for Stemming, Morphological Analysis & Disambiguation.
+        High level user API for Morphological Disambiguation.
 
         Args:
             input_sentence:
-                String of input text(sentence).
+                Input text(sentence).
 
         Returns:
-            List of selected stem and morphological analysis result for each token.
+            List of selected stem and morphological tags for each token.
 
         Example::
         
             from vnlp import StemmerAnalyzer
             stemmer = StemmerAnalyzer()
-            stemmer.predict("Eser miktardaki geçici bir güvenlik için temel özgürlüklerinden vazgeçenler, ne özgürlüğü ne de güvenliği hak ederler. Benjamin Franklin")
+            stemmer.predict("Üniversite sınavlarına canla başla çalışıyorlardı.")
 
-            ['eser+Noun+A3sg+Pnon+Nom',
-            'miktar+Noun+A3sg+Pnon+Loc^DB+Adj+Rel',
-            'geçici+Adj',
-            'bir+Det',
-            'güvenlik+Noun+A3sg+Pnon+Nom',
-            'için+Postp+PCNom',
-            'temel+Noun+A3sg+Pnon+Nom',
-            'özgür+Adj^DB+Noun+Ness+A3sg+P3pl+Abl',
-            'vazgeç+Verb+Pos^DB+Adj+PresPart^DB+Noun+Zero+A3pl+Pnon+Nom',
-            ',+Punc',
-            'ne+Adj',
-            'özgür+Adj^DB+Noun+Ness+A3sg+P3sg+Nom',
-            'ne+Adj',
-            'de+Conj',
-            'güvenlik+Noun+A3sg+P3sg+Nom',
-            'hak+Noun+A3sg+Pnon+Nom',
-            'et+Verb+Pos+Aor+A3pl',
-            '.+Punc',
-            'benjamin+Noun+A3sg+Pnon+Nom',
-            'franklin+Noun+A3sg+Pnon+Nom']
+            ['üniversite+Noun+A3sg+Pnon+Nom',
+            'sınav+Noun+A3pl+P3sg+Dat',
+            'can+Noun+A3sg+Pnon+Ins',
+            'baş+Noun+A3sg+Pnon+Ins',
+            'çalış+Verb+Pos+Prog1+A3pl+Past',
+            '.+Punc']
         """
         tokens = TreebankWordTokenize(input_sentence)
 

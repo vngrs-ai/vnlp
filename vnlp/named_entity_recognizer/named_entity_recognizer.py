@@ -41,21 +41,14 @@ class NamedEntityRecognizer:
     """
     Named Entity Recognizer class.
 
-    - This is an implementation of "CharNER: Character-Level Named Entity Recognition", which can be found here: https://aclanthology.org/C16-1087/
+    - This is an implementation of `CharNER: Character-Level Named Entity Recognition <https://aclanthology.org/C16-1087/>`_.
     - There are slight modifications to original paper:
-        - I did not train for all languages, but only Turkish.
-        - I did not use Viterbi Decoder, mine is simple Mode operation among the outputs of each token.
+    - This version is trained for Turkish language only.
+    - This version uses simple Mode operation among the character predictions of each token, instead of Viterbi Decoder
     - It achieves 0.9589 Accuracy and 0.9200 F1_macro_score.
-    - For more details about training procedure and evaluation metrics, see ReadMe.md
-
-    Attributes:
-        model: Tensorflow model.
-        tokenizer_char: A Keras tokenizer for characters.
-        tokenizer_label: A Keras tokenizer for named entity labels.
-
-    Methods:
-        predict(text):
-            Returns tuples of (token, entity).
+    - Input data is processed by NLTK.WordPunctTokenized() so that each punctuation becomes a new token.
+    - Entity labels are: ['O', 'PER', 'LOC', 'ORG']
+    - For more details about the training procedure, dataset and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/named_entity_recognizer/ReadMe.md>`_.
     """
     def __init__(self):
         self.model = create_ner_model(CHAR_VOCAB_SIZE, EMBED_SIZE, SEQ_LEN_MAX, NUM_RNN_STACKS, RNN_DIM, MLP_DIM, NUM_CLASSES, DROPOUT)
@@ -127,7 +120,7 @@ class NamedEntityRecognizer:
 
         Args:
             text:
-                String of input text. Works for both untokenized raw text and white-space separated tokenized text.
+                Input text.
             displacy_format:
                 When set True, returns the result in spacy.displacy format to allow visualization.
 

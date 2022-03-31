@@ -66,23 +66,11 @@ class PoSTagger:
     """
     Part of Speech Tagger class.
 
-    - This POS Tagger is inspired by "Tree-stack LSTM in Transition Based Dependency Parsing", which can be found here: https://aclanthology.org/K18-2012/
-    - I indicate "inspire" because I simply used the approach of using Morphological Tags and Pre-trained word embeddings as input for the model.
-    - The model uses pre-trained Word2Vec_medium embeddings which is also a part of this project. Embedding weights make %77 of model weights, hence the model size as well.
-    - The model also uses pre-trained Morphological Tag embeddings, extracted from StemmerAnalyzer's neural network model.
+    - This Part of Speech Tagger is *inspired* by `Tree-stack LSTM in Transition Based Dependency Parsing <https://aclanthology.org/K18-2012/>`_.
+    - Inspire is emphasized because simply the approach of using Morphological Tags, Pre-trained word embeddings and POS tags as input to the model is followed, rather than implementing the network proposed there.
     - It achieves 0.89 Accuracy and 0.71 F1_macro_score on test sets of Universal Dependencies 2.9.
-    - For more details about training procedure and evaluation metrics, see ReadMe.md
-
-    Attributes:
-        model: Tensorflow model.
-        tokenizer_word: A Keras tokenizer for words.
-        tokenizer_tag: A Keras tokenizer for morphological tags. It is obtained from StemmerAnalyzer.
-        tokenizer_pos_label: A Keras tokenizer for part of speech labels.
-
-    Methods:
-        predict(sentence):
-            Returns pairs of (token, pos_label).
-
+    - Input data is processed by NLTK.TreebankWordTokenize().
+    - For more details about the training procedure, dataset and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/part_of_speech_tagger/ReadMe.md>`_.
     """
     def __init__(self, stemmer_analyzer = None):
         self.model = create_pos_tagger_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
@@ -108,7 +96,7 @@ class PoSTagger:
 
         Args:
             sentence:
-                String of input text(sentence).
+                Input text(sentence).
 
         Returns:
              List of (token, pos_label).

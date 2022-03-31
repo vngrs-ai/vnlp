@@ -1,3 +1,3 @@
-from .ner import NamedEntityRecognizer
+from .named_entity_recognizer import NamedEntityRecognizer
 
 __all__ = ["NamedEntityRecognizer"]

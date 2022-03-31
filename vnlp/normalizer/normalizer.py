@@ -9,35 +9,21 @@ from ..stemmer_morph_analyzer import StemmerAnalyzer
 RESOURCES_PATH = "../resources/"
 RESOURCES_PATH = str(Path(__file__).parent / RESOURCES_PATH)
 
-class Normalizer():
+class Normalizer:
+    """
+    Normalizer class 
+    
+    It contains the following functions to process and normalize text:
+    - Spelling/Typo correction
+    - Deasciification
+    - Convert numbers to word form
+    - Lower case
+    - Punctuation Remover
+    - Remove accent marks
+
+    - For more details about the algorithms and datasets, see `Readme <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/normalizer/ReadMe.md>`_.
+    """
     def __init__(self):
-        """
-        Normalizer class contains following functions to process and normalize text.
-
-        - Spelling/typo correction uses Stemmer and Hunspell(tdd-hunspell-tr-1.1.0 dict) algorithm. For details see at vnlp/_resources/tdd-hunspell-tr-1.1.0/README.MD
-        - Deasciification
-        - Convert numbers to word form
-        - Lower case
-        - Punctuation Remover
-        - Remove accent marks
-
-        For more details, see ReadMe.md.
-
-        Methods:
-            lower_case(text): 
-                Converts characters to lowercase for Turkish.
-            remove_punctuations(text):
-                Removes punctuations from text.
-            remove_accent_marks(text):
-                Removes accent marks and returns cleaned version of characters.
-            deasciify(tokens):
-                Deasciifies the text written in non-Turkish keyboard.
-            correct_typos(tokens):
-                Detects and corrects the typos.
-            convert_numbers_to_words(tokens):
-                Converts numbers to written text form.
-        """
-
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
         with open(RESOURCES_PATH +'/turkish_known_words_lexicon.txt', 'r', encoding = 'utf-8') as f:
             words_lexicon = [line.strip() for line in f]
@@ -57,10 +43,10 @@ class Normalizer():
 
         Args:
             text:
-                String of input text.
+                Input text.
 
         Returns:
-            String of text in lowercase form.
+            Text in lowercase form.
 
         Example::
         
@@ -81,10 +67,10 @@ class Normalizer():
         Removes punctuations from the given string.
 
         Args:
-            text: String of input text.
+            text: Input text.
 
         Returns:
-            String of text stripped from punctuations.
+            Text stripped from punctuations.
 
         Example::
 
@@ -102,10 +88,10 @@ class Normalizer():
 
         Args:
             text:
-                String of input text.
+                Input text.
 
         Returns:
-            String of text stripped from accent marks.
+            Text stripped from accent marks.
 
         Example::
 
@@ -123,7 +109,7 @@ class Normalizer():
         """
         Deasciifies the given text for Turkish.
         
-        This function uses Emre Sevinç's implementation, which can be found at https://github.com/emres/turkish-deasciifier
+        This function uses `Emre Sevinç's implementation <https://github.com/emres/turkish-deasciifier>`_. 
 
         Args:
             tokens:
@@ -188,7 +174,7 @@ class Normalizer():
 
         Args:
             tokens:
-                List of strings of input tokens.
+                List of input tokens.
             num_dec_digits:
                 Number of precision (decimal points) for floats.
             decimal_seperator:
