@@ -58,7 +58,7 @@ source_suffix = [".rst", ".md"]
 # sphinx readthedocs theme
 html_theme = 'sphinx_rtd_theme'
 
-html_logo = '_static/logo_white.png'
+html_logo = '_static/vnlp_white.png'
 
 # Below html_theme_options config depends on the theme.
 # For Stanford theme:

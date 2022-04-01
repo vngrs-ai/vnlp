@@ -34,6 +34,6 @@ def convert_numbers_to_zero(text_: str):
 
 def preprocess_text(text):
     text = text.replace('’', "'")
-    text = Normalizer.lower_case(text) # TODO: use normalizer.lower_case() when done with development
+    text = Normalizer.lower_case(text)
     text = convert_numbers_to_zero(text)
     return text
