@@ -50,10 +50,13 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'TODO/*']
 source_suffix = [".rst", ".md"]
 
 # -- Options for HTML output
-# Theme
-import sphinx_theme
-html_theme = 'stanford_theme'
-html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+# Stanford Theme
+#import sphinx_theme
+#html_theme = 'stanford_theme'
+#html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+
+# sphinx readthedocs theme
+html_theme = 'sphinx_rtd_theme'
 
 html_logo = '_static/logo_white.png'
 

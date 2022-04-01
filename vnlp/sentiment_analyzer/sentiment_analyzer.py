@@ -51,7 +51,7 @@ class SentimentAnalyzer:
         self.tokenizer_word = tokenizer_word
 
 
-    def predict(self, input_text: str) -> int:
+    def predict(self, text: str) -> int:
         """
         High level user API for discrete Sentiment Analysis prediction.
         
@@ -60,11 +60,11 @@ class SentimentAnalyzer:
         0: Negative sentiment.
 
         Args:
-            input_text: 
+            text: 
                 Input text.
 
         Returns:
-             Sentiment label of input_text.
+             Sentiment label of input text.
 
         Example::
 
@@ -75,17 +75,17 @@ class SentimentAnalyzer:
             0
         """
 
-        prob = self.predict_proba(input_text)
+        prob = self.predict_proba(text)
 
         return 1 if prob > 0.5 else 0
 
 
-    def predict_proba(self, input_text: str) -> float:
+    def predict_proba(self, text: str) -> float:
         """
         High level user API for probability estimation of Sentiment Analysis.
 
         Args:
-            input_text: 
+            text: 
                 Input text.
 
         Returns:
@@ -99,7 +99,7 @@ class SentimentAnalyzer:
             
             0.15
         """
-        preprocessed_text = preprocess_text(input_text)
+        preprocessed_text = preprocess_text(text)
         integer_tokenized_text = self.tokenizer_word.texts_to_sequences([preprocessed_text])
         
         num_preprocessed_text_tokens = len(preprocessed_text.split())
