@@ -23,7 +23,7 @@ Word Embeddings
     - `FastText <https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/turkish_word_embeddings/FastText_small.zip>`_
 
 
-- They are trained with gensim, so it is needed to open them.
+- They are trained with `gensim <https://github.com/RaRe-Technologies/gensim>`_, so it is needed to open them.
 
 >>> from gensim.models import Word2Vec, FastText
 >>> 
@@ -52,7 +52,7 @@ Word Embeddings
  ('vader', 0.5258742570877075)]
  
 >>> # FastText
->>> model = Word2Vec.load('vnlp/turkish_embeddings/FastText_large.model')
+>>> model = FastText.load('vnlp/turkish_embeddings/FastText_large.model')
 >>> model.wv.most_similar('yamaçlardan', topn = 20)
 [('kayalardan', 0.8601457476615906),
  ('kayalıklardan', 0.8567330837249756),

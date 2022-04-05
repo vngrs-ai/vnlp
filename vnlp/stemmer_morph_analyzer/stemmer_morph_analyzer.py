@@ -83,12 +83,12 @@ class StemmerAnalyzer:
         self.candidate_generator = TurkishStemSuffixCandidateGenerator(case_sensitive=True)
 
 
-    def predict(self, input_sentence: str) -> List[str]:
+    def predict(self, sentence: str) -> List[str]:
         """
         High level user API for Morphological Disambiguation.
 
         Args:
-            input_sentence:
+            sentence:
                 Input text(sentence).
 
         Returns:
@@ -107,7 +107,7 @@ class StemmerAnalyzer:
             'çalış+Verb+Pos+Prog1+A3pl+Past',
             '.+Punc']
         """
-        tokens = TreebankWordTokenize(input_sentence)
+        tokens = TreebankWordTokenize(sentence)
 
         # Obtaining Analyses
         sentence = [[], []]
