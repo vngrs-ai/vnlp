@@ -6,7 +6,7 @@ import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
 # mock deps with system level requirements.
-# autodoc_mock_imports = ["tensorflow"]
+autodoc_mock_imports = ["tensorflow"]
 
 # -- Project information
 
