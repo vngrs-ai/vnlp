@@ -46,7 +46,7 @@ open shell.
 write
 ```
 git clone https://github.com/vngrs-ai/VNLP.git
-cd VNLP
+cd vnlp
 python setup.py install
 ```
 
