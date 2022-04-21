@@ -29,10 +29,11 @@ Consists of:
 	- Word2Vec
 	
 ### Compatability: works on
-- Python 3.6
-- Python 3.7
-- Python 3.8
-- Python 3.9
+- [x] Python 3.6
+- [x] Python 3.7
+- [x] Python 3.8
+- [x] Python 3.9
+
 ### Installation
 open shell.
 write
