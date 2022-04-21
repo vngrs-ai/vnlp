@@ -32,7 +32,7 @@ Consists of:
 
 Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
 :------------ | :-------------| :-------------| :-------------| :-------------
-:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
+:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | :white_check_mark:
 
 - cyhunspell does not currently support 3.10
 
