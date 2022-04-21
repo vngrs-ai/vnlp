@@ -10,7 +10,7 @@ Consists of:
 - Normalizer:
 	- Spelling/Typo correction
 	- Converts numbers to word form
-	- Deascification
+	- Deasciification
 - Stopword Remover:
 	- Static
 	- Dynamic
