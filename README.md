@@ -61,3 +61,31 @@ To install extra dependencies to read word embeddings and visualize dependency p
 pip install -e '.[extras]'
 ```
 or you can simply install gensim and spacy manually.
+
+#### Example:
+**Dependency Parser**
+```
+from vnlp import DependencyParser
+dep_parser = DependencyParser()
+
+dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
+[(1, 'Onun', 5, 'obl'),
+(2, 'için', 1, 'case'),
+(3, 'yol', 1, 'nmod'),
+(4, 'arkadaşlarımızı', 5, 'obj'),
+(5, 'titizlikle', 6, 'obl'),
+(6, 'seçer', 7, 'acl'),
+(7, ',', 10, 'punct'),
+(8, 'kendilerini', 10, 'obj'),
+(9, 'iyice', 8, 'advmod'),
+(10, 'sınarız', 0, 'root'),
+(11, '.', 10, 'punct')]
+
+# Spacy's submodule Displacy can be used to visualize DependencyParser result.
+import spacy
+from vnlp import DependencyParser
+dependency_parser = DependencyParser()
+result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
+spacy.displacy.render(result, style="dep", manual = True)
+
+```
