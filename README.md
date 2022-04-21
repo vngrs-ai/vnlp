@@ -5,7 +5,7 @@ State of the art, lightweight NLP tools for Turkish language.
 Developed by VNGRS.
 https://vngrs.com/
 
-Consists of:
+#### Functionality:
 - Sentence Splitter
 - Normalizer:
 	- Spelling/Typo correction
