@@ -11,22 +11,18 @@ Consists of:
 	- Spelling/Typo correction
 	- Converts numbers to word form
 	- Deascification
-	- Lowercasing
-	- Punctuation removal
-	- Accent mark removal
 - Stopword Remover:
 	- Static
 	- Dynamic
-		- Frequent words
-		- Rare words
 - Stemmer: Morphological Analyzer & Disambiguator
 - Named Entity Recognizer (NER) 
 - Dependency Parser
 - Part of Speech (POS) Tagger
 - Sentiment Analyzer
-- Turkish Embeddings
+- Turkish Word Embeddings
 	- FastText
 	- Word2Vec
+- Text Summarization: soon...
 
 ### Compatability:
 
