@@ -33,7 +33,7 @@ Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
 - cyhunspell does not currently support 3.10
 
 ### Documentation:
-- Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at `Documentation <https://vnlp.readthedocs.io/>`_.
+- Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
 
 ### Installation
 #### pip
