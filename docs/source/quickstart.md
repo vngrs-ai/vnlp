@@ -10,13 +10,13 @@ pip:
 
 .. code-block:: console
 
-   $ pip install vngrs-nlp
+   $ pip install vnlp
 
 conda:
 
 .. code-block:: console
 
-   $ conda install vngrs-nlp
+   $ conda install vnlp
 
 
 Usage
