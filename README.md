@@ -29,6 +29,7 @@ Consists of:
 	- Word2Vec
 
 ### Compatability:
+
 Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
 :------------ | :-------------| :-------------| :-------------
 :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | cyhunspell support needed
