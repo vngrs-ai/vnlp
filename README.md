@@ -7,7 +7,7 @@ https://vngrs.com/
 
 #### Functionality:
 - Sentence Splitter
-- Normalizer:
+- Normalizer
 	- Spelling/Typo correction
 	- Converts numbers to word form
 	- Deasciification
@@ -22,7 +22,7 @@ https://vngrs.com/
 - Turkish Word Embeddings
 	- FastText
 	- Word2Vec
-- Text Summarization: soon...
+- Text Summarization: In development progress...
 
 ### Compatability:
 
