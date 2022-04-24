@@ -87,6 +87,5 @@ from vnlp import DependencyParser
 dependency_parser = DependencyParser()
 result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
-
 ```
 <img src="https://github.com/vngrs-ai/VNLP/blob/main/img/dp_vis_sample.png" width="512">
