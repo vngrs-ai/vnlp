@@ -3,7 +3,7 @@ Welcome to VNLP's documentation!
 
 **VNLP** is a Python library for developers working on Turkish NLP.
 
-It implements *state of the art* research papers in an efficient manner with an *intuitive* API to allow inference.
+It implements the *state of the art* research papers in an efficient manner with an *intuitive* API to allow inference.
 
 - Try the `Demo <https://vnlp.io/demo>`_.
 - See the `Official Website <https://vnlp.io/>`_.
