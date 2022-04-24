@@ -1,4 +1,4 @@
-<img src="https://github.com/vngrs-ai/VNLP/blob/main/vnlp.png" width="256">
+<img src="https://github.com/vngrs-ai/VNLP/blob/main/img/vnlp.png" width="256">
 
 ## VNLP: Turkish NLP Tools
 State of the art, lightweight NLP tools for Turkish language.
@@ -85,7 +85,8 @@ dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendil
 import spacy
 from vnlp import DependencyParser
 dependency_parser = DependencyParser()
-result = dependency_parser.predict("Bu örnek bir cümledir.", displacy_format = True)
+result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
 
 ```
+<img src="https://github.com/vngrs-ai/VNLP/blob/main/img/dp_vis_sample.png" width="256">
