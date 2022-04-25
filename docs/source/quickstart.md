@@ -10,13 +10,13 @@ pip:
 
 .. code-block:: console
 
-   $ pip install vnlp
+   $ soon
 
 conda:
 
 .. code-block:: console
 
-   $ conda install vnlp
+   $ soon
 
 
 Usage
