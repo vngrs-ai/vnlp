@@ -125,7 +125,7 @@ class NamedEntityRecognizer:
                 When set True, returns the result in spacy.displacy format to allow visualization.
 
         Returns:
-            ner_result: NER result as pairs of (token, entity).
+            NER result as pairs of (token, entity).
 
         Example::
         
