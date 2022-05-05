@@ -51,12 +51,12 @@ source_suffix = [".rst", ".md"]
 
 # -- Options for HTML output
 # Stanford Theme
-#import sphinx_theme
-#html_theme = 'stanford_theme'
-#html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
+import sphinx_theme
+html_theme = 'stanford_theme'
+html_theme_path = [sphinx_theme.get_html_theme_path('stanford-theme')]
 
 # sphinx readthedocs theme
-html_theme = 'sphinx_rtd_theme'
+#html_theme = 'sphinx_rtd_theme'
 
 html_logo = '_static/vnlp_white.png'
 
