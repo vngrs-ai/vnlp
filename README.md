@@ -27,6 +27,8 @@ https://vngrs.com/
 ### Installation
 ```
 pip install vngrs-nlp
+```
+```
 conda install vngrs-nlp
 ```
 ### Documentation:
