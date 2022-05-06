@@ -24,45 +24,19 @@ https://vngrs.com/
 	- Word2Vec
 - Text Summarization: In development progress...
 
-### Compatability:
-
-Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
-:------------ | :-------------| :-------------| :-------------| :-------------
-:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | :x:
-
-- cyhunspell does not currently support 3.10
-
-### Documentation:
-- Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
-
 ### Installation
 #### pip
 ```
-soon...
+pip install vngrs-nlp
 ```
+#### conda
+```
+conda install vngrs-nlp
+```
+### Documentation:
+- Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
 
-#### Build from source
-open shell.
-write
-```
-git clone https://github.com/vngrs-ai/VNLP.git
-cd vnlp
-python setup.py install
-```
-
-For Linux/MacOS, you might need to use
-```
-python3 setup.py install
-```
-instead.
-
-To install extra dependencies to read word embeddings and visualize dependency parsing tree
-```
-pip install -e '.[extras]'
-```
-or you can simply install gensim and spacy manually.
-
-#### Example:
+#### Usage Example:
 **Dependency Parser**
 ```
 from vnlp import DependencyParser
@@ -89,3 +63,11 @@ result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", 
 spacy.displacy.render(result, style="dep", manual = True)
 ```
 <img src="https://github.com/vngrs-ai/VNLP/blob/main/img/dp_vis_sample.png" width="512">
+
+### Compatability:
+
+Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
+:------------ | :-------------| :-------------| :-------------| :-------------
+:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | :x:
+
+- cyhunspell does not currently support 3.10
