@@ -5,6 +5,11 @@ State of the art, lightweight NLP tools for Turkish language.
 Developed by VNGRS.
 https://vngrs.com/
 
+
+[![PyPI version](https://badge.fury.io/py/vngrs-nlp.svg)](https://badge.fury.io/py/vngrs-nlp)
+[![Docs](<https://readthedocs.org/projects/vnlp/badge/?version=latest&style=plastic>)](https://vnlp.readthedocs.io/)
+[![License](<https://img.shields.io/badge/license-AGPL%203.0-green.svg>)](https://github.com/vngrs-ai/vnlp/blob/main/LICENSE)
+
 ### Functionality:
 - Sentence Splitter
 - Normalizer
