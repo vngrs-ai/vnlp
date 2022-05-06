@@ -5,11 +5,11 @@ State of the art, lightweight NLP tools for Turkish language.
 Developed by VNGRS.
 https://vngrs.com/
 
-#### Functionality:
+### Functionality:
 - Sentence Splitter
 - Normalizer
 	- Spelling/Typo correction
-	- Converts numbers to word form
+	- Convert numbers to word form
 	- Deasciification
 - Stopword Remover:
 	- Static
@@ -25,18 +25,14 @@ https://vngrs.com/
 - Text Summarization: In development progress...
 
 ### Installation
-#### pip
 ```
 pip install vngrs-nlp
-```
-#### conda
-```
 conda install vngrs-nlp
 ```
 ### Documentation:
 - Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
 
-#### Usage Example:
+### Usage Example:
 **Dependency Parser**
 ```
 from vnlp import DependencyParser
