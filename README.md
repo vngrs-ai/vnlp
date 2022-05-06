@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/logo.png | width=256)
+![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/logo.png)
 
 ## VNLP: Turkish NLP Tools
 State of the art, lightweight NLP tools for Turkish language.
