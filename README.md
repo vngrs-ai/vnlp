@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/logo.png)
+# <img src="https://github.com/vngrs-ai/vnlp/blob/main/img/logo.png?raw=true" width="256">
 
 ## VNLP: Turkish NLP Tools
 State of the art, lightweight NLP tools for Turkish language.
@@ -60,4 +60,4 @@ dependency_parser = DependencyParser()
 result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
 ```
-![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/dp_vis_sample.png)
+# <img src="https://raw.githubusercontent.com/vngrs-ai/vnlp/main/img/dp_vis_sample.png" width="512">
