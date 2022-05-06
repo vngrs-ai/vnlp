@@ -1,4 +1,4 @@
-<img src="https://github.com/vngrs-ai/VNLP/blob/main/img/logo.png" width="256">
+![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/logo.png | width=256)
 
 ## VNLP: Turkish NLP Tools
 State of the art, lightweight NLP tools for Turkish language.
@@ -60,12 +60,4 @@ dependency_parser = DependencyParser()
 result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
 ```
-<img src="https://github.com/vngrs-ai/VNLP/blob/main/img/dp_vis_sample.png" width="512">
-
-### Compatability:
-
-Python 3.6 | Python 3.7 | Python 3.8 | Python 3.9 | Python 3.10
-:------------ | :-------------| :-------------| :-------------| :-------------
-:heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: | :heavy_check_mark: | :x:
-
-- cyhunspell does not currently support 3.10
+![](https://raw.githubusercontent.com/vngrs-ai/VNLP/main/img/dp_vis_sample.png | width=512)
