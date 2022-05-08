@@ -16,6 +16,8 @@ sys.path.insert(0, parent_dir)
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
+MODEL_WEIGHTS_LOC = RESOURCES_PATH + "model_weights_except_word_embedding.pkl"
+WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding_matrix.npy'))
 MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
 TOKENIZER_WORD_LOC = RESOURCES_PATH + "tokenizer_word.pickle"
 
@@ -44,7 +46,15 @@ class SentimentAnalyzer:
     def __init__(self):
         self.model = create_sentiment_analysis_model(WORD_EMBEDDING_VOCAB_SIZE, WORD_EMBEDDING_VECTOR_SIZE, WORD_EMBEDDING_MATRIX,
                                                      NUM_RNN_UNITS, NUM_RNN_STACKS, DROPOUT)
-        self.model.load_weights(MODEL_LOC)
+        # Load Word embedding matrix
+        word_embedding_matrix = np.load(WORD_EMBEDDING_MATRIX_LOC)
+        # Load Model weights
+        with open(MODEL_WEIGHTS_LOC, 'rb') as fp:
+            model_weights = pickle.load(fp)
+        # Insert word embedding weights to correct position (0 for Sentiment Analysis model)
+        model_weights.insert(0, word_embedding_matrix)
+        # Set model weights
+        self.model.set_weights(model_weights)
 
         with open(TOKENIZER_WORD_LOC, 'rb') as handle:
             tokenizer_word = pickle.load(handle)

@@ -22,7 +22,8 @@ from tokenizer import TreebankWordTokenize
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
-MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
+MODEL_WEIGHTS_LOC = RESOURCES_PATH + "model_weights_except_word_embedding.pkl"
+WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding_matrix.npy'))
 TOKENIZER_WORD_LOC = RESOURCES_PATH + "tokenizer_word.pickle"
 TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/tokenizer_tag.pickle')) # using the tokenizer of stemmer_morph_analyzer
 TOKENIZER_POS_LABEL_LOC = RESOURCES_PATH + "tokenizer_pos_label.pickle"
@@ -78,7 +79,16 @@ class PoSTagger:
                                              TAG_NUM_RNN_UNITS, LC_NUM_RNN_UNITS, RC_NUM_RNN_UNITS,
                                              DROPOUT, TAG_EMBEDDING_MATRIX, FC_UNITS_MULTIPLIERS)
 
-        self.model.load_weights(MODEL_LOC)
+        # Load Word embedding matrix
+        word_embedding_matrix = np.load(WORD_EMBEDDING_MATRIX_LOC)
+        # Load Model weights
+        with open(MODEL_WEIGHTS_LOC, 'rb') as fp:
+            model_weights = pickle.load(fp)
+        # Insert word embedding weights to correct position (1 for Part of Speech Tagger model)
+        model_weights.insert(1, word_embedding_matrix)
+        # Set model weights
+        self.model.set_weights(model_weights)
+
         self.tokenizer_word = tokenizer_word
         self.tokenizer_tag = tokenizer_tag
         self.tokenizer_pos_label = tokenizer_pos_label

@@ -22,7 +22,8 @@ sys.path.insert(0, parent_dir)
 
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
-MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
+MODEL_WEIGHTS_LOC = RESOURCES_PATH + "model_weights_except_word_embedding.pkl"
+WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding_matrix.npy'))
 TOKENIZER_WORD_LOC = RESOURCES_PATH + "tokenizer_word.pickle"
 TOKENIZER_POS_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'part_of_speech_tagger/resources/tokenizer_pos_label.pickle')) # using the tokenizer of part_of_speech_tagger
 TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/tokenizer_tag.pickle')) # using the tokenizer of stemmer_morph_analyzer
@@ -87,7 +88,16 @@ class DependencyParser:
                                                     SENTENCE_MAX_LEN, TAG_MAX_LEN, ARC_LABEL_VECTOR_LEN, NUM_RNN_STACKS, 
                                                     TAG_NUM_RNN_UNITS, LC_NUM_RNN_UNITS, LC_ARC_LABEL_NUM_RNN_UNITS, RC_NUM_RNN_UNITS,
                                                     DROPOUT, TAG_EMBEDDING_MATRIX, FC_UNITS_MULTIPLIERS)
-        self.model.load_weights(MODEL_LOC)
+        # Load Word embedding matrix
+        word_embedding_matrix = np.load(WORD_EMBEDDING_MATRIX_LOC)
+        # Load Model weights
+        with open(MODEL_WEIGHTS_LOC, 'rb') as fp:
+            model_weights = pickle.load(fp)
+        # Insert word embedding weights to correct position (1 for Dependency Parsing model)
+        model_weights.insert(1, word_embedding_matrix)
+        # Set model weights
+        self.model.set_weights(model_weights)
+
         self.tokenizer_word = tokenizer_word
         self.tokenizer_tag = tokenizer_tag
         self.tokenizer_pos = tokenizer_pos
