@@ -1,12 +1,17 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as readme_file:
+    README = readme_file.read()
+
 setup(
-    name='VNLP',
-    version='0.1',
-    description='NLP Tools for Turkish Language.',
+    name='vngrs-nlp',
+    version='0.1.3',
+    description='Turkish NLP Tools developed by VNGRS.',
+    long_description= README,
+    long_description_content_type='text/markdown',
     author='Meliksah Turker',
     author_email='turkermeliksah@hotmail.com',
-    license='Apache License 2.0',
+    license='GNU Affero General Public License v3.0',
     classifiers=[
     'Development Status :: 3 - Alpha',
 
@@ -23,10 +28,18 @@ setup(
     'Topic :: Software Development',
     'Topic :: Software Development :: Libraries',
 
-    'Programming Language :: Python :: 3.7'
-    'Programming Language :: Python :: 3.8'
+    'Programming Language :: Python',
+    "Programming Language :: Python :: 3",
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9'
 ],
+    project_urls={
+        "Documentation": "https://vnlp.readthedocs.io/en/latest/",
+        "Repository": "https://github.com/vngrs-ai/vnlp",
+        "Website": "https://vnlp.io",
+    },
     packages=find_packages(exclude=['turkish_embeddings']),
     include_package_data=True,
     install_requires=['tensorflow<2.6.0; python_version < "3.8"',
