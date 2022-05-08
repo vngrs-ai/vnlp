@@ -1,4 +1,5 @@
 include README.md
+include LICENSE
 recursive-include vnlp *.md
 recursive-include vnlp *.py
 recursive-include vnlp *.pickle
@@ -6,3 +7,4 @@ recursive-include vnlp *.hdf5
 recursive-include vnlp *.txt
 recursive-include vnlp *.aff
 recursive-include vnlp *.dic
+recursive-include vnlp *.matrix

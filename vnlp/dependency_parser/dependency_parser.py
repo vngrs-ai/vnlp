@@ -23,7 +23,7 @@ sys.path.insert(0, parent_dir)
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
 MODEL_WEIGHTS_LOC = RESOURCES_PATH + "model_weights_except_word_embedding.pkl"
-WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding_matrix.npy'))
+WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding.matrix'))
 TOKENIZER_WORD_LOC = RESOURCES_PATH + "tokenizer_word.pickle"
 TOKENIZER_POS_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'part_of_speech_tagger/resources/tokenizer_pos_label.pickle')) # using the tokenizer of part_of_speech_tagger
 TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/tokenizer_tag.pickle')) # using the tokenizer of stemmer_morph_analyzer

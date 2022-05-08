@@ -23,7 +23,7 @@ from tokenizer import TreebankWordTokenize
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
 MODEL_WEIGHTS_LOC = RESOURCES_PATH + "model_weights_except_word_embedding.pkl"
-WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding_matrix.npy'))
+WORD_EMBEDDING_MATRIX_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'tokenizer/word_embedding.matrix'))
 TOKENIZER_WORD_LOC = RESOURCES_PATH + "tokenizer_word.pickle"
 TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/tokenizer_tag.pickle')) # using the tokenizer of stemmer_morph_analyzer
 TOKENIZER_POS_LABEL_LOC = RESOURCES_PATH + "tokenizer_pos_label.pickle"
