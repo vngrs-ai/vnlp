@@ -32,13 +32,16 @@ https://vngrs.com/
 	- SentencePiece Unigram Tokenizer
 - Text Summarization: In development progress...
 
+### Demo:
+- Try the [Demo](https://demo.vnlp.io).
+
 ### Installation
 ```
 pip install vngrs-nlp
 ```
 
 ### Documentation:
-- Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
+- See the [Documentation](https://vnlp.readthedocs.io) for the details about usage, classes, functions, datasets and evaluation metrics.
 
 ### Usage Example:
 **Dependency Parser**
