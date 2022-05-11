@@ -9,7 +9,7 @@ which can be found here: https://aclanthology.org/K18-2012/
 - It achieves 0.89 Accuracy and 0.71 F1_macro_score on test sets of Universal Dependencies 2.9.
 - Data is found at: https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-4611
 - Starting with 0.001 learning rate, lr decay of 0.95 is used after the 5th epoch, with class weights given below.
-- After development phase, final model in the repository is trained with all of train, dev and test data for 20 epochs, therefore you cannot evaluate on test sets using the model weights found in this repository. However, model_weights trained on train and dev sets only are available at: https://meliksahturker.s3.us-east-2.amazonaws.com/VNLP/model_weights/pos_tagger_trained_on_train_dev.hdf5 . Hence you can place this under resources and evaluate on test sets.
+- After development phase, final model in the repository is trained with all of train, dev and test data for 20 epochs, therefore you cannot evaluate on test sets using the model weights found in this repository. However, model_weights trained on train and dev sets only are available at: https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/evaluation_weights/part_of_speech_eval_weights.pickle . Hence you can place this under resources, overwriting the existing model weights file and evaluate on test sets.
 - UD 2.9 consists of below datasets with evaluation metrics on each one's test set:
 	- UD_Turkish-Atis: Accuracy: 0.9695 - F1_macro_score: 0.8858
 	- UD_Turkish-BOUN: Accuracy: 0.8543 - F1_macro_score: 0.7607
