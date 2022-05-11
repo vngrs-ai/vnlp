@@ -50,11 +50,12 @@
 
 - They can be downloaded from the links below:
 
-- `Medium Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Tokenizer.zip>`_ :
+- **Medium Tokenizer and its Word2Vec Embeddings**:
+    - `Medium Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Tokenizer.zip>`_
     - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_large.zip>`_
     - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_medium.zip>`_
-
-- `Small Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Tokenizer.zip>`_ :
+- **Small Tokenizer and its Word2Vec Embeddings**:
+    - `Small Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Tokenizer.zip>`_
     - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_large.zip>`_
     - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_medium.zip>`_
 
