@@ -60,6 +60,7 @@
 
 - Word2Vec and FastText embeddings are trained with `gensim <https://github.com/RaRe-Technologies/gensim>`_ algorithm.
 - Sentence Piece Unigram tokenizer is trained with `SentencePiece <https://github.com/google/sentencepiece>`_  algorithm.
+```
 >>> # Word2Vec
 >>> from gensim.models import Word2Vec
 >>> 
@@ -75,7 +76,8 @@
 ('frodo', 0.5819021463394165),
 ('belgarath', 0.5811135172843933),
 ('sauron', 0.5763844847679138)]
-
+```
+```
 >>> # FastText
 >>> from gensim.models import FastText
 >>> 
@@ -91,7 +93,9 @@
 ('otlardan', 0.8026642203330994),
 ('kısımlardan', 0.7993910312652588),
 ('ağaçlardan', 0.7961613535881042)]
+```
 
+```
 >>> # SentencePiece Unigram Tokenizer
 >>> import sentencepiece as spm
 >>> sp = spm.SentencePieceProcessor('SentencePiece_16k_Tokenizer.model')
@@ -99,3 +103,4 @@
 ['▁bile', 'mez', 'lerken']
 >>> tokenizer.encode_as_ids('bilemezlerken')
 [180, 1200, 8167]
+```
