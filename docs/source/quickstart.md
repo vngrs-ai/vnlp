@@ -4,20 +4,11 @@ Quickstart
 Installation
 ------------
 
-Installation is possible via both pip and conda.
-
-pip:
+Installation is possible via pip.
 
 .. code-block:: console
 
    $ pip install vngrs-nlp
-
-conda:
-
-.. code-block:: console
-
-   $ conda install vngrs-nlp
-
 
 Usage
 ----------------
