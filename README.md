@@ -29,6 +29,7 @@ https://vngrs.com/
 - Turkish Word Embeddings
 	- FastText
 	- Word2Vec
+	- SentencePiece Unigram Tokenizer
 - Text Summarization: In development progress...
 
 ### Installation
