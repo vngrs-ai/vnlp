@@ -60,44 +60,42 @@
 
 - Word2Vec and FastText embeddings are trained with `gensim <https://github.com/RaRe-Technologies/gensim>`_ algorithm.
 - Sentence Piece Unigram tokenizer is trained with `SentencePiece <https://github.com/google/sentencepiece>`_  algorithm.
+>>> # Word2Vec
+>>> from gensim.models import Word2Vec
+>>> 
+>>> model = Word2Vec.load('Word2Vec_large.model')
+>>> model.wv.most_similar('gandalf', topn = 10)
+[('saruman', 0.7291593551635742),
+('thorin', 0.6473978161811829),
+('aragorn', 0.6401687264442444),
+('isengard', 0.6123237013816833),
+('orklar', 0.59786057472229),
+('gollum', 0.5905635952949524),
+('baggins', 0.5837421417236328),
+('frodo', 0.5819021463394165),
+('belgarath', 0.5811135172843933),
+('sauron', 0.5763844847679138)]
 
-- Usage:
-    >>> # Word2Vec
-    >>> from gensim.models import Word2Vec
-    >>> 
-    >>> model = Word2Vec.load('Word2Vec_large.model')
-    >>> model.wv.most_similar('gandalf', topn = 10)
-    [('saruman', 0.7291593551635742),
-    ('thorin', 0.6473978161811829),
-    ('aragorn', 0.6401687264442444),
-    ('isengard', 0.6123237013816833),
-    ('orklar', 0.59786057472229),
-    ('gollum', 0.5905635952949524),
-    ('baggins', 0.5837421417236328),
-    ('frodo', 0.5819021463394165),
-    ('belgarath', 0.5811135172843933),
-    ('sauron', 0.5763844847679138)]
-    
-    >>> # FastText
-    >>> from gensim.models import FastText
-    >>> 
-    >>> model = FastText.load('FastText_large.model')
-    >>> model.wv.most_similar('yamaçlardan', topn = 10)
-    [('kayalardan', 0.8601457476615906),
-    ('kayalıklardan', 0.8567330837249756),
-    ('tepelerden', 0.8423191905021667),
-    ('ormanlardan', 0.8362939357757568),
-    ('dağlardan', 0.8140010833740234),
-    ('amaçlardan', 0.810560405254364),
-    ('bloklardan', 0.803180992603302),
-    ('otlardan', 0.8026642203330994),
-    ('kısımlardan', 0.7993910312652588),
-    ('ağaçlardan', 0.7961613535881042)]
+>>> # FastText
+>>> from gensim.models import FastText
+>>> 
+>>> model = FastText.load('FastText_large.model')
+>>> model.wv.most_similar('yamaçlardan', topn = 10)
+[('kayalardan', 0.8601457476615906),
+('kayalıklardan', 0.8567330837249756),
+('tepelerden', 0.8423191905021667),
+('ormanlardan', 0.8362939357757568),
+('dağlardan', 0.8140010833740234),
+('amaçlardan', 0.810560405254364),
+('bloklardan', 0.803180992603302),
+('otlardan', 0.8026642203330994),
+('kısımlardan', 0.7993910312652588),
+('ağaçlardan', 0.7961613535881042)]
 
-    >>> # SentencePiece Unigram Tokenizer
-    >>> import sentencepiece as spm
-    >>> sp = spm.SentencePieceProcessor('SentencePiece_16k_Tokenizer.model')
-    >>> tokenizer.encode_as_pieces('bilemezlerken')
-    ['▁bile', 'mez', 'lerken']
-    >>> tokenizer.encode_as_ids('bilemezlerken')
-    [180, 1200, 8167]
+>>> # SentencePiece Unigram Tokenizer
+>>> import sentencepiece as spm
+>>> sp = spm.SentencePieceProcessor('SentencePiece_16k_Tokenizer.model')
+>>> tokenizer.encode_as_pieces('bilemezlerken')
+['▁bile', 'mez', 'lerken']
+>>> tokenizer.encode_as_ids('bilemezlerken')
+[180, 1200, 8167]
