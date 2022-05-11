@@ -35,9 +35,7 @@ https://vngrs.com/
 ```
 pip install vngrs-nlp
 ```
-```
-conda install vngrs-nlp
-```
+
 ### Documentation:
 - Detailed documentation about usage, classes, functions, datasets and evaluation metrics are available at [Documentation](https://vnlp.readthedocs.io).
 
