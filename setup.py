@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 
 setup(
     name='vngrs-nlp',
-    version='0.1.4.3',
+    version='0.1.4.4',
     description='Turkish NLP Tools developed by VNGRS.',
     long_description= README,
     long_description_content_type='text/markdown',
