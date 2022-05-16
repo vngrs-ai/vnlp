@@ -171,7 +171,7 @@ class Normalizer:
     
     def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6, decimal_seperator: str = ',')-> List[str]:
         """
-        Converts numbers to word forms.
+        Converts numbers to word form.
 
         Args:
             tokens:
