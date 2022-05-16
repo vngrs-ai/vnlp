@@ -39,7 +39,7 @@ class SentimentAnalyzer:
     """
     Sentiment Analysis class.
 
-    - This is a Deep GRU based Sentiment Analysis classifier implementation.
+    - This is a Deep `GRU <https://arxiv.org/abs/1412.3555>`_ based Sentiment Analysis classifier implementation.
     - It achieves 0.9345 Accuracy, 0.9230 on F1_macro_score and 0.8935 F1 score (treating class 0 as minority) on test set.
     - For more details about the training procedure and the dataset, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/sentiment_analyzer/ReadMe.md>`_.
     """
