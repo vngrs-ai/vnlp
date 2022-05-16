@@ -42,7 +42,7 @@ class NamedEntityRecognizer:
     Named Entity Recognizer class.
 
     - This is an implementation of `CharNER: Character-Level Named Entity Recognition <https://aclanthology.org/C16-1087/>`_.
-    - There are slight modifications to original paper:
+    - There are slight modifications to the original paper:
     - This version is trained for Turkish language only.
     - This version uses simple Mode operation among the character predictions of each token, instead of Viterbi Decoder
     - It achieves 0.9589 Accuracy and 0.9200 F1_macro_score.
