@@ -54,12 +54,12 @@ class StemmerAnalyzer:
     This is a Morphological Disambiguator.
 
     - This is an implementation of `The Role of Context in Neural Morphological Disambiguation <https://aclanthology.org/C16-1018.pdf>`_.
-    - There are slight modifications to original paper:
+    - There are slight modifications to the original paper:
     - This version uses GRU instead of LSTM, which decreases the number of parameters by 25% with no actual performance penalty.
     - This version has an extra Dense layer before the output(p) layer.
-    - The positions of candidates and labels are shuffled in every batch.
+    - During training, the positions of candidates and labels are shuffled in every batch.
     - It achieves 0.9596 accuracy on ambigious tokens and 0.9745 accuracy on all tokens on trmorph2006 dataset, compared to 0.910 and 0.964 in the original paper.
-    - For more details about the implementation details, training procedure and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/stemmer_morph_analyzer/ReadMe.md>`_.
+    - For more details about the implementation, training procedure and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/stemmer_morph_analyzer/ReadMe.md>`_.
     """
     def __init__(self):
         with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
