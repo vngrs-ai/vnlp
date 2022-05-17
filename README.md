@@ -45,7 +45,7 @@ pip install vngrs-nlp
 
 ### Usage Example:
 **Dependency Parser**
-```
+````py
 from vnlp import DependencyParser
 dep_parser = DependencyParser()
 
