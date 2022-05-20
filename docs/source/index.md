@@ -5,7 +5,7 @@ Welcome to VNLP's documentation!
 
 It implements the *state of the art* research papers in an efficient manner with an *intuitive* API to allow inference.
 
-- Try the `Demo <https://vnlp.io/demo>`_.
+- Try the `Demo <https://demo.vnlp.io/>`_.
 - See the `Official Website <https://vnlp.io/>`_.
 - See the `Github <https://github.com/vngrs-ai/vnlp>`_ page.
 - See the `Pypi <https://pypi.org/project/vngrs-nlp/>`_ page.
