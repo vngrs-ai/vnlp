@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 
 setup(
     name='vngrs-nlp',
-    version='0.1.4.4',
+    version='0.2',
     description='Turkish NLP Tools developed by VNGRS.',
     long_description= README,
     long_description_content_type='text/markdown',
@@ -36,15 +36,15 @@ setup(
     'Programming Language :: Python :: 3.9'
 ],
     project_urls={
+        "Homepage": "https://github.com/vngrs-ai/vnlp",
         "Documentation": "https://vnlp.readthedocs.io/en/latest/",
-        "Repository": "https://github.com/vngrs-ai/vnlp",
-        "Website": "https://vnlp.io",
+        "Website": "https://vnlp.io"
     },
     packages=find_packages(exclude=['turkish_embeddings']),
     include_package_data=True,
     install_requires=['tensorflow<2.6.0; python_version < "3.8"',
                       'tensorflow>=2.6.0; python_version >= "3.8"',
-                      'regex==2021.8.28', 'cyhunspell'],
+                      'regex', 'cyhunspell', 'requests', 'sentencepiece'],
     extras_require={"extras": ['gensim', 'spacy']},
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]}
     )

@@ -1,51 +1,41 @@
-Word Embeddings
+**Word Embeddings**
+----------
+- `Word2Vec <https://arxiv.org/pdf/1301.3781.pdf>`_ , `FastText <https://arxiv.org/pdf/1607.04606.pdf>`_ and `SentencePiece Unigram Tokenizer <https://arxiv.org/pdf/1808.06226.pdf>`_ and its associated Word2Vec Turkish word embeddings are trained on a corpora of 32 GBs.
+- In terms Tokenization, there are two groups of word embeddings: NLTK.tokenize.TreebankWordTokenizer and SentencePiece Unigram Tokenizer.
+
+SentencePiece Unigram Tokenizer and Word Embeddings
 ===================================
 
-- `Word2Vec <https://arxiv.org/pdf/1301.3781.pdf>`_ , `FastText <https://arxiv.org/pdf/1607.04606.pdf>`_ and `SentencePiece Unigram Tokenizer <https://arxiv.org/pdf/1808.06226.pdf>`_ and its associated Word2Vec Turkish word embeddings are trained on a corpora of 32 GBs.
-
-- Regular (nltk.TreeBankWordTokenizer) tokenized Word2Vec and FastText embeddings come in 3 sizes:
-
-	- **Large**: vocabulary size: 128_000, vector size: 256
-	- **Medium**: vocabulary size: 64_000, vector size: 128
-	- **Small**: vocabulary size: 32_000, vector size: 64
-
-- They can be downloaded from the links below:
-
-- **Large**:
-    - `Word2Vec <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_large.zip>`_
-    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_large.zip>`_
-
-- **Medium**:
-    - `Word2Vec <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_medium.zip>`_
-    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_medium.zip>`_
-	
-- **Small**:
-    - `Word2Vec: <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_small.zip>`_
-    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_small.zip>`_
-
-- Sentence Piece Unigram Tokenizer and its associated Word2Vec embeddings come in 2 sizes for each config.
-
-    - **Medium Tokenizer**: vocabulary size: 32_000
-        - Large embeddings: vector size: 256
-        - Medium embeddings: vector size: 128
-
-    - **Small Tokenizer**: vocabulary size: 16_000
-        - Large embeddings: vector size: 256
-        - Medium embeddings: vector size: 128
-
-- They can be downloaded from the links below:
+- Sentence Piece Unigram Tokenizer and its associated Word2Vec embeddings come in 2 sizes for each config and can be downloaded from the links below:
 
 - **Medium Tokenizer and its Word2Vec Embeddings**:
-    - `Medium Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Tokenizer.zip>`_
-    - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_large.zip>`_
-    - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_medium.zip>`_
+    - `Medium Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Tokenizer.zip>`_ : vocabulary size: 32_000
+    - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_large.zip>`_ : vector size: 256
+    - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_32k_Word2Vec_medium.zip>`_ : vector size: 128
 - **Small Tokenizer and its Word2Vec Embeddings**:
-    - `Small Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Tokenizer.zip>`_
-    - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_large.zip>`_
-    - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_medium.zip>`_
+    - `Small Tokenizer <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Tokenizer.zip>`_ : vocabulary size: 16_000
+    - `Large Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_large.zip>`_ : vector size: 256
+    - `Medium Word2Vec embeddings <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/SentencePiece_16k_Word2Vec_medium.zip>`_ : vector size: 128
 
 - Word2Vec and FastText embeddings are trained with `gensim <https://github.com/RaRe-Technologies/gensim>`_ algorithm.
 - Sentence Piece Unigram tokenizer is trained with `SentencePiece <https://github.com/google/sentencepiece>`_  algorithm.
+
+
+TreebankWordTokenizer tokenized Word Embeddings
+===================================
+- TreebankWordTokenizer tokenized Word2Vec and FastText embeddings come in 3 sizes and can be downloaded from the links below:
+
+- **Large**:
+    - `Word2Vec <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_large.zip>`_ : vocabulary size: 128_000, vector size: 256
+    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_large.zip>`_ : vocabulary size: 128_000, vector size: 256
+
+- **Medium**:
+    - `Word2Vec <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_medium.zip>`_ : vocabulary size: 64_000, vector size: 128
+    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_medium.zip>`_ : vocabulary size: 64_000, vector size: 128
+	
+- **Small**:
+    - `Word2Vec: <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/Word2Vec_small.zip>`_ : vocabulary size: 32_000, vector size: 64
+    - `FastText <https://vnlp-word-embeddings.s3.eu-west-1.amazonaws.com/FastText_small.zip>`_ : vocabulary size: 32_000, vector size: 64
 
 - Usage:
     >>> # Word2Vec

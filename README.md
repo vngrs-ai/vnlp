@@ -25,7 +25,7 @@ https://vngrs.com/
 - Stemmer: Morphological Analyzer & Disambiguator
 - Named Entity Recognizer (NER) 
 - Dependency Parser
-- Part of Speech (POS) Tagger
+- Part of Speech (PoS) Tagger
 - Sentiment Analyzer
 - Turkish Word Embeddings
 	- FastText
@@ -44,24 +44,22 @@ pip install vngrs-nlp
 ### Documentation:
 - See the [Documentation](https://vnlp.readthedocs.io) for the details about usage, classes, functions, datasets and evaluation metrics.
 
+### Metrics:
+<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/metrics.png?raw=true" width="768">
+
 ### Usage Example:
 **Dependency Parser**
 ```
 from vnlp import DependencyParser
 dep_parser = DependencyParser()
 
-dep_parser.predict("Onun için yol arkadaşlarımızı titizlikle seçer, kendilerini iyice sınarız.")
-[(1, 'Onun', 5, 'obl'),
-(2, 'için', 1, 'case'),
-(3, 'yol', 1, 'nmod'),
-(4, 'arkadaşlarımızı', 5, 'obj'),
-(5, 'titizlikle', 6, 'obl'),
-(6, 'seçer', 7, 'acl'),
-(7, ',', 10, 'punct'),
-(8, 'kendilerini', 10, 'obj'),
-(9, 'iyice', 8, 'advmod'),
-(10, 'sınarız', 0, 'root'),
-(11, '.', 10, 'punct')]
+dep_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.")
+[("Oğuz'un", 'PROPN'),
+ ('kırmızı', 'ADJ'),
+ ('bir', 'DET'),
+ ("Astra'sı", 'PROPN'),
+ ('vardı', 'VERB'),
+ ('.', 'PUNCT')]
 
 # Spacy's submodule Displacy can be used to visualize DependencyParser result.
 import spacy

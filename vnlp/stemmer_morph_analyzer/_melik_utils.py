@@ -1,9 +1,7 @@
 import numpy as np
 import tensorflow as tf
 
-from ._yildiz_data_utils import sentence_generator
-
-def create_model(num_max_analysis, stem_max_len, char_vocab_size, char_embed_size, stem_num_rnn_units,
+def create_stemmer_model(num_max_analysis, stem_max_len, char_vocab_size, char_embed_size, stem_num_rnn_units,
                  tag_max_len, tag_vocab_size, tag_embed_size, tag_num_rnn_units,
                  sentence_max_len, surface_token_max_len, embed_join_type = 'add', dropout = 0.2,
                  num_rnn_stacks = 1):
@@ -102,90 +100,15 @@ def create_model(num_max_analysis, stem_max_len, char_vocab_size, char_embed_siz
     return model
 
 
-def convert_data_to_sentence_form(file):
-    f = open(file, 'r', encoding = 'utf-8')
+def process_input_text(data, tokenizer_char, tokenizer_tag, stem_max_len, tag_max_len, surface_token_max_len, 
+                sentence_max_len, num_max_analysis, exclude_unambigious, shuffle):
+    stems, tags, labels = tokenize_stems_tags(data, tokenizer_char, tokenizer_tag, 
+                                              stem_max_len, tag_max_len, num_max_analysis, exclude_unambigious, shuffle)
+    left_context, right_context = tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len,
+                                                                sentence_max_len, exclude_unambigious)
 
-    data = []
-    sentence = []
-    analysis = []
-    sentence_flag = False
-    for line in f:
-        tokens_in_line = line.rstrip().split()
-        
-        if sentence_flag & (tokens_in_line[0] != "</S>"):
-            sentence.append(tokens_in_line[0])
-            analysis.append([t.replace('^', '+') for t in tokens_in_line[1:]])
-        
-        if tokens_in_line[0] == "<S>":
-            sentence_flag = True
-        elif tokens_in_line[0] == "</S>":
-            sentence_flag = False
-            
-            # I add the if below because there are 7 instances of empty sentence analysis pairs
-            # which cause error in data generator
-            if (len(sentence) > 0) & (len(analysis)> 0):
-                data.append([sentence, analysis])
-                sentence = []
-                analysis = []
+    return ((stems, tags, left_context, right_context), labels)
 
-    return data
-
-
-def fit_tokenizer_char(files, tokenizer_char_oov = '<OOV>', data_processor = 'yildiz'):
-    # Fitting char-level tokenizer_char according to surface-form words
-    # Surface-form cover the stems as well, so there is no conflict or inconsistency here
-    surface_form_tokens = []
-    for file in files:
-        
-        # to use eray yildiz's analyzer to generate senteneces
-        if data_processor == 'yildiz':
-            data = []
-            for s in sentence_generator(file):
-                data.append(s)
-        # to generate sentences for training without any analyzer
-        else:
-            data = convert_data_to_sentence_form(file)
-            
-        for idx in range(len(data)):
-            tokens_of_sentence = [token for token in data[idx][0]] #This is not lowered because stem can be proper noun
-
-            surface_form_tokens += tokens_of_sentence
-
-    #This is not lowered because stem can be proper noun with Capital letter
-    tokenizer_char = tf.keras.preprocessing.text.Tokenizer(char_level = True, lower = False, filters = None, 
-                                                        oov_token = tokenizer_char_oov)
-    tokenizer_char.fit_on_texts(surface_form_tokens)
-
-    return tokenizer_char
-
-def fit_tokenizer_tag(files, tokenizer_tag_oov = '<OOV>', data_processor = 'yildiz'):
-    # Fitting tags to Tokenizer
-    unique_tags = []
-    for file in files:
-
-        # to use eray yildiz's analyzer to generate senteneces
-        if data_processor == 'yildiz':
-            data = []
-            for s in sentence_generator(file):
-                data.append(s)
-        # to generate sentences for training without any analyzer
-        else:
-            data = convert_data_to_sentence_form(file)
-            
-        for idx in range(len(data)):
-            # 3D
-            tags_of_sentence = data[idx][1]
-
-            for tags_of_token in tags_of_sentence:
-                # 2D
-                for tags_of_single_analysis in tags_of_token:
-                    tags = tags_of_single_analysis.split('+')[1:]
-                    unique_tags.append(tags)
-
-        tokenizer_tag = tf.keras.preprocessing.text.Tokenizer(lower = False, filters = None, oov_token = tokenizer_tag_oov)
-        tokenizer_tag.fit_on_texts(unique_tags)
-
-    return tokenizer_tag
 
 def tokenize_stems_tags(data, tokenizer_char, tokenizer_tag, stem_max_len, tag_max_len, 
                         num_max_analysis, exclude_unambigious, shuffle):
@@ -330,48 +253,3 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
     batch_of_right_context = np.array(batch_of_right_context)
 
     return (batch_of_left_context, batch_of_right_context)
-
-
-def process_data(data, tokenizer_char, tokenizer_tag, stem_max_len, tag_max_len, surface_token_max_len, 
-                sentence_max_len, num_max_analysis, exclude_unambigious, shuffle):
-    stems, tags, labels = tokenize_stems_tags(data, tokenizer_char, tokenizer_tag, 
-                                              stem_max_len, tag_max_len, num_max_analysis, exclude_unambigious, shuffle)
-    left_context, right_context = tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len,
-                                                                sentence_max_len, exclude_unambigious)
-
-    return ((stems, tags, left_context, right_context), labels)
-
-def data_generator(files, batch_size, tokenizer_char, tokenizer_tag, stem_max_len = 10, tag_max_len = 15, surface_token_max_len = 15, 
-                sentence_max_len = 40, num_max_analysis = 10, exclude_unambigious = False, shuffle = True, data_processor = 'yildiz'):
-
-    # to use eray yildiz's analyzer to generate senteneces
-    if data_processor == 'yildiz':
-        data = []
-        for file in files:
-            for s in sentence_generator(file):
-                data.append(s)
-    # to generate sentences for training without any analyzer
-    else:
-        data = []
-        for file in files:
-            data += convert_data_to_sentence_form(file)
-
-    while True:
-        stems = np.array([])
-        while stems.shape[0] < batch_size:
-            rand_sentence_idx = np.random.randint(0, len(data), 1)[0]
-            if stems.shape[0] == 0:
-                ((stems, tags, left_context, right_context), labels) = process_data([data[rand_sentence_idx]], tokenizer_char, tokenizer_tag, stem_max_len, tag_max_len, surface_token_max_len, 
-                                sentence_max_len, num_max_analysis, exclude_unambigious, shuffle)
-            else:
-                ((stems_, tags_, left_context_, right_context_), labels_) = process_data([data[rand_sentence_idx]], tokenizer_char, tokenizer_tag, stem_max_len, tag_max_len, surface_token_max_len, 
-                        sentence_max_len, num_max_analysis, exclude_unambigious, shuffle)
-
-                stems = np.vstack((stems, stems_))
-                tags = np.vstack((tags, tags_))
-                left_context = np.vstack((left_context, left_context_))
-                right_context = np.vstack((right_context, right_context_))
-                labels = np.vstack((labels, labels_))
-
-        yield (stems[:batch_size], tags[:batch_size], left_context[:batch_size],
-               right_context[:batch_size]), labels[:batch_size]

@@ -4,7 +4,9 @@ import pickle
 
 import numpy as np
 
-from ._melik_utils import create_model, process_data
+from ..tokenizer import TreebankWordTokenize
+from ..utils import check_and_download
+from ._melik_utils import create_stemmer_model, process_input_text
 from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize
 
 # Resolving parent dependencies
@@ -16,13 +18,15 @@ current_dir = os.path.dirname(current_path)
 parent_dir = current_dir[:current_dir.rfind(os.path.sep)]
 sys.path.insert(0, parent_dir)
 
-from tokenizer import TreebankWordTokenize
-
 RESOURCES_PATH = os.path.join(os.path.dirname(__file__), "resources/")
 
-MODEL_LOC = RESOURCES_PATH + "model_weights.hdf5"
-TOKENIZER_CHAR_LOC = RESOURCES_PATH + "tokenizer_char.pickle"
-TOKENIZER_TAG_LOC = RESOURCES_PATH + "tokenizer_tag.pickle"
+PROD_WEIGHTS_LOC = RESOURCES_PATH + "Stemmer_Shen_prod.weights"
+EVAL_WEIGHTS_LOC = RESOURCES_PATH + "Stemmer_Shen_eval.weights"
+PROD_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/Stemmer_Shen_prod.weights"
+EVAL_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/Stemmer_Shen_eval.weights"
+
+TOKENIZER_CHAR_LOC = RESOURCES_PATH + "Stemmer_char_tokenizer.pickle"
+TOKENIZER_TAG_LOC = RESOURCES_PATH + "Stemmer_morph_tag_tokenizer.pickle"
 
 # Data Processing Config
 NUM_MAX_ANALYSIS = 10 # 0.99 quantile
@@ -61,7 +65,7 @@ class StemmerAnalyzer:
     - It achieves 0.9596 accuracy on ambigious tokens and 0.9745 accuracy on all tokens on trmorph2006 dataset, compared to 0.910 and 0.964 in the original paper.
     - For more details about the implementation, training procedure and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/stemmer_morph_analyzer/ReadMe.md>`_.
     """
-    def __init__(self):
+    def __init__(self, evaluate = False):
         with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
             tokenizer_char = pickle.load(handle)
         
@@ -71,11 +75,24 @@ class StemmerAnalyzer:
         CHAR_VOCAB_SIZE = len(tokenizer_char.word_index) + 1
         TAG_VOCAB_SIZE = len(tokenizer_tag.word_index) + 1
 
-        self.model = create_model(NUM_MAX_ANALYSIS, STEM_MAX_LEN, CHAR_VOCAB_SIZE, CHAR_EMBED_SIZE, STEM_RNN_DIM,
+        self.model = create_stemmer_model(NUM_MAX_ANALYSIS, STEM_MAX_LEN, CHAR_VOCAB_SIZE, CHAR_EMBED_SIZE, STEM_RNN_DIM,
                                   TAG_MAX_LEN, TAG_VOCAB_SIZE, TAG_EMBED_SIZE, TAG_RNN_DIM,
                                   SENTENCE_MAX_LEN, SURFACE_TOKEN_MAX_LEN, EMBED_JOIN_TYPE, DROPOUT,
                                   NUM_RNN_STACKS)
-        self.model.load_weights(MODEL_LOC)
+        # Check and download model weights
+        if evaluate:
+            MODEL_WEIGHTS_LOC = EVAL_WEIGHTS_LOC
+            MODEL_WEIGHTS_LINK = EVAL_WEIGHTS_LINK
+        else:
+            MODEL_WEIGHTS_LOC = PROD_WEIGHTS_LOC
+            MODEL_WEIGHTS_LINK = PROD_WEIGHTS_LINK
+
+        check_and_download(MODEL_WEIGHTS_LOC, MODEL_WEIGHTS_LINK)
+        # Load Model weights
+        with open(MODEL_WEIGHTS_LOC, 'rb') as fp:
+            model_weights = pickle.load(fp)
+        # Set model weights
+        self.model.set_weights(model_weights)
 
         self.tokenizer_char = tokenizer_char
         self.tokenizer_tag = tokenizer_tag
@@ -127,14 +144,14 @@ class StemmerAnalyzer:
             sentence[1].append(root_tags)
 
         # Tokenizing Input
-        X, _ = process_data([sentence], self.tokenizer_char, self.tokenizer_tag, STEM_MAX_LEN, TAG_MAX_LEN, SURFACE_TOKEN_MAX_LEN,    
+        X, _ = process_input_text([sentence], self.tokenizer_char, self.tokenizer_tag, STEM_MAX_LEN, TAG_MAX_LEN, SURFACE_TOKEN_MAX_LEN,    
                                   SENTENCE_MAX_LEN, NUM_MAX_ANALYSIS, exclude_unambigious = False, shuffle = False)
 
 
         ambig_levels = np.array([len(analyses) for analyses in sentence[1]])
 
         # Model Output (indices)
-        probs_of_sentence = self.model.predict(X)
+        probs_of_sentence = self.model(X).numpy()
         predicted_indices = []
         for idx, probs_of_single_token in enumerate(probs_of_sentence):
             ambig_level_of_token = ambig_levels[idx]
