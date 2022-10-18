@@ -202,18 +202,18 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
                 tokenized_left_context = tf.keras.preprocessing.sequence.pad_sequences(tokenized_left_context, 
                                                                                     maxlen = surface_token_max_len, 
                                                                                     padding = 'pre')
-            # 2D padding with zeros
-            # final shape: (sentence_max_len, stem_max_len)
-            tokenized_left_context = tokenized_left_context.tolist()
-            
-            # truncating in case number of tokens on left context are larger than max
-            if len(tokenized_left_context)> sentence_max_len:
-                tokenized_left_context = tokenized_left_context[-sentence_max_len:] # cropping the first part
-            
-            # 2D padding with zeros
-            for _ in range(max(sentence_max_len - len(tokenized_left_context), 0)):
-                tokenized_left_context.append(np.zeros(surface_token_max_len))
-            tokenized_left_context = np.array(tokenized_left_context)
+                # 2D padding with zeros
+                # final shape: (sentence_max_len, stem_max_len)
+                tokenized_left_context = tokenized_left_context.tolist()
+                
+                # truncating in case number of tokens on left context are larger than max
+                if len(tokenized_left_context)> sentence_max_len:
+                    tokenized_left_context = tokenized_left_context[-sentence_max_len:] # cropping the first part
+                
+                # 2D pre-padding with zeros
+                for _ in range(max(sentence_max_len - len(tokenized_left_context), 0)):
+                    tokenized_left_context.insert(0, np.zeros(surface_token_max_len))
+                tokenized_left_context = np.array(tokenized_left_context)
             
             assert tokenized_left_context.shape == (sentence_max_len, surface_token_max_len)
             
@@ -231,19 +231,19 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
                 tokenized_right_context = tokenizer_char.texts_to_sequences(tokens_in_right)
                 tokenized_right_context = tf.keras.preprocessing.sequence.pad_sequences(tokenized_right_context, 
                                                                                     maxlen = surface_token_max_len, 
-                                                                                    padding = 'post')
-            # 2D padding with zeros
-            # final shape: (sentence_max_len, stem_max_len)
-            tokenized_right_context = tokenized_right_context.tolist()
-            
-            # truncating in case number of tokens on left context are larger than max
-            if len(tokenized_right_context)> sentence_max_len:
-                tokenized_right_context = tokenized_right_context[:sentence_max_len] # cropping the last part
-            
-            # 2D padding with zeros
-            for _ in range(max(sentence_max_len - len(tokenized_right_context), 0)):
-                tokenized_right_context.append(np.zeros(surface_token_max_len))
-            tokenized_right_context = np.array(tokenized_right_context)
+                                                                                    padding = 'pre')
+                # 2D padding with zeros
+                # final shape: (sentence_max_len, stem_max_len)
+                tokenized_right_context = tokenized_right_context.tolist()
+                
+                # truncating in case number of tokens on left context are larger than max
+                if len(tokenized_right_context)> sentence_max_len:
+                    tokenized_right_context = tokenized_right_context[:sentence_max_len] # cropping the last part
+                
+                # 2D post-padding with zeros
+                for _ in range(max(sentence_max_len - len(tokenized_right_context), 0)):
+                    tokenized_right_context.append(np.zeros(surface_token_max_len))
+                tokenized_right_context = np.array(tokenized_right_context)
             
             assert tokenized_right_context.shape == (sentence_max_len, surface_token_max_len)
             
