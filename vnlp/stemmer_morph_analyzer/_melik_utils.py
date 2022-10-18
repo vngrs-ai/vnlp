@@ -14,7 +14,7 @@ def create_stemmer_model(num_max_analysis, stem_max_len, char_vocab_size, char_e
 
     # R
     # - Stem Embedding
-    stem_input = tf.keras.layers.Input(shape = (num_max_analysis, stem_max_len))
+    stem_input = tf.keras.layers.Input(shape = (num_max_analysis, stem_max_len), dtype = tf.int32)
     stem_embedded = char_embedding(stem_input)
     
     stem_rnn = tf.keras.models.Sequential()
@@ -27,7 +27,7 @@ def create_stemmer_model(num_max_analysis, stem_max_len, char_vocab_size, char_e
     td_stem_rnn = tf.keras.layers.TimeDistributed(stem_rnn, input_shape = (num_max_analysis, stem_max_len, char_embed_size))(stem_embedded)
 
     # - Tag Embedding
-    tag_input = tf.keras.layers.Input(shape = (num_max_analysis, tag_max_len))
+    tag_input = tf.keras.layers.Input(shape = (num_max_analysis, tag_max_len), dtype = tf.int32)
     tag_embedded = tag_embedding(tag_input)
     
     tag_rnn = tf.keras.models.Sequential()
@@ -51,7 +51,7 @@ def create_stemmer_model(num_max_analysis, stem_max_len, char_vocab_size, char_e
 
     # h (Sentence surface embedding)
     # - Left to Right Context
-    surface_input_left = tf.keras.layers.Input(shape = (sentence_max_len, surface_token_max_len))
+    surface_input_left = tf.keras.layers.Input(shape = (sentence_max_len, surface_token_max_len), dtype = tf.int32)
     surface_embedded_left = char_embedding(surface_input_left)
 
     surface_rnn_left = tf.keras.models.Sequential()
@@ -65,7 +65,7 @@ def create_stemmer_model(num_max_analysis, stem_max_len, char_vocab_size, char_e
     surface_left_context = tf.keras.layers.GRU(surface_num_rnn_units)(td_surface_rnn_left) # This is not bidirectional, but left to right
 
     # - Right to Left Context
-    surface_input_right = tf.keras.layers.Input(shape = (sentence_max_len, surface_token_max_len))
+    surface_input_right = tf.keras.layers.Input(shape = (sentence_max_len, surface_token_max_len), dtype = tf.int32)
     surface_embedded_right = char_embedding(surface_input_right)
 
     surface_rnn_right = tf.keras.models.Sequential()
@@ -171,9 +171,9 @@ def tokenize_stems_tags(data, tokenizer_char, tokenizer_tag, stem_max_len, tag_m
             batch_of_labels.append(label)
             
 
-    batch_of_stems = np.array(batch_of_stems)
-    batch_of_tags = np.array(batch_of_tags)
-    batch_of_labels = np.array(batch_of_labels)
+    batch_of_stems = np.array(batch_of_stems).astype(int)
+    batch_of_tags = np.array(batch_of_tags).astype(int)
+    batch_of_labels = np.array(batch_of_labels).astype(int)
 
     return (batch_of_stems, batch_of_tags, batch_of_labels)
 
@@ -251,7 +251,7 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
             
             batch_of_right_context.append(tokenized_right_context)
             
-    batch_of_left_context = np.array(batch_of_left_context)
-    batch_of_right_context = np.array(batch_of_right_context)
+    batch_of_left_context = np.array(batch_of_left_context).astype(int)
+    batch_of_right_context = np.array(batch_of_right_context).astype(int)
 
     return (batch_of_left_context, batch_of_right_context)
