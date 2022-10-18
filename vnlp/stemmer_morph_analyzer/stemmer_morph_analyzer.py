@@ -164,18 +164,23 @@ class StemmerAnalyzer:
                 probs_ = self.model([X_[low:high] for X_ in X])
                 probs_of_sentence = tf.concat((probs_of_sentence, probs_), axis = 0)
 
-        predicted_indices = []
-        for idx, probs_of_single_token in enumerate(probs_of_sentence):
-            ambig_level_of_token = ambig_levels[idx]
-            # Below code prevents model from giving output higher than the ambiguity level
-            # e.g. in an edge case, when ambiguity is 3, model returned 7.
-            # instead of argmax over all indices, now I return argmax of first ambig_level_of_token
-            # from output layer
-            probs_of_single_token = probs_of_single_token[:ambig_level_of_token]
-            predicted_indice_for_token = np.argmax(probs_of_single_token)
-            predicted_indices.append(predicted_indice_for_token)
 
-        predicted_indices = np.array(predicted_indices)
+        # Below code prevents model from giving output higher than the ambiguity level
+        # e.g. in an edge case, when ambiguity is 3, model returned 7.
+        # instead of argmax over all indices, now I return argmax of first ambig_level_of_token
+        # from output layer
+        # -------------------------------------------------------------------------------
+        # Vectorized Implementation note:
+        # Instead of iterating over logits to exclude indices higher than ambiguity level
+        # I create a 2D mask and then argmax, which result in the same outcome
+        # This vectorized implementation is MUCH faster (680 ms vs 4 ms)
+        ambig_levels_tiled = tf.tile(tf.expand_dims(ambig_levels, axis = 1), [1, NUM_MAX_ANALYSIS])
+        tf_range = tf.range(1, NUM_MAX_ANALYSIS+1)
+        mask = tf.cast(ambig_levels_tiled >= tf_range, dtype = tf.float32)
+        probs_of_sentence  = probs_of_sentence * mask
+
+        # tf.argmax() --> numpy() is faster than numpy() --> np.argmax().
+        predicted_indices = tf.argmax(probs_of_sentence, axis = -1).numpy()
 
         # Obtaining Result
         result = []
