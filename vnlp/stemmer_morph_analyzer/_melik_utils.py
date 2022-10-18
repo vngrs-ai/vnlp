@@ -197,7 +197,8 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
                 tokenized_left_context = np.zeros((sentence_max_len, surface_token_max_len))
                 
             else:
-                tokens_in_left = raw_tokens_in_sentence[:j]
+                # Selecting only sentence_max_len number of tokens here reduces the complexity of Stemmer from O(N**2) to O(N)
+                tokens_in_left = raw_tokens_in_sentence[max(0, j-sentence_max_len):j]
                 tokenized_left_context = tokenizer_char.texts_to_sequences(tokens_in_left)
                 tokenized_left_context = tf.keras.preprocessing.sequence.pad_sequences(tokenized_left_context, 
                                                                                     maxlen = surface_token_max_len, 
@@ -227,7 +228,8 @@ def tokenize_surface_form_context(data, tokenizer_char, surface_token_max_len, s
                 tokenized_right_context = np.zeros((sentence_max_len, surface_token_max_len))
                 
             else:
-                tokens_in_right = raw_tokens_in_sentence[(j+1):]
+                # Selecting only sentence_max_len number of tokens here reduces the complexity of Stemmer from O(N**2) to O(N)
+                tokens_in_right = raw_tokens_in_sentence[(j+1):(j+1)+sentence_max_len]
                 tokenized_right_context = tokenizer_char.texts_to_sequences(tokens_in_right)
                 tokenized_right_context = tf.keras.preprocessing.sequence.pad_sequences(tokenized_right_context, 
                                                                                     maxlen = surface_token_max_len, 
