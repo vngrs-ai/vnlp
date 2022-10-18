@@ -63,7 +63,7 @@ Example:
 
 .. code-block:: console
 
-    $ vnlp --task sentiment_analysis --text "Sipariş geldiğinde biz karnımızı atıştırmalıklarla doyurmuştuk."
+    $ vnlp --task sentiment_analysis --text "Sipariş geldiğinde biz karnımızı çoktan atıştırmalıklarla doyurmuştuk."
     0
 
 To list available tasks/functionality:
