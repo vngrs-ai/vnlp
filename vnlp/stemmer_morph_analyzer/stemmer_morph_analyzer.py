@@ -151,7 +151,7 @@ class StemmerAnalyzer:
                                   SENTENCE_MAX_LEN, NUM_MAX_ANALYSIS, exclude_unambigious = False, shuffle = False)
 
 
-        ambig_levels = np.array([len(analyses) for analyses in sentence[1]])
+        ambig_levels = np.array([len(analyses) for analyses in sentence[1]], dtype = np.int32)
 
         # Model Output (indices)
         if len(tokens) <= batch_size:
