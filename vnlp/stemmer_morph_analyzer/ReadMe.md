@@ -9,8 +9,8 @@
 	- I shuffle the positions of candidates and labels in every batch.
 
 - It is tested on below test sets:
-	- trmorph2006: 0.9596 accuracy on ambigious tokens and 0.9745 accuracy on all tokens, compared to 0.910 and 0.964 in the original paper.
-	- trmorph2018: 0.9433 accuracy on ambigious tokens and 0.9578 accuracy on all tokens
+	- trmorph2006: 0.9467 accuracy on ambigious tokens and 0.9664 accuracy on all tokens, compared to 0.910 and 0.964 in the original paper.
+	- trmorph2018: 0.9376 accuracy on ambigious tokens and 0.9535 accuracy on all tokens
 - Starting with 0.001 learning rate, lr decay of 0.95 is used after the 5th epoch.
-- After development phase, final model in the repository is trained on all of train, test and handtagged sets of trmorph2006, trmorph2016 and trmorph2018 sets for 30 epochs, therefore you cannot evaluate on test sets using the model weights found in this repository. However, model_weights trained on train and dev sets only are available at: https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/evaluation_weights/stemmer_morph_analyzer_trained_on_train_dev.hdf5 . Hence you can place this under resources, overwriting the existing model weights file and evaluate on test sets.
+- After development phase, final model in the repository is trained on all of train, test and handtagged sets of trmorph2006, trmorph2016 and trmorph2018 sets for 20 epochs. Therefore, in order to evaluate the model, initialize with StemmerAnalyzer(evaluate = True) to use the weights that were NOT trained using the test sets.
 - As analyzer, it uses Yildiz's analyzer, which can be found here: https://github.com/erayyildiz/LookupAnalyzerDisambiguator
