@@ -2,6 +2,7 @@ from typing import List
 
 import pickle
 
+import tensorflow as tf
 import numpy as np
 
 from ..tokenizer import TreebankWordTokenize
@@ -100,13 +101,15 @@ class StemmerAnalyzer:
         self.candidate_generator = TurkishStemSuffixCandidateGenerator(case_sensitive=True)
 
 
-    def predict(self, sentence: str) -> List[str]:
+    def predict(self, sentence: str, batch_size: int = 64) -> List[str]:
         """
         High level user API for Morphological Disambiguation.
 
         Args:
             sentence:
                 Input text(sentence).
+            batch_size:
+                batch size (number of tokens to be predicted together.) In case of long sentences, you can increase this for better performance on GPU. If you come across OOM error, decrease until error disappears.
 
         Returns:
             List of selected stem and morphological tags for each token.
@@ -151,7 +154,16 @@ class StemmerAnalyzer:
         ambig_levels = np.array([len(analyses) for analyses in sentence[1]])
 
         # Model Output (indices)
-        probs_of_sentence = self.model(X).numpy()
+        if len(tokens) <= batch_size:
+            probs_of_sentence = self.model(X)
+        else:
+            probs_of_sentence = tf.constant(0, shape = (0, NUM_MAX_ANALYSIS), dtype = tf.float32)
+            for idx in range(0, len(tokens), batch_size):
+                low = idx
+                high = low + batch_size
+                probs_ = self.model([X_[low:high] for X_ in X])
+                probs_of_sentence = tf.concat((probs_of_sentence, probs_), axis = 0)
+
         predicted_indices = []
         for idx, probs_of_single_token in enumerate(probs_of_sentence):
             ambig_level_of_token = ambig_levels[idx]
