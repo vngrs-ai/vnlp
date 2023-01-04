@@ -85,19 +85,25 @@ class TurkishStemSuffixCandidateGenerator(object):
         if flag != 0:
             raise IOError("Error: problems in stem flags!")
         return res
-
+    
+    
     @staticmethod
     def _transform_soft_consonants(text):
-        text = re.sub(r"^(.*)b$", r"\1p", text)
-        text = re.sub(r"^(.*)B$", r"\1P", text)
-        text = re.sub(r"^(.*)c$", r"\1ç", text)
-        text = re.sub(r"^(.*)C$", r"\1Ç", text)
-        text = re.sub(r"^(.*)d$", r"\1t", text)
-        text = re.sub(r"^(.*)D$", r"\1T", text)
-        text = re.sub(r"^(.*)ğ$", r"\1k", text)
-        text = re.sub(r"^(.*)Ğ$", r"\1K", text)
-        text = re.sub(r"^(.*)g$", r"\1k", text)
-        text = re.sub(r"^(.*)G$", r"\1K", text)
+        transformations = {
+        "b": "p",
+        "B": "P",
+        "c": "ç",
+        "C": "Ç",
+        "d": "t",
+        "D": "T",
+        "ğ": "k",
+        "Ğ": "K",
+        "g": "k",
+        "G": "K",
+        }
+        for letter in transformations:
+            text = text.replace(text, transformations[text])
+        
         return text
 
     @staticmethod
