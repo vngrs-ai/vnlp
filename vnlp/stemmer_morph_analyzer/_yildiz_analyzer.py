@@ -314,13 +314,19 @@ ADVERB_STANDARDIZER_REGEX = re.compile(r"Adv([^e])")
 
 
 def to_lower(text):
-    text = text.replace("İ", "i")
-    text = text.replace("I", "ı")
-    text = text.replace("Ğ", "ğ")
-    text = text.replace("Ü", "ü")
-    text = text.replace("Ö", "ö")
-    text = text.replace("Ş", "ş")
-    text = text.replace("Ç", "ç")
+    character_mapping = {
+        "İ": "i",
+        "I": "ı",
+        "Ğ": "ğ",
+        "Ü": "ü",
+        "Ö": "ö",
+        "Ş": "ş",
+        "Ç": "ç"
+    }
+    
+    for key, value in character_mapping.items():
+        text = text.replace(key, value)
+    
     return text.lower()
 
 
@@ -331,20 +337,15 @@ def capitalize(text):
         return text
 
 
-def asciify(text):
-    text = text.replace("İ", "I")
-    text = text.replace("Ç", "C")
-    text = text.replace("Ğ", "G")
-    text = text.replace("Ü", "U")
-    text = text.replace("Ş", "S")
-    text = text.replace("Ö", "O")
-    text = text.replace("ı", "i")
-    text = text.replace("ç", "c")
-    text = text.replace("ğ", "g")
-    text = text.replace("ü", "u")
-    text = text.replace("ş", "s")
-    text = text.replace("ö", "ö")
+def convert_to_latin(text):
+    turkish_chars = "İÇĞÜŞÖıçğüşö"
+    latin_chars = "ICGUSOicguso"
+
+    for i in range(len(turkish_chars)):
+        text = text.replace(turkish_chars[i], latin_chars[i])
+
     return text
+
 
 
 def get_tags_from_analysis(analysis):
