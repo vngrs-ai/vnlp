@@ -30,10 +30,11 @@ setup(
 
     'Programming Language :: Python',
     "Programming Language :: Python :: 3",
-    'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
-    'Programming Language :: Python :: 3.9'
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11'
 ],
     project_urls={
         "Homepage": "https://github.com/vngrs-ai/vnlp",
@@ -44,7 +45,7 @@ setup(
     include_package_data=True,
     install_requires=['tensorflow<2.6.0; python_version < "3.8"',
                       'tensorflow>=2.6.0; python_version >= "3.8"',
-                      'regex', 'cyhunspell', 'requests', 'sentencepiece'],
+                      'regex', 'spylls', 'requests', 'sentencepiece'],
     extras_require={"extras": ['gensim', 'spacy']},
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]}
     )
