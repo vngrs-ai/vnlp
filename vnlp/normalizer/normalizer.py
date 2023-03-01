@@ -6,8 +6,8 @@ from hunspell import Hunspell
 from ._deasciifier import Deasciifier
 from ..stemmer_morph_analyzer import StemmerAnalyzer
 
-RESOURCES_PATH = "../resources/"
-RESOURCES_PATH = str(Path(__file__).parent / RESOURCES_PATH)
+RESOURCES_PATH = str(Path(__file__).parent.parent / 'resources')
+
 
 class Normalizer:
     """
@@ -26,14 +26,16 @@ class Normalizer:
     """
     def __init__(self):
         # Word Lexicon merged from TDK-Zemberek, Zargan, Bilkent Creative Writing, Turkish Broadcast News
-        with open(RESOURCES_PATH +'/turkish_known_words_lexicon.txt', 'r', encoding = 'utf-8') as f:
+        with open(RESOURCES_PATH + '/turkish_known_words_lexicon.txt', 'r', encoding='utf-8') as f:
             words_lexicon = [line.strip() for line in f]
         dict_words_lexicon = dict.fromkeys(words_lexicon)
 
         self._words_lexicon = dict_words_lexicon
 
         self._stemmer_analyzer = StemmerAnalyzer()
-        self._hunspell = Hunspell('tr_TR', hunspell_data_dir= RESOURCES_PATH + '/tdd-hunspell-tr-1.1.0')
+
+        self._dictionary = Dictionary.from_files(
+            RESOURCES_PATH + '/tdd-hunspell-tr-1.1.0/tr_TR')
 
     @staticmethod
     def lower_case(text: str) -> str:
@@ -156,10 +158,10 @@ class Normalizer:
         """
         corrected_tokens = []
         for token in tokens:
-            if (self._is_token_valid_turkish(token)) or (self._hunspell.spell(token)):
+            if (self._is_token_valid_turkish(token)) or (self._dictionary.lookup(token)):
                 corrected_tokens.append(token)
             else:
-                hunspell_suggestions = self._hunspell.suggest(token)
+                hunspell_suggestions = list(self._dictionary.suggest(token))
                 if len(hunspell_suggestions) > 0:
                     corrected_token = hunspell_suggestions[0]
                     corrected_tokens.append(corrected_token)
