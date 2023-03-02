@@ -6,7 +6,7 @@ import tensorflow as tf
 import numpy as np
 
 from ..tokenizer import TreebankWordTokenize
-from ..utils import check_and_download
+from ..utils import check_and_download, load_keras_tokenizer
 from ._melik_utils import create_stemmer_model, process_input_text
 from ._yildiz_analyzer import TurkishStemSuffixCandidateGenerator, capitalize
 
@@ -26,8 +26,8 @@ EVAL_WEIGHTS_LOC = RESOURCES_PATH + "Stemmer_Shen_eval.weights"
 PROD_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/Stemmer_Shen_prod.weights"
 EVAL_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/Stemmer_Shen_eval.weights"
 
-TOKENIZER_CHAR_LOC = RESOURCES_PATH + "Stemmer_char_tokenizer.pickle"
-TOKENIZER_TAG_LOC = RESOURCES_PATH + "Stemmer_morph_tag_tokenizer.pickle"
+TOKENIZER_CHAR_LOC = RESOURCES_PATH + "Stemmer_char_tokenizer.json"
+TOKENIZER_TAG_LOC = RESOURCES_PATH + "Stemmer_morph_tag_tokenizer.json"
 
 # Data Processing Config
 NUM_MAX_ANALYSIS = 10 # 0.99 quantile
@@ -67,11 +67,8 @@ class StemmerAnalyzer:
     - For more details about the implementation, training procedure and evaluation metrics, see `ReadMe <https://github.com/vngrs-ai/VNLP/blob/main/vnlp/stemmer_morph_analyzer/ReadMe.md>`_.
     """
     def __init__(self, evaluate = False):
-        with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
-            tokenizer_char = pickle.load(handle)
-        
-        with open(TOKENIZER_TAG_LOC, 'rb') as handle:
-            tokenizer_tag = pickle.load(handle)
+        tokenizer_char = load_keras_tokenizer(TOKENIZER_CHAR_LOC)
+        tokenizer_tag = load_keras_tokenizer(TOKENIZER_TAG_LOC)
 
         CHAR_VOCAB_SIZE = len(tokenizer_char.word_index) + 1
         TAG_VOCAB_SIZE = len(tokenizer_tag.word_index) + 1

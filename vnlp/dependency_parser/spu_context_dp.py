@@ -3,11 +3,12 @@ from typing import List, Tuple
 import pickle
 
 import numpy as np
+import tensorflow as tf
 
 import sentencepiece as spm
 
 from ..tokenizer import TreebankWordTokenize
-from ..utils import check_and_download
+from ..utils import check_and_download, load_keras_tokenizer
 from .utils import dp_pos_to_displacy_format, decode_arc_label_vector
 from ._spu_context_utils import create_spucontext_dp_model, process_single_word_input
 
@@ -30,7 +31,7 @@ EVAL_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/DP_SP
 WORD_EMBEDDING_MATRIX_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/SPUTokenized_word_embedding_16k.matrix"
 
 SPU_TOKENIZER_WORD_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'resources/SPU_word_tokenizer_16k.model'))
-TOKENIZER_LABEL_LOC = RESOURCES_PATH + "DP_label_tokenizer.pickle"
+TOKENIZER_LABEL_LOC = RESOURCES_PATH + "DP_label_tokenizer.json"
 
 # Data Preprocessing Config
 TOKEN_PIECE_MAX_LEN = 8 # 0.9995 quantile is 8 for 16k_vocab, 7 for 32k_vocab
@@ -39,8 +40,7 @@ SENTENCE_MAX_LEN = 40 # 0.998 quantile is 42
 # Loading Tokenizers
 spu_tokenizer_word = spm.SentencePieceProcessor(SPU_TOKENIZER_WORD_LOC)
 
-with open(TOKENIZER_LABEL_LOC, 'rb') as handle:
-    tokenizer_label = pickle.load(handle)
+tokenizer_label = load_keras_tokenizer(TOKENIZER_LABEL_LOC)
 
 sp_key_to_index = {spu_tokenizer_word.id_to_piece(id): id for id in range(spu_tokenizer_word.get_piece_size())}
 sp_index_to_key = {id: spu_tokenizer_word.id_to_piece(id) for id in range(spu_tokenizer_word.get_piece_size())}

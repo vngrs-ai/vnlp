@@ -20,6 +20,16 @@ def check_and_download(file_path, file_url):
         else:
             raise ValueError(f'ERROR: {response.status_code} {response.reason}. {file_url.split("/")[-1]} could not be downloaded. Try initializing the model again.')
 
+def load_keras_tokenizer(tokenizer_json_file_path):
+    """
+    Loads keras tokenizer from json file and returns the object.
+    """
+    with open(tokenizer_json_file_path, 'r') as f:
+        tokenizer_json = f.readline()
+    tokenizer = tf.keras.preprocessing.text.tokenizer_from_json(tokenizer_json)
+
+    return tokenizer
+
 # SentencePiece Unigram Models Utils
 # ===================================
 def create_rnn_stacks(NUM_RNN_STACKS, NUM_RNN_UNITS, DROPOUT, GO_BACKWARDS = False):

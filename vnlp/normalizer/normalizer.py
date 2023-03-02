@@ -1,7 +1,7 @@
 from typing import List
 from pathlib import Path
 
-from hunspell import Hunspell
+from spylls.hunspell import Dictionary
 
 from ._deasciifier import Deasciifier
 from ..stemmer_morph_analyzer import StemmerAnalyzer

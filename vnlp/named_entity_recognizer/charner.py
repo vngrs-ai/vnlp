@@ -6,7 +6,7 @@ import numpy as np
 import tensorflow as tf
 
 from ..tokenizer import WordPunctTokenize
-from ..utils import check_and_download
+from ..utils import check_and_download, load_keras_tokenizer
 from .utils import ner_to_displacy_format
 from ._charner_utils import create_charner_model
 
@@ -27,8 +27,8 @@ EVAL_WEIGHTS_LOC = RESOURCES_PATH + "NER_CharNER_eval.weights"
 PROD_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/NER_CharNER_prod.weights"
 EVAL_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/NER_CharNER_eval.weights"
 
-TOKENIZER_CHAR_LOC = RESOURCES_PATH + "CharNER_char_tokenizer.pickle"
-TOKENIZER_LABEL_LOC = RESOURCES_PATH + "NER_label_tokenizer.pickle"
+TOKENIZER_CHAR_LOC = RESOURCES_PATH + "CharNER_char_tokenizer.json"
+TOKENIZER_LABEL_LOC = RESOURCES_PATH + "NER_label_tokenizer.json"
 
 CHAR_VOCAB_SIZE = 150
 SEQ_LEN_MAX = 256
@@ -74,11 +74,8 @@ class CharNER:
         # Set model weights
         self.model.set_weights(model_weights)
 
-        with open(TOKENIZER_CHAR_LOC, 'rb') as handle:
-            tokenizer_char = pickle.load(handle)
-        
-        with open(TOKENIZER_LABEL_LOC, 'rb') as handle:
-            tokenizer_label = pickle.load(handle)
+        tokenizer_char = load_keras_tokenizer(TOKENIZER_CHAR_LOC)
+        tokenizer_label = load_keras_tokenizer(TOKENIZER_LABEL_LOC)
 
         self.tokenizer_char = tokenizer_char
         self.tokenizer_label = tokenizer_label

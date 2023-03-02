@@ -8,7 +8,7 @@ import numpy as np
 from ..stemmer_morph_analyzer import StemmerAnalyzer
 from ..part_of_speech_tagger import PoSTagger
 from ..tokenizer import TreebankWordTokenize
-from ..utils import check_and_download
+from ..utils import check_and_download, load_keras_tokenizer
 from .utils import dp_pos_to_displacy_format, decode_arc_label_vector
 from ._treestack_utils import (create_dependency_parser_model, process_single_word_input)
 
@@ -32,10 +32,10 @@ PROD_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/DP_Tr
 EVAL_WEIGHTS_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/DP_TreeStack_eval.weights"
 WORD_EMBEDDING_MATRIX_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/TBWTokenized_word_embedding.matrix"
 
-TOKENIZER_WORD_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'resources/TB_word_tokenizer.pickle'))
-TOKENIZER_POS_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'part_of_speech_tagger/resources/PoS_label_tokenizer.pickle')) # using the tokenizer of part_of_speech_tagger
-TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/Stemmer_morph_tag_tokenizer.pickle')) # using the tokenizer of stemmer_morph_analyzer
-TOKENIZER_LABEL_LOC = RESOURCES_PATH + "DP_label_tokenizer.pickle"
+TOKENIZER_WORD_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'resources/TB_word_tokenizer.json'))
+TOKENIZER_POS_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'part_of_speech_tagger/resources/PoS_label_tokenizer.json')) # using the tokenizer of part_of_speech_tagger
+TOKENIZER_TAG_LOC = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'stemmer_morph_analyzer/resources/Stemmer_morph_tag_tokenizer.json')) # using the tokenizer of stemmer_morph_analyzer
+TOKENIZER_LABEL_LOC = RESOURCES_PATH + "DP_label_tokenizer.json"
 
 # Data Preprocessing Config
 SENTENCE_MAX_LEN = 40
@@ -45,17 +45,10 @@ WORD_OOV_TOKEN = '<OOV>'
 
 # Loading Tokenizers
 # Have to load tokenizers here because model config depends on them
-with open(TOKENIZER_WORD_LOC, 'rb') as handle:
-    tokenizer_word = pickle.load(handle)
-
-with open(TOKENIZER_POS_LOC, 'rb') as handle:
-    tokenizer_pos = pickle.load(handle)
-    
-with open(TOKENIZER_TAG_LOC, 'rb') as handle: # This is transferred from StemmerAnalyzer
-    tokenizer_tag = pickle.load(handle)
-
-with open(TOKENIZER_LABEL_LOC, 'rb') as handle:
-    tokenizer_label = pickle.load(handle)
+tokenizer_word = load_keras_tokenizer(TOKENIZER_WORD_LOC)
+tokenizer_pos = load_keras_tokenizer(TOKENIZER_POS_LOC)
+tokenizer_tag = load_keras_tokenizer(TOKENIZER_TAG_LOC)
+tokenizer_label = load_keras_tokenizer(TOKENIZER_LABEL_LOC)
 
 LABEL_VOCAB_SIZE = len(tokenizer_label.word_index)
 POS_VOCAB_SIZE = len(tokenizer_pos.word_index)
