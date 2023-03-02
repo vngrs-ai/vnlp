@@ -17,6 +17,8 @@ sphinx:
   builder: html
   configuration: docs/source/conf.py
 
+# First installation is the packages required by readthedocs build
+# Second installation is to install vngrs-nlp while building the documentation, otherwise the docstrings are not parsed.
 python:
    install:
     - requirements: docs/requirements.txt
