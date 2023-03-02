@@ -1,2 +1,2 @@
 sphinx_theme
-protobuf==3.19
+protobuf
