@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as readme_file:
 
 setup(
     name='vngrs-nlp',
-    version='0.2.2',
+    version='0.2.3',
     description='Turkish NLP Tools developed by VNGRS.',
     long_description= README,
     long_description_content_type='text/markdown',
@@ -33,8 +33,7 @@ setup(
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
     'Programming Language :: Python :: 3.9',
-    'Programming Language :: Python :: 3.10',
-    'Programming Language :: Python :: 3.11'
+    'Programming Language :: Python :: 3.10'
 ],
     project_urls={
         "Homepage": "https://github.com/vngrs-ai/vnlp",
