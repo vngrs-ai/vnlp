@@ -1,3 +1,7 @@
+import os
+# Suppress tensorflow warnings
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
 import tensorflow as tf
 # Prevent tensorflow from allocating whole GPU memory.
 gpus = tf.config.experimental.list_physical_devices('GPU')
