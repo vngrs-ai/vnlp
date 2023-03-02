@@ -1,3 +1,2 @@
-grpcio
 sphinx_theme
-protobuf
+protobuf==3.19.6
