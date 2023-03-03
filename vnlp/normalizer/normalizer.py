@@ -268,7 +268,7 @@ class Normalizer:
                     num, num_dec_digits
                 ).split()
             # If fails, then return it as string
-            except:
+            except ValueError:
                 converted_tokens.append(token)
 
         return converted_tokens

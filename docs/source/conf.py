@@ -1,7 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
-
 import os
 import sys
+import sphinx_theme
 
 sys.path.insert(0, os.path.abspath("../.."))
 
@@ -51,7 +51,6 @@ source_suffix = [".rst", ".md"]
 
 # -- Options for HTML output
 # Stanford Theme
-import sphinx_theme
 
 html_theme = "stanford_theme"
 html_theme_path = [sphinx_theme.get_html_theme_path("stanford-theme")]

@@ -1,9 +1,8 @@
 repos:
-# The flake8 will be added later since it requires some work.
-# -   repo: https://github.com/PyCQA/flake8
-#     rev: 5.0.4
-#     hooks:
-#     - id: flake8
+-   repo: https://github.com/PyCQA/flake8
+    rev: 5.0.4
+    hooks:
+    - id: flake8
 -   repo: https://github.com/psf/black
     description: "Black formatter to has a consistent formatting."
     rev: 23.1.0

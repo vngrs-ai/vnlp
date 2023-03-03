@@ -13608,7 +13608,7 @@ class Deasciifier:
         ch = char
         tr = Deasciifier.turkish_asciify_table.get(ch, ch)
         pl = Deasciifier.turkish_pattern_table.get(tr.lower(), False)
-        if pl != False:
+        if pl is not False:
             m = self.turkish_match_pattern(pl, point)
         else:
             m = False

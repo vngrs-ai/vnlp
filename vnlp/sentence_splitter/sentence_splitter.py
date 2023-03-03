@@ -47,7 +47,8 @@ class SentenceSplitter:
                 self._non_breaking_prefixes[line] = prefix_type
 
     # lower level function used by the class to split given string into list of strings, thus sentences
-    def _split(self, text):
+    # TODO: reduce complexity of this function
+    def _split(self, text):  # noqa: C901
         if (text is None) | (not text):
             return []
 

@@ -17,7 +17,7 @@ def check_and_download(file_path, file_url):
         if response.ok:
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
             open(file_path, "wb").write(response.content)
-            logging.warning(f"Download completed.")
+            logging.warning("Download completed.")
         else:
             raise ValueError(
                 f'ERROR: {response.status_code} {response.reason}. {file_url.split("/")[-1]} could not be downloaded. Try initializing the model again.'

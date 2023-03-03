@@ -12,7 +12,7 @@ def ner_to_displacy_format(text, ner_result):
         if not any([s.isalpha() for s in word]):
             continue
 
-        if not word in token_loc:
+        if word not in token_loc:
             token_loc[word] = []
         for match in re.finditer(word, text):
             start, end = match.start(), match.end()
