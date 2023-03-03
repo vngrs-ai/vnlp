@@ -3,6 +3,7 @@ from typing import List, Tuple
 from .charner import CharNER
 from .spu_context_ner import SPUContextNER
 
+
 class NamedEntityRecognizer:
     """
     Main API class for Named Entity Recognizer implementations.
@@ -13,20 +14,24 @@ class NamedEntityRecognizer:
     This will load the model weights that are not trained on test sets.
     """
 
-    def __init__(self, model = 'SPUContextNER', evaluate = False):
-        self.models = ['SPUContextNER', 'CharNER']
+    def __init__(self, model="SPUContextNER", evaluate=False):
+        self.models = ["SPUContextNER", "CharNER"]
         self.evaluate = evaluate
 
-        if model == 'SPUContextNER':
+        if model == "SPUContextNER":
             self.instance = SPUContextNER(evaluate)
 
-        elif model == 'CharNER':
+        elif model == "CharNER":
             self.instance = CharNER(evaluate)
-        
-        else:
-            raise ValueError(f'{model} is not a valid model. Try one of {self.models}')
 
-    def predict(self, sentence: str, displacy_format: bool = False) -> List[Tuple[str, str]]:
+        else:
+            raise ValueError(
+                f"{model} is not a valid model. Try one of {self.models}"
+            )
+
+    def predict(
+        self, sentence: str, displacy_format: bool = False
+    ) -> List[Tuple[str, str]]:
         """
         High level user API for Named Entity Recognition.
 
@@ -40,7 +45,7 @@ class NamedEntityRecognizer:
             NER result as pairs of (token, entity).
 
         Example::
-        
+
             from vnlp import NamedEntityRecognizer
             ner = NamedEntityRecognizer()
             ner.predict("Benim adım Melikşah, 29 yaşındayım, İstanbul'da ikamet ediyorum ve VNGRS AI Takımı'nda çalışıyorum.")

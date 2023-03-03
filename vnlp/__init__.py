@@ -1,8 +1,9 @@
 import tensorflow as tf
+
 # Prevent tensorflow from allocating whole GPU memory.
-gpus = tf.config.experimental.list_physical_devices('GPU')
+gpus = tf.config.experimental.list_physical_devices("GPU")
 for gpu in gpus:
-  tf.config.experimental.set_memory_growth(gpu, True)
+    tf.config.experimental.set_memory_growth(gpu, True)
 
 from .dependency_parser import DependencyParser
 from .named_entity_recognizer import NamedEntityRecognizer
@@ -13,6 +14,13 @@ from .sentiment_analyzer import SentimentAnalyzer
 from .stemmer_morph_analyzer import StemmerAnalyzer
 from .stopword_remover import StopwordRemover
 
-__all__ = ['DependencyParser', 'NamedEntityRecognizer', 'Normalizer', 
-           'PoSTagger', 'SentenceSplitter', 'SentimentAnalyzer', 
-           'StemmerAnalyzer', 'StopwordRemover']
+__all__ = [
+    "DependencyParser",
+    "NamedEntityRecognizer",
+    "Normalizer",
+    "PoSTagger",
+    "SentenceSplitter",
+    "SentimentAnalyzer",
+    "StemmerAnalyzer",
+    "StopwordRemover",
+]

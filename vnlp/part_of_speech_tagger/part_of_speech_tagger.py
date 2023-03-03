@@ -10,26 +10,28 @@ class PoSTagger:
 
     Available models: ['SPUContextPoS', 'TreeStackPoS']
 
-    In order to evaluate, initialize the class with "evaluate = True" argument. 
+    In order to evaluate, initialize the class with "evaluate = True" argument.
     This will load the model weights that are not trained on test sets.
     """
 
-    def __init__(self, model = 'SPUContextPoS', evaluate = False, *args):
-        self.models = ['SPUContextPoS', 'TreeStackPoS']
+    def __init__(self, model="SPUContextPoS", evaluate=False, *args):
+        self.models = ["SPUContextPoS", "TreeStackPoS"]
         self.evaluate = evaluate
 
-        if model == 'SPUContextPoS':
+        if model == "SPUContextPoS":
             self.instance = SPUContextPoS(evaluate)
 
-        elif model == 'TreeStackPoS':
+        elif model == "TreeStackPoS":
             if args:
                 stemmer_analyzer = args[0]
             else:
                 stemmer_analyzer = None
             self.instance = TreeStackPoS(evaluate, stemmer_analyzer)
-        
+
         else:
-            raise ValueError(f'{model} is not a valid model. Try one of {self.models}')
+            raise ValueError(
+                f"{model} is not a valid model. Try one of {self.models}"
+            )
 
     def predict(self, sentence: str) -> List[Tuple[str, str]]:
         """
@@ -43,7 +45,7 @@ class PoSTagger:
              List of (token, pos_label).
 
         Example::
-        
+
             from vnlp import PoSTagger
             pos = PoSTagger()
             pos.predict("Vapurla Beşiktaş'a geçip yürüyerek Maçka Parkı'na ulaştım.")
@@ -54,7 +56,7 @@ class PoSTagger:
              ("Astra'sı", 'PROPN'),
              ('vardı', 'VERB'),
              ('.', 'PUNCT')]
-        
+
         """
 
         return self.instance.predict(sentence)

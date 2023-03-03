@@ -1,6 +1,7 @@
 import re
 from typing import List
 
+
 def WordPunctTokenize(text: str) -> List[str]:
     """
     This is a simplified version of NLTK's WordPunctTokenizer that can be found in
@@ -13,6 +14,7 @@ def WordPunctTokenize(text: str) -> List[str]:
     regexp = re.compile(pattern, flags)
 
     return regexp.findall(text)
+
 
 def TreebankWordTokenize(text: str) -> List[str]:
     """
