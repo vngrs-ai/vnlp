@@ -24,6 +24,17 @@ def check_and_download(file_path, file_url):
             )
 
 
+def load_keras_tokenizer(tokenizer_json_file_path):
+    """
+    Loads keras tokenizer from json file and returns the object.
+    """
+    with open(tokenizer_json_file_path, "r") as f:
+        tokenizer_json = f.readline()
+    tokenizer = tf.keras.preprocessing.text.tokenizer_from_json(tokenizer_json)
+
+    return tokenizer
+
+
 # SentencePiece Unigram Models Utils
 # ===================================
 def create_rnn_stacks(

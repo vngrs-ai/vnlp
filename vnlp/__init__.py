@@ -1,3 +1,4 @@
+import os
 import tensorflow as tf
 
 from .dependency_parser import DependencyParser
@@ -8,6 +9,9 @@ from .sentence_splitter import SentenceSplitter
 from .sentiment_analyzer import SentimentAnalyzer
 from .stemmer_morph_analyzer import StemmerAnalyzer
 from .stopword_remover import StopwordRemover
+
+# Suppress tensorflow warnings
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
 # Prevent tensorflow from allocating whole GPU memory.
 gpus = tf.config.experimental.list_physical_devices("GPU")

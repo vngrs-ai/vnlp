@@ -7,7 +7,7 @@ import numpy as np
 import sentencepiece as spm
 
 from ..tokenizer import TreebankWordTokenize
-from ..utils import check_and_download
+from ..utils import check_and_download, load_keras_tokenizer
 from .utils import ner_to_displacy_format
 from ._spu_context_utils import (
     create_spucontext_ner_model,
@@ -46,7 +46,7 @@ SPU_TOKENIZER_WORD_LOC = os.path.abspath(
         "resources/SPU_word_tokenizer_16k.model",
     )
 )
-TOKENIZER_LABEL_LOC = RESOURCES_PATH + "NER_label_tokenizer.pickle"
+TOKENIZER_LABEL_LOC = RESOURCES_PATH + "NER_label_tokenizer.json"
 
 # Data Preprocessing Config
 TOKEN_PIECE_MAX_LEN = 8
@@ -55,8 +55,7 @@ SENTENCE_MAX_LEN = 40
 # Loading Tokenizers
 spu_tokenizer_word = spm.SentencePieceProcessor(SPU_TOKENIZER_WORD_LOC)
 
-with open(TOKENIZER_LABEL_LOC, "rb") as handle:
-    tokenizer_label = pickle.load(handle)
+tokenizer_label = load_keras_tokenizer(TOKENIZER_LABEL_LOC)
 
 sp_key_to_index = {
     spu_tokenizer_word.id_to_piece(id): id
