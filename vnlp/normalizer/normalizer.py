@@ -171,7 +171,7 @@ class Normalizer:
         
         return corrected_tokens
     
-    def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6, decimal_seperator: str = ',')-> List[str]:
+    def convert_numbers_to_words(self, tokens: List[str], num_dec_digits: int = 6, decimal_separator: str = ',')-> List[str]:
         """
         Converts numbers to word form.
 
@@ -180,14 +180,14 @@ class Normalizer:
                 List of input tokens.
             num_dec_digits:
                 Number of precision (decimal points) for floats.
-            decimal_seperator:
-                Decimal seperator character. Can be either "." or ",".
+            decimal_separator:
+                Decimal separator character. Can be either "." or ",".
 
         Returns:
             List of converted tokens
 
         Raises:
-            ValueError: Given 'decimal seperator' is not a valid decimal seperator value. Use either "." or ",".
+            ValueError: Given 'decimal separator' is not a valid decimal separator value. Use either "." or ",".
 
         Example::
 
@@ -213,17 +213,17 @@ class Normalizer:
         for token in tokens:
             # if there's any numeric character in token
             if any([char.isnumeric() for char in token]):
-                if decimal_seperator == ',':
-                    # if decimal seperator is comma, then thousands seperator is dot and it will be converted to python's
-                    # thousands seperator underscore.
-                    # furthermore, comma will be converted to dot, python's decimal seperator.
+                if decimal_separator == ',':
+                    # if decimal separator is comma, then thousands separator is dot and it will be converted to python's
+                    # thousands separator underscore.
+                    # furthermore, comma will be converted to dot, python's decimal separator.
                     token = token.replace('.', '_').replace(',', '.') 
-                elif decimal_seperator == '.':
-                    # if decimal seperator is dot, then thousands seperator is comma and it will be converted to python's
-                    # thousands seperator underscore.
+                elif decimal_separator == '.':
+                    # if decimal separator is dot, then thousands separator is comma and it will be converted to python's
+                    # thousands separator underscore.
                     token = token.replace(',', '_')
                 else:
-                    raise ValueError(decimal_seperator, 'is not a valid decimal seperator value. Use either "." or ","')
+                    raise ValueError(decimal_separator, 'is not a valid decimal seprator value. Use either "." or ","')
 
 
             # Try to convert token to number
