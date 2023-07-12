@@ -48,9 +48,9 @@ pip install vngrs-nlp
 - See the [Documentation](https://vnlp.readthedocs.io) for the details about usage, classes, functions, datasets and evaluation metrics.
 
 ### Metrics:
-<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/metrics.png?raw=true">
+<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/metrics.png?raw=true" width="600">
 
-<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/sum_metrics.png?raw=true">
+<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/sum_metrics.png?raw=true" width="124">
 
 ### Usage Example:
 **Dependency Parser**
