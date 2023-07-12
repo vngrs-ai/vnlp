@@ -31,7 +31,10 @@ https://vngrs.com/
 	- FastText
 	- Word2Vec
 	- SentencePiece Unigram Tokenizer
-- Text Summarization: In development progress...
+- News Summarization
+- News Paraphrasing
+
+- Summarization and Paraphrasing models are available in the demo. Contact us at vnlp@vngrs.com for API.
 
 ### Demo:
 - Try the [Demo](https://demo.vnlp.io).
@@ -46,6 +49,8 @@ pip install vngrs-nlp
 
 ### Metrics:
 <img src="https://github.com/vngrs-ai/vnlp/blob/main/img/metrics.png?raw=true" width="768">
+
+<img src="https://github.com/vngrs-ai/vnlp/blob/main/img/sum_metrics.png?raw=true" width="280">
 
 ### Usage Example:
 **Dependency Parser**
