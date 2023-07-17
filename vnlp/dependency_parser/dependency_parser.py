@@ -10,24 +10,31 @@ class DependencyParser:
 
     Available models: ['SPUContextDP', 'TreeStackDP']
 
-    In order to evaluate, initialize the class with "evaluate = True" argument. 
+    In order to evaluate, initialize the class with "evaluate = True" argument.
     This will load the model weights that are not trained on test sets.
     """
 
-    def __init__(self, model = 'SPUContextDP', evaluate = False):
-        self.models = ['SPUContextDP', 'TreeStackDP']
+    def __init__(self, model="SPUContextDP", evaluate=False):
+        self.models = ["SPUContextDP", "TreeStackDP"]
         self.evaluate = evaluate
 
-        if model == 'SPUContextDP':
+        if model == "SPUContextDP":
             self.instance = SPUContextDP(evaluate)
 
-        elif model == 'TreeStackDP':
+        elif model == "TreeStackDP":
             self.instance = TreeStackDP(evaluate)
-        
-        else:
-            raise ValueError(f'{model} is not a valid model. Try one of {self.models}')
 
-    def predict(self, sentence: str, displacy_format: bool = False, pos_result: List[Tuple[str, str]] = None) -> List[Tuple[int, str, int, str]]:
+        else:
+            raise ValueError(
+                f"{model} is not a valid model. Try one of {self.models}"
+            )
+
+    def predict(
+        self,
+        sentence: str,
+        displacy_format: bool = False,
+        pos_result: List[Tuple[str, str]] = None,
+    ) -> List[Tuple[int, str, int, str]]:
         """
         High level user API for Dependency Parsing.
 
@@ -38,10 +45,10 @@ class DependencyParser:
                 When set True, returns the result in spacy.displacy format to allow visualization.
             pos_result:
                 Part of Speech tags. To be used when displacy_format = True.
-        
+
         Returns:
             List of (token_index, token, arc, label).
-                
+
         Raises:
             ValueError: Sentence is too long. Try again by splitting it into smaller pieces.
 
@@ -62,7 +69,7 @@ class DependencyParser:
              (9, 'iyice', 10, 'advmod'),
              (10, 'sınarız', 0, 'root'),
              (11, '.', 10, 'punct')]
-            
+
             # Visualization with Spacy:
             import spacy
             from vnlp import DependencyParser
