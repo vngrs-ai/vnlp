@@ -47,6 +47,8 @@ setup(
         "spylls",
         "requests",
         "sentencepiece",
+        "swig==3.0.12",
+        "jamspell"
     ],
     extras_require={"extras": ["gensim", "spacy"], "develop": ["pre-commit"]},
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]},
