@@ -1,12 +1,16 @@
 from typing import List
 from pathlib import Path
+import os
 
-from spylls.hunspell import Dictionary
+import jamspell
 
 from ._deasciifier import Deasciifier
 from ..stemmer_morph_analyzer import StemmerAnalyzer
+from ..utils import check_and_download
 
 RESOURCES_PATH = str(Path(__file__).parent.parent / "resources")
+SPELL_CORRECTION_MODEL_PATH = RESOURCES_PATH + "/spell_correction_model.bin"
+SPELL_CORRECTION_MODEL_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/spell_correction_model.bin"
 
 
 class Normalizer:
@@ -38,10 +42,6 @@ class Normalizer:
         self._words_lexicon = dict_words_lexicon
 
         self._stemmer_analyzer = StemmerAnalyzer()
-
-        self._dictionary = Dictionary.from_files(
-            RESOURCES_PATH + "/tdd-hunspell-tr-1.1.0/tr_TR"
-        )
 
     @staticmethod
     def lower_case(text: str) -> str:
@@ -160,44 +160,42 @@ class Normalizer:
             deasciified_tokens.append(deasciifier.convert_to_turkish())
         return deasciified_tokens
 
-    def correct_typos(self, tokens: List[str]) -> List[str]:
+    def correct_typos(self, text: str) -> str:
         """
-        Detects and corrects spelling mistakes and typos.
+        Detects and corrects spelling mistakes and typos. Model is lazily loaded and downloaded on the first call.
 
-        This implementation uses StemmerAnalyzer and Hunspell to detect typos.
-        Detected typos are corrected by Hunspell algorithm using "tdd-hunspell-tr-1.1.0" dict.
+        This function is a wrapper around Jamspell implementation. For more details, see [Jamspell](https://github.com/bakwc/JamSpell/).
 
         Args:
-            tokens:
-                List of input tokens.
+            text:
+                Input text to be corrected.
 
         Returns:
-            List of corrected tokens.
+            Corrected text.
 
         Example::
 
             from vnlp import Normalizer
             normalizer = Normalizer()
-            normalizer.correct_typos("Kasıtlı yazişm hatasıı ekliyoruum".split())
+            normalizer.correct_typos("kassıtlı yaezım hatasssı ekliyorumm")
 
-            ["Kasıtlı", "yazım", "hatası", "ekliyorum"]
+            >> 'kasıtlı yazım hatası ekliyorum'
         """
-        corrected_tokens = []
-        for token in tokens:
-            if (self._is_token_valid_turkish(token)) or (
-                self._dictionary.lookup(token)
-            ):
-                corrected_tokens.append(token)
-            else:
-                hunspell_suggestions = list(self._dictionary.suggest(token))
-                if len(hunspell_suggestions) > 0:
-                    corrected_token = hunspell_suggestions[0]
-                    corrected_tokens.append(corrected_token)
-                else:
-                    # there is no suggestion so return the original token
-                    corrected_tokens.append(token)
+        # Lazy load the model.
+        if not hasattr(self, "corrector") or self.corrector is None:
+            corrector = jamspell.TSpellCorrector()
+            if not os.path.isfile(SPELL_CORRECTION_MODEL_PATH):
+                check_and_download(
+                    SPELL_CORRECTION_MODEL_PATH, SPELL_CORRECTION_MODEL_LINK
+                )
+            loaded = corrector.LoadLangModel(SPELL_CORRECTION_MODEL_PATH)
+            if not loaded:
+                raise FileNotFoundError(
+                    f"Spell correction model could not be loaded in '{SPELL_CORRECTION_MODEL_PATH}'. Please check the file path."
+                )
+            self.corrector = corrector
 
-        return corrected_tokens
+        return self.corrector.FixFragment(text)
 
     def convert_numbers_to_words(
         self,

@@ -1,7 +1,7 @@
 #### Normalizer
 
 Contains following functionality:
-- Spelling/typo correction uses Stemmer and Hunspell(tdd-hunspell-tr-1.1.0 dict) algorithm. For details see at vnlp/resources/tdd-hunspell-tr-1.1.0/README.MD
+- Spelling uses [jamspell](https://github.com/bakwc/JamSpell/) algorithm. Model is trained on a mixed Turkish corpus.
 - Deasciification
 - Convert numbers to word form
 - Lower case
