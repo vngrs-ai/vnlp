@@ -44,7 +44,6 @@ setup(
         'tensorflow<2.6.0; python_version < "3.8"',
         'tensorflow>=2.6.0; python_version >= "3.8"',
         "regex",
-        "spylls",
         "requests",
         "sentencepiece",
         "swig==3.0.12",
