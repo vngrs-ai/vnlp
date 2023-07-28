@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Externally managed resources
+vnlp/resources/spell_correction_model.bin
+vnlp/resources/spell_correction_model.bin.spell
+
 # C extensions
 *.so
 
