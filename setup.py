@@ -43,12 +43,12 @@ setup(
     install_requires=[
         'tensorflow<2.6.0; python_version < "3.8"',
         'tensorflow>=2.6.0; python_version >= "3.8"',
+        "swig==3.0.12",
         "regex",
         "requests",
         "sentencepiece",
-        "swig==3.0.12",
         "jamspell"
     ],
-    extras_require={"extras": ["gensim", "spacy"], "develop": ["pre-commit"]},
+    extras_require={"extras": ["gensim", "spacy"], "develop": ["pre-commit", "pytest"]},
     entry_points={"console_scripts": ["vnlp=vnlp.bin.vnlp:main"]},
 )

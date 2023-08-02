@@ -18,9 +18,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install .
-          pip install pytest
+          sudo apt update
+          sudo apt -y install swig3.0
+          python -m pip install --upgrade pip setuptools wheel pytest
+          pip install '.[extras,develop]'
       - name: Test with pytest
         run: |
           pytest
