@@ -1,12 +1,9 @@
 repos:
 -   repo: https://github.com/psf/black
-    description: "Black formatter to has a consistent formatting."
     rev: 23.1.0
-    types_or: [python, pyi, jupyter]
     hooks:
     - id: black-jupyter
 -   repo: https://github.com/PyCQA/flake8
-    description: "Flake8 checket for styling rules."
     rev: 5.0.4
     hooks:
     - id: flake8
