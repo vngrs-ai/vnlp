@@ -9,7 +9,6 @@ from vnlp import (
     Normalizer,
     StopwordRemover,
 )
-from gensim.models import Word2Vec, FastText
 
 
 class StemmerTest(unittest.TestCase):
@@ -240,26 +239,6 @@ class StopwordRemoverTest(unittest.TestCase):
             ),
             ["önemli", "demiş", "miydim"],
         )
-
-
-# class EmbeddingTest(unittest.TestCase):
-#     def test_w2v(self):
-#         self.model_w2v = Word2Vec.load(
-#             "vnlp/turkish_word_embeddings/Word2Vec_large.model"
-#         )
-#         r = self.model_w2v.wv.most_similar("gandalf", topn=20)
-#         self.assertIsNotNone(r)
-#         self.assertEqual(len(r), 20)
-
-#     def test_fasttext(self):
-#         # FastText
-#         self.model_ft = FastText.load(
-#             "vnlp/turkish_word_embeddings/FastText_large.model"
-#         )
-#         r = self.model_ft.wv.most_similar("yamaçlardan", topn=20)
-#         self.assertIsNotNone(r)
-#         self.assertEqual(len(r), 20)
-
 
 if __name__ == "__main__":
     unittest.main()
