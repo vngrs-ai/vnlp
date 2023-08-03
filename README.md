@@ -12,6 +12,7 @@ https://vngrs.com/
 [![PyPi downloads](https://static.pepy.tech/personalized-badge/vngrs-nlp?period=total&units=international_system&left_color=grey&right_color=orange&left_text=pip%20downloads)](https://pypi.org/project/vngrs-nlp/)
 [![Docs](<https://readthedocs.org/projects/vnlp/badge/?version=latest&style=plastic>)](https://vnlp.readthedocs.io/)
 [![License](<https://img.shields.io/badge/license-AGPL%203.0-green.svg>)](https://github.com/vngrs-ai/vnlp/blob/main/LICENSE)
+[![Python check](https://github.com/vngrs-ai/vnlp/actions/workflows/test.yml/badge.svg)](https://github.com/vngrs-ai/vnlp/actions/workflows/test.yml)
 
 ### Functionality:
 - Sentence Splitter
