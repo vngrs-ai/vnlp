@@ -40,6 +40,9 @@ setup(
     },
     packages=find_packages(exclude=["turkish_embeddings"]),
     include_package_data=True,
+    setup_requires=[
+        "swig==3.0.12",
+    ],
     install_requires=[
         'tensorflow<2.6.0; python_version < "3.8"',
         'tensorflow>=2.6.0; python_version >= "3.8"',
