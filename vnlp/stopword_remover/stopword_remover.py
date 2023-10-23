@@ -59,7 +59,7 @@ class StopwordRemover:
             ['ama', 'aşı', 'gelip', 'eve']
         """
         unq, cnts = np.unique(list_of_tokens, return_counts=True)
-        sorted_indices = cnts.argsort(kind='stable')[
+        sorted_indices = cnts.argsort()[
             ::-1
         ]  # I need them in descending order
         unq = unq[sorted_indices]
