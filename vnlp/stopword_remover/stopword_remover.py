@@ -59,12 +59,11 @@ class StopwordRemover:
             ['ama', 'aşı', 'gelip', 'eve']
         """
         unq, cnts = np.unique(list_of_tokens, return_counts=True)
-        sorted_indices = cnts.argsort()[
+        sorted_indices = cnts.argsort(kind='stable')[
             ::-1
         ]  # I need them in descending order
         unq = unq[sorted_indices]
         cnts = cnts[sorted_indices]
-
         if len(unq) < 3:
             raise ValueError(
                 "Number of unique tokens must be at least 3 for Dynamic Stop Word Detection."
