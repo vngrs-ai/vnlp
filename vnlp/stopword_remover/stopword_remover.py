@@ -1,4 +1,5 @@
 from typing import List
+
 from pathlib import Path
 
 import numpy as np
@@ -59,6 +60,9 @@ class StopwordRemover:
             ['ama', 'aşı', 'gelip', 'eve']
         """
         unq, cnts = np.unique(list_of_tokens, return_counts=True)
+        # Edgecase: Every word used once
+        if len(unq) == list_of_tokens:
+            return []
         sorted_indices = cnts.argsort()[
             ::-1
         ]  # I need them in descending order
@@ -83,8 +87,12 @@ class StopwordRemover:
         ]  # removing nan
         argmax_second_der = np.argmax(pct_change_two)
 
+        # Correction term since argmax finds first occurence
+        amount_of_max = np.sum(cnts == cnts[argmax_second_der])
+
         # +2 is due to shifting twice due to np.diff()
-        detected_stop_words = unq[: argmax_second_der + 2].tolist()
+        # -1 is added to correctly find all values
+        detected_stop_words = unq[: argmax_second_der + amount_of_max].tolist()
 
         # Determine rare_words according to given rare_words_freq value
         # Add them to dynamic_stop_words list
