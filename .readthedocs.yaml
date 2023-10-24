@@ -11,7 +11,7 @@ build:
   tools:
     python: "3.9"
   apt_packages:
-    - swig3
+    - swig3.0
 
 
 
