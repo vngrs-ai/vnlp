@@ -73,5 +73,16 @@ from vnlp import DependencyParser
 dependency_parser = DependencyParser()
 result = dependency_parser.predict("Oğuz'un kırmızı bir Astra'sı vardı.", displacy_format = True)
 spacy.displacy.render(result, style="dep", manual = True)
+
+## Citation
+
+```bibtex
+@article{turker2024vnlp,
+  title={VNLP: Turkish NLP Package},
+  author={Turker, Meliksah and Ari, Erdi and Han, Aydin},
+  journal={arXiv preprint arXiv:2403.01309},
+  year={2024}
+}
+```
 ```
 <img src="https://raw.githubusercontent.com/vngrs-ai/vnlp/main/img/dp_vis_sample.png" width="512">
