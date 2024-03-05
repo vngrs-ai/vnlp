@@ -84,5 +84,4 @@ spacy.displacy.render(result, style="dep", manual = True)
   year={2024}
 }
 ```
-```
 <img src="https://raw.githubusercontent.com/vngrs-ai/vnlp/main/img/dp_vis_sample.png" width="512">
