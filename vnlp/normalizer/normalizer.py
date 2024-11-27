@@ -1,17 +1,10 @@
 from typing import List
 from pathlib import Path
-import os
-
-import jamspell
 
 from ._deasciifier import Deasciifier
 from ..stemmer_morph_analyzer import StemmerAnalyzer
-from ..utils import check_and_download
 
 RESOURCES_PATH = str(Path(__file__).parent.parent / "resources")
-SPELL_CORRECTION_MODEL_PATH = RESOURCES_PATH + "/spell_correction_model.bin"
-SPELL_CORRECTION_MODEL_LINK = "https://vnlp-model-weights.s3.eu-west-1.amazonaws.com/spell_correction_model.bin"
-
 
 class Normalizer:
     """
@@ -181,21 +174,12 @@ class Normalizer:
 
             >> 'kasıtlı yazım hatası ekliyorum'
         """
-        # Lazy load the model.
-        if not hasattr(self, "corrector") or self.corrector is None:
-            corrector = jamspell.TSpellCorrector()
-            if not os.path.isfile(SPELL_CORRECTION_MODEL_PATH):
-                check_and_download(
-                    SPELL_CORRECTION_MODEL_PATH, SPELL_CORRECTION_MODEL_LINK
-                )
-            loaded = corrector.LoadLangModel(SPELL_CORRECTION_MODEL_PATH)
-            if not loaded:
-                raise FileNotFoundError(
-                    f"Spell correction model could not be loaded in '{SPELL_CORRECTION_MODEL_PATH}'. Please check the file path."
-                )
-            self.corrector = corrector
+        # 27.11.24: spelling is removed for now as the dependencies we relied on
+        # for spelling e.g. Jamspell and swig
+        # created more trouble than the problem they solved.
+        # We will implement a better solution in the future.
+        pass
 
-        return self.corrector.FixFragment(text)
 
     def convert_numbers_to_words(
         self,
